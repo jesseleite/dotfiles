@@ -12,6 +12,9 @@ git clone git://github.com/JerseyMilker/HomesteadAfter.git /home/vagrant/.homest
 cp /home/vagrant/.homestead-after/jersey-homestead.zsh-theme /home/vagrant/.oh-my-zsh/themes
 cp /home/vagrant/.homestead-after/.zshrc /home/vagrant/.zshrc
 
+# Clone my .vimrc.
+cp /home/vagrant/.homestead-after/.vimrc /home/vagrant/.vimrc
+
 # Clone .gitconfig and setup git user.
 cp /home/vagrant/.homestead-after/.gitconfig /home/vagrant/.gitconfig
 #git config --global user.name "John Madden"
@@ -21,7 +24,6 @@ cp /home/vagrant/.homestead-after/.gitconfig /home/vagrant/.gitconfig
 chsh -s /usr/bin/zsh vagrant
 
 # Final message.
-echo '***'
+echo '*****'
 echo 'Done installing HomesteadAfter extras <3'
 echo 'Note: Setup git user via gitname and gitemail aliases!'
-echo '***'
