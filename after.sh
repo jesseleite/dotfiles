@@ -12,6 +12,10 @@ git clone git://github.com/JerseyMilker/HomesteadAfter.git /home/vagrant/.homest
 cp /home/vagrant/.homestead-after/jersey-homestead.zsh-theme /home/vagrant/.oh-my-zsh/themes
 cp /home/vagrant/.homestead-after/.zshrc /home/vagrant/.zshrc
 
+# Clone my .gitconfig.
+cp /home/vagrant/.homestead-after/.gitconfig /home/vagrant/.gitconfig
+   # Can I grab git user info from host and set, or read user input and set?
+
 # Set default shell.
 chsh -s /usr/bin/zsh vagrant
 
