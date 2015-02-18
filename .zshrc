@@ -37,6 +37,7 @@ export PATH=${PATH}:vendor/bin
 # Aliases
 alias zshrc="sudo vim ~/.zshrc"
 alias gitconfig="sudo vim ~/.gitconfig"
+alias gituser="bash ~/.homestead-after/gituser.sh"
 alias vimrc="sudo vim ~/.vimrc"
 alias c="clear"
 alias comp="composer"
