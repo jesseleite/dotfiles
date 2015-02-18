@@ -20,6 +20,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+export EDITOR='vim'
 
 # Export Path
 export PATH=${PATH}:/bin
