@@ -35,8 +35,9 @@ export PATH=${PATH}:/home/vagrant/bin
 export PATH=${PATH}:vendor/bin
 
 # Aliases
-alias zshconfig="vim ~/.zshrc"
-alias gitconfig="vim ~/.gitconfig"
+alias zshrc="sudo vim ~/.zshrc"
+alias gitconfig="sudo vim ~/.gitconfig"
+alias vimrc="sudo vim ~/.vimrc"
 alias c="clear"
 alias comp="composer"
 alias art="php artisan"
