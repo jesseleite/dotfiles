@@ -9,7 +9,7 @@ cp /home/vagrant/.oh-my-zsh/templates/zshrc.zsh-template /home/vagrant/.zshrc-ro
 
 # Clone my .zshrc and theme.
 git clone git://github.com/JerseyMilker/HomesteadAfter.git /home/vagrant/.homestead-after
-cp /home/vagrant/.homestead-after/jersey.zsh-theme /home/vagrant/.oh-my-zsh/themes
+cp /home/vagrant/.homestead-after/jersey-homestead.zsh-theme /home/vagrant/.oh-my-zsh/themes
 cp /home/vagrant/.homestead-after/.zshrc /home/vagrant/.zshrc
 
 # Set default shell.
