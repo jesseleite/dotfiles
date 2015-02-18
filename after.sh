@@ -14,3 +14,6 @@ cp /home/vagrant/.homestead-after/.zshrc /home/vagrant/.zshrc
 
 # Set default shell.
 chsh -s /usr/bin/zsh vagrant
+
+# Final message.
+echo 'Done installing HomesteadAfter extras <3'
