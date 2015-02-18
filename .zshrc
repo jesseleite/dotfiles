@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
-ZSH_THEME="jersey"
+ZSH_THEME="jersey-homestead"
 
 # Other misc settings.
 CASE_SENSITIVE="true"
@@ -39,9 +39,3 @@ alias gitconfig="vim ~/.gitconfig"
 alias c="clear"
 alias comp="composer"
 alias art="php artisan"
-
-# OSX Specific Aliases
-alias hs="homestead"
-alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
-alias showall="defaults write com.apple.finder AppleShowAllFiles 1 && killall Finder"
-
