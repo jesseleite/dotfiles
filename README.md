@@ -1,6 +1,8 @@
 # HomesteadAfter
 Homestead SSH is great, but is very barebones.  This after.sh script will automatically install a bunch of quality-of-life improvements so that you can do all your daily tasks right from the Homestead prompt.  Feel free to fork and customize!  **NOTE! Please change user setting in .gitconfig!**
 
+![Example Image](http://puu.sh/g2Pkp/21e204270e.png)
+
 ## Improvements?
 - Zsh (Autocomplete, etc.)
 - Theme (Pretty, etc.)
