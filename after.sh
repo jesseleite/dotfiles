@@ -26,4 +26,4 @@ chsh -s /usr/bin/zsh vagrant
 # Final message.
 echo '*****'
 echo 'Done installing HomesteadAfter extras <3'
-echo 'Note: Setup git user via gitname and gitemail aliases!'
+echo 'Note: Setup git user via gituser alias!'
