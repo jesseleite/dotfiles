@@ -8,7 +8,7 @@ Homestead SSH is great, but is very barebones.  This after.sh script will automa
 - Theme (Pretty, etc.)
 - Paths (Added vendor/bin for access to artisan tinker, phpunit, phpspec, etc.)
 - Aliases ("c" for clear, "comp" for composer, "art" for php artisan, etc.)
-- Git ("gitname" and "gitemail" user setup aliases, common git command aliases, etc.)
+- Git ("gituser" user setup alias, common git command aliases, etc.)
 
 ## Setup
 Put this after.sh script into your global Homestead folder.  Homestead automatically executes after.sh after provisioning.
