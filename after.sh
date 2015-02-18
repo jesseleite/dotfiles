@@ -12,10 +12,5 @@ git clone git://github.com/JerseyMilker/HomesteadAfter.git /home/vagrant/.homest
 cp /home/vagrant/.homestead-after/jersey-homestead.zsh-theme /home/vagrant/.oh-my-zsh/themes
 cp /home/vagrant/.homestead-after/.zshrc /home/vagrant/.zshrc
 
-# Install some tools for Gulp and Elixir.
-npm install --global gulp
-npm install --global less
-gem install sass
-
 # Set default shell.
 chsh -s /usr/bin/zsh vagrant
