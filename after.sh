@@ -1,6 +1,3 @@
-# Put this script in your global .homestead folder.
-# Homestead uses this script after provisioning.
-
 # Install ZSH.
 apt-get install zsh -y
 
