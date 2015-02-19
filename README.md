@@ -1,8 +1,6 @@
 # HomesteadAfter
 Homestead SSH is great, but is very barebones.  This after.sh script will automatically install a bunch of quality-of-life improvements so that you can do all your daily tasks right from the Homestead prompt.  Feel free to fork and customize!
 
-![Example Image](http://puu.sh/g2Pkp/21e204270e.png)
-
 ## Improvements?
 - Zsh (Autocomplete, etc.)
 - Theme (Pretty, etc.)
@@ -11,4 +9,10 @@ Homestead SSH is great, but is very barebones.  This after.sh script will automa
 - Git ("gituser" user setup script alias, common git command aliases, etc.)
 
 ## Setup
-Put this after.sh script into your global Homestead folder.  Homestead automatically executes after.sh after provisioning.
+- Put after.sh into your global Homestead folder.
+- "homestead up"
+
+Homestead automatically executes after.sh after provisioning.  The after.sh script will pull everything else in and setup the Homestead environment.
+
+## Preview
+![Example Image](http://puu.sh/g2ZyN/bca5b3233a.png)
