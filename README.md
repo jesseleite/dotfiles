@@ -29,4 +29,9 @@ Don't like what's installed?  Fork and customize!  If anything, this is just a g
 - Enjoy!
 
 ## Preview
+
 ![Example Image](http://puu.sh/g2ZyN/bca5b3233a.png)
+
+## Elixir Problems?
+
+One of my main workflow gripes was with Gulp/Elixir.  If I installed Elixir ("npm install") on your local machine, I found that Gulp/Elixir would throw errors for certain tasks in the Homestead environment.  Though unrelated to this HomesteadAfter setup, it kind of defeats the purpose if you can't get all of your tools running smoothly in the Homestead environment.  If you find yourself having problems with Gulp/Elixir in Homestead, I recommend deleting your project's /node_modules folder, and running "sudo npm install" within your Homestead environment.  This solved my Gulp/Elixir problems in Homestead.
