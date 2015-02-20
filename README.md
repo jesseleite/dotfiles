@@ -22,7 +22,7 @@ Don't like what's installed?  Fork and customize!  If anything, this is just a g
 
 ## Setup
 
-- Put after.sh into your global .homestead folder.
+- Put after.sh into your global ~/.homestead folder.
 - Run "homestead up".
 - Connect via "homestead ssh".
 - Run "gituser" to setup default git user.
