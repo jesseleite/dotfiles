@@ -34,4 +34,4 @@ function TRAPINT() {
 }
 
 # Include opp.zsh extension for better vim emulation
-source ~/.opp-zsh/opp.zsh
+source ~/.opp.zsh/opp.zsh
