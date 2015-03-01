@@ -1,4 +1,4 @@
-# HomesteadAfter
+# Homestead After
 
 Homestead SSH is great, but it is very barebones.  I found myself spending half my time in my local terminal, and the other half in Homestead.  Why not setup Homestead so that it's ready for all of your Laravel workflow?
 
