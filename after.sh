@@ -16,7 +16,7 @@ cp /home/vagrant/.homestead-after/jersey-homestead.zsh-theme /home/vagrant/.oh-m
 
 # Vim love.
 cp /home/vagrant/.homestead-after/.vimrc /home/vagrant/.vimrc
-git clone https://github.com/hchbaw/opp.zsh.git /home/vagrant
+git clone git@github.com:hchbaw/opp.zsh.git /home/vagrant
 mv /home/vagrant/opp.zsh /home/vagrant/.opp.zsh
 cp /home/vagrant/.homestead-after/.clivimrc /home/vagrant/.clivimrc
 
