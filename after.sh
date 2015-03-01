@@ -7,7 +7,7 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git /home/vagrant/.oh-my-zsh
 # Copy Robby's .zshrc over as .zshrc-template for reference purposes only.
 cp /home/vagrant/.oh-my-zsh/templates/zshrc.zsh-template /home/vagrant/.zshrc-template
 
-# Clone HomesteadAfter files.
+# Clone Homestead After files.
 git clone git://github.com/JerseyMilker/Homestead-After.git /home/vagrant/.homestead-after
 
 # Copy out .zshrc and theme.
