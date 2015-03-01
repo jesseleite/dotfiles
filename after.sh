@@ -14,8 +14,11 @@ git clone git://github.com/JerseyMilker/HomesteadAfter.git /home/vagrant/.homest
 cp /home/vagrant/.homestead-after/.zshrc /home/vagrant/.zshrc
 cp /home/vagrant/.homestead-after/jersey-homestead.zsh-theme /home/vagrant/.oh-my-zsh/themes
 
-# Copy out .vimrc.
+# Vim love.
 cp /home/vagrant/.homestead-after/.vimrc /home/vagrant/.vimrc
+git clone https://github.com/hchbaw/opp.zsh.git /home/vagrant
+mv /home/vagrant/opp.zsh /home/vagrant/.opp.zsh
+cp /home/vagrant/.homestead-after/.clivimrc /home/vagrant/.clivimrc
 
 # Copy out .gitconfig and setup git user.
 cp /home/vagrant/.homestead-after/.gitconfig /home/vagrant/.gitconfig
