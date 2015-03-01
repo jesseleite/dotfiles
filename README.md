@@ -8,7 +8,8 @@ Don't like what's installed?  Fork and customize!  If anything, this is just a g
 
 ## Improvements?
 
-- Zsh (Autocomplete, etc.)
+- Zsh (Autocomplete, vi mode on command line, etc.)
+- Vim (More vim love, .vimrc, opp.zsh, etc.)
 - Theme (Pretty, etc.)
 - Paths (Added vendor/bin for access to artisan tinker, phpunit, phpspec, etc.)
 - Aliases ("c" for clear, "comp" for composer, "art" for php artisan, etc.)
