@@ -21,11 +21,11 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Vim Love
+# Vim love.
 export EDITOR='vim'
 source ~/.clivimrc
 
-# Export Path
+# Export path.
 export PATH=${PATH}:/bin
 export PATH=${PATH}:/usr/bin
 export PATH=${PATH}:/usr/local/bin
@@ -37,7 +37,7 @@ export PATH=${PATH}:~/.composer/vendor/bin
 export PATH=${PATH}:/home/vagrant/bin
 export PATH=${PATH}:vendor/bin
 
-# Aliases
+# Aliases.
 alias zshrc="sudo vim ~/.zshrc"
 alias gitconfig="sudo vim ~/.gitconfig"
 alias gituser="bash ~/.homestead-after/gituser.sh"
