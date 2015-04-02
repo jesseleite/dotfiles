@@ -27,6 +27,10 @@ cp /home/vagrant/.homestead-after/.gitconfig /home/vagrant/.gitconfig
 # Set default shell.
 chsh -s /usr/bin/zsh vagrant
 
+# Ruby and Sass, so I can use csstyle, until libsass gets it's act together.
+apt-get install ruby
+gem install sass
+
 # Final message.
 echo '*****'
 echo 'Done installing HomesteadAfter extras <3'
