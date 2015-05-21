@@ -31,7 +31,9 @@ chsh -s /usr/bin/zsh vagrant
 apt-get install ruby
 gem install sass
 
-# Turn off sendfile, to prevent NFS from sending old files.
+# Turn off sendfile, to prevent NFS from sending old and corrupt files.
+# Only applies if you are using NFS syncing in Homestead.yaml config.
+# More info: http://docs.vagrantup.com/v2/synced-folders/virtualbox.html
 sed -i 's/sendfile on;/sendfile off;/' /etc/nginx/nginx.conf
 service nginx restart
 
