@@ -31,6 +31,10 @@ chsh -s /usr/bin/zsh vagrant
 apt-get install ruby
 gem install sass
 
+# Turn off sendfile, to prevent NFS from sending old files.
+sed -i 's/sendfile on;/sendfile off;/' /etc/nginx/nginx.conf
+service nginx restart
+
 # Final message.
 echo '*****'
 echo 'Done installing HomesteadAfter extras <3'
