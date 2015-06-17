@@ -19,10 +19,8 @@ cp /home/vagrant/.homestead-after/.vimrc /home/vagrant/.vimrc
 git clone git://github.com/hchbaw/opp.zsh.git /home/vagrant/.opp.zsh 
 cp /home/vagrant/.homestead-after/.clivimrc /home/vagrant/.clivimrc
 
-# Copy out .gitconfig and setup git user.
+# Copy out .gitconfig.
 cp /home/vagrant/.homestead-after/.gitconfig /home/vagrant/.gitconfig
-#git config --global user.name "John Madden"
-#git config --global user.email "john@example.com"
 
 # Set default shell.
 chsh -s /usr/bin/zsh vagrant
