@@ -35,7 +35,13 @@ gem install sass
 # Only applies if you are using NFS syncing in Homestead.yaml config.
 # More info: http://docs.vagrantup.com/v2/synced-folders/virtualbox.html
 sed -i 's/sendfile on;/sendfile off;/' /etc/nginx/nginx.conf
+
+# Increase xdebug max nesting level, to prevent xdebug error while testing.
+sed -i '$a\xdebug.max_nesting_level=500' /etc/php5/cli/conf.d/20-xdebug.ini
+
+# Restart services.
 service nginx restart
+service php5-fpm restart
 
 # Final message.
 echo '*****'
