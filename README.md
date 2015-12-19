@@ -1,6 +1,6 @@
 # Homestead After
 
-A bunch of quality-of-life renovations to my Laravel Homestead environment.  Don't like what's installed?  Fork and customize!  If anything, this is just a good tutorial on how to customize and automate Homestead workflow.
+A bunch of quality-of-life renovations to my [Laravel Homestead](http://laravel.com/docs/homestead) environment.  Don't like what's installed?  Fork and customize!  If anything, this is just a good tutorial on how to customize and automate Homestead workflow.
 
 Everything is added via Homestead's after.sh hook.  Homestead will automatically run this script after initial provisioning.
 
