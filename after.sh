@@ -28,10 +28,6 @@ cp /home/vagrant/.homestead-after/.gitconfig /home/vagrant/.gitconfig
 # Set default shell.
 chsh -s /usr/bin/zsh vagrant
 
-# Ruby and Sass, so I can use csstyle, until libsass gets it's act together.
-apt-get install ruby
-gem install sass
-
 # Turn off sendfile, to prevent NFS from sending old and corrupt files.
 # Only applies if you are using NFS syncing in Homestead.yaml config.
 # More info: http://docs.vagrantup.com/v2/synced-folders/virtualbox.html
