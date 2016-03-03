@@ -17,6 +17,10 @@ cp /home/vagrant/.oh-my-zsh/templates/zshrc.zsh-template /home/vagrant/.zshrc-te
 cp /home/vagrant/.dotfiles/.zshrc /home/vagrant/.zshrc
 cp /home/vagrant/.dotfiles/an-old-hope.zsh-theme /home/vagrant/.oh-my-zsh/themes
 
+# Customize theme prompt.
+sed -i 's/X\-Wing/Homestead/' /home/vagrant/.zshrc
+sed -i 's/R2\-D2/Facader/' /home/vagrant/.zshrc
+
 # Vim love.
 cp /home/vagrant/.dotfiles/.vimrc /home/vagrant/.vimrc
 git clone git://github.com/hchbaw/opp.zsh.git /home/vagrant/.opp.zsh
