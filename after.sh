@@ -15,7 +15,7 @@ cp /home/vagrant/.oh-my-zsh/templates/zshrc.zsh-template /home/vagrant/.zshrc-te
 
 # Copy out .zshrc and theme.
 cp /home/vagrant/.dotfiles/.zshrc /home/vagrant/.zshrc
-cp /home/vagrant/.dotfiles/facade.zsh-theme /home/vagrant/.oh-my-zsh/themes
+cp /home/vagrant/.dotfiles/an-old-hope.zsh-theme /home/vagrant/.oh-my-zsh/themes
 
 # Vim love.
 cp /home/vagrant/.dotfiles/.vimrc /home/vagrant/.vimrc
