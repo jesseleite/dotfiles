@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
-ZSH_THEME="jersey-homestead"
+ZSH_THEME="an-old-hope"
 
 # Other misc settings.
 CASE_SENSITIVE="true"
@@ -39,9 +39,9 @@ export PATH=${PATH}:vendor/bin
 
 # Aliases.
 alias zshrc="sudo vim ~/.zshrc"
+alias vimrc="sudo vim ~/.vimrc"
 alias gitconfig="sudo vim ~/.gitconfig"
 alias gituser="bash ~/.homestead-after/gituser.sh"
-alias vimrc="sudo vim ~/.vimrc"
 alias c="clear"
 alias comp="composer"
 alias art="php artisan"
