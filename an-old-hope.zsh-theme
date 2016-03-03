@@ -1,18 +1,19 @@
+NEWLINE=$'\n'
+
 function git_prompt_info() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
 function get_pwd() {
-  print -D $PWD
+    print -D $PWD
 }
 
 function precmd() {
-print -rP '
-$fg[blue]Homestead $fg[yellow]$(get_pwd) $(git_prompt_info)'
+    print -rP '${NEWLINE}$fg[blue]$THEME_COMPUTER $fg[yellow]$(get_pwd) $(git_prompt_info)'
 }
 
-PROMPT='%{$reset_color%}Facade:: '
+PROMPT='%{$reset_color%}$THEME_PROMPT '
 RPROMPT='${vim_mode}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="["
