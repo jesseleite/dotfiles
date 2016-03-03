@@ -3,6 +3,8 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 ZSH_THEME="an-old-hope"
+export THEME_COMPUTER='Homestead'
+export THEME_PROMPT='Facade::'
 
 # Other misc settings.
 CASE_SENSITIVE="true"
@@ -24,6 +26,9 @@ source $ZSH/oh-my-zsh.sh
 # Vim love.
 export EDITOR='vim'
 source ~/.clivimrc
+
+# Z love.
+source ~/z.sh
 
 # Export path.
 export PATH=${PATH}:/bin
@@ -48,3 +53,14 @@ alias art="php artisan"
 alias artc="art clear-compiled && art cache:clear && art route:clear && art config:clear && comp du"
 alias artm="art migrate:refresh --seed"
 alias artmf="artm && art db:seed --class=FakeDataSeeder"
+
+# OSX Specific Aliases.
+alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
+alias showall="defaults write com.apple.finder AppleShowAllFiles 1 && killall Finder"
+alias hidedesktop="defaults write com.apple.finder CreateDesktop false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop true && killall Finder"
+alias hosts="sudo vim /etc/hosts"
+hs() { cd ~/Homestead && vagrant "$*"; cd -; }
+alias hse="atom ~/.homestead/Homestead.yaml"
+alias psr1="php-cs-fixer fix --level=psr1"
+alias psr2="php-cs-fixer fix --level=psr2"
