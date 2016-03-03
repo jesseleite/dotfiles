@@ -52,17 +52,17 @@ alias comp="composer"
 alias art="php artisan"
 alias artc="art clear-compiled && art cache:clear && art route:clear && art config:clear && comp du"
 alias artm="art migrate:refresh --seed"
+alias hosts="sudo vim /etc/hosts"
+alias hs='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
+alias hse="atom ~/.homestead/Homestead.yaml"
+alias psr1="php-cs-fixer fix --level=psr1"
+alias psr2="php-cs-fixer fix --level=psr2"
 
 # OSX Specific Aliases.
 alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
 alias showall="defaults write com.apple.finder AppleShowAllFiles 1 && killall Finder"
 alias hidedesktop="defaults write com.apple.finder CreateDesktop false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop true && killall Finder"
-alias hosts="sudo vim /etc/hosts"
-alias hs='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
-alias hse="atom ~/.homestead/Homestead.yaml"
-alias psr1="php-cs-fixer fix --level=psr1"
-alias psr2="php-cs-fixer fix --level=psr2"
 
 # Project Specific Aliases.
 alias artmrr="artm && art db:seed --class=FakeDataSeeder"
