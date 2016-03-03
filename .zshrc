@@ -59,7 +59,7 @@ alias showall="defaults write com.apple.finder AppleShowAllFiles 1 && killall Fi
 alias hidedesktop="defaults write com.apple.finder CreateDesktop false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop true && killall Finder"
 alias hosts="sudo vim /etc/hosts"
-hs() { cd ~/Homestead && vagrant "$*"; cd -; }
+alias hs='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
 alias hse="atom ~/.homestead/Homestead.yaml"
 alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
