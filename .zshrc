@@ -3,8 +3,8 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 ZSH_THEME="an-old-hope"
-export THEME_COMPUTER='Homestead'
-export THEME_PROMPT='Facade::'
+export THEME_COMPUTER='X-Wing'
+export THEME_PROMPT='R2-D2::'
 
 # Other misc settings.
 CASE_SENSITIVE="true"
