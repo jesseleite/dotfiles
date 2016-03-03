@@ -34,14 +34,15 @@ chsh -s /usr/bin/zsh vagrant
 sed -i 's/sendfile on;/sendfile off;/' /etc/nginx/nginx.conf
 
 # Increase xdebug max nesting level, to prevent xdebug error while testing.
+# Is this needed anymore?
 #sed -i 's/xdebug.max_nesting_level = 250/xdebug.max_nesting_level = 500/' /etc/php5/cli/conf.d/20-xdebug.ini
-
-# Restart services.
-service nginx restart
-service php5-fpm restart
 
 # Install locale extension.
 apt-get install php7.0-intl
+
+# Restart services.
+service nginx restart
+service php7.0-fpm restart
 
 # Final message.
 echo '*****'
