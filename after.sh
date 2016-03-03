@@ -1,3 +1,6 @@
+# Clone dotfiles.
+git clone git://github.com/JesseLeite/dotfiles.git /home/vagrant/.dotfiles
+
 # Update apt-get repo.
 apt-get update
 
@@ -10,20 +13,17 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git /home/vagrant/.oh-my-zsh
 # Copy Robby's .zshrc over as .zshrc-template for reference purposes only.
 cp /home/vagrant/.oh-my-zsh/templates/zshrc.zsh-template /home/vagrant/.zshrc-template
 
-# Clone Homestead After files.
-git clone git://github.com/JerseyMilker/Homestead-After.git /home/vagrant/.homestead-after
-
 # Copy out .zshrc and theme.
-cp /home/vagrant/.homestead-after/.zshrc /home/vagrant/.zshrc
-cp /home/vagrant/.homestead-after/jersey-homestead.zsh-theme /home/vagrant/.oh-my-zsh/themes
+cp /home/vagrant/.dotfiles/.zshrc /home/vagrant/.zshrc
+cp /home/vagrant/.dotfiles/facade.zsh-theme /home/vagrant/.oh-my-zsh/themes
 
 # Vim love.
-cp /home/vagrant/.homestead-after/.vimrc /home/vagrant/.vimrc
+cp /home/vagrant/.dotfiles/.vimrc /home/vagrant/.vimrc
 git clone git://github.com/hchbaw/opp.zsh.git /home/vagrant/.opp.zsh
-cp /home/vagrant/.homestead-after/.clivimrc /home/vagrant/.clivimrc
+cp /home/vagrant/.dotfiles/.clivimrc /home/vagrant/.clivimrc
 
 # Copy out .gitconfig.
-cp /home/vagrant/.homestead-after/.gitconfig /home/vagrant/.gitconfig
+cp /home/vagrant/.dotfiles/.gitconfig /home/vagrant/.gitconfig
 
 # Set default shell.
 chsh -s /usr/bin/zsh vagrant
@@ -45,6 +45,5 @@ apt-get install php7.0-intl
 
 # Final message.
 echo '*****'
-echo 'Done installing HomesteadAfter extras <3'
-echo 'Note: Git user has not been set up!'
-echo 'You can set up git user via gituser alias.'
+echo 'Done <3 <3 <3'
+echo 'Note: You can set up git user via `gituser` alias!'
