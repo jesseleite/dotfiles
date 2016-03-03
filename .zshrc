@@ -52,7 +52,6 @@ alias comp="composer"
 alias art="php artisan"
 alias artc="art clear-compiled && art cache:clear && art route:clear && art config:clear && comp du"
 alias artm="art migrate:refresh --seed"
-alias artmf="artm && art db:seed --class=FakeDataSeeder"
 
 # OSX Specific Aliases.
 alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
@@ -64,3 +63,6 @@ hs() { cd ~/Homestead && vagrant "$*"; cd -; }
 alias hse="atom ~/.homestead/Homestead.yaml"
 alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
+
+# Project Specific Aliases.
+alias artmrr="artm && art db:seed --class=FakeDataSeeder"
