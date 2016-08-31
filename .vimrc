@@ -1,2 +1,3 @@
-:imap jk <Esc>
-:syntax on
+imap jk <Esc>
+syntax on
+"set relativenumber
