@@ -30,6 +30,9 @@ source ~/.clivimrc
 # Z love.
 source ~/z.sh
 
+# Wat love.
+eval "$(thefuck --alias wat)"
+
 # Export path.
 export PATH=${PATH}:/bin
 export PATH=${PATH}:/usr/bin
@@ -50,13 +53,14 @@ alias gituser="bash ~/.dotfiles/gituser.sh"
 alias c="clear"
 alias comp="composer"
 alias art="php artisan"
-alias artc="art clear-compiled && art cache:clear && art route:clear && art config:clear && comp du"
+alias artc="art clear-compiled && art cache:clear && art route:clear && art config:clear && art view:clear && comp du"
 alias artm="art migrate:refresh --seed"
 alias hosts="sudo vim /etc/hosts"
 alias hs='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
 alias hse="atom ~/.homestead/Homestead.yaml"
 alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
+alias ldocs="open http://laravel.com/docs"
 
 # OSX Specific Aliases.
 alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
@@ -64,5 +68,5 @@ alias showall="defaults write com.apple.finder AppleShowAllFiles 1 && killall Fi
 alias hidedesktop="defaults write com.apple.finder CreateDesktop false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop true && killall Finder"
 
-# Project Specific Aliases.
-alias artmrr="artm && art db:seed --class=FakeDataSeeder"
+# Work Specific Aliases.
+source ~/.rr
