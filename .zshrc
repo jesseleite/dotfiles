@@ -33,6 +33,10 @@ source ~/z.sh
 # Wat love.
 eval "$(thefuck --alias wat)"
 
+# Nvm love.
+export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
+
 # Export path.
 export PATH=${PATH}:/bin
 export PATH=${PATH}:/usr/bin
