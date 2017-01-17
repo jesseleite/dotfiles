@@ -65,6 +65,10 @@ alias hse="atom ~/.homestead/Homestead.yaml"
 alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
 alias ldocs="open http://laravel.com/docs"
+alias cc="codecept"
+alias cr="codecept run"
+alias crf="codecept run functional"
+alias cra="codecept run acceptance"
 
 # OSX Specific Aliases.
 alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
