@@ -49,27 +49,26 @@ export PATH=${PATH}:~/.composer/vendor/bin
 export PATH=${PATH}:/home/vagrant/bin
 export PATH=${PATH}:vendor/bin
 
-# Aliases.
+# Config Aliases.
 alias zshrc="sudo vim ~/.zshrc"
 alias vimrc="sudo vim ~/.vimrc"
 alias gitconfig="sudo vim ~/.gitconfig"
 alias gituser="bash ~/.dotfiles/gituser.sh"
-alias a.="atom ."
+alias hosts="sudo vim /etc/hosts"
+alias hse="atom ~/.homestead/Homestead.yaml"
+
+# Workflow Aliases.
 alias c="clear"
+alias a.="atom ."
+alias t="phpunit"
 alias comp="composer"
+alias hs='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
 alias art="php artisan"
 alias artc="art clear-compiled && art cache:clear && art route:clear && art config:clear && art view:clear && comp du"
 alias artm="art migrate:refresh --seed"
-alias hosts="sudo vim /etc/hosts"
-alias hs='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
-alias hse="atom ~/.homestead/Homestead.yaml"
+alias ldocs="open http://laravel.com/docs"
 alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
-alias ldocs="open http://laravel.com/docs"
-alias cc="codecept"
-alias cr="codecept run"
-alias crf="codecept run functional"
-alias cra="codecept run acceptance"
 
 # OSX Specific Aliases.
 alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
