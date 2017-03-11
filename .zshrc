@@ -55,7 +55,7 @@ alias vimrc="sudo vim ~/.vimrc"
 alias gitconfig="sudo vim ~/.gitconfig"
 alias gituser="bash ~/.dotfiles/gituser.sh"
 alias hosts="sudo vim /etc/hosts"
-alias hse="atom ~/.homestead/Homestead.yaml"
+alias hse="sudo vim ~/.homestead/Homestead.yaml"
 
 # Workflow Aliases.
 alias c="clear"
