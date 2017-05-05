@@ -1,3 +1,6 @@
+-- The following is a script to bring back VI mode in Sierra.
+-- See: https://gist.github.com/juanmiret/81a21a5ae8d6b6061b0a4e72a8be61b2
+
 local module = {}
 
 module.debugging = false -- whether to print status updates
