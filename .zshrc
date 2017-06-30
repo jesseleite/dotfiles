@@ -51,6 +51,7 @@ export PATH=${PATH}:vendor/bin
 
 # Config Aliases.
 alias zshrc="sudo vim ~/.zshrc"
+alias so="source ~/.zshrc"
 alias vimrc="sudo vim ~/.vimrc"
 alias gitconfig="sudo vim ~/.gitconfig"
 alias gituser="bash ~/.dotfiles/gituser.sh"
@@ -68,6 +69,7 @@ alias art="php artisan"
 alias artc="art clear-compiled && art cache:clear && art route:clear && art config:clear && art view:clear && comp du"
 alias artm="art migrate:refresh --seed"
 alias tink="art tinker"
+alias tinks="art tinker tink.php"
 alias ldocs="open http://laravel.com/docs"
 alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
