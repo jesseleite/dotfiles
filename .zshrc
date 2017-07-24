@@ -64,7 +64,7 @@ alias a.="atom ."
 alias t="phpunit"
 alias nah="grhh && gclean"
 alias comp="composer"
-alias hs="hs() { cd ~/Homestead && vagrant $* }; hs"
+hs() { ( cd ~/Homestead && vagrant $* ) }
 alias art="php artisan"
 alias artc="art clear-compiled && art cache:clear && art route:clear && art config:clear && art view:clear && comp du"
 alias artm="art migrate:refresh --seed"
