@@ -23,6 +23,9 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# Tipz love.
+source ~/.tipz/tipz.zsh
+
 # Vim love.
 export EDITOR='vim'
 source ~/.clivimrc

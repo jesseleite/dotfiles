@@ -10,6 +10,9 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc-template
 cp ~/.dotfiles/.zshrc ~/.zshrc
 cp ~/.dotfiles/an-old-hope.zsh-theme ~/.oh-my-zsh/themes
 
+# Clone Tipz.
+git clone https://github.com/molovo/tipz ~/.tipz
+
 # Vim love.
 cp ~/.dotfiles/.vimrc ~/.vimrc
 git clone git://github.com/hchbaw/opp.zsh.git ~/.opp.zsh
