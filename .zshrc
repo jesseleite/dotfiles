@@ -25,6 +25,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Tipz love.
 source ~/.tipz/tipz.zsh
+TIPZ_TEXT='🔥 '
 
 # Vim love.
 export EDITOR='vim'
