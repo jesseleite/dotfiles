@@ -66,6 +66,7 @@ alias hse="sudo vim ~/.homestead/Homestead.yaml"
 alias c="clear"
 alias a.="atom ."
 alias t="phpunit"
+alias sync="gf && gl && gp"
 alias nah="grhh && gclean"
 alias comp="composer"
 hs() { ( cd ~/Homestead && vagrant $* ) }
