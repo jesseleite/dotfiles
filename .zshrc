@@ -53,6 +53,9 @@ export PATH=${PATH}:~/.composer/vendor/bin
 export PATH=${PATH}:/home/vagrant/bin
 export PATH=${PATH}:vendor/bin
 
+# System Aliases.
+alias ip="curl icanhazip.com"
+
 # Config Aliases.
 alias zshrc="sudo vim ~/.zshrc"
 alias so="source ~/.zshrc"
