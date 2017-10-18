@@ -66,10 +66,10 @@ alias hse="sudo vim ~/.homestead/Homestead.yaml"
 alias c="clear"
 alias a.="atom ."
 alias t="phpunit"
-alias sync="gf && gl && gp"
+function sync() { gf; gl; if [ $(git rev-parse --abbrev-ref HEAD) != "master" ]; then gp; fi; }
 alias nah="grhh && gclean"
 alias comp="composer"
-hs() { ( cd ~/Homestead && vagrant $* ) }
+function hs() { ( cd ~/Homestead && vagrant $* ) }
 alias art="php artisan"
 alias artc="art clear-compiled && art cache:clear && art route:clear && art config:clear && art view:clear && comp du"
 alias artm="art migrate:refresh --seed"
