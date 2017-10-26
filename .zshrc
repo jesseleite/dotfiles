@@ -70,6 +70,7 @@ alias c="clear"
 alias a.="atom ."
 alias t="phpunit"
 function sync() { gf; gl; if [ $(git rev-parse --abbrev-ref HEAD) != "master" ]; then gp; fi; }
+alias gpom="gl origin master"
 alias nah="grhh && gclean"
 alias comp="composer"
 function hs() { ( cd ~/Homestead && vagrant $* ) }
