@@ -58,6 +58,7 @@ alias ip="curl icanhazip.com"
 
 # Config Aliases.
 alias zshrc="sudo vim ~/.zshrc"
+alias hyperjs="sudo vim ~/.hyper.js"
 alias so="source ~/.zshrc"
 alias vimrc="sudo vim ~/.vimrc"
 alias gitconfig="sudo vim ~/.gitconfig"
