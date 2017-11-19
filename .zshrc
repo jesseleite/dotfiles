@@ -27,12 +27,12 @@ source $ZSH/oh-my-zsh.sh
 source ~/.tipz/tipz.zsh
 TIPZ_TEXT='🔥 '
 
+# Z love.
+source /usr/local/etc/profile.d/z.sh
+
 # Vim love.
 export EDITOR='vim'
 source ~/.clivimrc
-
-# Z love.
-source ~/z.sh
 
 # Wat love.
 eval "$(thefuck --alias wat)"
@@ -93,3 +93,7 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop true && killall
 
 # Work Specific Aliases.
 source ~/.rr
+
+# Ting Goes Pop.
+source ~/.ting
+
