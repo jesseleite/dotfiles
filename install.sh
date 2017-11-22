@@ -7,14 +7,14 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc-template
 
 # Copy out .zshrc and theme.
-cp ~/.dotfiles/.zshrc ~/.zshrc
-cp ~/.dotfiles/an-old-hope.zsh-theme ~/.oh-my-zsh/themes
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/an-old-hope.zsh-theme ~/.oh-my-zsh/themes
 
 # Clone Tipz.
 git clone https://github.com/molovo/tipz ~/.tipz
 
 # Vim love.
-cp ~/.dotfiles/.vimrc ~/.vimrc
+ln -s ~/.dotfiles/.vimrc ~/.vimrc
 git clone git://github.com/hchbaw/opp.zsh.git ~/.opp.zsh
 cp ~/.dotfiles/.clivimrc ~/.clivimrc
 
