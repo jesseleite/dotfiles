@@ -1,3 +1,5 @@
+" Plugins
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'chriskempson/base16-vim'           " base16 theming architecture
@@ -16,11 +18,13 @@ Plug 'ap/vim-css-color'                  " CSS colour rendering
 
 call plug#end()
 
+" Mappings
+
 let mapleader = "\<Space>"
 imap jk <Esc>
 nmap <Leader>\ :NERDTreeToggle<Enter>
 nmap <Leader>w :w<Enter>
-vmap <Leader>y :! pbcopy<Enter>
+vmap <Leader>y "*y
 nmap <Leader>p :GFiles<Enter>
 nmap <Leader>P :Files<Enter>
 nmap <Leader>r :BTags<Enter>
@@ -29,15 +33,23 @@ nmap <Leader>b :Buffers<Enter>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
+" Settings
+
 set encoding=utf-8
+set clipboard=unnamed
 set backspace=indent,eol,start
 set relativenumber
+
+" Theming
+
 syntax enable
-colorscheme base16-mocha
+colorscheme base16-monokai
 highlight Normal ctermbg=none       " Use terminal background colour
 highlight NonText ctermbg=none      " Use terminal background colour
 highlight LineNr ctermbg=none       " Override gutter colour
 highlight CursorLineNR ctermfg=none " Override gutter colour
+
+" Autocmds
 
 augroup autosourcing
   autocmd!
