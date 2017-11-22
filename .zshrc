@@ -34,6 +34,9 @@ source /usr/local/etc/profile.d/z.sh
 export EDITOR='vim'
 source ~/.clivimrc
 
+#Fzf love.
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Wat love.
 eval "$(thefuck --alias wat)"
 
@@ -41,7 +44,7 @@ eval "$(thefuck --alias wat)"
 export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
 
-# Export path.
+# Export paths.
 export PATH=${PATH}:/bin
 export PATH=${PATH}:/usr/bin
 export PATH=${PATH}:/usr/local/bin
@@ -59,6 +62,7 @@ alias ip="curl icanhazip.com"
 # Config Aliases.
 alias zshrc="sudo vim ~/.zshrc"
 alias hyperjs="sudo vim ~/.hyper.js"
+alias hypercss="sudo vim ~/.hyper.css"
 alias so="source ~/.zshrc"
 alias vimrc="sudo vim ~/.vimrc"
 alias gitconfig="sudo vim ~/.gitconfig"
@@ -85,13 +89,13 @@ alias ldocs="open http://laravel.com/docs"
 alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
 
-# OSX Specific Aliases.
+# MacOS Aliases.
 alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
 alias showall="defaults write com.apple.finder AppleShowAllFiles 1 && killall Finder"
 alias hidedesktop="defaults write com.apple.finder CreateDesktop false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop true && killall Finder"
 
-# Work Specific Aliases.
+# RR Aliases.
 source ~/.rr
 
 # Ting Goes Pop.
