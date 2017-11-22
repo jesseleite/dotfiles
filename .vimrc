@@ -1,15 +1,17 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'chriskempson/base16-vim'           " base16 theming architecture
-"Plug 'vim-airline/vim-airline'           " Status line
-"Plug 'vim-airline/vim-airline-themes'    " Status line themes
+Plug 'vim-airline/vim-airline'           " Status line
+Plug 'vim-airline/vim-airline-themes'    " Status line themes
 Plug 'scrooloose/nerdtree'               " File system explorer 
+Plug 'ludovicchabant/vim-gutentags'      " Tag generation
 Plug '/usr/local/opt/fzf'                " Fzf fuzzy finder
 Plug 'junegunn/fzf.vim'                  " Fzf vim wrapper
 Plug 'tpope/vim-fugitive'                " Git commands
 Plug 'airblade/vim-gitgutter'            " Git gutters
 Plug 'tpope/vim-rhubarb'                 " Github commands
 Plug 'sheerun/vim-polyglot'              " Language pack
+Plug 'tpope/vim-commentary'              " Code commenting
 Plug 'ap/vim-css-color'                  " CSS colour rendering
 
 call plug#end()
@@ -18,13 +20,12 @@ let mapleader = "\<Space>"
 imap jk <Esc>
 nmap <Leader>\ :NERDTreeToggle<Enter>
 nmap <Leader>w :w<Enter>
-"vmap <Leader>y :! pbcopy<Enter>
-nmap <Leader>p :Files<Enter>
+vmap <Leader>y :! pbcopy<Enter>
+nmap <Leader>p :GFiles<Enter>
+nmap <Leader>P :Files<Enter>
 nmap <Leader>r :BTags<Enter>
 nmap <Leader>t :Files<Enter>:BTags<Enter>
 nmap <Leader>b :Buffers<Enter>
-nmap <M-p> :Files<Enter>
-nmap <D-p> :Files<Enter>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
@@ -32,11 +33,11 @@ set encoding=utf-8
 set backspace=indent,eol,start
 set relativenumber
 syntax enable
-colorscheme base16-monokai
-highlight Normal ctermbg=none  " Use terminal background colour
-highlight NonText ctermbg=none " Use terminal background colour
-highlight LineNr ctermbg=none
-highlight CursorLineNR ctermfg=none
+colorscheme base16-mocha
+highlight Normal ctermbg=none       " Use terminal background colour
+highlight NonText ctermbg=none      " Use terminal background colour
+highlight LineNr ctermbg=none       " Override gutter colour
+highlight CursorLineNR ctermfg=none " Override gutter colour
 
 augroup autosourcing
   autocmd!

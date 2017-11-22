@@ -18,6 +18,9 @@ ln -s ~/.dotfiles/.vimrc ~/.vimrc
 git clone git://github.com/hchbaw/opp.zsh.git ~/.opp.zsh
 cp ~/.dotfiles/.clivimrc ~/.clivimrc
 
+# Ctags love.
+ln -s ~/.dotfiles/.ctags.d ~/.ctags.d
+
 # Copy out .gitconfig.
 cp ~/.dotfiles/.gitconfig ~/.gitconfig
 

@@ -36,6 +36,8 @@ source ~/.clivimrc
 
 #Fzf love.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -a --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND='ag -a --hidden --ignore .git -g ""'
 
 # Wat love.
 eval "$(thefuck --alias wat)"
