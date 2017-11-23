@@ -15,6 +15,7 @@ Plug 'tpope/vim-rhubarb'                 " Github commands
 Plug 'sheerun/vim-polyglot'              " Language pack
 Plug 'tpope/vim-commentary'              " Code commenting
 Plug 'ap/vim-css-color'                  " CSS colour rendering
+Plug 'janko-m/vim-test'                  " Test runner
 
 call plug#end()
 
@@ -27,19 +28,36 @@ nmap <Leader>w :w<Enter>
 nmap <Leader>p :GFiles<Enter>
 nmap <Leader>P :Files<Enter>
 nmap <Leader>r :BTags<Enter>
-nmap <Leader>t :Files<Enter>:BTags<Enter>
+nmap <Leader>R :Tags<Enter>
+nmap <Leader>t :Files<Enter>:BTags<Enter> " wot to remap this to?
 nmap <Leader>b :Buffers<Enter>
+nnoremap <leader>ts :TestSuite<CR>
+nnoremap <leader>tf :TestFile<CR>
+nnoremap <leader>tl :TestLast<CR>
+nnoremap <leader>tn :TestNearest<CR>
+nmap <Leader>ss :ownsyntax<Space>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
+xnoremap < <gvh " unindent
+xnoremap > >gvh " indent
+
+nnoremap <C-j> :m .+1<Enter>==
+nnoremap <C-k> :m .-2<Enter>==
+inoremap <C-j> <Esc>:m .+1<Enter>==gi
+inoremap <C-k> <Esc>:m .-2<Enter>==gi
+vnoremap <C-j> :m '>+1<Enter>gv=gv
+vnoremap <C-k> :m '<-2<Enter>gv=gv
 
 " Settings
 
+set confirm
 set encoding=utf-8
 set clipboard=unnamed
 set backspace=indent,eol,start
 set relativenumber
 
 " Theming
+
 syntax enable
 colorscheme base16-monokai
 " let g:airline_powerline_fonts=1
