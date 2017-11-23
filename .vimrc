@@ -24,7 +24,6 @@ let mapleader = "\<Space>"
 imap jk <Esc>
 nmap <Leader>\ :NERDTreeToggle<Enter>
 nmap <Leader>w :w<Enter>
-vmap <Leader>y "*y
 nmap <Leader>p :GFiles<Enter>
 nmap <Leader>P :Files<Enter>
 nmap <Leader>r :BTags<Enter>
@@ -41,9 +40,9 @@ set backspace=indent,eol,start
 set relativenumber
 
 " Theming
-
 syntax enable
 colorscheme base16-monokai
+" let g:airline_powerline_fonts=1
 highlight Normal ctermbg=none       " Use terminal background colour
 highlight NonText ctermbg=none      " Use terminal background colour
 highlight LineNr ctermbg=none       " Override gutter colour
