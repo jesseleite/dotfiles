@@ -91,21 +91,23 @@ command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'option
 
 " Auto Commands
 
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime " Trigger autoread and/or ask to load file
-
-augroup autosourcing
+augroup autocommands
   autocmd!
   autocmd BufWritePost .vimrc source %
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime " Trigger autoread and/or ask to load file
 augroup END
 
-autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
-autocmd FileType vue setlocal ts=4 sw=4 sts=4 expandtab
-autocmd FileType scss setlocal ts=4 sw=4 sts=4 expandtab
-autocmd FileType css setlocal ts=4 sw=4 sts=4 expandtab
-autocmd FileType vim setlocal ts=2 sw=2 sts=2 expandtab
-autocmd FileType zsh setlocal ts=2 sw=2 sts=2 expandtab
-autocmd FileType less setlocal ts=2 sw=2 sts=2 expandtab
-autocmd FileType html setlocal ts=4 sw=4 sts=4 expandtab
-autocmd FileType php setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s
-autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
+augroup filetypesettings
+  autocmd!
+  autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
+  autocmd FileType vue setlocal ts=4 sw=4 sts=4 expandtab
+  autocmd FileType scss setlocal ts=4 sw=4 sts=4 expandtab
+  autocmd FileType css setlocal ts=4 sw=4 sts=4 expandtab
+  autocmd FileType vim setlocal ts=2 sw=2 sts=2 expandtab
+  autocmd FileType zsh setlocal ts=2 sw=2 sts=2 expandtab
+  autocmd FileType less setlocal ts=2 sw=2 sts=2 expandtab
+  autocmd FileType html setlocal ts=4 sw=4 sts=4 expandtab
+  autocmd FileType php setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s
+  autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
+augroup END
 
