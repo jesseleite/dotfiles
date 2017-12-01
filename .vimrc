@@ -28,18 +28,18 @@ call plug#end()
 
 let mapleader = "\<Space>"
 imap jk <Esc>
-nmap <Leader>\ :NERDTreeToggle<Enter>
-nmap <Leader>w :w<Enter>
-nmap <Leader>p :GFiles<Enter>
-nmap <Leader>P :Files<Enter>
-nmap <Leader>r :BTags<Enter>
-nmap <Leader>R :Tags<Enter>
-nmap <Leader>t :Files<Enter>:BTags<Enter> " wot to remap this to?
-nmap <Leader>b :Buffers<Enter>
-nnoremap <leader>ts :TestSuite<CR>
-nnoremap <leader>tf :TestFile<CR>
-nnoremap <leader>tl :TestLast<CR>
-nnoremap <leader>tn :TestNearest<CR>
+nmap <Leader>\ :NERDTreeToggle<CR>
+nmap <Leader>w :w<CR>
+nmap <Leader>p :GFiles<CR>
+nmap <Leader>P :Files<CR>
+nmap <Leader>r :BTags<CR>
+nmap <Leader>R :Tags<CR>
+nmap <Leader>t :Files<CR>:BTags<CR> " wot to remap this to?
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>ts :TestSuite<CR>
+nmap <Leader>tf :TestFile<CR>
+nmap <Leader>tl :TestLast<CR>
+nmap <Leader>tn :TestNearest<CR>
 nmap <Leader>ss :ownsyntax<Space>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
@@ -55,12 +55,12 @@ nmap zb zb<C-e><C-e> " Scroll a bit of breathing room after line after zb
 xnoremap > >gvh " Smarter indent
 xnoremap < <gvh " Smarter unindent
 
-nnoremap <C-j> :m .+1<Enter>==
-nnoremap <C-k> :m .-2<Enter>==
-inoremap <C-j> <Esc>:m .+1<Enter>==gi
-inoremap <C-k> <Esc>:m .-2<Enter>==gi
-vnoremap <C-j> :m '>+1<Enter>gv=gv
-vnoremap <C-k> :m '<-2<Enter>gv=gv
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Settings
 
