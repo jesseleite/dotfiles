@@ -28,6 +28,7 @@ call plug#end()
 
 let mapleader = "\<Space>"
 imap jk <Esc>
+nnoremap <Esc> :noh<CR><Esc>
 nmap <Leader>\ :NERDTreeToggle<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>p :GFiles<CR>
@@ -41,7 +42,6 @@ nmap <Leader>tf :TestFile<CR>
 nmap <Leader>tl :TestLast<CR>
 nmap <Leader>tn :TestNearest<CR>
 nmap <Leader>ss :ownsyntax<Space>
-nmap <Leader>/ :noh<CR>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
