@@ -1,0 +1,60 @@
+snippet php "Open php."
+<?php
+
+$0
+endsnippet
+
+snippet class "Define class."
+<?php
+
+namespace $1;
+
+class ${2:Name}
+{
+    ${0://}
+}
+endsnippet
+
+snippet method "Define method."
+${1:public} function ${2:name}($3)
+{
+    ${0://}
+}
+endsnippet
+
+snippet prop "Define property."
+${1:public} $${2:property} = $3;
+endsnippet
+
+snippet named "Named constructor."
+/**
+ * ${1:Instantiate some service.}
+ *
+ * @param ${3:ParamType} ${4:$param}
+ */
+public function __construct($3 $4)
+{
+    ${0://}
+}
+
+/**
+ * $1
+ *
+ * @param $3 $4
+ * @return static
+ */
+public static function ${2:namedConstructor}($3 $4)
+{
+    return new static($4);
+}
+endsnippet
+
+snippet route "Laravel route."
+Route::${1:get}('${2:route}', '${3:Controller}@${4:method}');
+endsnippet
+
+snippet routeclosure "Larave route with closure."
+Route::${1:get}('${2:route}', function ($3) {
+    ${0://}
+});
+endsnippet

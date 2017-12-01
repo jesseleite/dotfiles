@@ -44,7 +44,7 @@ nmap <Leader>ss :ownsyntax<Space>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
-let g:UltiSnipsSnippetsDir = "~/.dotfiles/.vim/UltiSnips"
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
