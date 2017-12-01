@@ -41,6 +41,7 @@ nmap <Leader>tf :TestFile<CR>
 nmap <Leader>tl :TestLast<CR>
 nmap <Leader>tn :TestNearest<CR>
 nmap <Leader>ss :ownsyntax<Space>
+nmap <Leader>/ :noh<CR>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
