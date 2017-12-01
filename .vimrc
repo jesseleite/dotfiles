@@ -75,13 +75,17 @@ set relativenumber
 
 "let base16colorspace=256
 colorscheme base16-monokai
+set hlsearch
 highlight Normal ctermbg=none       " Use terminal background colour
 highlight NonText ctermbg=none      " Use terminal background colour
 highlight LineNr ctermbg=none       " Override gutter colour
 highlight CursorLineNR ctermfg=none " Override gutter colour
 
+" Commands
 
-" Autocmds
+command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+" Auto Commands
 
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime " Trigger autoread and/or ask to load file
 
@@ -100,8 +104,4 @@ autocmd FileType less setlocal ts=2 sw=2 sts=2 expandtab
 autocmd FileType html setlocal ts=4 sw=4 sts=4 expandtab
 autocmd FileType php setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s
 autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
-
-" Commands
-
-command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
