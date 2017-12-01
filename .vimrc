@@ -38,6 +38,7 @@ nmap <Leader>r :BTags<CR>
 nmap <Leader>R :Tags<CR>
 nmap <Leader>t :Files<CR>:BTags<CR> " wot to remap this to?
 nmap <Leader>b :Buffers<CR>
+nmap <Leader>s :Snippets<CR>
 nmap <Leader>ss :Filetypes<CR>
 nmap <Leader>ts :TestSuite<CR>
 nmap <Leader>tf :TestFile<CR>
