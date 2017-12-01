@@ -76,10 +76,12 @@ set relativenumber
 "let base16colorspace=256
 colorscheme base16-monokai
 set hlsearch
-highlight Normal ctermbg=none       " Use terminal background colour
-highlight NonText ctermbg=none      " Use terminal background colour
-highlight LineNr ctermbg=none       " Override gutter colour
-highlight CursorLineNR ctermfg=none " Override gutter colour
+highlight Normal ctermbg=none                  " Use terminal background colour
+highlight NonText ctermbg=none                 " Use terminal background colour
+highlight LineNr ctermbg=none                  " Override gutter colour
+highlight CursorLineNR ctermfg=none            " Override gutter colour
+highlight Search ctermbg=blue ctermfg=white    " Override search match highlighting
+highlight Visual ctermbg=black ctermfg=white   " Override visual highlighing
 
 " Commands
 
