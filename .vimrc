@@ -38,11 +38,11 @@ nmap <Leader>r :BTags<CR>
 nmap <Leader>R :Tags<CR>
 nmap <Leader>t :Files<CR>:BTags<CR> " wot to remap this to?
 nmap <Leader>b :Buffers<CR>
+nmap <Leader>ss :Filetypes<CR>
 nmap <Leader>ts :TestSuite<CR>
 nmap <Leader>tf :TestFile<CR>
 nmap <Leader>tl :TestLast<CR>
 nmap <Leader>tn :TestNearest<CR>
-nmap <Leader>ss :ownsyntax<Space>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
