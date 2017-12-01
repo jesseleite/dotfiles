@@ -24,8 +24,6 @@ Plug 'SirVer/ultisnips'                  " Snippets
 
 call plug#end()
 
-filetype plugin indent on
-
 " Mappings
 
 let mapleader = "\<Space>"
@@ -74,7 +72,6 @@ set relativenumber
 
 " Theming
 
-syntax enable
 colorscheme base16-monokai
 highlight Normal ctermbg=none       " Use terminal background colour
 highlight NonText ctermbg=none      " Use terminal background colour
