@@ -1,4 +1,5 @@
 set nocompatible
+set t_Co=256
 
 " Plugins
 
@@ -67,6 +68,7 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Settings
 
+set hidden
 set autoread
 set confirm
 set encoding=utf-8
