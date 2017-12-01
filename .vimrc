@@ -21,6 +21,7 @@ Plug 'ap/vim-css-color'                  " CSS colour rendering
 Plug 'janko-m/vim-test'                  " Test runner
 Plug 'jiangmiao/auto-pairs'              " Insert brackets, quotes, etc. in pairs
 Plug 'SirVer/ultisnips'                  " Snippets 
+Plug 'ntpeters/vim-better-whitespace'    " Highlight and trim whitespace
 
 call plug#end()
 
@@ -95,6 +96,7 @@ augroup autocommands
   autocmd!
   autocmd BufWritePost .vimrc source %
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime " Trigger autoread and/or ask to load file
+  autocmd BufEnter * EnableStripWhitespaceOnSave
 augroup END
 
 augroup filetypesettings
