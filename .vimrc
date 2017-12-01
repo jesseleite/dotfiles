@@ -43,16 +43,17 @@ nnoremap <leader>tn :TestNearest<CR>
 nmap <Leader>ss :ownsyntax<Space>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
+
 let g:UltiSnipsSnippetsDir = "~/.dotfiles/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-xnoremap > >gvh " Smarter indent
-xnoremap < <gvh " Smarter unindent
-
 nmap zt zt<C-y><C-y> " Scroll a bit of breathing room before line after zt
 nmap zb zb<C-e><C-e> " Scroll a bit of breathing room after line after zb
+
+xnoremap > >gvh " Smarter indent
+xnoremap < <gvh " Smarter unindent
 
 nnoremap <C-j> :m .+1<Enter>==
 nnoremap <C-k> :m .-2<Enter>==
@@ -72,11 +73,13 @@ set relativenumber
 
 " Theming
 
+"let base16colorspace=256
 colorscheme base16-monokai
 highlight Normal ctermbg=none       " Use terminal background colour
 highlight NonText ctermbg=none      " Use terminal background colour
 highlight LineNr ctermbg=none       " Override gutter colour
 highlight CursorLineNR ctermfg=none " Override gutter colour
+
 
 " Autocmds
 
@@ -95,6 +98,10 @@ autocmd FileType vim setlocal ts=2 sw=2 sts=2 expandtab
 autocmd FileType zsh setlocal ts=2 sw=2 sts=2 expandtab
 autocmd FileType less setlocal ts=2 sw=2 sts=2 expandtab
 autocmd FileType html setlocal ts=4 sw=4 sts=4 expandtab
-autocmd FileType php setlocal ts=4 sw=4 sts=4 expandtab
+autocmd FileType php setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s
 autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
+
+" Commands
+
+command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
