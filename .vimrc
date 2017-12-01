@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/base16-vim'           " Base16 theming architecture
 Plug 'vim-airline/vim-airline'           " Status line
 Plug 'vim-airline/vim-airline-themes'    " Status line themes
-Plug 'scrooloose/nerdtree'               " File system browser 
+Plug 'scrooloose/nerdtree'               " File system browser
 Plug 'ludovicchabant/vim-gutentags'      " Tag generation
 Plug 'majutsushi/tagbar'                 " Tag browser
 Plug '/usr/local/opt/fzf'                " Fzf fuzzy finder
@@ -20,7 +20,7 @@ Plug 'tpope/vim-commentary'              " Code commenting
 Plug 'ap/vim-css-color'                  " CSS colour rendering
 Plug 'janko-m/vim-test'                  " Test runner
 Plug 'jiangmiao/auto-pairs'              " Insert brackets, quotes, etc. in pairs
-Plug 'SirVer/ultisnips'                  " Snippets 
+Plug 'SirVer/ultisnips'                  " Snippets
 Plug 'ntpeters/vim-better-whitespace'    " Highlight and trim whitespace
 
 call plug#end()
@@ -112,4 +112,3 @@ augroup filetypesettings
   autocmd FileType php setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s
   autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
 augroup END
-
