@@ -22,6 +22,8 @@ Plug 'ap/vim-css-color'                  " CSS colour rendering
 Plug 'janko-m/vim-test'                  " Test runner
 Plug 'jiangmiao/auto-pairs'              " Insert brackets, quotes, etc. in pairs
 Plug 'SirVer/ultisnips'                  " Snippets
+Plug 'tobyS/vmustache'                   " PHP docblocks dependency
+Plug 'tobyS/pdv'                         " PHP docblocks
 Plug 'ntpeters/vim-better-whitespace'    " Highlight and trim whitespace
 
 call plug#end()
@@ -53,6 +55,8 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+nnoremap <Leader>/** :call pdv#DocumentWithSnip()<CR>
+
 nmap zt zt<C-y><C-y> " Scroll a bit of breathing room before line after zt
 nmap zb zb<C-e><C-e> " Scroll a bit of breathing room after line after zb
 
@@ -76,6 +80,7 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 set relativenumber
 set incsearch
+let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
 " Theming
 
