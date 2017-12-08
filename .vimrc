@@ -80,6 +80,7 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 set relativenumber
 set incsearch
+let g:NERDTreeWinSize=60
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
 " Theming
