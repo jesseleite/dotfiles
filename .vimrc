@@ -32,7 +32,7 @@ call plug#end()
 
 let mapleader = "\<Space>"
 imap jk <Esc>
-nnoremap <Esc> :nohlsearch<CR><Esc>
+nnoremap <silent> <Esc> :nohlsearch<CR><Esc>
 nmap <Leader>\ :NERDTreeToggle<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>p :GFiles<CR>
