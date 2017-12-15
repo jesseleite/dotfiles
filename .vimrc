@@ -95,6 +95,11 @@ highlight LineNr ctermbg=none                  " Override gutter colour
 highlight CursorLineNR ctermfg=none            " Override gutter colour
 highlight Search ctermbg=blue ctermfg=white    " Override search match highlighting
 highlight Visual ctermbg=black ctermfg=white   " Override visual highlighing
+highlight SignColumn ctermbg=none
+highlight GitGutterAdd ctermbg=none ctermfg=green
+highlight GitGutterChange ctermbg=none ctermfg=yellow
+highlight GitGutterDelete ctermbg=none ctermfg=red
+highlight GitGutterChangeDelete ctermbg=none ctermfg=red
 
 " Commands
 
