@@ -95,7 +95,7 @@ highlight NonText ctermbg=none                                " Use terminal bac
 highlight Search ctermbg=blue ctermfg=white                   " Search matches
 highlight Visual ctermbg=black ctermfg=white                  " Visual selection
 highlight LineNr ctermbg=none                                 " Gutter
-highlight CursorLineNR ctermfg=none                           " Gutter
+highlight CursorLineNR ctermbg=green ctermfg=none             " Gutter
 highlight SignColumn ctermbg=none                             " Git gutter
 highlight GitGutterAdd ctermbg=none ctermfg=green             " Git gutter
 highlight GitGutterChange ctermbg=none ctermfg=yellow         " Git gutter
