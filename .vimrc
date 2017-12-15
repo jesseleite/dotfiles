@@ -36,6 +36,7 @@ let mapleader = "\<Space>"
 imap jk <Esc>
 nnoremap <silent> <Esc> :nohlsearch<CR><Esc>
 nmap <Leader>\ :NERDTreeToggle<CR>
+nmap <Leader>\| :TagbarToggle<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>p :GFiles<CR>
 nmap <Leader>P :Files<CR>
