@@ -83,7 +83,7 @@ set backspace=indent,eol,start
 set relativenumber
 set incsearch
 set fillchars+=vert:\ ,                        " Vertical split character
-let g:NERDTreeWinSize=60
+let g:NERDTreeWinSize=45
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
 if executable('ag')
@@ -107,6 +107,8 @@ highlight GitGutterChange ctermbg=none ctermfg=yellow         " Git gutter
 highlight GitGutterDelete ctermbg=none ctermfg=red            " Git gutter
 highlight GitGutterChangeDelete ctermbg=none ctermfg=red      " Git gutter
 highlight VertSplit ctermbg=none ctermfg=none                 " Vert split
+highlight CursorLine ctermbg=black ctermfg=none               " Cursor line for nerd tree?
+highlight QuickFixLine ctermbg=black ctermfg=none             " Quickfix selection
 
 " Commands
 
