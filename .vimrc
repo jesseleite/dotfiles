@@ -81,6 +81,7 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 set relativenumber
 set incsearch
+set fillchars+=vert:\ ,                        " Vertical split character
 let g:NERDTreeWinSize=60
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
@@ -89,17 +90,18 @@ let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 "let base16colorspace=256
 colorscheme base16-monokai
 set hlsearch
-highlight Normal ctermbg=none                  " Use terminal background colour
-highlight NonText ctermbg=none                 " Use terminal background colour
-highlight LineNr ctermbg=none                  " Override gutter colour
-highlight CursorLineNR ctermfg=none            " Override gutter colour
-highlight Search ctermbg=blue ctermfg=white    " Override search match highlighting
-highlight Visual ctermbg=black ctermfg=white   " Override visual highlighing
-highlight SignColumn ctermbg=none
-highlight GitGutterAdd ctermbg=none ctermfg=green
-highlight GitGutterChange ctermbg=none ctermfg=yellow
-highlight GitGutterDelete ctermbg=none ctermfg=red
-highlight GitGutterChangeDelete ctermbg=none ctermfg=red
+highlight Normal ctermbg=none                                 " Use terminal background
+highlight NonText ctermbg=none                                " Use terminal background
+highlight Search ctermbg=blue ctermfg=white                   " Search matches
+highlight Visual ctermbg=black ctermfg=white                  " Visual selection
+highlight LineNr ctermbg=none                                 " Gutter
+highlight CursorLineNR ctermfg=none                           " Gutter
+highlight SignColumn ctermbg=none                             " Git gutter
+highlight GitGutterAdd ctermbg=none ctermfg=green             " Git gutter
+highlight GitGutterChange ctermbg=none ctermfg=yellow         " Git gutter
+highlight GitGutterDelete ctermbg=none ctermfg=red            " Git gutter
+highlight GitGutterChangeDelete ctermbg=none ctermfg=red      " Git gutter
+highlight VertSplit ctermbg=none ctermfg=none                 " Vert split
 
 " Commands
 
