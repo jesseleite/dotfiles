@@ -13,6 +13,7 @@ Plug 'ludovicchabant/vim-gutentags'      " Tag generation
 Plug 'majutsushi/tagbar'                 " Tag browser
 Plug '/usr/local/opt/fzf'                " Fzf fuzzy finder
 Plug 'junegunn/fzf.vim'                  " Fzf vim wrapper
+Plug 'mileszs/ack.vim'                   " Ag search wrapper
 Plug 'tpope/vim-fugitive'                " Git commands
 Plug 'airblade/vim-gitgutter'            " Git gutters
 Plug 'tpope/vim-rhubarb'                 " Github commands
@@ -84,6 +85,10 @@ set incsearch
 set fillchars+=vert:\ ,                        " Vertical split character
 let g:NERDTreeWinSize=60
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Theming
 
