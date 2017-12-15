@@ -25,6 +25,7 @@ Plug 'SirVer/ultisnips'                  " Snippets
 Plug 'tobyS/vmustache'                   " PHP docblocks dependency
 Plug 'tobyS/pdv'                         " PHP docblocks
 Plug 'ntpeters/vim-better-whitespace'    " Highlight and trim whitespace
+Plug 'mattn/emmet-vim'                   " HTML/CSS expand abbreviation magic
 
 call plug#end()
 
