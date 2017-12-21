@@ -28,6 +28,7 @@ Plug 'tobyS/pdv'                         " PHP docblocks
 Plug 'ntpeters/vim-better-whitespace'    " Highlight and trim whitespace
 Plug 'mattn/emmet-vim'                   " HTML/CSS expand abbreviation magic
 Plug 'tpope/vim-surround'                " Surround commands
+Plug 'qpkorr/vim-bufkill'                " Close buffer without closing window or split
 
 call plug#end()
 
