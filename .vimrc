@@ -45,7 +45,9 @@ nmap <Leader>r :BTags<CR>
 nmap <Leader>R :Tags<CR>
 nmap <Leader>t :Files<CR>:BTags<CR> " wot to remap this to?
 nmap <Leader>b :Buffers<CR>
+nmap <Leader>h :History<CR>
 nmap <Leader>s :Snippets<CR>
+nmap <Leader>o o<Esc>O
 nmap <Leader>ss :Filetypes<CR>
 nmap <Leader>ts :TestSuite<CR>
 nmap <Leader>tf :TestFile<CR>
@@ -154,3 +156,8 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
+nmap <Leader>ghr <Plug>GitGutterUndoHunk:echomsg ' hr is deprecated. Use hu'<CR>
+nmap <Leader>ghp <Plug>GitGutterPreviewHunk
+nmap <Leader>ghs <Plug>GitGutterStageHunk
+nmap <Leader>ghu <Plug>GitGutterUndoHunk
