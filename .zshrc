@@ -87,6 +87,7 @@ alias artc="art clear-compiled && art cache:clear && art route:clear && art conf
 alias artm="art migrate:refresh --seed"
 alias tink="art tinker"
 alias ting="art tinker ting.php"
+alias navi="art queue:listen --tries=2"
 alias dusk="art dusk"
 alias ldocs="open http://laravel.com/docs"
 alias psr1="php-cs-fixer fix --level=psr1"
