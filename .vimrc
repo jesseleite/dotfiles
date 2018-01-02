@@ -57,11 +57,6 @@ nmap <Leader>tn :TestNearest<CR>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
-let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
 nnoremap <Leader>/** :call pdv#DocumentWithSnip()<CR>
 
 nmap zt zt<C-y><C-y> " Scroll a bit of breathing room before line after zt
@@ -76,6 +71,13 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+let g:BufKillCreateMappings = 0
 
 " Settings
 
