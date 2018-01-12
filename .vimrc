@@ -50,10 +50,10 @@ nmap <Leader>h :History<CR>
 nmap <Leader>s :Snippets<CR>
 nmap <Leader>o o<Esc>O
 nmap <Leader>ss :Filetypes<CR>
-nmap <Leader>ts :TestSuite<CR>
-nmap <Leader>tf :TestFile<CR>
-nmap <Leader>tl :TestLast<CR>
-nmap <Leader>tn :TestNearest<CR>
+nmap <Leader>ts :w<CR>:TestSuite<CR>
+nmap <Leader>tf :w<CR>:TestFile<CR>
+nmap <Leader>tl :w<CR>:TestLast<CR>
+nmap <Leader>tn :w<CR>:TestNearest<CR>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
