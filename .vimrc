@@ -95,6 +95,7 @@ let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
+  let g:ackhighlight = 1
 endif
 
 " Theming
@@ -128,6 +129,7 @@ augroup autocommands
   autocmd BufWritePost .vimrc source %
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime " Trigger autoread and/or ask to load file
   autocmd BufEnter * EnableStripWhitespaceOnSave
+  autocmd BufReadPost quickfix nested setlocal modifiable
 augroup END
 
 augroup filetypesettings
