@@ -92,6 +92,7 @@ set backspace=indent,eol,start
 set relativenumber
 set incsearch
 set fillchars+=vert:\ ,                        " Vertical split character
+call matchadd('ColorColumn', '\%121v', 100)    " Only show 121st character on lines that might exceed 120
 let g:NERDTreeWinSize=45
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
@@ -112,6 +113,7 @@ highlight Visual ctermbg=black ctermfg=white                  " Visual selection
 highlight LineNr ctermbg=none                                 " Gutter
 highlight CursorLineNR ctermbg=green ctermfg=none             " Gutter
 highlight SignColumn ctermbg=none                             " Git gutter
+highlight ColorColumn ctermbg=black                          " Highlighting
 highlight GitGutterAdd ctermbg=none ctermfg=green             " Git gutter
 highlight GitGutterChange ctermbg=none ctermfg=yellow         " Git gutter
 highlight GitGutterDelete ctermbg=none ctermfg=red            " Git gutter
