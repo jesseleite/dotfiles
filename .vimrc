@@ -150,7 +150,7 @@ augroup END
 
 " Experimenting
 
-nmap <Leader>ghr <Plug>GitGutterUndoHunk:echomsg ' hr is deprecated. Use hu'<CR>
-nmap <Leader>ghp <Plug>GitGutterPreviewHunk
-nmap <Leader>ghs <Plug>GitGutterStageHunk
-nmap <Leader>ghu <Plug>GitGutterUndoHunk
+" nmap <Leader>ghr <Plug>GitGutterUndoHunk:echomsg ' hr is deprecated. Use hu'<CR>
+" nmap <Leader>ghp <Plug>GitGutterPreviewHunk
+" nmap <Leader>ghs <Plug>GitGutterStageHunk
+" nmap <Leader>ghu <Plug>GitGutterUndoHunk
