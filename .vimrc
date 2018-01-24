@@ -139,7 +139,7 @@ augroup END
 augroup filetypesettings
   autocmd!
   autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
-  autocmd FileType vue setlocal ts=4 sw=4 sts=4 expandtab
+  autocmd FileType vue setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s
   autocmd FileType scss setlocal ts=4 sw=4 sts=4 expandtab
   autocmd FileType css setlocal ts=4 sw=4 sts=4 expandtab
   autocmd FileType vim setlocal ts=2 sw=2 sts=2 expandtab
