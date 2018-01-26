@@ -36,6 +36,8 @@ call plug#end()
 
 let mapleader = "\<Space>"
 imap jk <Esc>
+nnoremap <Tab> <C-w>w
+nnoremap <S-Tab> <C-w>W
 nnoremap <silent> <Esc> :nohlsearch<CR><Esc>
 nmap <Leader><Tab> :NERDTreeToggle<CR>
 nmap <Leader><Leader><Tab> :NERDTree<CR>
