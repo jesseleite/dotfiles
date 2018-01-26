@@ -11,6 +11,7 @@ Plug 'vim-airline/vim-airline-themes'    " Status line themes
 Plug 'scrooloose/nerdtree'               " File system browser
 Plug 'ludovicchabant/vim-gutentags'      " Tag generation
 Plug 'majutsushi/tagbar'                 " Tag browser
+Plug 'mbbill/undotree'                   " Undo tree
 Plug '/usr/local/opt/fzf'                " Fzf fuzzy finder
 Plug 'junegunn/fzf.vim'                  " Fzf vim wrapper
 Plug 'mileszs/ack.vim'                   " Ag search wrapper
@@ -43,6 +44,7 @@ nmap <Leader><Tab> :NERDTreeToggle<CR>
 nmap <Leader><Leader><Tab> :NERDTree<CR>
 nmap <Leader><Leader><Tab>f :NERDTreeFind<CR>
 nmap <Leader>\ :TagbarToggle<CR>
+nmap <Leader>u :UndotreeToggle<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>p :GFiles<CR>
 nmap <Leader>P :Files<CR>
