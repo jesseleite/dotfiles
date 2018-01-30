@@ -30,6 +30,8 @@ Plug 'ntpeters/vim-better-whitespace'    " Highlight and trim whitespace
 Plug 'mattn/emmet-vim'                   " HTML/CSS expand abbreviation magic
 Plug 'tpope/vim-surround'                " Surround commands
 Plug 'qpkorr/vim-bufkill'                " Close buffer without closing window or split
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -138,6 +140,8 @@ augroup autocommands
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime " Trigger autoread and/or ask to load file
   autocmd BufEnter * EnableStripWhitespaceOnSave
   autocmd BufReadPost quickfix nested setlocal modifiable
+  autocmd User GoyoEnter nested call <SID>goyo_enter()
+  autocmd User GoyoLeave nested call <SID>goyo_leave()
 augroup END
 
 augroup filetypesettings
@@ -161,3 +165,19 @@ nmap <Leader>ghr <Plug>GitGutterUndoHunk:echomsg ' hr is deprecated. Use hu'<CR>
 nmap <Leader>ghp <Plug>GitGutterPreviewHunk
 nmap <Leader>ghs <Plug>GitGutterStageHunk
 nmap <Leader>ghu <Plug>GitGutterUndoHunk
+
+if !exists("*s:goyo_enter")
+  function! s:goyo_enter()
+    Limelight
+  endfunction
+endif
+
+if !exists("*s:goyo_leave")
+  function! s:goyo_leave()
+    Limelight!
+    so $MYVIMRC
+  endfunction
+endif
+
+let g:limelight_conceal_ctermfg = 'black'
+
