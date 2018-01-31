@@ -186,3 +186,7 @@ endif
 
 let g:limelight_conceal_ctermfg = 'black'
 
+map <D-s> <Esc>:w<CR>
+map <M-s> <Esc>:w<CR>
+map <C-s> <Esc>:w<CR>
+
