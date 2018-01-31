@@ -5,33 +5,35 @@ set t_Co=256
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'chriskempson/base16-vim'           " Base16 theming architecture
-Plug 'vim-airline/vim-airline'           " Status line
-Plug 'vim-airline/vim-airline-themes'    " Status line themes
-Plug 'scrooloose/nerdtree'               " File system browser
-Plug 'ludovicchabant/vim-gutentags'      " Tag generation
-Plug 'majutsushi/tagbar'                 " Tag browser
-Plug 'mbbill/undotree'                   " Undo tree
-Plug '/usr/local/opt/fzf'                " Fzf fuzzy finder
-Plug 'junegunn/fzf.vim'                  " Fzf vim wrapper
-Plug 'mileszs/ack.vim'                   " Ag search wrapper
-Plug 'tpope/vim-fugitive'                " Git commands
-Plug 'airblade/vim-gitgutter'            " Git gutters
-Plug 'tpope/vim-rhubarb'                 " Github commands
-Plug 'sheerun/vim-polyglot'              " Language pack
-Plug 'tpope/vim-commentary'              " Code commenting
-Plug 'ap/vim-css-color'                  " CSS colour rendering
-Plug 'janko-m/vim-test'                  " Test runner
-Plug 'jiangmiao/auto-pairs'              " Insert brackets, quotes, etc. in pairs
-Plug 'SirVer/ultisnips'                  " Snippets
-Plug 'tobyS/vmustache'                   " PHP docblocks dependency
-Plug 'tobyS/pdv'                         " PHP docblocks
-Plug 'ntpeters/vim-better-whitespace'    " Highlight and trim whitespace
-Plug 'mattn/emmet-vim'                   " HTML/CSS expand abbreviation magic
-Plug 'tpope/vim-surround'                " Surround commands
-Plug 'qpkorr/vim-bufkill'                " Close buffer without closing window or split
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'chriskempson/base16-vim'        " Base16 theming architecture
+Plug 'vim-airline/vim-airline'        " Status line
+Plug 'vim-airline/vim-airline-themes' " Status line themes
+Plug 'scrooloose/nerdtree'            " File system browser
+Plug 'ludovicchabant/vim-gutentags'   " Tag generation
+Plug 'majutsushi/tagbar'              " Tag browser
+Plug 'mbbill/undotree'                " Undo tree
+Plug '/usr/local/opt/fzf'             " Fzf fuzzy finder
+Plug 'junegunn/fzf.vim'               " Fzf vim wrapper
+Plug 'mileszs/ack.vim'                " Ag search wrapper
+Plug 'tpope/vim-fugitive'             " Git commands
+Plug 'airblade/vim-gitgutter'         " Git gutters
+Plug 'tpope/vim-rhubarb'              " Github commands
+Plug 'sheerun/vim-polyglot'           " Language pack
+Plug 'tpope/vim-commentary'           " Code commenting
+Plug 'ap/vim-css-color'               " CSS colour rendering
+Plug 'janko-m/vim-test'               " Test runner
+Plug 'jiangmiao/auto-pairs'           " Insert brackets, quotes, etc. in pairs
+Plug 'SirVer/ultisnips'               " Snippets
+Plug 'ntpeters/vim-better-whitespace' " Highlight and trim whitespace
+Plug 'mattn/emmet-vim'                " HTML/CSS expand abbreviation magic
+Plug 'tpope/vim-surround'             " Surround commands
+Plug 'qpkorr/vim-bufkill'             " Close buffer without closing window or split
+Plug 'junegunn/goyo.vim'              " Distraction free writing
+Plug 'junegunn/limelight.vim'         " Hyper focus writing
+Plug 'junegunn/vim-easy-align'        " Text alignment
+Plug 'tobyS/vmustache'                " PHP docblocks dependency
+Plug 'tobyS/pdv'                      " PHP docblocks
+Plug 'arnaud-lb/vim-php-namespace'    " PHP namespace importer
 
 call plug#end()
 
@@ -86,6 +88,9 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:BufKillCreateMappings = 0
+
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 " Settings
 
