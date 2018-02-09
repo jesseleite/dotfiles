@@ -41,6 +41,8 @@ call plug#end()
 
 let mapleader = "\<Space>"
 imap jk <Esc>
+nmap <S-CR> O<Esc>
+nmap <CR> o<Esc>
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
 nnoremap <silent> <Esc> :nohlsearch<CR><Esc>
