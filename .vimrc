@@ -190,3 +190,10 @@ map <D-s> <Esc>:w<CR>
 map <M-s> <Esc>:w<CR>
 map <C-s> <Esc>:w<CR>
 
+if has("gui_running")
+  set guioptions=
+  set guifont=Menlo\ LG100
+endif
+
+" rr ag function ideas?
+" --ignore-dir resources/assets/js/vendors
