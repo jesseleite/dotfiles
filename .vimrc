@@ -86,6 +86,11 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
+" The GitGutter leader mappings are a bit intrusive, so only map what I use.
+let g:gitgutter_map_keys=0
+nmap [c <Plug>GitGutterPrevHunk
+nmap ]c <Plug>GitGutterNextHunk
+
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -168,12 +173,6 @@ augroup filetypesettings
 augroup END
 
 " Experimenting
-
-" Need this for now, because git-gutter messes with my `<Leader>h` mapping :(
-nmap <Leader>ghr <Plug>GitGutterUndoHunk:echomsg ' hr is deprecated. Use hu'<CR>
-nmap <Leader>ghp <Plug>GitGutterPreviewHunk
-nmap <Leader>ghs <Plug>GitGutterStageHunk
-nmap <Leader>ghu <Plug>GitGutterUndoHunk
 
 if !exists("*s:goyo_enter")
   function! s:goyo_enter()
