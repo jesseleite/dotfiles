@@ -61,6 +61,7 @@ nmap <Leader>t :Files<CR>:BTags<CR> " wot to remap this to?
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>h :History<CR>
 nmap <Leader>s :Snippets<CR>
+nmap <Leader>d ddO<Esc>
 nmap <Leader>o o<Esc>O
 nmap <Leader>ss :Filetypes<CR>
 nmap <Leader>ts :w<CR>:TestSuite<CR>
