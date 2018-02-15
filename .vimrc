@@ -42,6 +42,7 @@ call plug#end()
 let mapleader = "\<Space>"
 imap jk <Esc>
 cnoremap jk <C-c>
+nmap <Leader><Leader>v :Vimrc<CR>
 nmap <S-CR> O<Esc>
 nmap <CR> o<Esc>
 nnoremap <Tab> <C-w>w
@@ -144,6 +145,7 @@ highlight QuickFixLine ctermbg=black ctermfg=none             " Quickfix selecti
 
 " Commands
 
+command! Vimrc edit $MYVIMRC
 command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 " Auto Commands
