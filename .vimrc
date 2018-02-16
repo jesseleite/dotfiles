@@ -19,6 +19,7 @@ Plug 'tpope/vim-fugitive'             " Git commands
 Plug 'airblade/vim-gitgutter'         " Git gutters
 Plug 'tpope/vim-rhubarb'              " Github commands
 Plug 'sheerun/vim-polyglot'           " Language pack
+Plug 'vim-syntastic/syntastic'        " Linter wrapper
 Plug 'tpope/vim-commentary'           " Code commenting
 Plug 'ap/vim-css-color'               " CSS colour rendering
 Plug 'janko-m/vim-test'               " Test runner
@@ -121,6 +122,12 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
   let g:ackhighlight = 1
 endif
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_php_phpcs_args = '--standard=PSR2 -n'
 
 " Theming
 
