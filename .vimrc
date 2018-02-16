@@ -12,6 +12,7 @@ Plug 'scrooloose/nerdtree'            " File system browser
 Plug 'ludovicchabant/vim-gutentags'   " Tag generation
 Plug 'majutsushi/tagbar'              " Tag browser
 Plug 'mbbill/undotree'                " Undo tree
+Plug 'Valloric/ListToggle'            " Quickfix/Location toggler
 Plug '/usr/local/opt/fzf'             " Fzf fuzzy finder
 Plug 'junegunn/fzf.vim'               " Fzf vim wrapper
 Plug 'mileszs/ack.vim'                " Ag search wrapper
@@ -115,7 +116,12 @@ set relativenumber
 set incsearch
 set fillchars+=vert:\ ,                        " Vertical split character
 call matchadd('ColorColumn', '\%121v', 100)    " Only show 121st character on lines that might exceed 120
+
 let g:NERDTreeWinSize=45
+
+let g:lt_location_list_toggle_map = '<leader>l'
+let g:lt_quickfix_list_toggle_map = '<leader>q'
+
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
 if executable('ag')
