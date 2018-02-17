@@ -134,6 +134,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 let g:syntastic_php_phpcs_args = '--standard=PSR2 -n'
+let g:syntastic_error_symbol = '!'
+let g:syntastic_warning_symbol = '!'
+let g:syntastic_style_error_symbol = '!'
+let g:syntastic_style_warning_symbol = '!'
 
 " Theming
 
@@ -155,6 +159,10 @@ highlight GitGutterChangeDelete ctermbg=none ctermfg=red      " Git gutter
 highlight VertSplit ctermbg=none ctermfg=none                 " Vert split
 highlight CursorLine ctermbg=black ctermfg=none               " Cursor line for nerd tree?
 highlight QuickFixLine ctermbg=black ctermfg=none             " Quickfix selection
+highlight SyntasticErrorSign ctermbg=none ctermfg=red
+highlight SyntasticWarningSign ctermbg=none ctermfg=magenta
+highlight SyntasticStyleErrorSign ctermbg=none ctermfg=red
+highlight SyntasticStyleWarningSign ctermbg=none ctermfg=magenta
 
 " Commands
 
