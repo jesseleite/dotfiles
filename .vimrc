@@ -52,7 +52,7 @@ nnoremap <S-Tab> <C-w>W
 nnoremap <silent> <Esc> :nohlsearch<CR><Esc>
 nmap <Leader><Tab> :NERDTreeToggle<CR>
 nmap <Leader><Leader><Tab> :NERDTree<CR>
-nmap <Leader><Leader><Tab>f :NERDTreeFind<CR>
+nmap <Leader><Leader><Tab>f :NERDTreeFind<CR>zz
 nmap <Leader>\ :TagbarToggle<CR>
 nmap <Leader>u :UndotreeToggle<CR>
 nmap <Leader>w :w<CR>
