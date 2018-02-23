@@ -198,6 +198,22 @@ augroup filetypesettings
   autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
 augroup END
 
+" Fzf
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
 " Experimenting
 
 if !exists("*s:goyo_enter")
