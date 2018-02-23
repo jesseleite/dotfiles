@@ -1,7 +1,9 @@
 set nocompatible
 set t_Co=256
 
+" ------------------------------------------------------------------------------
 " Plugins
+" ------------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
 
@@ -40,7 +42,9 @@ Plug 'arnaud-lb/vim-php-namespace'    " PHP namespace importer
 
 call plug#end()
 
+" ------------------------------------------------------------------------------
 " Mappings
+" ------------------------------------------------------------------------------
 
 let mapleader = "\<Space>"
 imap jk <Esc>
@@ -105,7 +109,9 @@ let g:BufKillCreateMappings = 0
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
+" ------------------------------------------------------------------------------
 " Settings
+" ------------------------------------------------------------------------------
 
 set hidden
 set autoread
@@ -141,7 +147,9 @@ let g:syntastic_warning_symbol = '!'
 let g:syntastic_style_error_symbol = '!'
 let g:syntastic_style_warning_symbol = '!'
 
+" ------------------------------------------------------------------------------
 " Theming
+" ------------------------------------------------------------------------------
 
 "let base16colorspace=256
 colorscheme base16-monokai
@@ -166,12 +174,16 @@ highlight SyntasticWarningSign ctermbg=none ctermfg=magenta
 highlight SyntasticStyleErrorSign ctermbg=none ctermfg=red
 highlight SyntasticStyleWarningSign ctermbg=none ctermfg=magenta
 
+" ------------------------------------------------------------------------------
 " Commands
+" ------------------------------------------------------------------------------
 
 command! Vimrc edit $MYVIMRC
 command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
+" ------------------------------------------------------------------------------
 " Auto Commands
+" ------------------------------------------------------------------------------
 
 augroup autocommands
   autocmd!
@@ -198,7 +210,9 @@ augroup filetypesettings
   autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
 augroup END
 
+" ------------------------------------------------------------------------------
 " Fzf
+" ------------------------------------------------------------------------------
 
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
@@ -214,7 +228,9 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
+" ------------------------------------------------------------------------------
 " Experimenting
+" ------------------------------------------------------------------------------
 
 if !exists("*s:goyo_enter")
   function! s:goyo_enter()
