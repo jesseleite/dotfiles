@@ -25,6 +25,7 @@ Plug 'tpope/vim-commentary'           " Code commenting
 Plug 'ap/vim-css-color'               " CSS colour rendering
 Plug 'janko-m/vim-test'               " Test runner
 Plug 'jiangmiao/auto-pairs'           " Insert brackets, quotes, etc. in pairs
+Plug 'ervandew/supertab'              " Tab completion
 Plug 'SirVer/ultisnips'               " Snippets
 Plug 'ntpeters/vim-better-whitespace' " Highlight and trim whitespace
 Plug 'mattn/emmet-vim'                " HTML/CSS expand abbreviation magic
