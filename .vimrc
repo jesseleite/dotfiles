@@ -110,6 +110,7 @@ xmap ga <Plug>(EasyAlign)
 set hidden
 set autoread
 set confirm
+set wildmenu
 set encoding=utf-8
 set clipboard=unnamed
 set backspace=indent,eol,start
