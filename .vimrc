@@ -178,7 +178,7 @@ augroup autocommands
   autocmd BufWritePost .vimrc source %
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime " Trigger autoread and/or ask to load file
   autocmd BufEnter * EnableStripWhitespaceOnSave
-  autocmd BufReadPost quickfix nested setlocal modifiable
+  autocmd BufReadPost quickfix nested nmap <buffer> <CR> <CR>
   autocmd User GoyoEnter nested call <SID>goyo_enter()
   autocmd User GoyoLeave nested call <SID>goyo_leave()
 augroup END
