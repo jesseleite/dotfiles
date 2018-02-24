@@ -1,6 +1,7 @@
 set nocompatible
 set t_Co=256
 
+
 " ------------------------------------------------------------------------------
 " Plugins
 " ------------------------------------------------------------------------------
@@ -36,57 +37,101 @@ Plug 'qpkorr/vim-bufkill'             " Close buffer without closing window or s
 Plug 'junegunn/goyo.vim'              " Distraction free writing
 Plug 'junegunn/limelight.vim'         " Hyper focus writing
 Plug 'junegunn/vim-easy-align'        " Text alignment
+Plug 'tpope/vim-unimpaired'           " Handy bracket mappings
 Plug 'tobyS/vmustache'                " PHP docblocks dependency
 Plug 'tobyS/pdv'                      " PHP docblocks
 Plug 'arnaud-lb/vim-php-namespace'    " PHP namespace importer
 
 call plug#end()
 
+
 " ------------------------------------------------------------------------------
 " Mappings
 " ------------------------------------------------------------------------------
 
+" Leader
 let mapleader = "\<Space>"
+
+" Esc / Ctrl-c
 imap jk <Esc>
+nnoremap <silent> <Esc> :nohlsearch<CR><Esc>
 cnoremap jk <C-c>
+
+" Write
+nmap <Leader>w :w<CR>
+map <D-s> <Esc>:w<CR>
+map <M-s> <Esc>:w<CR>
+map <C-s> <Esc>:w<CR>
+
+" Edit .vimrc
 nmap <Leader><Leader>v :Vimrc<CR>
-nmap <S-CR> O<Esc>
-nmap <CR> o<Esc>
+
+" Windows
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
-nnoremap <silent> <Esc> :nohlsearch<CR><Esc>
+nnoremap <Leader>o <C-w>o
+
+" Close buffer, and disable intrusive BuffKill mappings
+let g:BufKillCreateMappings = 0
+nmap <Leader>c :BD<CR>
+
+" Next/prev git change, and disable intrusive GitGutter mappings
+let g:gitgutter_map_keys = 0
+nmap [c <Plug>GitGutterPrevHunk
+nmap ]c <Plug>GitGutterNextHunk
+
+" Fzf fuzzy finder
+nmap <Leader>f :GFiles<CR>
+nmap <Leader>F :Files<CR>
+nmap <Leader>t :BTags<CR>
+nmap <Leader>T :Tags<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>l :BLines<CR>
+nmap <Leader>L :Lines<CR>
+nmap <Leader>h :History<CR>
+nmap <Leader><Leader>h: :History:<CR>
+nmap <Leader><Leader>h/ :History/<CR>
+nmap <Leader>H :Helptags!<CR>
+nmap <Leader>m :Marks<CR>
+nmap <Leader>M :Maps<CR>
+nmap <Leader>s :Snippets<CR>
+nmap <Leader>ss :Filetypes<CR>
+
+" Run tests
+nmap <Leader>rs :w<CR>:TestSuite<CR>
+nmap <Leader>rf :w<CR>:TestFile<CR>
+nmap <Leader>rl :w<CR>:TestLast<CR>
+nmap <Leader>rn :w<CR>:TestNearest<CR>
+
+" Panel toggles
 nmap <Leader><Tab> :NERDTreeToggle<CR>
 nmap <Leader><Leader><Tab> :NERDTree<CR>
 nmap <Leader><Leader><Tab>f :NERDTreeFind<CR>zz
 nmap <Leader>\ :TagbarToggle<CR>
 nmap <Leader>u :UndotreeToggle<CR>
-nmap <Leader>w :w<CR>
-nmap <Leader>p :GFiles<CR>
-nmap <Leader>P :Files<CR>
-nmap <Leader>r :BTags<CR>
-nmap <Leader>R :Tags<CR>
-nmap <Leader>t :Files<CR>:BTags<CR> " wot to remap this to?
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>h :History<CR>
-nmap <Leader>s :Snippets<CR>
+let g:lt_quickfix_list_toggle_map = '<Leader>q'
+let g:lt_location_list_toggle_map = '<Leader><Leader>l'
+
+" Delete text on line
 nmap <Leader>d ddO<Esc>
-nmap <Leader>o o<Esc>O
-nmap <Leader>ss :Filetypes<CR>
-nmap <Leader>ts :w<CR>:TestSuite<CR>
-nmap <Leader>tf :w<CR>:TestFile<CR>
-nmap <Leader>tl :w<CR>:TestLast<CR>
-nmap <Leader>tn :w<CR>:TestNearest<CR>
+
+" Open lines, but stay in normal mode
+nmap <S-CR> O<Esc>
+nmap <CR> o<Esc>
+
+" Quickly append semicolon or comma
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
-nnoremap <Leader>/** :call pdv#DocumentWithSnip()<CR>
+" Add a bit of breathing room around zt and zb
+nmap zt zt<C-y><C-y>
+nmap zb zb<C-e><C-e>
 
-nmap zt zt<C-y><C-y> " Scroll a bit of breathing room before line after zt
-nmap zb zb<C-e><C-e> " Scroll a bit of breathing room after line after zb
+" Keep visual selection when indenting
+xnoremap > >gv
+xnoremap < <gv
 
-xnoremap > >gvh " Smarter indent
-xnoremap < <gvh " Smarter unindent
-
+" Move line(s) up and down
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 inoremap <C-j> <Esc>:m .+1<CR>==gi
@@ -94,20 +139,19 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-" The GitGutter leader mappings are a bit intrusive, so only map what I use.
-let g:gitgutter_map_keys=0
-nmap [c <Plug>GitGutterPrevHunk
-nmap ]c <Plug>GitGutterNextHunk
+" EasyAlign
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
+" UltiSnips
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-let g:BufKillCreateMappings = 0
+" Generate PHP docblock
+nnoremap <Leader>/** :call pdv#DocumentWithSnip()<CR>
 
-nmap ga <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
 
 " ------------------------------------------------------------------------------
 " Settings
@@ -127,9 +171,6 @@ call matchadd('ColorColumn', '\%121v', 100)    " Only show 121st character on li
 
 let g:NERDTreeWinSize=45
 
-let g:lt_location_list_toggle_map = '<leader>l'
-let g:lt_quickfix_list_toggle_map = '<leader>q'
-
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
 if executable('ag')
@@ -146,6 +187,7 @@ let g:syntastic_error_symbol = '!'
 let g:syntastic_warning_symbol = '!'
 let g:syntastic_style_error_symbol = '!'
 let g:syntastic_style_warning_symbol = '!'
+
 
 " ------------------------------------------------------------------------------
 " Theming
@@ -174,12 +216,14 @@ highlight SyntasticWarningSign ctermbg=none ctermfg=magenta
 highlight SyntasticStyleErrorSign ctermbg=none ctermfg=red
 highlight SyntasticStyleWarningSign ctermbg=none ctermfg=magenta
 
+
 " ------------------------------------------------------------------------------
 " Commands
 " ------------------------------------------------------------------------------
 
 command! Vimrc edit $MYVIMRC
 command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
 
 " ------------------------------------------------------------------------------
 " Auto Commands
@@ -191,6 +235,7 @@ augroup autocommands
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime " Trigger autoread and/or ask to load file
   autocmd BufEnter * EnableStripWhitespaceOnSave
   autocmd BufReadPost quickfix nested nmap <buffer> <CR> <CR>
+  autocmd FileType help wincmd o
   autocmd User GoyoEnter nested call <SID>goyo_enter()
   autocmd User GoyoLeave nested call <SID>goyo_leave()
 augroup END
@@ -210,6 +255,7 @@ augroup filetypesettings
   autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
 augroup END
 
+
 " ------------------------------------------------------------------------------
 " Fzf
 " ------------------------------------------------------------------------------
@@ -227,6 +273,7 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
+
 
 " ------------------------------------------------------------------------------
 " Experimenting
@@ -246,10 +293,6 @@ if !exists("*s:goyo_leave")
 endif
 
 let g:limelight_conceal_ctermfg = 'black'
-
-map <D-s> <Esc>:w<CR>
-map <M-s> <Esc>:w<CR>
-map <C-s> <Esc>:w<CR>
 
 if has("gui_running")
   set guioptions=
