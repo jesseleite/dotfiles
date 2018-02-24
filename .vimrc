@@ -226,18 +226,16 @@ command! Vimrc edit $MYVIMRC
 " Auto Commands
 " ------------------------------------------------------------------------------
 
-augroup autocommands
+augroup misc_commands
   autocmd!
-  autocmd BufWritePost .vimrc source %
+  autocmd BufWritePost .vimrc source % " Auto source vimrc
+  autocmd FileType help wincmd o " Always fullscreen help window
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime " Trigger autoread and/or ask to load file
-  autocmd BufEnter * EnableStripWhitespaceOnSave
+  autocmd BufEnter * EnableStripWhitespaceOnSave " Remove whitespace on save
   autocmd BufReadPost quickfix nested nmap <buffer> <CR> <CR>
-  autocmd FileType help wincmd o
-  autocmd User GoyoEnter nested call <SID>goyo_enter()
-  autocmd User GoyoLeave nested call <SID>goyo_leave()
 augroup END
 
-augroup filetypesettings
+augroup filetype_settings
   autocmd!
   autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
   autocmd FileType vue setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s
@@ -278,6 +276,19 @@ command! -bang -nargs=+ -complete=dir Agr
 " ------------------------------------------------------------------------------
 " Experimenting
 " ------------------------------------------------------------------------------
+
+ " Hacky workaround to Hyper from pasting clipboard randomly when opening buffers
+augroup hyper_hacks
+  autocmd!
+  autocmd BufEnter * silent! earlier 1f
+  autocmd BufReadPost * silent! earlier 1f
+augroup END
+
+augroup goyo_events
+  autocmd!
+  autocmd User GoyoEnter nested call <SID>goyo_enter()
+  autocmd User GoyoLeave nested call <SID>goyo_leave()
+augroup END
 
 if !exists("*s:goyo_enter")
   function! s:goyo_enter()
