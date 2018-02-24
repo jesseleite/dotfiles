@@ -309,5 +309,3 @@ if has("gui_running")
   set guifont=Menlo\ LG100
 endif
 
-" rr ag function ideas?
-" --ignore-dir resources/assets/js/vendors
