@@ -269,11 +269,8 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-let b:fzf_default_search_options = {'options': '--delimiter :'}
-  " Note: Junegunn also recommended '--nth 4..', but that was messing with extended search mode.
-
 command! -bang -nargs=+ -complete=dir Agr
-  \ call fzf#vim#ag_raw(<q-args>, b:fzf_default_search_options, <bang>0)
+  \ call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter :'}, <bang>0)
 
 " ------------------------------------------------------------------------------
 " Experimenting
