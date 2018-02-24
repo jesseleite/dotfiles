@@ -18,8 +18,8 @@ Plug 'mbbill/undotree'                " Undo tree
 Plug 'Valloric/ListToggle'            " Quickfix/Location toggler
 Plug '/usr/local/opt/fzf'             " Fzf fuzzy finder
 Plug 'junegunn/fzf.vim'               " Fzf vim wrapper
-Plug 'tpope/vim-fugitive'             " Git commands
 Plug 'airblade/vim-gitgutter'         " Git gutters
+Plug 'tpope/vim-fugitive'             " Git commands
 Plug 'tpope/vim-rhubarb'              " Github commands
 Plug 'sheerun/vim-polyglot'           " Language pack
 Plug 'vim-syntastic/syntastic'        " Linter wrapper
@@ -30,16 +30,17 @@ Plug 'jiangmiao/auto-pairs'           " Insert brackets, quotes, etc. in pairs
 Plug 'ervandew/supertab'              " Tab completion
 Plug 'SirVer/ultisnips'               " Snippets
 Plug 'ntpeters/vim-better-whitespace' " Highlight and trim whitespace
-Plug 'mattn/emmet-vim'                " HTML/CSS expand abbreviation magic
+Plug 'tpope/vim-unimpaired'           " Handy bracket mappings
 Plug 'tpope/vim-surround'             " Surround commands
+Plug 'tpope/vim-repeat'               " Better . repeating
 Plug 'qpkorr/vim-bufkill'             " Close buffer without closing window or split
 Plug 'junegunn/goyo.vim'              " Distraction free writing
-Plug 'junegunn/limelight.vim'         " Hyper focus writing
 Plug 'junegunn/vim-easy-align'        " Text alignment
-Plug 'tpope/vim-unimpaired'           " Handy bracket mappings
+Plug 'junegunn/limelight.vim'         " Hyper focus writing
 Plug 'tobyS/vmustache'                " PHP docblocks dependency
 Plug 'tobyS/pdv'                      " PHP docblocks
 Plug 'arnaud-lb/vim-php-namespace'    " PHP namespace importer
+Plug 'mattn/emmet-vim'                " HTML/CSS expand abbreviation magic
 
 call plug#end()
 
