@@ -98,7 +98,7 @@ nmap <Leader>ss :Filetypes<CR>
 
 " Search project
 nmap <Leader><Leader>f :Ag<Space>
-nmap <Leader><Leader>F :Agr --skip-vcs-ignores<Space>
+nmap <Leader><Leader>F :Agr<Space>
 
 " Run tests
 nmap <Leader>rs :w<CR>:TestSuite<CR>
