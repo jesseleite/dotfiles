@@ -255,7 +255,7 @@ augroup END
 " Fzf
 " ------------------------------------------------------------------------------
 
-let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+let $FZF_DEFAULT_OPTS = '--extended --bind ctrl-a:select-all'
 
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
@@ -269,9 +269,11 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-command! -bang -nargs=+ -complete=dir Agr
-  \ call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+let b:fzf_default_search_options = {'options': '--delimiter :'}
+  " Note: Junegunn also recommended '--nth 4..', but that was messing with extended search mode.
 
+command! -bang -nargs=+ -complete=dir Agr
+  \ call fzf#vim#ag_raw(<q-args>, b:fzf_default_search_options, <bang>0)
 
 " ------------------------------------------------------------------------------
 " Experimenting
