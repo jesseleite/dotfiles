@@ -18,7 +18,6 @@ Plug 'mbbill/undotree'                " Undo tree
 Plug 'Valloric/ListToggle'            " Quickfix/Location toggler
 Plug '/usr/local/opt/fzf'             " Fzf fuzzy finder
 Plug 'junegunn/fzf.vim'               " Fzf vim wrapper
-Plug 'mileszs/ack.vim'                " Ag search wrapper
 Plug 'tpope/vim-fugitive'             " Git commands
 Plug 'airblade/vim-gitgutter'         " Git gutters
 Plug 'tpope/vim-rhubarb'              " Github commands
@@ -97,6 +96,10 @@ nmap <Leader>M :Maps<CR>
 nmap <Leader>s :Snippets<CR>
 nmap <Leader>ss :Filetypes<CR>
 
+" Search project
+nmap <Leader><Leader>f :Ag<Space>
+nmap <Leader><Leader>F :Agr --skip-vcs-ignores<Space>
+
 " Run tests
 nmap <Leader>rs :w<CR>:TestSuite<CR>
 nmap <Leader>rf :w<CR>:TestFile<CR>
@@ -173,11 +176,6 @@ let g:NERDTreeWinSize=45
 
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-  let g:ackhighlight = 1
-endif
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
@@ -222,7 +220,6 @@ highlight SyntasticStyleWarningSign ctermbg=none ctermfg=magenta
 " ------------------------------------------------------------------------------
 
 command! Vimrc edit $MYVIMRC
-command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 
 " ------------------------------------------------------------------------------
@@ -273,6 +270,9 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+command! -bang -nargs=+ -complete=dir Agr
+  \ call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 
 " ------------------------------------------------------------------------------
