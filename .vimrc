@@ -111,8 +111,8 @@ nmap <Leader><Tab> :NERDTreeToggle<CR>
 nmap <Leader><Leader><Tab> :NERDTree<CR>
 nmap <Leader><Leader><Tab>f :NERDTreeFind<CR>zz
 nmap <Leader>\ :TagbarToggle<CR>
-nmap <Leader>u :UndotreeToggle<CR>
-let g:lt_quickfix_list_toggle_map = '<Leader>q'
+nmap <Leader><Leader>u :UndotreeToggle<CR>
+let g:lt_quickfix_list_toggle_map = '<Leader><Leader>q'
 let g:lt_location_list_toggle_map = '<Leader><Leader>l'
 
 " Delete text on line
