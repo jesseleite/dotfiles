@@ -101,8 +101,7 @@ nmap <Leader>s :Filetypes<CR>
 nmap <Leader>S :Snippets<CR>
 
 " Ag search project
-nmap <Leader>a :Ag<Space>
-nmap <Leader>A :AgRaw<Space>
+nmap <Leader>a :AgRaw<Space>
 
 " Run tests
 nmap <Leader>rs :w<CR>:TestSuite<CR>
