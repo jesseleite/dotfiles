@@ -31,4 +31,6 @@ Execute (SmartQuoteCliSearchInput hands off with options and path):
   AssertEqual "'func.*\ index' -Q vendor/package", g:SmartQuoteCliSearchInput("'func.*\ index' -Q vendor/package")
   AssertEqual '-Q "func.*\ index" vendor/package', g:SmartQuoteCliSearchInput('-Q "func.*\ index" vendor/package')
   AssertEqual '"func.*\ index" -Q vendor/package', g:SmartQuoteCliSearchInput('"func.*\ index" -Q vendor/package')
+  AssertEqual '-Q func.*\ index vendor/package', g:SmartQuoteCliSearchInput('-Q func.*\ index vendor/package')
+  AssertEqual 'func.*\ index -Q vendor/package', g:SmartQuoteCliSearchInput('func.*\ index -Q vendor/package')
 
