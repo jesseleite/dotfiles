@@ -264,7 +264,11 @@ function! SmartQuoteAgInput(input)
   let hasPath = match(a:input, '\\ .*\ ') > 0
     \ || match(' ' . a:input, "'.*'\ ") > 0
     \ || match(' ' . a:input, '".*"\ ') > 0
-  return hasOptions || hasPath ? a:input : "'" . a:input . "'"
+  let isAlreadyQuoted = match(a:input, "^'") > -1
+    \ || match(a:input, '^"') > -1
+    \ || match(a:input, '"$') > 0
+    \ || match(a:input, "'$") > 0
+  return hasOptions || hasPath || isAlreadyQuoted ? a:input : "'" . a:input . "'"
 endfunction
 
 function! AgRawSmartQuote(input, bang)
