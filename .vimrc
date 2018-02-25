@@ -268,7 +268,7 @@ function! SmartQuoteCliSearchInput(input)
     \ || match(a:input, '^"') > -1
     \ || match(a:input, '"$') > 0
     \ || match(a:input, "'$") > 0
-  return hasOptions || hasPath || isAlreadyQuoted ? a:input : "'" . a:input . "'"
+  return hasOptions || hasPath || isAlreadyQuoted ? a:input : '"' . a:input . '"'
 endfunction
 
 command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(SmartQuoteCliSearchInput(<q-args>), <bang>0)
