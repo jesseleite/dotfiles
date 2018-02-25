@@ -85,6 +85,7 @@ nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
 nmap <Leader>t :BTags<CR>
 nmap <Leader>T :Tags<CR>
+" nmap <Leader>m :Methods<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>l :BLines<CR>
 nmap <Leader>L :Lines<CR>
@@ -257,7 +258,19 @@ augroup END
 " # Fzf
 " ------------------------------------------------------------------------------
 
-command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(<q-args>, <bang>0)
+function! AgRawSmartQuote(input, bang)
+  let hasOptions = match('  ' . a:input, '\s-') > 0
+  let hasPath = match(a:input, '\\ .*\ ') > 0
+    \ || match(' ' . a:input, "'.*'\ ") > 0
+    \ || match(' ' . a:input, '".*"\ ') > 0
+  let input = hasOptions || hasPath ? a:input : "'" . a:input . "'"
+  call fzf#vim#ag_raw(input, a:bang)
+endfunction
+
+command! -bang -nargs=+ -complete=dir AgRaw call AgRawSmartQuote(<q-args>, <bang>0)
+
+" command! -bang -nargs=+ Methods
+"   \ call fzf#vim#buffer_tags(<q-args>, { 'options': ['--nth', '..-2,-1', '--query', '^f$ '] })
 
 
 " ------------------------------------------------------------------------------
