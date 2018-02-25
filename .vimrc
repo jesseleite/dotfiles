@@ -195,21 +195,21 @@ let g:syntastic_style_warning_symbol = '!'
 "let base16colorspace=256
 colorscheme base16-monokai
 set hlsearch
-highlight Normal ctermbg=none                                 " Use terminal background
-highlight NonText ctermbg=none                                " Use terminal background
-highlight Search ctermbg=blue ctermfg=white                   " Search matches
-highlight Visual ctermbg=black ctermfg=white                  " Visual selection
-highlight LineNr ctermbg=none                                 " Gutter
-highlight CursorLineNR ctermbg=green ctermfg=none             " Gutter
-highlight SignColumn ctermbg=none                             " Git gutter
-highlight ColorColumn ctermbg=black                          " Highlighting
-highlight GitGutterAdd ctermbg=none ctermfg=green             " Git gutter
-highlight GitGutterChange ctermbg=none ctermfg=yellow         " Git gutter
-highlight GitGutterDelete ctermbg=none ctermfg=red            " Git gutter
-highlight GitGutterChangeDelete ctermbg=none ctermfg=red      " Git gutter
-highlight VertSplit ctermbg=none ctermfg=none                 " Vert split
-highlight CursorLine ctermbg=black ctermfg=none               " Cursor line for nerd tree?
-highlight QuickFixLine ctermbg=black ctermfg=none             " Quickfix selection
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight Search ctermbg=blue ctermfg=white
+highlight Visual ctermbg=black ctermfg=white
+highlight LineNr ctermbg=none
+highlight CursorLineNR ctermbg=green ctermfg=none
+highlight SignColumn ctermbg=none
+highlight ColorColumn ctermbg=black
+highlight GitGutterAdd ctermbg=none ctermfg=green
+highlight GitGutterChange ctermbg=none ctermfg=yellow
+highlight GitGutterDelete ctermbg=none ctermfg=red
+highlight GitGutterChangeDelete ctermbg=none ctermfg=red
+highlight VertSplit ctermbg=none ctermfg=none
+highlight CursorLine ctermbg=black ctermfg=none
+highlight QuickFixLine ctermbg=black ctermfg=none
 highlight SyntasticErrorSign ctermbg=none ctermfg=red
 highlight SyntasticWarningSign ctermbg=none ctermfg=magenta
 highlight SyntasticStyleErrorSign ctermbg=none ctermfg=red
