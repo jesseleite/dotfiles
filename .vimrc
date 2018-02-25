@@ -260,15 +260,10 @@ augroup END
 " ------------------------------------------------------------------------------
 
 function! SmartQuoteCliSearchInput(input)
-  let hasOptions = match('  ' . a:input, '\s-') > 0
-  let hasPath = match(a:input, '\\ .*\ ') > 0
-    \ || match(' ' . a:input, "'.*'\ ") > 0
-    \ || match(' ' . a:input, '".*"\ ') > 0
-  let isAlreadyQuoted = match(a:input, "^'") > -1
-    \ || match(a:input, '^"') > -1
-    \ || match(a:input, '"$') > 0
-    \ || match(a:input, "'$") > 0
-  return hasOptions || hasPath || isAlreadyQuoted ? a:input : '"' . a:input . '"'
+  let hasQuotes = match(a:input, '"') > -1 || match(a:input, "'") > -1
+  let hasOptions = match(' ' . a:input, '\s-') > -1
+  let hasEscapedSpacesPlusPath = match(a:input, '\\ .*\ ') > 0
+  return hasQuotes || hasOptions || hasEscapedSpacesPlusPath ? a:input : '"' . a:input . '"'
 endfunction
 
 command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(SmartQuoteCliSearchInput(<q-args>), <bang>0)
