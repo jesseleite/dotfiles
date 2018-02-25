@@ -1,0 +1,21 @@
+Execute (SmartQuoteAgInput without options or paths):
+  AssertEqual "'func.* index'", g:SmartQuoteAgInput("func.* index")
+
+Execute (SmartQuoteAgInput with options):
+  AssertEqual "-Q 'func.* index'", g:SmartQuoteAgInput("-Q 'func.* index'")
+  AssertEqual '-Q "func.* index"', g:SmartQuoteAgInput('-Q "func.* index"')
+  AssertEqual "'func.* index' -Q", g:SmartQuoteAgInput("'func.* index' -Q")
+  AssertEqual '"func.* index" -Q', g:SmartQuoteAgInput('"func.* index" -Q')
+  AssertEqual '-Q func.*\ index', g:SmartQuoteAgInput('-Q func.*\ index')
+  AssertEqual 'func.*\ index -Q', g:SmartQuoteAgInput('func.*\ index -Q')
+  AssertEqual "-Q 'func.* index' -i", g:SmartQuoteAgInput("-Q 'func.* index' -i")
+  AssertEqual '-Q "func.* index" -i', g:SmartQuoteAgInput('-Q "func.* index" -i')
+  AssertEqual '-Q func.*\ index -i', g:SmartQuoteAgInput('-Q func.*\ index -i')
+
+Execute (SmartQuoteAgInput with path):
+  AssertEqual "'func.* index' vendor/package", g:SmartQuoteAgInput("'func.* index' vendor/package")
+  AssertEqual '"func.* index" vendor/package', g:SmartQuoteAgInput('"func.* index" vendor/package')
+  AssertEqual 'func.*\ index vendor/package', g:SmartQuoteAgInput('func.*\ index vendor/package')
+  AssertEqual "-Q 'func.* index' vendor/package", g:SmartQuoteAgInput("-Q 'func.* index' vendor/package")
+  AssertEqual "'func.* index' -Q vendor/package", g:SmartQuoteAgInput("'func.* index' -Q vendor/package")
+

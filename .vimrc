@@ -41,6 +41,7 @@ Plug 'tobyS/vmustache'                " PHP docblocks dependency
 Plug 'tobyS/pdv'                      " PHP docblocks
 Plug 'arnaud-lb/vim-php-namespace'    " PHP namespace importer
 Plug 'mattn/emmet-vim'                " HTML/CSS expand abbreviation magic
+Plug 'junegunn/vader.vim'
 
 call plug#end()
 
@@ -258,13 +259,16 @@ augroup END
 " # Fzf
 " ------------------------------------------------------------------------------
 
-function! AgRawSmartQuote(input, bang)
+function! SmartQuoteAgInput(input)
   let hasOptions = match('  ' . a:input, '\s-') > 0
   let hasPath = match(a:input, '\\ .*\ ') > 0
     \ || match(' ' . a:input, "'.*'\ ") > 0
     \ || match(' ' . a:input, '".*"\ ') > 0
-  let input = hasOptions || hasPath ? a:input : "'" . a:input . "'"
-  call fzf#vim#ag_raw(input, a:bang)
+  return hasOptions || hasPath ? a:input : "'" . a:input . "'"
+endfunction
+
+function! AgRawSmartQuote(input, bang)
+  call fzf#vim#ag_raw(SmartQuoteAgInput(a:input), a:bang)
 endfunction
 
 command! -bang -nargs=+ -complete=dir AgRaw call AgRawSmartQuote(<q-args>, <bang>0)
