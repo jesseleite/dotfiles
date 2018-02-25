@@ -1,6 +1,9 @@
 Execute (SmartQuoteAgInput auto quotes without options or path):
   AssertEqual "'func.* index'", g:SmartQuoteAgInput("func.* index")
 
+Execute (SmartQuoteAgInput already escaped without options or path):
+  AssertEqual "func.*\\ index", g:SmartQuoteAgInput("func.*\\ index")
+
 Execute (SmartQuoteAgInput already quoted without options or path):
   AssertEqual "'func.* index'", g:SmartQuoteAgInput("'func.* index'")
   AssertEqual '"func.* index"', g:SmartQuoteAgInput('"func.* index"')
