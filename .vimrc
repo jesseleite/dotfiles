@@ -229,7 +229,7 @@ command! Vimrc edit $MYVIMRC
 
 augroup misc_commands
   autocmd!
-  autocmd BufWritePost .vimrc source %
+  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
   autocmd BufWinEnter * if &l:buftype ==# 'help' | wincmd o | endif
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
   autocmd BufEnter * EnableStripWhitespaceOnSave
@@ -263,12 +263,11 @@ command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(<q-args>, <bang>
 " # Experimenting
 " ------------------------------------------------------------------------------
 
- " Hacky workaround to Hyper from pasting clipboard randomly when opening buffers
-" augroup hyper_hacks
-"   autocmd!
-"   autocmd BufEnter * silent! earlier 1f
-"   autocmd BufReadPost * silent! earlier 1f
-" augroup END
+" Hacky workaround to Hyper from pasting clipboard randomly when opening buffers
+augroup hyper_hacks
+  autocmd!
+  autocmd VimEnter * silent! earlier 1f
+augroup END
 
 augroup goyo_events
   autocmd!
