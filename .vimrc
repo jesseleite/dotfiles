@@ -264,11 +264,11 @@ command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(<q-args>, <bang>
 " ------------------------------------------------------------------------------
 
  " Hacky workaround to Hyper from pasting clipboard randomly when opening buffers
-augroup hyper_hacks
-  autocmd!
-  autocmd BufEnter * silent! earlier 1f
-  autocmd BufReadPost * silent! earlier 1f
-augroup END
+" augroup hyper_hacks
+"   autocmd!
+"   autocmd BufEnter * silent! earlier 1f
+"   autocmd BufReadPost * silent! earlier 1f
+" augroup END
 
 augroup goyo_events
   autocmd!
