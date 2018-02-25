@@ -256,22 +256,8 @@ augroup END
 " # Fzf
 " ------------------------------------------------------------------------------
 
-let $FZF_DEFAULT_OPTS = '--extended --bind ctrl-a:select-all'
+command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(<q-args>, <bang>0)
 
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-command! -bang -nargs=+ -complete=dir AgRaw
-  \ call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter :'}, <bang>0)
 
 " ------------------------------------------------------------------------------
 " # Experimenting
