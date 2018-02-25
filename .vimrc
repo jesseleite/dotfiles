@@ -259,7 +259,7 @@ augroup END
 " # Fzf
 " ------------------------------------------------------------------------------
 
-function! SmartQuoteAgInput(input)
+function! SmartQuoteCliSearchInput(input)
   let hasOptions = match('  ' . a:input, '\s-') > 0
   let hasPath = match(a:input, '\\ .*\ ') > 0
     \ || match(' ' . a:input, "'.*'\ ") > 0
@@ -271,7 +271,7 @@ function! SmartQuoteAgInput(input)
   return hasOptions || hasPath || isAlreadyQuoted ? a:input : "'" . a:input . "'"
 endfunction
 
-command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(SmartQuoteAgInput(<q-args>), <bang>0)
+command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(SmartQuoteCliSearchInput(<q-args>), <bang>0)
 
 " command! -bang -nargs=+ Methods
 "   \ call fzf#vim#buffer_tags(<q-args>, { 'options': ['--nth', '..-2,-1', '--query', '^f$ '] })
