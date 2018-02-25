@@ -80,7 +80,7 @@ let g:gitgutter_map_keys = 0
 nmap [c <Plug>GitGutterPrevHunk
 nmap ]c <Plug>GitGutterNextHunk
 
-" Fzf fuzzy finder
+" Fzf fuzzy finders
 nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
 nmap <Leader>t :BTags<CR>
@@ -92,10 +92,11 @@ nmap <Leader>h :History<CR>
 nmap <Leader><Leader>h: :History:<CR>
 nmap <Leader><Leader>h/ :History/<CR>
 nmap <Leader>H :Helptags!<CR>
-nmap <Leader>m :Marks<CR>
 nmap <Leader>M :Maps<CR>
-nmap <Leader>s :Snippets<CR>
-nmap <Leader>ss :Filetypes<CR>
+nmap <Leader>C :Commands<CR>
+nmap <Leader>' :Marks<CR>
+nmap <Leader>s :Filetypes<CR>
+nmap <Leader>S :Snippets<CR>
 
 " Ag search project
 nmap <Leader>a :Ag<Space>
