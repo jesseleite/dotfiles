@@ -271,11 +271,7 @@ function! SmartQuoteAgInput(input)
   return hasOptions || hasPath || isAlreadyQuoted ? a:input : "'" . a:input . "'"
 endfunction
 
-function! AgRawSmartQuote(input, bang)
-  call fzf#vim#ag_raw(SmartQuoteAgInput(a:input), a:bang)
-endfunction
-
-command! -bang -nargs=+ -complete=dir AgRaw call AgRawSmartQuote(<q-args>, <bang>0)
+command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(SmartQuoteAgInput(<q-args>), <bang>0)
 
 " command! -bang -nargs=+ Methods
 "   \ call fzf#vim#buffer_tags(<q-args>, { 'options': ['--nth', '..-2,-1', '--query', '^f$ '] })
