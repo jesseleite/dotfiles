@@ -97,9 +97,9 @@ nmap <Leader>M :Maps<CR>
 nmap <Leader>s :Snippets<CR>
 nmap <Leader>ss :Filetypes<CR>
 
-" Search project
-nmap <Leader><Leader>f :Ag<Space>
-nmap <Leader><Leader>F :Agr<Space>
+" Ag search project
+nmap <Leader>a :Ag<Space>
+nmap <Leader>A :AgRaw<Space>
 
 " Run tests
 nmap <Leader>rs :w<CR>:TestSuite<CR>
@@ -270,7 +270,7 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-command! -bang -nargs=+ -complete=dir Agr
+command! -bang -nargs=+ -complete=dir AgRaw
   \ call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter :'}, <bang>0)
 
 " ------------------------------------------------------------------------------
