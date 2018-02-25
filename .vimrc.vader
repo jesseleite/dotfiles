@@ -1,5 +1,7 @@
 Execute (SmartQuoteAgInput without options or paths):
   AssertEqual "'func.* index'", g:SmartQuoteAgInput("func.* index")
+  AssertEqual "'func.* index'", g:SmartQuoteAgInput("'func.* index'")
+  AssertEqual '"func.* index"', g:SmartQuoteAgInput('"func.* index"')
 
 Execute (SmartQuoteAgInput with options):
   AssertEqual "-Q 'func.* index'", g:SmartQuoteAgInput("-Q 'func.* index'")
