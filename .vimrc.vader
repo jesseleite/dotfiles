@@ -4,7 +4,7 @@ Execute (SmartQuoteCliSearchInput auto quotes without options or path):
 
 Execute (SmartQuoteCliSearchInput hands off when already quoted):
   AssertEqual "'func.* index'", g:SmartQuoteCliSearchInput("'func.* index'")
-  AssertEqual '"func.*\\ index"', g:SmartQuoteCliSearchInput('"func.*\\ index"')
+  AssertEqual '"func.*\ index"', g:SmartQuoteCliSearchInput('"func.*\ index"')
 
 Execute (SmartQuoteCliSearchInput hands off with options only):
   AssertEqual "-Q 'func.* index'", g:SmartQuoteCliSearchInput("-Q 'func.* index'")
@@ -27,8 +27,8 @@ Execute (SmartQuoteCliSearchInput hands off with options and path):
   AssertEqual "'func.* index' -Q vendor/package", g:SmartQuoteCliSearchInput("'func.* index' -Q vendor/package")
   AssertEqual '-Q "func.* index" vendor/package', g:SmartQuoteCliSearchInput('-Q "func.* index" vendor/package')
   AssertEqual '"func.* index" -Q vendor/package', g:SmartQuoteCliSearchInput('"func.* index" -Q vendor/package')
-  AssertEqual "-Q 'func.*\ index' vendor/package", g:SmartQuoteCliSearchInput("-Q 'func.*\ index' vendor/package")
-  AssertEqual "'func.*\ index' -Q vendor/package", g:SmartQuoteCliSearchInput("'func.*\ index' -Q vendor/package")
+  AssertEqual "-Q 'func.*\\ index' vendor/package", g:SmartQuoteCliSearchInput("-Q 'func.*\\ index' vendor/package")
+  AssertEqual "'func.*\\ index' -Q vendor/package", g:SmartQuoteCliSearchInput("'func.*\\ index' -Q vendor/package")
   AssertEqual '-Q "func.*\ index" vendor/package', g:SmartQuoteCliSearchInput('-Q "func.*\ index" vendor/package')
   AssertEqual '"func.*\ index" -Q vendor/package', g:SmartQuoteCliSearchInput('"func.*\ index" -Q vendor/package')
   AssertEqual '-Q func.*\ index vendor/package', g:SmartQuoteCliSearchInput('-Q func.*\ index vendor/package')
