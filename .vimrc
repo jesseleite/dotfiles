@@ -101,7 +101,7 @@ nmap <Leader>s :Filetypes<CR>
 nmap <Leader>S :Snippets<CR>
 
 " Ag search project
-nmap <Leader>a :AgRaw<Space>
+nmap <Leader>a :AgSmart<Space>
 
 " Run tests
 nmap <Leader>rs :w<CR>:TestSuite<CR>
@@ -265,10 +265,18 @@ function! SmartQuoteCliSearchInput(input)
   return hasQuotes || hasOptions || hasEscapedSpacesPlusPath ? a:input : '"' . a:input . '"'
 endfunction
 
-command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(SmartQuoteCliSearchInput(<q-args>), <bang>0)
+command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(<q-args>, <bang>0)
+command! -bang -nargs=+ -complete=dir AgSmart call fzf#vim#ag_raw(SmartQuoteCliSearchInput(<q-args>), <bang>0)
 
-" command! -bang -nargs=+ Methods
-"   \ call fzf#vim#buffer_tags(<q-args>, { 'options': ['--nth', '..-2,-1', '--query', '^f$ '] })
+" :Ag is nice because you can perform multi word queries (eg. function index) quickly without having to escape spaces
+" or wrap your query in quotes.  However, :Ag won't let you pass options or path to ag, rg, etc. under the hood.
+"
+" :AgRaw is nice because you can pass options and path to ag, rg, etc., but you are always required to escape spaces or
+" wrap your multi word queries in quotes.
+"
+" :AgSmart tries to bring the best of both to one command.  If your search query doesn't contain any detectable options
+" or path, your query will automatically be wrapped with quotes under the hood.  However if you pass any options, pass a
+" path after a space escaped query, or use any quotes at all, it will stay out of your way and behave like :AgRaw.
 
 
 " ------------------------------------------------------------------------------
@@ -307,3 +315,5 @@ if has("gui_running")
   set guifont=Menlo\ LG100
 endif
 
+" command! -bang -nargs=+ Methods
+"   \ call fzf#vim#buffer_tags(<q-args>, { 'options': ['--nth', '..-2,-1', '--query', '^f$ '] })
