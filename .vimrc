@@ -229,10 +229,10 @@ command! Vimrc edit $MYVIMRC
 
 augroup misc_commands
   autocmd!
-  autocmd BufWritePost .vimrc source % " Auto source vimrc
+  autocmd BufWritePost .vimrc source %
   autocmd BufWinEnter * if &l:buftype ==# 'help' | wincmd o | endif
-  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime " Trigger autoread and/or ask to load file
-  autocmd BufEnter * EnableStripWhitespaceOnSave " Remove whitespace on save
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
+  autocmd BufEnter * EnableStripWhitespaceOnSave
   autocmd BufReadPost quickfix nested nmap <buffer> <CR> <CR>
 augroup END
 
