@@ -35,13 +35,13 @@ Plug 'tpope/vim-surround'             " Surround commands
 Plug 'tpope/vim-repeat'               " Better . repeating
 Plug 'qpkorr/vim-bufkill'             " Close buffer without closing window or split
 Plug 'junegunn/goyo.vim'              " Distraction free writing
-Plug 'junegunn/vim-easy-align'        " Text alignment
 Plug 'junegunn/limelight.vim'         " Hyper focus writing
+Plug 'junegunn/vim-easy-align'        " Text alignment
+Plug 'junegunn/vader.vim'             " Vimscript test framework
 Plug 'tobyS/vmustache'                " PHP docblocks dependency
 Plug 'tobyS/pdv'                      " PHP docblocks
 Plug 'arnaud-lb/vim-php-namespace'    " PHP namespace importer
 Plug 'mattn/emmet-vim'                " HTML/CSS expand abbreviation magic
-Plug 'junegunn/vader.vim'
 
 call plug#end()
 
