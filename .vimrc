@@ -64,8 +64,12 @@ map <D-s> <Esc>:w<CR>
 map <M-s> <Esc>:w<CR>
 map <C-s> <Esc>:w<CR>
 
+" Write and source, for plugin development?
+nmap <Leader><Leader>w :w<CR>:so %<CR>
+
 " Edit .vimrc
-nmap <Leader><Leader>v :Vimrc<CR>
+nmap <Leader><Leader>v :edit $MYVIMRC<CR>
+nmap <Leader><Leader>V :source $MYVIMRC<CR>
 
 " Windows
 nnoremap <Tab> <C-w>w
@@ -222,7 +226,7 @@ highlight SyntasticStyleWarningSign ctermbg=none ctermfg=magenta
 " # Commands
 " ------------------------------------------------------------------------------
 
-command! Vimrc edit $MYVIMRC
+" [crickets]
 
 
 " ------------------------------------------------------------------------------
