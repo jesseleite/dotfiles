@@ -18,6 +18,7 @@ Plug 'mbbill/undotree'                " Undo tree
 Plug 'Valloric/ListToggle'            " Quickfix/Location toggler
 Plug '/usr/local/opt/fzf'             " Fzf fuzzy finder
 Plug 'junegunn/fzf.vim'               " Fzf vim wrapper
+Plug 'jesseleite/vim-agriculture'     " Better ag search
 Plug 'airblade/vim-gitgutter'         " Git gutters
 Plug 'tpope/vim-fugitive'             " Git commands
 Plug 'tpope/vim-rhubarb'              " Github commands
@@ -105,7 +106,7 @@ nmap <Leader>s :Filetypes<CR>
 nmap <Leader>S :Snippets<CR>
 
 " Ag search project
-nmap <Leader>a :AgSmart<Space>
+nmap <Leader>a :Ag<Space>
 
 " Run tests
 nmap <Leader>rs :w<CR>:TestSuite<CR>
@@ -262,25 +263,7 @@ augroup END
 " # Fzf
 " ------------------------------------------------------------------------------
 
-function! SmartQuoteCliSearchInput(input)
-  let hasQuotes = match(a:input, '"') > -1 || match(a:input, "'") > -1
-  let hasOptions = match(' ' . a:input, '\s-') > -1
-  let hasEscapedSpacesPlusPath = match(a:input, '\\ .*\ ') > 0
-  return hasQuotes || hasOptions || hasEscapedSpacesPlusPath ? a:input : '"' . a:input . '"'
-endfunction
-
-command! -bang -nargs=+ -complete=dir AgRaw call fzf#vim#ag_raw(<q-args>, <bang>0)
-command! -bang -nargs=+ -complete=dir AgSmart call fzf#vim#ag_raw(SmartQuoteCliSearchInput(<q-args>), <bang>0)
-
-" :Ag is nice because you can perform multi word queries (eg. function index) quickly without having to escape spaces
-" or wrap your query in quotes.  However, :Ag won't let you pass options or path to ag, rg, etc. under the hood.
-"
-" :AgRaw is nice because you can pass options and path to ag, rg, etc., but you are always required to escape spaces or
-" wrap your multi word queries in quotes.
-"
-" :AgSmart tries to bring the best of both to one command.  If your search query doesn't contain any detectable options
-" or path, your query will automatically be wrapped with quotes under the hood.  However if you pass any options, pass a
-" path after a space escaped query, or use any quotes at all, it will stay out of your way and behave like :AgRaw.
+command! -bang -nargs=+ -complete=dir Ag call fzf#vim#ag_raw(agriculture#smart_quote_input(<q-args>), <bang>0)
 
 
 " ------------------------------------------------------------------------------
