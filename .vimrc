@@ -27,6 +27,7 @@ Plug 'vim-syntastic/syntastic'        " Linter wrapper
 Plug 'tpope/vim-commentary'           " Code commenting
 Plug 'ap/vim-css-color'               " CSS colour rendering
 Plug 'janko-m/vim-test'               " Test runner
+Plug 'junegunn/vim-peekaboo'          " Peek into registers
 Plug 'jiangmiao/auto-pairs'           " Insert brackets, quotes, etc. in pairs
 Plug 'ervandew/supertab'              " Tab completion
 Plug 'SirVer/ultisnips'               " Snippets
@@ -189,6 +190,8 @@ set fillchars+=vert:\ ,                        " Vertical split character
 call matchadd('ColorColumn', '\%121v', 100)    " Only show 121st character on lines that might exceed 120
 
 let g:NERDTreeWinSize=45
+
+let g:peekaboo_window = 'vertical botright 60new'
 
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
