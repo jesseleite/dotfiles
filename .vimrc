@@ -163,6 +163,14 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Generate PHP docblock
 nnoremap <Leader>/** :call pdv#DocumentWithSnip()<CR>
 
+" Disable unimpaired mappings
+let g:nremap = {"[e": "", "]e": ""}
+
+" Emmet
+imap <C-e> <plug>(emmet-expand-abbr)
+nmap ]e <plug>(emmet-move-next)
+nmap [e <plug>(emmet-move-prev)
+
 
 " ------------------------------------------------------------------------------
 " # Settings
