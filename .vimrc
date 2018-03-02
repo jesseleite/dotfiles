@@ -96,8 +96,8 @@ nmap <Leader>b :Buffers<CR>
 nmap <Leader>l :BLines<CR>
 nmap <Leader>L :Lines<CR>
 nmap <Leader>h :History<CR>
-nmap <Leader><Leader>h: :History:<CR>
-nmap <Leader><Leader>h/ :History/<CR>
+nmap <Leader>: :History:<CR>
+nmap <Leader>/ :History/<CR>
 nmap <Leader>H :Helptags!<CR>
 nmap <Leader>M :Maps<CR>
 nmap <Leader>C :Commands<CR>
@@ -161,7 +161,7 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Generate PHP docblock
-nnoremap <Leader>/** :call pdv#DocumentWithSnip()<CR>
+nnoremap <Leader>D :call pdv#DocumentWithSnip()<CR>
 
 " Disable unimpaired mappings
 let g:nremap = {"[e": "", "]e": ""}
