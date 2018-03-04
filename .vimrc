@@ -80,7 +80,7 @@ nnoremap <Leader>o <C-w>o
 
 " Close buffer, and disable intrusive BuffKill mappings
 let g:BufKillCreateMappings = 0
-nmap <Leader>c :BD<CR>
+nmap <silent> <Leader>c :BD<CR>
 
 " Next/prev git change, and disable intrusive GitGutter mappings
 let g:gitgutter_map_keys = 0
@@ -286,6 +286,13 @@ augroup hyper_hacks
   autocmd!
   autocmd VimEnter * silent! earlier 1f
 augroup END
+
+function! RecordGif()
+  let g:fzf_layout = { 'down': '~55%' }
+  let g:syntastic_mode_map = { 'mode': 'passive' }
+  :SyntasticReset
+endfunction
+command! RecordGif silent! call RecordGif()
 
 augroup goyo_events
   autocmd!
