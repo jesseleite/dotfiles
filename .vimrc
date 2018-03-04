@@ -8,6 +8,9 @@ set t_Co=256
 
 call plug#begin('~/.vim/plugged')
 
+Plug '/usr/local/opt/fzf'             " Fzf fuzzy finder
+Plug 'junegunn/fzf.vim'               " Fzf vim wrapper
+Plug 'jesseleite/vim-agriculture'     " Better ag search
 Plug 'chriskempson/base16-vim'        " Base16 theming architecture
 Plug 'vim-airline/vim-airline'        " Status line
 Plug 'vim-airline/vim-airline-themes' " Status line themes
@@ -16,9 +19,6 @@ Plug 'ludovicchabant/vim-gutentags'   " Tag generation
 Plug 'majutsushi/tagbar'              " Tag browser
 Plug 'mbbill/undotree'                " Undo tree
 Plug 'Valloric/ListToggle'            " Quickfix/Location toggler
-Plug '/usr/local/opt/fzf'             " Fzf fuzzy finder
-Plug 'junegunn/fzf.vim'               " Fzf vim wrapper
-Plug 'jesseleite/vim-agriculture'     " Better ag search
 Plug 'airblade/vim-gitgutter'         " Git gutters
 Plug 'tpope/vim-fugitive'             " Git commands
 Plug 'tpope/vim-rhubarb'              " Github commands
