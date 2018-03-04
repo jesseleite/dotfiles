@@ -151,6 +151,13 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
+" Playback macro on visual selection
+vnoremap @ :norm @
+
+" Playback macro in q register
+nnoremap <Leader>q @q
+vnoremap <Leader>q :norm @q<CR>
+
 " EasyAlign
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
