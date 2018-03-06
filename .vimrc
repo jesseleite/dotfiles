@@ -185,6 +185,8 @@ nmap [e <plug>(emmet-move-prev)
 " ------------------------------------------------------------------------------
 
 set hidden
+set nobackup
+set noswapfile
 set autoread
 set confirm
 set wildmenu
