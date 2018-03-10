@@ -62,6 +62,7 @@ cnoremap jk <C-c>
 
 " Write
 nmap <Leader>w :w<CR>
+imap jw <Esc>:w<CR>
 map <D-s> <Esc>:w<CR>
 map <M-s> <Esc>:w<CR>
 map <C-s> <Esc>:w<CR>
@@ -114,6 +115,10 @@ nmap <Leader>rs :w<CR>:TestSuite<CR>
 nmap <Leader>rf :w<CR>:TestFile<CR>
 nmap <Leader>rl :w<CR>:TestLast<CR>
 nmap <Leader>rn :w<CR>:TestNearest<CR>
+
+" Git / Github
+nmap <Leader>gbr :Gbrowse<CR>
+nmap <Leader>gbl :Gblame<CR>
 
 " Panel toggles
 nmap <Leader><Tab> :NERDTreeToggle<CR>
