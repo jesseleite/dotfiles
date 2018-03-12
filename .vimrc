@@ -160,8 +160,8 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 vnoremap @ :norm @
 
 " Playback macro in q register
-nnoremap <Leader>q @q
-vnoremap <Leader>q :norm @q<CR>
+nnoremap Q @q<CR>
+vnoremap Q :norm @q<CR>
 
 " EasyAlign
 nmap ga <Plug>(EasyAlign)
