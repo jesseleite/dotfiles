@@ -163,6 +163,12 @@ vnoremap @ :norm @
 nnoremap Q @q<CR>
 vnoremap Q :norm @q<CR>
 
+" Break undo sequence on specific characters
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
+
 " EasyAlign
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
