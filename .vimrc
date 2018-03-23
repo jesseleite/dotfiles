@@ -68,6 +68,9 @@ map <D-s> <Esc>:w<CR>
 map <M-s> <Esc>:w<CR>
 map <C-s> <Esc>:w<CR>
 
+" Write and reload chrome
+nmap <silent> <Leader>R :w<CR>:execute "!chrome-cli reload"<CR>:redraw!<CR>
+
 " Write and source, for plugin development?
 nmap <Leader><Leader>w :w<CR>:so %<CR>
 
