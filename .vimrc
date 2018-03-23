@@ -160,12 +160,10 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-" Playback macro on visual selection
-vnoremap @ :norm @
-
-" Playback macro in q register
+" Quicker macro playback
 nnoremap Q @q<CR>
-vnoremap Q :norm @q<CR>
+xnoremap Q :norm @q<CR>
+xnoremap @ :<C-u>call PlaybackMacroOverVisualRange()<CR>
 
 " Break undo sequence on specific characters
 inoremap , ,<C-g>u
@@ -256,6 +254,16 @@ highlight SyntasticErrorSign ctermbg=none ctermfg=red
 highlight SyntasticWarningSign ctermbg=none ctermfg=magenta
 highlight SyntasticStyleErrorSign ctermbg=none ctermfg=red
 highlight SyntasticStyleWarningSign ctermbg=none ctermfg=magenta
+
+
+" ------------------------------------------------------------------------------
+" # Functions
+" ------------------------------------------------------------------------------
+
+function! PlaybackMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
 
 
 " ------------------------------------------------------------------------------
