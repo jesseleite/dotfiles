@@ -90,6 +90,7 @@ alias ting="art tinker ting.php"
 alias navi="art queue:listen --tries=2"
 alias dusk="art dusk"
 alias ldocs="open http://laravel.com/docs"
+alias pls="php please"
 alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
 
