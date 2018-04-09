@@ -91,6 +91,7 @@ alias navi="art queue:listen --tries=2"
 alias dusk="art dusk"
 alias ldocs="open http://laravel.com/docs"
 alias pls="php please"
+function plscomp() { ( cd statamic && comp $* ) }
 alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
 
