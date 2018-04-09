@@ -1,5 +1,6 @@
-set nocompatible
-set t_Co=256
+" Vim 8 defaults
+unlet! skip_defaults_vim
+silent! source $VIMRUNTIME/defaults.vim
 
 
 " ------------------------------------------------------------------------------
@@ -202,12 +203,10 @@ set nobackup
 set noswapfile
 set autoread
 set confirm
-set wildmenu
 set encoding=utf-8
 set clipboard=unnamed
 set backspace=indent,eol,start
 set relativenumber
-set incsearch
 set fillchars+=vert:\ ,                        " Vertical split character
 call matchadd('ColorColumn', '\%121v', 100)    " Only show 121st character on lines that might exceed 120
 
