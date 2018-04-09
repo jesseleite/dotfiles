@@ -145,10 +145,6 @@ nmap <CR> o<Esc>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
-" Add a bit of breathing room around zt and zb
-nmap zt zt<C-y><C-y>
-nmap zb zb<C-e><C-e>
-
 " Keep visual selection when indenting
 xnoremap > >gv
 xnoremap < <gv
