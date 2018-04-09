@@ -323,6 +323,10 @@ augroup hyper_hacks
   autocmd VimEnter * silent! earlier 1f
 augroup END
 
+" Messing with yaml front matter styling
+autocmd BufNewFile,BufRead * syntax match Function /\%^---\_.\{-}---$/
+" https://github.com/inkarkat/vim-SyntaxRange
+
 function! RecordGif()
   let g:fzf_layout = { 'down': '~55%' }
   let g:syntastic_mode_map = { 'mode': 'passive' }
