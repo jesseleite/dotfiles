@@ -211,6 +211,10 @@ set incsearch
 set fillchars+=vert:\ ,                        " Vertical split character
 call matchadd('ColorColumn', '\%121v', 100)    " Only show 121st character on lines that might exceed 120
 
+" Why is this setting starting vim in replace mode?
+" It seems to have something to do with: let g:syntastic_check_on_open = 1
+" set lazyredraw
+
 let g:NERDTreeWinSize=45
 
 let g:peekaboo_window = 'vertical botright 60new'
