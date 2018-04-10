@@ -1,5 +1,8 @@
 # Ensure ~/.dotfiles exists before running this installer <3
 
+# Hush terminal login.
+touch ~/.hushlogin
+
 # Clone Oh-My-Zsh.
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
