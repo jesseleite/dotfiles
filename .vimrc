@@ -335,14 +335,20 @@ augroup goyo_events
   autocmd User GoyoLeave nested call <SID>goyo_leave()
 augroup END
 
+let g:limelight_conceal_ctermfg = 'black'
+
 if !exists("*s:goyo_enter")
   function! s:goyo_enter()
+    nnoremap j gj
+    nnoremap k gk
     Limelight
   endfunction
 endif
 
 if !exists("*s:goyo_leave")
   function! s:goyo_leave()
+    nunmap j
+    nunmap k
     Limelight!
     so $MYVIMRC
   endfunction
