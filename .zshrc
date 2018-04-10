@@ -74,7 +74,7 @@ alias hse="sudo vim ~/.homestead/Homestead.yaml"
 
 # Workflow Aliases.
 alias c="clear"
-alias a.="atom ."
+alias v="vim"
 alias t="phpunit"
 function sync() { gf; gl; if [ $(git rev-parse --abbrev-ref HEAD) != "master" ]; then gp; fi; }
 alias gpom="gl origin master"
