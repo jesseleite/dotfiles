@@ -203,12 +203,9 @@ set encoding=utf-8
 set clipboard=unnamed
 set backspace=indent,eol,start
 set relativenumber
+set lazyredraw
 set fillchars+=vert:\ ,                        " Vertical split character
 call matchadd('ColorColumn', '\%121v', 100)    " Only show 121st character on lines that might exceed 120
-
-" Why is this setting starting vim in replace mode?
-" It seems to have something to do with: let g:syntastic_check_on_open = 1
-" set lazyredraw
 
 let g:NERDTreeWinSize=45
 
