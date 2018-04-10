@@ -309,12 +309,6 @@ command! -bang -nargs=+ -complete=dir Ag call fzf#vim#ag_raw(agriculture#smart_q
 " # Experimenting
 " ------------------------------------------------------------------------------
 
-" Hacky workaround to Hyper from pasting clipboard randomly when opening buffers
-augroup hyper_hacks
-  autocmd!
-  autocmd VimEnter * silent! earlier 1f
-augroup END
-
 " Messing with yaml front matter styling
 autocmd BufNewFile,BufRead * syntax match Function /\%^---\_.\{-}---$/
 " https://github.com/inkarkat/vim-SyntaxRange
