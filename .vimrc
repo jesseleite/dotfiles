@@ -59,7 +59,7 @@ let mapleader = "\<Space>"
 
 " Esc / Ctrl-c
 imap jk <Esc>
-nnoremap <silent> <Esc> :nohlsearch<CR><Esc>
+" nmap <silent> <Esc> :nohlsearch<CR><Esc>
 cnoremap jk <C-c>
 
 " Write
