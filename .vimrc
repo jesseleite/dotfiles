@@ -345,8 +345,6 @@ if !exists("*s:goyo_leave")
   endfunction
 endif
 
-let g:limelight_conceal_ctermfg = 'black'
-
 if has("gui_running")
   set guioptions=
   set guifont=Menlo\ LG100
