@@ -75,6 +75,8 @@ alias hse="sudo vim ~/.homestead/Homestead.yaml"
 # Workflow Aliases.
 alias c="clear"
 alias v="vim"
+alias o="open ."
+alias b="valet open"
 alias t="phpunit"
 function sync() { gf; gl; if [ $(git rev-parse --abbrev-ref HEAD) != "master" ]; then gp; fi; }
 alias gpom="gl origin master"
@@ -101,7 +103,7 @@ alias showall="defaults write com.apple.finder AppleShowAllFiles 1 && killall Fi
 alias hidedesktop="defaults write com.apple.finder CreateDesktop false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop true && killall Finder"
 
-# RR Aliases.
+# RR stuff.
 source ~/.rr
 
 # Ting Goes Pop.
