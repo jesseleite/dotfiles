@@ -178,6 +178,9 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" Import PHP use statement
+nmap <Leader><Leader>i :call PhpInsertUse()<CR>
+
 " Generate PHP docblock
 nnoremap <Leader>D :call pdv#DocumentWithSnip()<CR>
 
