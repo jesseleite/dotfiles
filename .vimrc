@@ -281,6 +281,7 @@ augroup misc_commands
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
   autocmd BufEnter * EnableStripWhitespaceOnSave
   autocmd BufReadPost quickfix nested nmap <buffer> <CR> <CR>
+  autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 augroup END
 
 augroup filetype_settings
