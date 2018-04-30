@@ -69,7 +69,7 @@ map <D-s> <Esc>:w<CR>
 map <M-s> <Esc>:w<CR>
 map <C-s> <Esc>:w<CR>
 
-" Write and reload chrome
+" Write and reload current tab in chrome
 nmap <silent> <Leader>R :w<CR>:execute "!chrome-cli reload"<CR>:redraw!<CR>
 
 " Write and source, for plugin development?
@@ -78,6 +78,12 @@ nmap <Leader><Leader>w :w<CR>:so %<CR>
 " Edit .vimrc
 nmap <Leader><Leader>v :edit $MYVIMRC<CR>
 nmap <Leader><Leader>V :source $MYVIMRC<CR>
+
+" Open in finder
+nmap <silent> <Leader><Leader>o :!open $PWD<CR><CR>
+
+" Browse with valet open
+nmap <silent> <Leader><Leader>b :!valet open<CR><CR>
 
 " Windows
 nnoremap <Tab> <C-w>w
