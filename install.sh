@@ -3,6 +3,10 @@
 # Hush terminal login.
 touch ~/.hushlogin
 
+# Git love.
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global
+
 # Clone Oh-My-Zsh.
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
@@ -24,9 +28,6 @@ cp ~/.dotfiles/.clivimrc ~/.clivimrc
 
 # Ctags love.
 ln -s ~/.dotfiles/.ctags.d ~/.ctags.d
-
-# Copy out .gitconfig.
-cp ~/.dotfiles/.gitconfig ~/.gitconfig
 
 # Set default shell.
 chsh -s /usr/bin/zsh
