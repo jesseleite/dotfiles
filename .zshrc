@@ -93,6 +93,7 @@ alias navi="art queue:listen --tries=2"
 alias dusk="art dusk"
 alias ldocs="open http://laravel.com/docs"
 alias pls="php please"
+alias plsc="pls clear:cache && pls clear:stache && pls clear:static && pls clear:glide"
 alias plsjlo="cp ~/.dotfiles/statamic/stubs/jlo.yaml site/users/jlo.yaml"
 function plscomp() { ( cd statamic && comp $* ) }
 alias psr1="php-cs-fixer fix --level=psr1"
