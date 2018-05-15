@@ -49,6 +49,8 @@ Plug 'mattn/emmet-vim'                " HTML/CSS expand abbreviation magic
 
 call plug#end()
 
+packadd! matchit
+
 
 " ------------------------------------------------------------------------------
 " # Mappings
