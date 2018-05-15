@@ -32,7 +32,7 @@ Plug 'junegunn/vim-peekaboo'          " Peek into registers
 Plug 'jiangmiao/auto-pairs'           " Insert brackets, quotes, etc. in pairs
 Plug 'ervandew/supertab'              " Tab completion
 Plug 'SirVer/ultisnips'               " Snippets
-Plug 'xtal8/traces.vim'               " Substitute highlighting and preview
+Plug 'markonm/traces.vim'             " Substitute highlighting and preview
 Plug 'ntpeters/vim-better-whitespace' " Highlight and trim whitespace
 Plug 'tpope/vim-unimpaired'           " Handy bracket mappings
 Plug 'tpope/vim-surround'             " Surround commands
