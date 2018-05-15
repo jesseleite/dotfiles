@@ -141,7 +141,7 @@ let g:lt_quickfix_list_toggle_map = '<Leader><Leader>q'
 let g:lt_location_list_toggle_map = '<Leader><Leader>l'
 
 " Delete text on line
-nmap <Leader>d ddO<Esc>
+nmap <Leader>d 0D
 
 " Open lines, but stay in normal mode
 nmap <S-CR> O<Esc>
