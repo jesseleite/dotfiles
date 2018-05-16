@@ -134,8 +134,8 @@ nmap <Leader>rl :w<CR>:TestLast<CR>
 nmap <Leader>rn :w<CR>:TestNearest<CR>
 
 " Git / Github
-nmap <Leader>gbr :Gbrowse<CR>
-nmap <Leader>gbl :Gblame<CR>
+nmap <Leader>G :Gstatus<CR>
+nmap <Leader><Leader>G :Gbrowse<CR>
 
 " Panel toggles
 nmap <Leader><Tab> :NERDTreeToggle<CR>
