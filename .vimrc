@@ -224,7 +224,7 @@ set encoding=utf-8
 set clipboard=unnamed
 set backspace=indent,eol,start
 set relativenumber
-set lazyredraw
+" set lazyredraw                               " Had this for some reason, but it causes deoplete flicker
 set updatetime=1000                            " Set updatetime for CursorHold, gitgutter, etc.
 set fillchars+=vert:\ ,                        " Vertical split character
 call matchadd('ColorColumn', '\%121v', 100)    " Only show 121st character on lines that might exceed 120
