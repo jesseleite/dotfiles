@@ -283,8 +283,9 @@ highlight SyntasticWarningSign ctermbg=none ctermfg=magenta
 highlight SyntasticStyleErrorSign ctermbg=none ctermfg=red
 highlight SyntasticStyleWarningSign ctermbg=none ctermfg=magenta
 highlight Pmenu ctermfg=grey ctermbg=black
-highlight PmenuSel ctermfg=white ctermbg=green
-highlight PmenuSbar ctermbg=grey
+highlight PmenuSel ctermfg=white ctermbg=blue
+highlight PmenuSbar ctermbg=black
+highlight PmenuThumb ctermbg=white
 
 
 " ------------------------------------------------------------------------------
