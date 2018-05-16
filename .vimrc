@@ -30,7 +30,6 @@ Plug 'ap/vim-css-color'               " CSS colour rendering
 Plug 'janko-m/vim-test'               " Test runner
 Plug 'junegunn/vim-peekaboo'          " Peek into registers
 Plug 'jiangmiao/auto-pairs'           " Insert brackets, quotes, etc. in pairs
-Plug 'ervandew/supertab'              " Tab completion
 Plug 'SirVer/ultisnips'               " Snippets
 Plug 'markonm/traces.vim'             " Substitute highlighting and preview
 Plug 'ntpeters/vim-better-whitespace' " Highlight and trim whitespace
@@ -44,8 +43,13 @@ Plug 'junegunn/vim-easy-align'        " Text alignment
 Plug 'junegunn/vader.vim'             " Vimscript test framework
 Plug 'tobyS/vmustache'                " PHP docblocks dependency
 Plug 'tobyS/pdv'                      " PHP docblocks
-Plug 'arnaud-lb/vim-php-namespace'    " PHP namespace importer
 Plug 'mattn/emmet-vim'                " HTML/CSS expand abbreviation magic
+Plug 'Shougo/deoplete.nvim'           " IDE-like autocompletion
+Plug 'roxma/nvim-yarp'                " Deoplete dependency
+Plug 'roxma/vim-hug-neovim-rpc'       " Deoplete dependency
+Plug 'phpactor/phpactor'              " PHP refactoring and introspection
+Plug 'kristijanhusak/deoplete-phpactor' " PHP Deoplete source
+Plug 'vim-vdebug/vdebug'
 
 call plug#end()
 
@@ -186,10 +190,12 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" Import PHP use statement
-nmap <Leader><Leader>i :call PhpInsertUse()<CR>
+" Phpactor
+nnoremap <Leader>m :call phpactor#ContextMenu()<CR>
+nnoremap <Leader>i :call phpactor#UseAdd()<CR>
+nnoremap <Leader>g :call phpactor#GotoDefinition()<CR>
 
-" Generate PHP docblock
+" PHP docblocks
 nnoremap <Leader>D :call pdv#DocumentWithSnip()<CR>
 
 " Disable unimpaired mappings
@@ -218,6 +224,7 @@ set lazyredraw
 set updatetime=1000                            " Set updatetime for CursorHold, gitgutter, etc.
 set fillchars+=vert:\ ,                        " Vertical split character
 call matchadd('ColorColumn', '\%121v', 100)    " Only show 121st character on lines that might exceed 120
+set completeopt=menu,menuone,noinsert          " Auto complete menu options
 
 let g:NERDTreeWinSize=45
 
@@ -234,6 +241,11 @@ let g:syntastic_error_symbol = '!'
 let g:syntastic_warning_symbol = '!'
 let g:syntastic_style_error_symbol = '!'
 let g:syntastic_style_warning_symbol = '!'
+
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#source('_', 'max_menu_width', 120)
+
+let g:phpactorBranch = 'develop'
 
 
 " ------------------------------------------------------------------------------
@@ -262,6 +274,9 @@ highlight SyntasticErrorSign ctermbg=none ctermfg=red
 highlight SyntasticWarningSign ctermbg=none ctermfg=magenta
 highlight SyntasticStyleErrorSign ctermbg=none ctermfg=red
 highlight SyntasticStyleWarningSign ctermbg=none ctermfg=magenta
+highlight Pmenu ctermfg=grey ctermbg=black
+highlight PmenuSel ctermfg=white ctermbg=green
+highlight PmenuSbar ctermbg=grey
 
 
 " ------------------------------------------------------------------------------
@@ -299,7 +314,7 @@ augroup filetype_settings
   autocmd!
   autocmd FileType zsh setlocal ts=2 sw=2 sts=2 expandtab
   autocmd FileType vim setlocal ts=2 sw=2 sts=2 expandtab
-  autocmd FileType php setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s
+  autocmd FileType php setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s omnifunc=phpactor#Complete
   autocmd FileType html setlocal ts=4 sw=4 sts=4 expandtab
   autocmd FileType css setlocal ts=4 sw=4 sts=4 expandtab
   autocmd FileType scss setlocal ts=4 sw=4 sts=4 expandtab
