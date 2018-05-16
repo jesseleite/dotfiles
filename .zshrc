@@ -87,7 +87,7 @@ alias comp="composer"
 function hs() { ( cd ~/Homestead && vagrant $* ) }
 alias art="php artisan"
 alias artc="art clear-compiled && art cache:clear && art route:clear && art config:clear && art view:clear && comp du"
-alias artm="art migrate:refresh --seed"
+alias artm="art migrate"
 alias tink="art tinker"
 alias ting="art tinker ting.php"
 alias navi="art queue:listen --tries=2"
