@@ -258,6 +258,7 @@ let g:ale_php_phpcs_standard = 'PSR2'
 
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#source('_', 'max_menu_width', 120)
+call deoplete#custom#option('auto_complete_delay', 600)
 
 let g:phpactorBranch = 'develop'
 
