@@ -24,7 +24,7 @@ Plug 'airblade/vim-gitgutter'           " Git gutters
 Plug 'tpope/vim-fugitive'               " Git commands
 Plug 'tpope/vim-rhubarb'                " Github commands
 Plug 'sheerun/vim-polyglot'             " Language pack
-Plug 'vim-syntastic/syntastic'          " Linter wrapper
+Plug 'w0rp/ale'                         " Linters
 Plug 'tpope/vim-commentary'             " Code commenting
 Plug 'ap/vim-css-color'                 " CSS colour rendering
 Plug 'janko-m/vim-test'                 " Test runner
@@ -241,15 +241,16 @@ let g:peekaboo_window = 'vertical botright 60new'
 
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-let g:syntastic_php_phpcs_args = '--standard=PSR2 -n'
-let g:syntastic_error_symbol = '!'
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_style_error_symbol = '!'
-let g:syntastic_style_warning_symbol = '!'
+let g:ale_sign_error = '!'
+let g:ale_sign_style_error = '!'
+let g:ale_sign_warning = '!'
+let g:ale_sign_style_warning = '!'
+
+let g:ale_linters = {
+  \ 'php': ['php', 'phpcs', 'phpmd'],
+  \ }
+
+let g:ale_php_phpcs_standard = 'PSR2'
 
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#source('_', 'max_menu_width', 120)
@@ -285,10 +286,8 @@ highlight StatusLine ctermfg=none ctermbg=none
 highlight StatusLineNC ctermfg=none ctermbg=none
 highlight CursorLine ctermbg=black ctermfg=none
 highlight QuickFixLine ctermbg=black ctermfg=none
-highlight SyntasticErrorSign ctermbg=none ctermfg=red
-highlight SyntasticWarningSign ctermbg=none ctermfg=magenta
-highlight SyntasticStyleErrorSign ctermbg=none ctermfg=red
-highlight SyntasticStyleWarningSign ctermbg=none ctermfg=magenta
+highlight ALEErrorSign ctermbg=none ctermfg=red
+highlight ALEWarningSign ctermbg=none ctermfg=magenta
 highlight Pmenu ctermfg=grey ctermbg=black
 highlight PmenuSel ctermfg=white ctermbg=blue
 highlight PmenuSbar ctermbg=black
@@ -359,8 +358,7 @@ autocmd BufNewFile,BufRead * syntax match Function /\%^---\_.\{-}---$/
 
 function! RecordGif()
   let g:fzf_layout = { 'down': '~55%' }
-  let g:syntastic_mode_map = { 'mode': 'passive' }
-  :SyntasticReset
+  :ALEDisable
 endfunction
 command! RecordGif silent! call RecordGif()
 
