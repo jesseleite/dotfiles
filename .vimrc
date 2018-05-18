@@ -234,6 +234,9 @@ set fillchars+=vert:\ ,                        " Vertical split character
 call matchadd('ColorColumn', '\%121v', 100)    " Only show 121st character on lines that might exceed 120
 set completeopt=menu,menuone,noinsert,noselect " Auto complete menu options
 
+" Always insert completion popup candidate without entering new line.
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
 let g:airline_theme='base16color'
 
 let g:NERDTreeWinSize=45
