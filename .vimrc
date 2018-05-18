@@ -233,6 +233,8 @@ set fillchars+=vert:\ ,                        " Vertical split character
 call matchadd('ColorColumn', '\%121v', 100)    " Only show 121st character on lines that might exceed 120
 set completeopt=menu,menuone,noinsert          " Auto complete menu options
 
+let g:airline_theme='base16color'
+
 let g:NERDTreeWinSize=45
 
 let g:peekaboo_window = 'vertical botright 60new'
@@ -271,7 +273,7 @@ highlight NonText ctermbg=none
 highlight Search ctermbg=blue ctermfg=white
 highlight Visual ctermbg=black ctermfg=white
 highlight LineNr ctermbg=none
-highlight CursorLineNR ctermbg=green ctermfg=none
+highlight CursorLineNR ctermbg=green ctermfg=green
 highlight SignColumn ctermbg=none
 highlight ColorColumn ctermbg=black
 highlight GitGutterAdd ctermbg=none ctermfg=green
@@ -279,6 +281,8 @@ highlight GitGutterChange ctermbg=none ctermfg=yellow
 highlight GitGutterDelete ctermbg=none ctermfg=red
 highlight GitGutterChangeDelete ctermbg=none ctermfg=red
 highlight VertSplit ctermbg=none ctermfg=none
+highlight StatusLine ctermfg=none ctermbg=none
+highlight StatusLineNC ctermfg=none ctermbg=none
 highlight CursorLine ctermbg=black ctermfg=none
 highlight QuickFixLine ctermbg=black ctermfg=none
 highlight SyntasticErrorSign ctermbg=none ctermfg=red
