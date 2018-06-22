@@ -156,6 +156,9 @@ nmap <Leader>d 0D
 nmap <S-CR> O<Esc>
 nmap <CR> o<Esc>
 
+" Open line below, with an extra blank line below that one
+nnoremap <Leader><CR> o<C-o>O
+
 " Quickly append semicolon or comma
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
