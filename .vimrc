@@ -371,6 +371,13 @@ let g:fzf_colors = {
 
 command! -bang -nargs=+ -complete=dir Ag call fzf#vim#ag_raw(agriculture#smart_quote_input(<q-args>), <bang>0)
 
+command! Mapsn call fzf#vim#maps('n', 0)
+command! Mapsx call fzf#vim#maps('x', 0)
+command! Mapso call fzf#vim#maps('o', 0)
+command! Mapsi call fzf#vim#maps('i', 0)
+command! Mapsv call fzf#vim#maps('v', 0)
+command! Mapsa call fzf#vim#maps('a', 0)
+
 
 " ------------------------------------------------------------------------------
 " # Experimenting
