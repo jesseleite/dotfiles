@@ -194,9 +194,10 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Phpactor
-nnoremap <Leader>m :call phpactor#ContextMenu()<CR>
-nnoremap <Leader>i :call phpactor#UseAdd()<CR>
-nnoremap <Leader>g :call phpactor#GotoDefinition()<CR>
+nnoremap <Leader>p :call phpactor#ContextMenu()<CR>
+nnoremap <Leader>pg :call phpactor#GotoDefinition()<CR>
+nnoremap <Leader>pi :call phpactor#UseAdd()<CR>
+nnoremap <Leader>pt :call phpactor#Transform()<CR>
 
 " PHP docblocks
 nnoremap <Leader>D :call pdv#DocumentWithSnip()<CR>
