@@ -1,2 +1,10 @@
+# Tahg’ih’ohn’da’ehn
 tags
+!tags/
+
+# Statamic
 site/users/jlo.yaml
+
+# Talon
+app/site/addons
+app/site/settings/addons
