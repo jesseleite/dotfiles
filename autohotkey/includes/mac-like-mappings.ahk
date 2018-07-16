@@ -2,7 +2,7 @@
 SendMode Input
 SetTitleMatchMode, RegEx
 
-!Space::Send {Ctrl Down}{Esc}{Ctrl Up}                  ; Windows Search
+!Space::Send {Ctrl Down}{Esc}{Ctrl Up}
 !f::Send {Ctrl Down}{f}{Ctrl Up}                        ; Search
 !s::Send {Ctrl Down}{s}{Ctrl Up}                        ; Save
 !a::Send {Ctrl Down}{a}{Ctrl Up}                        ; Select All
@@ -22,3 +22,4 @@ SetTitleMatchMode, RegEx
 !r::Send {Ctrl Down}{r}{Ctrl Up}                        ; Reload
 !l::Send {Ctrl Down}{l}{Ctrl Up}                        ; Address Bar
 !+t::Send {Ctrl Down}{Shift Down}{t}{Ctrl Up}{Shift Up} ; Open Closed Tab
+#IfWinActive
