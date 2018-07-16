@@ -11,6 +11,7 @@ CapsLock::
     ; Just define an OverrideCapsLock() function where you #include this script!
     OverrideFunction := "OverrideCapsLock"
     
+    ; Call the function dynamically to allow for silent failure.
     if (Overridden := %OverrideFunction%()) {
         Send {%Overridden%}
         return

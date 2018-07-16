@@ -2,6 +2,8 @@
 SendMode Input
 SetTitleMatchMode, RegEx
 
+SetCapsLockState, AlwaysOff
+
 #include includes/mac-like-mappings.ahk
 
 #include includes/logitech-functionless-audio-controls.ahk
