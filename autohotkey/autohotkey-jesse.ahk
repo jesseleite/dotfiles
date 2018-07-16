@@ -10,8 +10,8 @@ SetTitleMatchMode, RegEx
 
 OverrideCapsLock()
 {
-    If WinActive("Notepad")
-        return "n"
+    If WinActive("Brood War")
+        return "."
     If WinActive("Age of Empires")
         return "."
 }
