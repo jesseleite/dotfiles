@@ -107,8 +107,9 @@ alias showall="defaults write com.apple.finder AppleShowAllFiles 1 && killall Fi
 alias hidedesktop="defaults write com.apple.finder CreateDesktop false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop true && killall Finder"
 
-# RR stuff.
+# Work stuff.
 source ~/.rr
+source ~/.wb
 
 # Ting Goes Pop.
 source ~/.ting
