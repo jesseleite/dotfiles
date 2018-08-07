@@ -72,6 +72,7 @@ alias gitconfig="sudo vim ~/.gitconfig"
 alias gituser="bash ~/.dotfiles/gituser.sh"
 alias hosts="sudo vim /etc/hosts"
 alias hse="sudo vim ~/.homestead/Homestead.yaml"
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy"
 
 # Workflow Aliases.
 alias c="clear"
