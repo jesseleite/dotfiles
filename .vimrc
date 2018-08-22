@@ -270,6 +270,10 @@ let g:vdebug_options= {
   \ "port" : 9001,
   \ }
 
+let test#php#patterns = {
+  \ 'test':      ['\v^\s*function (\w*)\('],
+  \ 'namespace': [] }
+
 
 " ------------------------------------------------------------------------------
 " # Theming
