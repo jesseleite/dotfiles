@@ -26,6 +26,14 @@ snippet prop "Define property."
 ${1:public} $${2:property} = $3;
 endsnippet
 
+snippet test "Define test method."
+/** @test */
+${1}function ${2:it_can_do_something}()
+{
+    ${0://}
+}
+endsnippet
+
 snippet named "Named constructor."
 /**
  * ${1:Instantiate some service.}
