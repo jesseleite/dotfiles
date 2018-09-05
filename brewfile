@@ -17,6 +17,7 @@ brew 'mysql'
 brew 'composer'
 brew 'node'
 brew 'yarn'
+brew 'thefuck'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
 
 # Cask
