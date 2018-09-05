@@ -1,6 +1,9 @@
 #!/bin/sh
 
-# Ensure dotfiles are cloned to ~/.dotfiles before running this installer <3
+# Step 1: Generate/paste SSH keys.
+# Step 2: Clone this repo to ~/.dotfiles.
+# Step 3: Run this installer <3
+
 echo "Setting up your Mac..."
 
 # Install Brew.
@@ -61,6 +64,6 @@ composer global require statamic/cli
 # Hush terminal login.
 touch ~/.hushlogin
 
-# Final message.
+# Heyo!
 echo '*****'
 echo 'Done <3 <3 <3'
