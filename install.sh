@@ -23,7 +23,6 @@ git clone https://github.com/molovo/tipz ~/.tipz
 # Vim love.
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.vim/UltiSnips ~/.vim/UltiSnips
-git clone git://github.com/hchbaw/opp.zsh.git ~/.opp.zsh
 cp ~/.dotfiles/.clivimrc ~/.clivimrc
 
 # Ctags love.

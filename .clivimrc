@@ -1,7 +1,7 @@
 # Vi Mode Enable
 bindkey -v
 
-# Rebind command mode to jk instead of ESC 
+# Rebind command mode to jk instead of ESC
 bindkey -M viins 'jk' vi-cmd-mode
 
 # Set timeout suitable for above binding
@@ -14,7 +14,7 @@ bindkey '^w' backward-kill-word
 
 # Show mode
 vim_ins_mode=''
-vim_cmd_mode='cmd'
+vim_cmd_mode='normal'
 vim_mode=$vim_ins_mode
 function zle-keymap-select {
   vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
@@ -32,6 +32,3 @@ function TRAPINT() {
   vim_mode=$vim_ins_mode
   return $(( 128 + $1 ))
 }
-
-# Include opp.zsh extension for better vim emulation
-source ~/.opp.zsh/opp.zsh
