@@ -18,6 +18,10 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
+# Link and start mysql@5.7 whenever mac starts.
+brew link --force mysql@5.7
+brew services start mysql@5.7
+
 # Configure Git.
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/.dotfiles/.gitignore_global ~/.gitignore_global
