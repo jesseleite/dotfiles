@@ -44,8 +44,8 @@ export FZF_CTRL_T_COMMAND='ag -a --hidden --ignore .git -g ""'
 eval "$(thefuck --alias wat)"
 
 # Nvm love.
-export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
+# export NVM_DIR="$HOME/.nvm"
+#   . "/usr/local/opt/nvm/nvm.sh"
 
 # Export paths.
 export PATH=${PATH}:/bin
