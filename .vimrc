@@ -316,6 +316,11 @@ function! PlaybackMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+function! GoToPluginOnGithub()
+  normal ^f/"vyi'
+  execute "!chrome-cli open https://www.github.com/" . @v
+endfunction
+
 
 " ------------------------------------------------------------------------------
 " # Commands
@@ -331,6 +336,7 @@ endfunction
 augroup misc_commands
   autocmd!
   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+  autocmd BufReadPost $MYVIMRC nnoremap <leader>g :call GoToPluginOnGithub()<CR><CR>
   autocmd BufWinEnter * if &l:buftype ==# 'help' | wincmd o | endif
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
   autocmd BufEnter * EnableStripWhitespaceOnSave
