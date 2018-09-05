@@ -1,0 +1,48 @@
+# Taps
+tap 'caskroom/cask'
+tap 'caskroom/fonts'
+tap 'caskroom/versions'
+tap 'homebrew/bundle'
+
+# Brew
+brew 'bash'
+brew 'zsh'
+brew 'z'
+brew 'git'
+brew 'vim'
+brew 'fzf'
+brew 'mas'
+brew 'php'
+brew 'mysql'
+brew 'composer'
+brew 'node'
+brew 'yarn'
+brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
+
+# Cask
+cask 'google-chrome'
+cask 'firefox'
+cask 'hyper-canary'
+cask 'github'
+cask 'sequel-pro'
+cask 'karabiner-elements'
+cask 'droplr'
+cask 'transmit'
+cask 'slack'
+cask 'telegram'
+cask 'vagrant'
+# cask 'virtualbox'
+# cask 'virtualbox-extension-pack'
+cask 'steam'
+cask 'discord'
+cask 'vlc'
+
+# Mac App Store
+mas 'Divvy', id: 413857545
+mas 'SnippetsLab', id: 1006087419
+mas 'Harvest', id: 506189836
+
+# Fonts
+# cask 'font-source-code-pro'
+# cask 'font-source-sans-pro'
+# cask 'font-source-serif-pro'
