@@ -46,6 +46,7 @@ git clone https://github.com/molovo/tipz ~/.tipz
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.clivimrc ~/.clivimrc
 ln -sf ~/.dotfiles/.vim/UltiSnips ~/.vim/UltiSnips
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Configure Ctags.
 ln -sf ~/.dotfiles/.ctags.d ~/.ctags.d
