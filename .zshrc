@@ -109,9 +109,7 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop false && killal
 alias showdesktop="defaults write com.apple.finder CreateDesktop true && killall Finder"
 
 # Work stuff.
-source ~/.rr
-source ~/.wb
+[ -f ~/.wb ] && source ~/.wb
 
 # Ting Goes Pop.
-source ~/.ting
-
+[ -f ~/.ting ] && source ~/.ting
