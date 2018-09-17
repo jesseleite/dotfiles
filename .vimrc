@@ -274,6 +274,8 @@ let test#php#patterns = {
   \ 'test':      ['\v^\s*function (\w*)\('],
   \ 'namespace': [] }
 
+let g:vim_markdown_frontmatter = 1
+
 
 " ------------------------------------------------------------------------------
 " # Theming
@@ -392,10 +394,6 @@ command! Mapsa call fzf#vim#maps('a', 0)
 " ------------------------------------------------------------------------------
 " # Experimenting
 " ------------------------------------------------------------------------------
-
-" Messing with yaml front matter styling
-autocmd BufNewFile,BufRead * syntax match Function /\%^---\_.\{-}---$/
-" https://github.com/inkarkat/vim-SyntaxRange
 
 function! RecordGif()
   let g:fzf_layout = { 'down': '~55%' }
