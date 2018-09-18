@@ -65,8 +65,10 @@ let mapleader = "\<Space>"
 
 " Esc / Ctrl-c
 imap jk <Esc>
-" nmap <silent> <Esc> :nohlsearch<CR><Esc>
 cnoremap jk <C-c>
+
+" Clear search highlighting
+nmap <silent> <Leader>jk :nohlsearch<CR>
 
 " Write
 nmap <Leader>w :w<CR>
