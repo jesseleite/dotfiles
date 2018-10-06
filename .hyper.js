@@ -156,5 +156,7 @@ module.exports = {
   keymaps: {
     // Example
     // 'window:devtools': 'cmd+alt+o',
+    'window:reload': 'ctrl+cmd+r',
+    'window:reloadFull': 'ctrl+cmd+shift+r',
   },
 };
