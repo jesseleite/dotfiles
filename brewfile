@@ -40,6 +40,7 @@ cask 'virtualbox-extension-pack'
 cask 'steam'
 cask 'discord'
 cask 'vlc'
+cask 'kaleidoscope'
 
 # Mac App Store
 mas 'Divvy', id: 413857545
