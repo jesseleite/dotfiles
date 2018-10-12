@@ -137,6 +137,7 @@ nmap <Leader>rs :w<CR>:TestSuite<CR>
 nmap <Leader>rf :w<CR>:TestFile<CR>
 nmap <Leader>rl :w<CR>:TestLast<CR>
 nmap <Leader>rn :w<CR>:TestNearest<CR>
+nmap <Leader>rv :w<CR>:TestVisit<CR>
 
 " Git / Github
 nmap <Leader>G :Gstatus<CR>
