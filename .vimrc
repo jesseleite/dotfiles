@@ -47,7 +47,8 @@ Plug 'mattn/emmet-vim'                  " HTML/CSS expand abbreviation magic
 Plug 'Shougo/deoplete.nvim'             " IDE-like autocompletion
 Plug 'roxma/nvim-yarp'                  " Deoplete dependency
 Plug 'roxma/vim-hug-neovim-rpc'         " Deoplete dependency
-Plug 'phpactor/phpactor'                " PHP refactoring and introspection
+Plug 'phpactor/phpactor',               " PHP refactoring and introspection
+  \ { 'for': 'php', 'do': 'composer install' }
 Plug 'kristijanhusak/deoplete-phpactor' " PHP Deoplete source
 Plug 'vim-vdebug/vdebug'                " Debugging
 
