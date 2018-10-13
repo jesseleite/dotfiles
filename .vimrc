@@ -133,6 +133,9 @@ nmap <Leader>S :Snippets<CR>
 " Ag search project
 nmap <Leader>a :Ag<Space>
 
+" Artisan
+nmap <Leader><Leader>a :!php artisan<Space>
+
 " Run tests
 nmap <Leader>rs :w<CR>:TestSuite<CR>
 nmap <Leader>rf :w<CR>:TestFile<CR>
