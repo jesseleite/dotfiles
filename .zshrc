@@ -33,6 +33,7 @@ source /usr/local/etc/profile.d/z.sh
 # Vim love.
 export EDITOR='vim'
 source ~/.clivimrc
+[ -f ~/.dotfiles/.vim.zsh ] && source ~/.dotfiles/.vim.zsh
 
 #Fzf love.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -76,7 +77,6 @@ alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy"
 
 # Workflow Aliases.
 alias c="clear"
-alias v="vim"
 alias o="open ."
 alias b="valet open"
 alias t="phpunit --exclude-group slow"
