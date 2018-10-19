@@ -61,6 +61,7 @@ export PATH=${PATH}:/home/vagrant/bin
 export PATH=${PATH}:vendor/bin
 
 # System Aliases.
+function alg() { alias | ag "$*" }
 alias ip="curl icanhazip.com"
 
 # Config Aliases.
