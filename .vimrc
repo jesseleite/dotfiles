@@ -137,6 +137,7 @@ nmap <Leader>a :Ag<Space>
 nmap <Leader><Leader>a :!php artisan<Space>
 
 " Run tests
+nmap <Leader>rt :w<CR>:TestToggleStrategy<CR>
 nmap <Leader>rs :w<CR>:TestSuite<CR>
 nmap <Leader>rf :w<CR>:TestFile<CR>
 nmap <Leader>rl :w<CR>:TestLast<CR>
@@ -396,6 +397,30 @@ command! Mapso call fzf#vim#maps('o', 0)
 command! Mapsi call fzf#vim#maps('i', 0)
 command! Mapsv call fzf#vim#maps('v', 0)
 command! Mapsa call fzf#vim#maps('a', 0)
+
+
+" ------------------------------------------------------------------------------
+" # Shtuff
+" ------------------------------------------------------------------------------
+
+function! ShtuffStrategy(cmd)
+  call system("shtuff into " . shellescape(g:shtuff_as) . " " . shellescape("clear;" . a:cmd))
+endfunction
+
+function! TestToggleStrategy()
+  if exists("g:test#strategy")
+    unlet g:test#strategy
+    echo "Test Strategy: default"
+  else
+    let g:test#strategy = "shtuff"
+    echo "Test Strategy: shtuff into test"
+  endif
+endfunction
+
+command! TestToggleStrategy call TestToggleStrategy()
+
+let g:shtuff_as = "test"
+let g:test#custom_strategies = {'shtuff': function('ShtuffStrategy')}
 
 
 " ------------------------------------------------------------------------------
