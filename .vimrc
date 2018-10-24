@@ -252,6 +252,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 let g:airline_theme='base16color'
 
 let g:NERDTreeWinSize=45
+let g:NERDTreeQuitOnOpen = 1
 
 let g:peekaboo_window = 'vertical botright 60new'
 
