@@ -131,7 +131,7 @@ module.exports = {
     modifierKeys: { cmdIsMeta: true, altIsMeta: true },
 
     summon: {
-      hotkey: 'Command+`',
+      hotkey: 'Command+Esc',
       hideDock: false,
       hideOnBlur: false,
     },
