@@ -104,6 +104,8 @@ alias plsjlo="cp ~/.dotfiles/statamic/stubs/jlo.yaml site/users/jlo.yaml"
 function plscomp() { ( cd statamic && comp $* ) }
 alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
+alias python="python3"
+alias pip="pip3"
 
 # MacOS Aliases.
 alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
