@@ -41,6 +41,7 @@ cask 'steam'
 cask 'discord'
 cask 'vlc'
 cask 'kaleidoscope'
+cask 'imageoptim'
 
 # Mac App Store
 mas 'Divvy', id: 413857545
