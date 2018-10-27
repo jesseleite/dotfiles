@@ -131,7 +131,7 @@ nmap <Leader>s :Filetypes<CR>
 nmap <Leader>S :Snippets<CR>
 
 " Ag search project
-nmap <Leader>a :Ag<Space>
+nmap <Leader>a :AgRaw<Space>
 
 " Artisan
 nmap <Leader><Leader>a :!php artisan<Space>
@@ -389,8 +389,6 @@ let g:fzf_colors = {
   \ 'marker':  ['fg', 'Conditional'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-
-command! -bang -nargs=+ -complete=dir Ag call fzf#vim#ag_raw(agriculture#smart_quote_input(<q-args>), <bang>0)
 
 command! Mapsn call fzf#vim#maps('n', 0)
 command! Mapsx call fzf#vim#maps('x', 0)
