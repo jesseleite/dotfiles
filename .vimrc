@@ -133,8 +133,11 @@ nmap <Leader>S :Snippets<CR>
 " Ag search project
 nmap <Leader>a :AgRaw<Space>
 
+" Ag search word under cursor
+nmap <Leader><Leader>a :AgRaw<Space>'<C-R><C-W>'
+
 " Artisan
-nmap <Leader><Leader>a :!php artisan<Space>
+nmap <Leader><Leader>A :!php artisan<Space>
 
 " Run tests
 nmap <Leader>rt :w<CR>:TestToggleStrategy<CR>
