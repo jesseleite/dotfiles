@@ -133,6 +133,9 @@ nmap <Leader>S :Snippets<CR>
 " Ag search project
 nmap <Leader>a :AgRaw<Space>
 
+" Ag search visual selection
+vmap <Leader>a "ay:AgRaw<Space>'<C-r>a'
+
 " Ag search word under cursor
 nmap <Leader><Leader>a :AgRaw<Space>'<C-R><C-W>'
 
