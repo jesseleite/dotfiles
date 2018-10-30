@@ -105,6 +105,10 @@ alias psr2="php-cs-fixer fix --level=psr2"
 alias python="python3"
 alias pip="pip3"
 
+# Run any command in another directory via z argument, without leaving current working directory.
+# Eg. `in sand art cache:clear`
+function in() { ( z $1; eval ${@:2} ) }
+
 function tink() {(
   if [ ! -f artisan ]; then
     cd ~/Code/Laravel
