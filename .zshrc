@@ -17,7 +17,7 @@ CASE_SENSITIVE="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
-plugins=(git)
+plugins=(git, laravel5)
 source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
@@ -92,8 +92,6 @@ function hs() { ( cd ~/Homestead && vagrant $* ) }
 alias art="php artisan"
 alias artc="art clear-compiled && art cache:clear && art route:clear && art config:clear && art view:clear && comp du"
 alias artm="art migrate"
-alias tink="art tinker"
-alias ting="art tinker ting.php"
 alias navi="art queue:listen --tries=2"
 alias dusk="art dusk"
 alias lager="less +F storage/logs/laravel.log"
@@ -106,6 +104,15 @@ alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
 alias python="python3"
 alias pip="pip3"
+
+function tink() {(
+  if [ ! -f artisan ]; then
+    cd ~/Code/Laravel
+  fi
+  php artisan tinker
+)}
+
+alias ting="art tinker ting.php"
 
 # MacOS Aliases.
 alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
