@@ -103,9 +103,6 @@ nnoremap <Leader>o <C-w>o
 let g:BufKillCreateMappings = 0
 nmap <silent> <Leader>c :BD<CR>
 
-" Switch to last opened buffer
-nmap <Leader>- <C-^>
-
 " Next/prev git change, and disable intrusive GitGutter mappings
 let g:gitgutter_map_keys = 0
 nmap [c <Plug>GitGutterPrevHunk
