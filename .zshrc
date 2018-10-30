@@ -17,7 +17,7 @@ CASE_SENSITIVE="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # HIST_STAMPS="mm/dd/yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
-plugins=(git, laravel5)
+plugins=(git laravel5)
 source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
