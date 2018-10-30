@@ -22,6 +22,7 @@ brew 'yarn'
 brew 'thefuck'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
 brew 'chrome-cli'
+brew 'tree'
 
 # Cask
 cask 'google-chrome'
