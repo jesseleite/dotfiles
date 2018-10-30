@@ -8,3 +8,5 @@ site/users/jlo.yaml
 # Talon
 app/site/addons
 app/site/settings/addons
+app/.env
+2018_10_29_151105_create_users_tables.php
