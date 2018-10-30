@@ -137,7 +137,7 @@ vmap <Leader>a "ay:AgRaw<Space>'<C-r>a'
 nmap <Leader><Leader>a :AgRaw<Space>'<C-R><C-W>'
 
 " Artisan
-nmap <Leader><Leader>A :!php artisan<Space>
+nmap <Leader>A :!php artisan<Space>
 
 " Run tests
 nmap <Leader>rt :w<CR>:TestToggleStrategy<CR>
