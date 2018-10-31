@@ -487,3 +487,13 @@ function! RemoveQuickfixItem()
 endfunction
 
 autocmd FileType qf map <buffer> dd :call RemoveQuickfixItem()<cr>
+
+" Because :sav works, but doesn't save relative to the source's location, and doesn't open the duplicated file either.
+
+function! DuplicateCurrentFile(path)
+  let path = "%:h/" . a:path
+  execute "saveas " . path
+  execute "edit " . path
+endfunction
+
+command! -bar -nargs=1 Duplicate call DuplicateCurrentFile(<q-args>)
