@@ -483,7 +483,7 @@ function! RemoveQuickfixItem()
   call remove(qfall, curqfidx)
   call setqflist(qfall, 'r')
   execute curqfidx + 1 . "cfirst"
-  :copen
+  copen
 endfunction
 
 autocmd FileType qf map <buffer> dd :call RemoveQuickfixItem()<cr>
