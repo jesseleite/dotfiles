@@ -132,9 +132,6 @@ nmap <Leader>/ <Plug>AgRawSearch
 vmap <Leader>/ <Plug>AgRawVisualSelection
 nmap <Leader>* <Plug>AgRawWordUnderCursor
 
-" Artisan
-nmap <Leader>A :!php artisan<Space>
-
 " Run tests
 nmap <Leader>rt :w<CR>:TestToggleStrategy<CR>
 nmap <Leader>rs :w<CR>:TestSuite<CR>
@@ -144,7 +141,10 @@ nmap <Leader>rn :w<CR>:TestNearest<CR>
 nmap <Leader>rv :w<CR>:TestVisit<CR>
 
 " Run terminal command in interactive shell
-nmap <Leader>R :Run<Space>
+nmap <Leader><Leader>r :Run<Space>
+nmap <Leader><Leader>i :Run in<Space>
+nmap <Leader><Leader>p :Run in project<Space>
+nmap <Leader><Leader>a :Run art<Space>
 
 " Git / Github
 nmap <Leader>G :Gstatus<CR>
