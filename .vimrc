@@ -79,7 +79,7 @@ map <M-s> <Esc>:w<CR>
 map <C-s> <Esc>:w<CR>
 
 " Write and reload current tab in chrome
-nmap <silent> <Leader>R :w<CR>:execute "!chrome-cli reload"<CR>:redraw!<CR>
+" nmap <silent> <Leader>R :w<CR>:execute "!chrome-cli reload"<CR>:redraw!<CR>
 
 " Write and source, for plugin development?
 nmap <Leader><Leader>w :w<CR>:so %<CR>
