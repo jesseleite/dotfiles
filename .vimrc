@@ -51,6 +51,7 @@ Plug 'phpactor/phpactor',               " PHP refactoring and introspection
   \ { 'for': 'php', 'do': 'composer install' }
 Plug 'kristijanhusak/deoplete-phpactor' " PHP Deoplete source
 Plug 'vim-vdebug/vdebug'                " Debugging
+Plug 'christoomey/vim-run-interactive'  " Run terminal commands in interactive shell
 
 call plug#end()
 
@@ -146,6 +147,9 @@ nmap <Leader>rf :w<CR>:TestFile<CR>
 nmap <Leader>rl :w<CR>:TestLast<CR>
 nmap <Leader>rn :w<CR>:TestNearest<CR>
 nmap <Leader>rv :w<CR>:TestVisit<CR>
+
+" Run terminal command in interactive shell
+nmap <Leader>R :Run<Space>
 
 " Git / Github
 nmap <Leader>G :Gstatus<CR>
