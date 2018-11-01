@@ -120,7 +120,6 @@ nmap <Leader>l :BLines<CR>
 nmap <Leader>L :Lines<CR>
 nmap <Leader>h :History<CR>
 nmap <Leader>: :History:<CR>
-nmap <Leader>/ :History/<CR>
 nmap <Leader>H :Helptags!<CR>
 nmap <Leader>M :Maps<CR>
 nmap <Leader>C :Commands<CR>
@@ -129,13 +128,9 @@ nmap <Leader>s :Filetypes<CR>
 nmap <Leader>S :Snippets<CR>
 
 " Ag search project
-nmap <Leader>a :AgRaw<Space>
-
-" Ag search visual selection
-vmap <Leader>a "ay:AgRaw<Space>'<C-r>a'
-
-" Ag search word under cursor
-nmap <Leader><Leader>a :AgRaw<Space>'<C-R><C-W>'
+nmap <Leader>/ <Plug>AgRawSearch
+vmap <Leader>/ <Plug>AgRawVisualSelection
+nmap <Leader>* <Plug>AgRawWordUnderCursor
 
 " Artisan
 nmap <Leader>A :!php artisan<Space>
