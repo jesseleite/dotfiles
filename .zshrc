@@ -105,9 +105,20 @@ alias psr2="php-cs-fixer fix --level=psr2"
 alias python="python3"
 alias pip="pip3"
 
-# Run any command in another directory via z argument, without leaving current working directory.
-# Eg. `in sand art cache:clear`
-function in() { ( z $1; eval ${@:2} ) }
+# Run any command from anywhere, without leaving current working directory.
+#
+# Usage: `in [target] [command]`
+# Target: `shtuff` target (if available), else `z` argument
+# Example: `in sand art make:model -a SomeModel`
+
+function in() {(
+  if [[ $(shtuff has $1 2>&1) =~ 'was found' ]]; then
+    eval shtuff into $1 \"${@:2}\"
+  else
+    z $1
+    eval ${@:2}
+  fi
+)}
 
 function tink() {(
   if [ ! -f artisan ]; then
