@@ -53,8 +53,8 @@ rm -rf ~/.tipz
 git clone https://github.com/molovo/tipz ~/.tipz
 
 # Configure Vim.
+ln -sf ~/.dotfiles/.vi-mode.zsh ~/.vi-mode.zsh
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
-ln -sf ~/.dotfiles/.clivimrc ~/.clivimrc
 ln -sf ~/.dotfiles/.vim/UltiSnips ~/.vim/UltiSnips
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

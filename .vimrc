@@ -52,6 +52,7 @@ Plug 'phpactor/phpactor',               " PHP refactoring and introspection
 Plug 'kristijanhusak/deoplete-phpactor' " PHP Deoplete source
 Plug 'vim-vdebug/vdebug'                " Debugging
 Plug 'christoomey/vim-run-interactive'  " Run terminal commands in interactive shell
+Plug 'houtsnip/vim-emacscommandline'    " Emacs style mappings for ex commands
 
 call plug#end()
 

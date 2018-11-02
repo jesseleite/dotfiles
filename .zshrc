@@ -32,7 +32,7 @@ source /usr/local/etc/profile.d/z.sh
 
 # Vim love.
 export EDITOR='vim'
-source ~/.clivimrc
+source ~/.vi-mode.zsh
 [ -f ~/.dotfiles/.vim.zsh ] && source ~/.dotfiles/.vim.zsh
 
 #Fzf love.

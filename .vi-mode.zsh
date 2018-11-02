@@ -7,14 +7,16 @@ bindkey -M viins 'jk' vi-cmd-mode
 # Set timeout suitable for above binding
 export KEYTIMEOUT=300
 
-# Backspace and ^h working after returning from command mode
+# Bring back some defaults
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
 
 # Show mode
 vim_ins_mode=''
-vim_cmd_mode='normal'
+vim_cmd_mode='vi-mode'
 vim_mode=$vim_ins_mode
 function zle-keymap-select {
   vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
