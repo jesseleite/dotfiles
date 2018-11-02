@@ -73,6 +73,9 @@ cnoremap jk <C-c>
 " Clear search highlighting
 nmap <silent> <Leader>jk :nohlsearch<CR>
 
+" Quit
+nmap <Leader>q :q<CR>
+
 " Write
 nmap <Leader>w :w<CR>
 imap jw <Esc>:w<CR>
