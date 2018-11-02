@@ -286,7 +286,7 @@ let g:vdebug_options= {
   \ }
 
 let test#php#patterns = {
-  \ 'test':      ['\v^\s*function (\w*)\('],
+  \ 'test':      ['\v^\s*function (\w*)\(', '\v^\s*public function (\w*)\('],
   \ 'namespace': [] }
 
 let g:vim_markdown_frontmatter = 1
