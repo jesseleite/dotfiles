@@ -151,8 +151,10 @@ nmap <Leader><Leader>p :Run! in project<Space>
 nmap <Leader><Leader>a :Run! art<Space>
 
 " Git / Github
-nmap <Leader>G :Gstatus<CR>
-nmap <Leader><Leader>G :Gbrowse<CR>
+nmap <Leader><Leader>gst :Gstatus<CR><Space>o
+nmap <Leader><Leader>gc :Gcommit<CR><Space>o
+nmap <Leader><Leader>gbr :Gbrowse<CR>
+nmap <Leader><Leader>gbl :Gblame<CR>
 
 " Panel toggles
 nmap <Leader><Tab> :NERDTreeToggle<CR>
