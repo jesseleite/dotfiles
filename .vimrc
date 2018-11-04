@@ -500,3 +500,36 @@ function! DuplicateCurrentFile(path)
 endfunction
 
 command! -bar -nargs=1 Duplicate call DuplicateCurrentFile(<q-args>)
+
+" Php import sorting.
+
+function! SortLinesByLength() range
+  silent execute a:firstline . ',' . a:lastline . 's/^\(.*\)$/\=strdisplaywidth(submatch(0))." ".submatch(0)/'
+  silent execute a:firstline . ',' . a:lastline . 'sort n'
+  silent execute a:firstline . ',' . a:lastline . 's/^\d\+\s//'
+endfunction
+
+function! PhpSortImports(...)
+  normal gg
+  call search('use .*;')
+  let firstline = line('.')
+  if firstline == 1
+    echo 'No imports to sort.'
+    return
+  endif
+  normal }k
+  let lastline = line('.')
+  if a:0 && a:1 == 'length'
+    execute firstline . ',' . lastline . 'call SortLinesByLength()'
+    echo 'Sorted imports by length.'
+  else
+    execute firstline . ',' . lastline . 'sort'
+    echo 'Sorted imports alphabetically.'
+  endif
+endfunction
+
+command! -bar PhpSortImports call PhpSortImports()
+command! -bar PhpSortImportsByLength call PhpSortImports('length')
+
+nmap <Leader>psi :PhpSortImports<CR>
+nmap <Leader>psl :PhpSortImportsByLength<CR>
