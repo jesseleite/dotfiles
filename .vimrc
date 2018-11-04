@@ -145,10 +145,10 @@ nmap <Leader>rn :w<CR>:TestNearest<CR>
 nmap <Leader>rv :w<CR>:TestVisit<CR>
 
 " Run terminal command in interactive shell
-nmap <Leader><Leader>r :Run<Space>
-nmap <Leader><Leader>i :Run in<Space>
-nmap <Leader><Leader>p :Run in project<Space>
-nmap <Leader><Leader>a :Run art<Space>
+nmap <Leader><Leader>r :Run!<Space>
+nmap <Leader><Leader>i :Run! in<Space>
+nmap <Leader><Leader>p :Run! in project<Space>
+nmap <Leader><Leader>a :Run! art<Space>
 
 " Git / Github
 nmap <Leader>G :Gstatus<CR>
