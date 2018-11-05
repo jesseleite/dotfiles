@@ -507,6 +507,7 @@ command! -bar -nargs=1 Duplicate call DuplicateCurrentFile(<q-args>)
 " Look into php-cs-fixer and ale instead? :P
 
 function! SortLinesByLength() range
+  silent execute a:firstline . ',' . a:lastline . 'sort'
   silent execute a:firstline . ',' . a:lastline . 's/^\(.*\)$/\=strdisplaywidth(submatch(0))." ".submatch(0)/'
   silent execute a:firstline . ',' . a:lastline . 'sort n'
   silent execute a:firstline . ',' . a:lastline . 's/^\d\+\s//'
