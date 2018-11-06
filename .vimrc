@@ -53,6 +53,7 @@ Plug 'kristijanhusak/deoplete-phpactor' " PHP Deoplete source
 Plug 'vim-vdebug/vdebug'                " Debugging
 Plug 'christoomey/vim-run-interactive'  " Run terminal commands in interactive shell
 Plug 'houtsnip/vim-emacscommandline'    " Emacs style mappings for ex commands
+Plug 'dyng/ctrlsf.vim'
 
 call plug#end()
 
@@ -537,3 +538,15 @@ command! -bar PhpSortImportsByLength call PhpSortImports('length')
 
 nmap <Leader>psi :PhpSortImports<CR>
 nmap <Leader>psl :PhpSortImportsByLength<CR>
+
+" Messing with CtrlSF
+
+let g:ctrlsf_ackprg = '/usr/local/bin/ag'
+
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
+
+command! -n=* -comp=customlist,ctrlsf#comp#Completion CtrlSFSmart call ctrlsf#Search(agriculture#smart_quote_input(<q-args>))
+
+nmap <Leader><Leader><Leader>/ :CtrlSFSmart<Space>
