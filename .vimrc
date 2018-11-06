@@ -492,7 +492,8 @@ function! RemoveQuickfixItem()
   copen
 endfunction
 
-autocmd FileType qf map <buffer> dd :call RemoveQuickfixItem()<cr>
+autocmd FileType qf map <buffer> dd :call RemoveQuickfixItem()<CR>
+autocmd FileType qf map <buffer> p :.cc<CR><C-w>j
 
 " Because :sav works, but doesn't save relative to the source's location, and doesn't open the duplicated file either.
 
