@@ -331,6 +331,12 @@ highlight PmenuThumb ctermbg=white
 " # Functions
 " ------------------------------------------------------------------------------
 
+function! HelpImprovements()
+  wincmd o
+  nnoremap <buffer> <Leader>g <C-]>
+  nnoremap <buffer> <Leader>G <C-t>
+endfunction
+
 function! PlaybackMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
@@ -357,7 +363,7 @@ augroup misc_commands
   autocmd!
   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
   autocmd BufReadPost $MYVIMRC nnoremap <leader>g :call GoToPluginOnGithub()<CR><CR>
-  autocmd BufWinEnter * if &l:buftype ==# 'help' | wincmd o | endif
+  autocmd BufWinEnter * if &l:buftype ==# 'help' | call HelpImprovements() | endif
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
   autocmd BufEnter * EnableStripWhitespaceOnSave
   autocmd BufReadPost quickfix nested nmap <buffer> <CR> <CR>
