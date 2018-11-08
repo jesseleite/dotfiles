@@ -124,13 +124,14 @@ nmap <Leader>b :Buffers<CR>
 nmap <Leader>l :BLines<CR>
 nmap <Leader>L :Lines<CR>
 nmap <Leader>h :History<CR>
+" nmap <Leader>H :GHistory<CR>
 nmap <Leader>: :History:<CR>
-nmap <Leader>H :Helptags!<CR>
 nmap <Leader>M :Maps<CR>
 nmap <Leader>C :Commands<CR>
 nmap <Leader>' :Marks<CR>
 nmap <Leader>s :Filetypes<CR>
 nmap <Leader>S :Snippets<CR>
+nmap <Leader><Leader>h :Helptags!<CR>
 
 " Ag search project
 nmap <Leader>/ <Plug>AgRawSearch
@@ -333,8 +334,8 @@ highlight PmenuThumb ctermbg=white
 
 function! HelpImprovements()
   wincmd o
-  nnoremap <buffer> <Leader>g <C-]>
-  nnoremap <buffer> <Leader>G <C-t>
+  nnoremap <buffer> <CR> <C-]>
+  nnoremap <buffer> <Esc> <C-t>
 endfunction
 
 function! PlaybackMacroOverVisualRange()
