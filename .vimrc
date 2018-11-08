@@ -54,6 +54,7 @@ Plug 'vim-vdebug/vdebug'                " Debugging
 Plug 'christoomey/vim-run-interactive'  " Run terminal commands in interactive shell
 Plug 'houtsnip/vim-emacscommandline'    " Emacs style mappings for ex commands
 Plug 'dyng/ctrlsf.vim'
+Plug 'wellle/targets.vim'               " Additional text objects, and better seeking
 
 call plug#end()
 
@@ -294,6 +295,8 @@ let test#php#patterns = {
   \ 'namespace': [] }
 
 let g:vim_markdown_frontmatter = 1
+
+let g:targets_seekRanges = 'cc cr cb cB lc ac Ac lr lb ar ab lB Ar aB Ab AB'
 
 
 " ------------------------------------------------------------------------------
