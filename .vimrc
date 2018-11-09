@@ -335,6 +335,24 @@ highlight PmenuThumb ctermbg=white
 " # Functions
 " ------------------------------------------------------------------------------
 
+function! VimrcMappings()
+  nnoremap <buffer><nowait> <leader>g :call GoToPluginOnGithub()<CR><CR>
+  nnoremap <buffer><nowait> <leader>p :call PastePluginFromClipboard()<CR><CR>
+endfunction
+
+function! GoToPluginOnGithub()
+  normal ^f/"vyi'
+  execute "!chrome-cli open https://www.github.com/" . @v
+endfunction
+
+function! PastePluginFromClipboard()
+  normal G
+  call search("Plug \'", 'b')
+  normal oPlug
+  normal a '
+  normal pa'
+endfunction
+
 function! HelpImprovements()
   wincmd o
   nnoremap <buffer> <CR> <C-]>
@@ -344,11 +362,6 @@ endfunction
 function! PlaybackMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
-endfunction
-
-function! GoToPluginOnGithub()
-  normal ^f/"vyi'
-  execute "!chrome-cli open https://www.github.com/" . @v
 endfunction
 
 
@@ -366,7 +379,7 @@ endfunction
 augroup misc_commands
   autocmd!
   autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
-  autocmd BufReadPost $MYVIMRC nnoremap <leader>g :call GoToPluginOnGithub()<CR><CR>
+  autocmd BufReadPost $MYVIMRC call VimrcMappings()
   autocmd BufWinEnter * if &l:buftype ==# 'help' | call HelpImprovements() | endif
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
   autocmd BufEnter * EnableStripWhitespaceOnSave
