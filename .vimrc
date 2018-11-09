@@ -55,6 +55,7 @@ Plug 'christoomey/vim-run-interactive'  " Run terminal commands in interactive s
 Plug 'houtsnip/vim-emacscommandline'    " Emacs style mappings for ex commands
 Plug 'dyng/ctrlsf.vim'
 Plug 'wellle/targets.vim'               " Additional text objects, and better seeking
+Plug 'justinmk/vim-sneak'               " Sneak motion and better f/t motions
 
 call plug#end()
 
@@ -167,6 +168,12 @@ nmap <Leader>\ :TagbarToggle<CR>
 nmap <Leader><Leader>u :UndotreeToggle<CR>
 let g:lt_quickfix_list_toggle_map = '<Leader><Leader>q'
 let g:lt_location_list_toggle_map = '<Leader><Leader>l'
+
+" Single character sneak
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 " Delete text on line
 nmap <Leader>d 0D
