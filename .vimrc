@@ -521,9 +521,20 @@ function! RemoveQuickfixItem()
   execute curqfidx + 1 . "cfirst"
   copen
 endfunction
+command! RemoveQuickfixItem silent! call RemoveQuickfixItem()
 
-autocmd FileType qf map <buffer> dd :call RemoveQuickfixItem()<CR>
-autocmd FileType qf map <buffer> p :.cc<CR><C-w>j
+function! OpenWritableSearchBufferFromQuickfix()
+  WritableSearchFromQuickfix
+  wincmd o
+endfunction
+command! OpenWritableSearchBufferFromQuickfix silent! call OpenWritableSearchBufferFromQuickfix()
+
+augroup quickfix_mappings
+  autocmd!
+  autocmd FileType qf nnoremap <buffer> dd :RemoveQuickfixItem<CR>
+  autocmd FileType qf nnoremap <buffer> p :.cc<CR><C-w>j
+  autocmd FileType qf nnoremap <buffer> <Leader>w :OpenWritableSearchBufferFromQuickfix<CR>
+augroup END
 
 " Because :sav works, but doesn't save relative to the source's location, and doesn't open the duplicated file either.
 
