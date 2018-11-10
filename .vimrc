@@ -343,21 +343,42 @@ highlight PmenuThumb ctermbg=white
 " ------------------------------------------------------------------------------
 
 function! VimrcMappings()
-  nnoremap <buffer><nowait> <leader>g :call GoToPluginOnGithub()<CR><CR>
-  nnoremap <buffer><nowait> <leader>p :call PastePluginFromClipboard()<CR><CR>
+  nnoremap <buffer><nowait> <leader>pg :call GoToPluginUrl()<CR>
+  nnoremap <buffer><nowait> <leader>py :call YankPluginUrl()<CR>
+  nnoremap <buffer><nowait> <leader>pp :call PastePluginFromClipboard()<CR>
+  nnoremap <buffer><nowait> <leader>pi :PlugInstall<CR>
+  nnoremap <buffer><nowait> <leader>pu :PlugUpdate<CR>
+  nnoremap <buffer><nowait> <leader>pc :PlugClean<CR>
 endfunction
 
-function! GoToPluginOnGithub()
-  normal ^f/"vyi'
-  execute "!chrome-cli open https://www.github.com/" . @v
+function! YankPluginUrl()
+  normal ^f/yi'
+  let @+ = 'https://www.github.com/' . @+
+  return @+
+endfunction
+
+function! GoToPluginUrl()
+  call YankPluginUrl()
+  silent execute "!chrome-cli open " . @+
+  redraw!
+endfunction
+
+function! GetInstallablePluginFromClipboard()
+  if match(@+, 'github.com') > -1
+    let matches = matchlist(@+, '\.com/\([^/]*\)/\([^/]*\)')
+    let plugin = matches[1] . '/' . matches[2]
+  elseif match(@+, 'Plug ') > -1
+    let plugin = matchstr(@+, "'.*'")
+  else
+    let plugin = @+
+  endif
+  return substitute(plugin, "'", '', 'g')
 endfunction
 
 function! PastePluginFromClipboard()
   normal G
-  call search("Plug \'", 'b')
-  normal oPlug
-  normal a '
-  normal pa'
+  call search("Plug \'.*\'", 'b')
+  execute "normal oPlug " . substitute("'p'", 'p', GetInstallablePluginFromClipboard(), '')
 endfunction
 
 function! HelpImprovements()
