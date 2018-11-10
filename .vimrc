@@ -342,6 +342,64 @@ highlight PmenuThumb ctermbg=white
 " # Functions
 " ------------------------------------------------------------------------------
 
+function! HelpImprovements()
+  wincmd o
+  nnoremap <buffer> <CR> <C-]>
+  nnoremap <buffer> <Esc> <C-t>
+endfunction
+
+function! PlaybackMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+
+" ------------------------------------------------------------------------------
+" # Commands
+" ------------------------------------------------------------------------------
+
+" [crickets]
+
+
+" ------------------------------------------------------------------------------
+" # Auto Commands
+" ------------------------------------------------------------------------------
+
+augroup misc_commands
+  autocmd!
+  autocmd BufWinEnter * if &l:buftype ==# 'help' | call HelpImprovements() | endif
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
+  autocmd BufEnter * EnableStripWhitespaceOnSave
+  autocmd BufReadPost quickfix nested nmap <buffer> <CR> <CR>
+  autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+augroup END
+
+augroup filetype_settings
+  autocmd!
+  autocmd FileType zsh setlocal ts=2 sw=2 sts=2 expandtab
+  autocmd FileType vim setlocal ts=2 sw=2 sts=2 expandtab
+  autocmd FileType php setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s omnifunc=phpactor#Complete
+  autocmd FileType html setlocal ts=4 sw=4 sts=4 expandtab
+  autocmd FileType css setlocal ts=4 sw=4 sts=4 expandtab
+  autocmd FileType scss setlocal ts=4 sw=4 sts=4 expandtab
+  autocmd FileType less setlocal ts=2 sw=2 sts=2 expandtab
+  autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
+  autocmd FileType vue setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s
+  autocmd FileType vue syntax sync fromstart
+  autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
+augroup END
+
+
+" ------------------------------------------------------------------------------
+" # Vimrc Local
+" ------------------------------------------------------------------------------
+
+augroup vimrc
+  autocmd!
+  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+  autocmd BufReadPost $MYVIMRC call VimrcMappings()
+augroup END
+
 function! VimrcMappings()
   nnoremap <buffer><nowait> <leader>pg :call GoToPluginUrl()<CR>
   nnoremap <buffer><nowait> <leader>py :call YankPluginUrl()<CR>
@@ -380,55 +438,6 @@ function! PastePluginFromClipboard()
   call search("Plug \'.*\'", 'b')
   execute "normal oPlug " . substitute("'p'", 'p', GetInstallablePluginFromClipboard(), '')
 endfunction
-
-function! HelpImprovements()
-  wincmd o
-  nnoremap <buffer> <CR> <C-]>
-  nnoremap <buffer> <Esc> <C-t>
-endfunction
-
-function! PlaybackMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
-
-
-" ------------------------------------------------------------------------------
-" # Commands
-" ------------------------------------------------------------------------------
-
-" [crickets]
-
-
-" ------------------------------------------------------------------------------
-" # Auto Commands
-" ------------------------------------------------------------------------------
-
-augroup misc_commands
-  autocmd!
-  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
-  autocmd BufReadPost $MYVIMRC call VimrcMappings()
-  autocmd BufWinEnter * if &l:buftype ==# 'help' | call HelpImprovements() | endif
-  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
-  autocmd BufEnter * EnableStripWhitespaceOnSave
-  autocmd BufReadPost quickfix nested nmap <buffer> <CR> <CR>
-  autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-augroup END
-
-augroup filetype_settings
-  autocmd!
-  autocmd FileType zsh setlocal ts=2 sw=2 sts=2 expandtab
-  autocmd FileType vim setlocal ts=2 sw=2 sts=2 expandtab
-  autocmd FileType php setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s omnifunc=phpactor#Complete
-  autocmd FileType html setlocal ts=4 sw=4 sts=4 expandtab
-  autocmd FileType css setlocal ts=4 sw=4 sts=4 expandtab
-  autocmd FileType scss setlocal ts=4 sw=4 sts=4 expandtab
-  autocmd FileType less setlocal ts=2 sw=2 sts=2 expandtab
-  autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
-  autocmd FileType vue setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s
-  autocmd FileType vue syntax sync fromstart
-  autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
-augroup END
 
 
 " ------------------------------------------------------------------------------
