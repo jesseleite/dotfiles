@@ -423,14 +423,11 @@ endfunction
 
 function! GetInstallablePluginFromClipboard()
   if match(@+, 'github.com') > -1
-    let matches = matchlist(@+, '\.com/\([^/]*\)/\([^/]*\)')
-    let plugin = matches[1] . '/' . matches[2]
+    return matchlist(@+, '\.com/\([^/]*/[^/]*\)')[1]
   elseif match(@+, 'Plug ') > -1
-    let plugin = matchstr(@+, "'.*'")
-  else
-    let plugin = @+
+    return matchlist(@+, "'\\(.*\\)'")[1]
   endif
-  return substitute(plugin, "'", '', 'g')
+  return @+
 endfunction
 
 function! PastePluginFromClipboard()
