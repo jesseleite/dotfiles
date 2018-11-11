@@ -410,7 +410,7 @@ function! VimrcMappings()
 endfunction
 
 function! YankPluginUrl()
-  normal ^f/yi'
+  normal ^wyi'
   let @+ = 'https://www.github.com/' . @+
   return @+
 endfunction
