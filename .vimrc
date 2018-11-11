@@ -53,9 +53,9 @@ Plug 'kristijanhusak/deoplete-phpactor' " PHP Deoplete source
 Plug 'vim-vdebug/vdebug'                " Debugging
 Plug 'christoomey/vim-run-interactive'  " Run terminal commands in interactive shell
 Plug 'houtsnip/vim-emacscommandline'    " Emacs style mappings for ex commands
-Plug 'dyng/ctrlsf.vim'
 Plug 'wellle/targets.vim'               " Additional text objects, and better seeking
 Plug 'justinmk/vim-sneak'               " Sneak motion and better f/t motions
+Plug 'AndrewRadev/writable_search.vim'  " Writable search buffer from quickfix
 
 call plug#end()
 
@@ -304,6 +304,8 @@ let test#php#patterns = {
 let g:vim_markdown_frontmatter = 1
 
 let g:targets_seekRanges = 'cc cr cb cB lc ac Ac lr lb ar ab lB Ar aB Ab AB'
+
+let g:writable_search_new_buffer_command = 'enew'
 
 
 " ------------------------------------------------------------------------------
