@@ -38,11 +38,12 @@ function! s:SourceConfigFilesIn(folder)
 endfunction
 
 " Dynamic sourcing
-call s:SourceConfigFilesIn('plugins')
+call s:SourceConfigFilesIn('local')
+call s:SourceConfigFilesIn('plugin')
 
 
 " ------------------------------------------------------------------------------
-" # Settings
+" # Native Settings
 " ------------------------------------------------------------------------------
 
 set hidden
@@ -111,7 +112,6 @@ let g:writable_search_new_buffer_command = 'enew'
 
 "let base16colorspace=256
 colorscheme base16-monokai
-set hlsearch
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight Search ctermbg=blue ctermfg=white
@@ -196,13 +196,13 @@ augroup END
 augroup vimrc
   autocmd!
   autocmd BufWritePost $MYVIMRC,{plugins,mappings}.vim nested source $MYVIMRC
-  autocmd BufWritePost plugins/* echo 'wat'
+  " autocmd BufWritePost plugins/* echo 'wat'
   autocmd BufReadPost $MYVIMRC call VimrcMappings()
 augroup END
 
 function! VimrcMappings()
-  nnoremap <buffer><nowait> <leader>ps :call JumpToPluginSettings()<CR>
-  nnoremap <buffer><nowait> <leader>pm :call JumpToMappings()<CR>
+  nnoremap <buffer><nowait> <leader>gs :call GoToConfigFile()<CR>
+  nnoremap <buffer><nowait> <leader>gm :call GoToRelatedMappings()<CR>
   nnoremap <buffer><nowait> <leader>pg :call GoToPluginUrl()<CR>
   nnoremap <buffer><nowait> <leader>py :call YankPluginUrl()<CR>
   nnoremap <buffer><nowait> <leader>pp :call PastePluginFromClipboard()<CR>
@@ -211,23 +211,34 @@ function! VimrcMappings()
   nnoremap <buffer><nowait> <leader>pc :PlugClean<CR>
 endfunction
 
-function! GetRef()
+function! GetRefFromAnnotation()
   let line = line('.')
   normal {jj
-  let ref = matchlist(getline('.'), 'Ref: \(.*\)')[1]
+  let ref = matchlist(getline('.'), '" \(.*\): \(.*\)')
   execute 'normal ' . line . 'G'
-  return ref
+  return {'type': tolower(ref[1]), 'slug': ref[2]}
 endfunction
 
-function! JumpToPluginSettings()
-  silent execute 'edit ' s:VimrcPath('plugins/' . GetRef() . '.vim')
+function! GetRefForCurrentConfigFile()
+  let ref = matchlist(expand('%:p:r'), '\([^/]*\)-config/\([^/]*\)$')
+  return {'type': tolower(ref[1]), 'slug': ref[2]}
 endfunction
 
-function! JumpToMappings()
-  let ref = matchlist(expand('%:t'), '\(.*\)\.')[1]
+function! BuildAnnotationForRef(ref)
+  return a:ref['type'] . ': ' . a:ref['slug']
+endfunction
+
+function! GoToConfigFile()
+  let ref = GetRefFromAnnotation()
+  silent execute 'edit ' s:VimrcPath(ref['type'] . '-config/' . ref['slug'] . '.vim')
+endfunction
+
+function! GoToRelatedMappings()
+  let config_ref = GetRefForCurrentConfigFile()
   silent execute 'edit ' s:VimrcPath('mappings.vim')
-  if ref != GetRef()
-    call search('Ref: ' . ref)
+  let mappings_ref = GetRefFromAnnotation()
+  if config_ref != mappings_ref
+    call search(BuildAnnotationForRef(config_ref) . '\c')
   endif
 endfunction
 
@@ -256,36 +267,6 @@ function! PastePluginFromClipboard()
   call search("Plug \'.*\'", 'b')
   execute "normal oPlug " . substitute("'p'", 'p', GetInstallablePluginFromClipboard(), '')
 endfunction
-
-
-" ------------------------------------------------------------------------------
-" # Shtuff
-" ------------------------------------------------------------------------------
-
-function! ShtuffStrategy(cmd)
-  call system("shtuff into " . shellescape(g:shtuff_as) . " " . shellescape("clear;" . a:cmd))
-endfunction
-
-function! TestToggleStrategy()
-  if exists("g:test#strategy")
-    unlet g:test#strategy
-    echo "Test Strategy: default"
-  else
-    let g:test#strategy = "shtuff"
-    echo "Test Strategy: shtuff into test"
-  endif
-endfunction
-
-command! TestToggleStrategy call TestToggleStrategy()
-
-let g:shtuff_as = "test"
-let g:test#custom_strategies = {'shtuff': function('ShtuffStrategy')}
-
-if match(system('shtuff has test'), 'was found') > 0
-  let g:test#strategy = "shtuff"
-elseif exists('g:test#strategy')
-  unlet g:test#strategy
-endif
 
 
 " ------------------------------------------------------------------------------
@@ -330,19 +311,6 @@ endif
 
 " command! -bang -nargs=+ Methods
 "   \ call fzf#vim#buffer_tags(<q-args>, { 'options': ['--nth', '..-2,-1', '--query', '^f$ '] })
-
-" When using `dd` in the quickfix list, remove the item from the quickfix list.
-" https://stackoverflow.com/questions/42905008/quickfix-list-how-to-add-and-remove-entries
-
-function! RemoveQuickfixItem()
-  let curqfidx = line('.') - 1
-  let qfall = getqflist()
-  call remove(qfall, curqfidx)
-  call setqflist(qfall, 'r')
-  execute curqfidx + 1 . "cfirst"
-  copen
-endfunction
-command! RemoveQuickfixItem silent! call RemoveQuickfixItem()
 
 function! OpenWritableSearchBufferFromQuickfix()
   WritableSearchFromQuickfix

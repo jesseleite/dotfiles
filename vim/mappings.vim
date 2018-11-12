@@ -49,7 +49,7 @@ nmap [c <Plug>GitGutterPrevHunk
 nmap ]c <Plug>GitGutterNextHunk
 
 " Fzf fuzzy finders
-" Ref: fzf
+" Plugin: fzf
 nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
 nmap <Leader>t :BTags<CR>
@@ -69,12 +69,13 @@ nmap <Leader>S :Snippets<CR>
 nmap <Leader><Leader>h :Helptags!<CR>
 
 " Ag search project
-" Ref: agriculture
+" Plugin: agriculture
 nmap <Leader>/ <Plug>AgRawSearch
 vmap <Leader>/ <Plug>AgRawVisualSelection
 nmap <Leader>* <Plug>AgRawWordUnderCursor
 
 " Run tests
+" Plugin: test
 nmap <Leader>rt :w<CR>:TestToggleStrategy<CR>
 nmap <Leader>rs :w<CR>:TestSuite<CR>
 nmap <Leader>rf :w<CR>:TestFile<CR>
@@ -101,6 +102,9 @@ nmap <Leader><Leader><Tab>f :NERDTreeFind<CR>zz
 nmap <Leader>\ :TagbarToggle<CR>
 nmap <Leader><Leader>u :UndotreeToggle<CR>
 let g:lt_quickfix_list_toggle_map = '<Leader><Leader>q'
+
+" Quickfix
+" Local: quickfix
 let g:lt_location_list_toggle_map = '<Leader><Leader>l'
 
 " Single character sneak
