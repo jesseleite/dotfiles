@@ -12,9 +12,12 @@ silent! source $VIMRUNTIME/defaults.vim
 " # Sourcing
 " ------------------------------------------------------------------------------
 
+" Set dotfiles path
+let g:dotfiles_path = '/Users/jesseleite/.dotfiles'
+
 " Get path relative to vimrc
 function! s:VimrcPath(path)
-  return '~/.dotfiles/vim/' . a:path
+  return g:dotfiles_path . '/vim/' . a:path
 endfunction
 
 " Source plugins
