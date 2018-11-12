@@ -38,8 +38,8 @@ function! s:SourceConfigFilesIn(folder)
 endfunction
 
 " Dynamic sourcing
-call s:SourceConfigFilesIn('local')
-call s:SourceConfigFilesIn('plugin')
+call s:SourceConfigFilesIn('local-config')
+call s:SourceConfigFilesIn('plugin-config')
 
 
 " ------------------------------------------------------------------------------
