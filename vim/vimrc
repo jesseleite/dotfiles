@@ -1,247 +1,44 @@
+" ------------------------------------------------------------------------------
+" # Defaults
+" ------------------------------------------------------------------------------
+
 " Vim 8 defaults
+" For more info, see :help defaults.vim
 unlet! skip_defaults_vim
 silent! source $VIMRUNTIME/defaults.vim
 
 
 " ------------------------------------------------------------------------------
-" # Plugins
+" # Sourcing
 " ------------------------------------------------------------------------------
 
+" Get path relative to vimrc
+function! s:VimrcPath(path)
+  return '~/.dotfiles/vim/' . a:path
+endfunction
+
+" Source plugins
 call plug#begin('~/.vim/plugged')
-
-Plug '/usr/local/opt/fzf'               " Fzf fuzzy finder
-Plug 'junegunn/fzf.vim'                 " Fzf vim wrapper
-Plug 'jesseleite/vim-agriculture'       " Better ag search
-Plug 'chriskempson/base16-vim'          " Base16 theming architecture
-Plug 'vim-airline/vim-airline'          " Status line
-Plug 'vim-airline/vim-airline-themes'   " Status line themes
-Plug 'scrooloose/nerdtree'              " File system browser
-Plug 'ludovicchabant/vim-gutentags'     " Tag generation
-Plug 'majutsushi/tagbar'                " Tag browser
-Plug 'mbbill/undotree'                  " Undo tree
-Plug 'Valloric/ListToggle'              " Quickfix/Location toggler
-Plug 'airblade/vim-gitgutter'           " Git gutters
-Plug 'tpope/vim-fugitive'               " Git commands
-Plug 'tpope/vim-rhubarb'                " Github commands
-Plug 'sheerun/vim-polyglot'             " Language pack
-Plug 'w0rp/ale'                         " Linters
-Plug 'tpope/vim-commentary'             " Code commenting
-Plug 'ap/vim-css-color'                 " CSS colour rendering
-Plug 'janko-m/vim-test'                 " Test runner
-Plug 'junegunn/vim-peekaboo'            " Peek into registers
-Plug 'jiangmiao/auto-pairs'             " Insert brackets, quotes, etc. in pairs
-Plug 'SirVer/ultisnips'                 " Snippets
-Plug 'markonm/traces.vim'               " Substitute highlighting and preview
-Plug 'ntpeters/vim-better-whitespace'   " Highlight and trim whitespace
-Plug 'tpope/vim-unimpaired'             " Handy bracket mappings
-Plug 'tpope/vim-surround'               " Surround commands
-Plug 'tpope/vim-repeat'                 " Better . repeating
-Plug 'qpkorr/vim-bufkill'               " Close buffer without closing window or split
-Plug 'junegunn/goyo.vim'                " Distraction free writing
-Plug 'junegunn/limelight.vim'           " Hyper focus writing
-Plug 'junegunn/vim-easy-align'          " Text alignment
-Plug 'junegunn/vader.vim'               " Vimscript test framework
-Plug 'tobyS/vmustache'                  " PHP docblocks dependency
-Plug 'tobyS/pdv'                        " PHP docblocks
-Plug 'mattn/emmet-vim'                  " HTML/CSS expand abbreviation magic
-Plug 'Shougo/deoplete.nvim'             " IDE-like autocompletion
-Plug 'roxma/nvim-yarp'                  " Deoplete dependency
-Plug 'roxma/vim-hug-neovim-rpc'         " Deoplete dependency
-Plug 'phpactor/phpactor',               " PHP refactoring and introspection
-  \ { 'for': 'php', 'do': 'composer install' }
-Plug 'kristijanhusak/deoplete-phpactor' " PHP Deoplete source
-Plug 'vim-vdebug/vdebug'                " Debugging
-Plug 'christoomey/vim-run-interactive'  " Run terminal commands in interactive shell
-Plug 'houtsnip/vim-emacscommandline'    " Emacs style mappings for ex commands
-Plug 'wellle/targets.vim'               " Additional text objects, and better seeking
-Plug 'justinmk/vim-sneak'               " Sneak motion and better f/t motions
-Plug 'AndrewRadev/writable_search.vim'  " Writable search buffer from quickfix
-
+  execute 'source ' . s:VimrcPath('plugins.vim')
 call plug#end()
 
+" Can this be included via vim-plug?
 packadd! matchit
 
+" Source mappings
+execute 'source ' s:VimrcPath('mappings.vim')
 
-" ------------------------------------------------------------------------------
-" # Mappings
-" ------------------------------------------------------------------------------
+" Setup dynamic sourcing
+function! s:SourceConfigFilesIn(folder)
+  for config_file in split(glob(s:VimrcPath(a:folder . '/*')), '\n')
+    if filereadable(config_file)
+      execute 'source' config_file
+    endif
+  endfor
+endfunction
 
-" Leader
-let mapleader = "\<Space>"
-
-" Esc / Ctrl-c
-imap jk <Esc>
-cnoremap jk <C-c>
-
-" Clear search highlighting
-nmap <silent> <Leader>jk :nohlsearch<CR>
-
-" Quit
-nmap <Leader>q :q<CR>
-
-" Write
-nmap <Leader>w :w<CR>
-imap jw <Esc>:w<CR>
-map <D-s> <Esc>:w<CR>
-map <M-s> <Esc>:w<CR>
-map <C-s> <Esc>:w<CR>
-
-" Write and reload current tab in chrome
-nmap <silent> <Leader>R :w<CR>:call system('chrome-cli reload')<CR>
-
-" Write and source, for plugin development?
-nmap <Leader><Leader>w :w<CR>:so %<CR>
-
-" Edit .vimrc
-nmap <Leader><Leader>v :edit $MYVIMRC<CR>
-nmap <Leader><Leader>V :source $MYVIMRC<CR>
-
-" Open in finder
-nmap <silent> <Leader><Leader>o :!open $PWD<CR><CR>
-
-" Browse with valet open
-nmap <silent> <Leader><Leader>b :!valet open<CR><CR>
-
-" Windows
-nnoremap <Tab> <C-w>w
-nnoremap <S-Tab> <C-w>W
-nnoremap <Leader>o <C-w>o
-
-" Close buffer, and disable intrusive BuffKill mappings
-let g:BufKillCreateMappings = 0
-nmap <silent> <Leader>c :BD<CR>
-
-" Next/prev git change, and disable intrusive GitGutter mappings
-let g:gitgutter_map_keys = 0
-nmap [c <Plug>GitGutterPrevHunk
-nmap ]c <Plug>GitGutterNextHunk
-
-" Fzf fuzzy finders
-nmap <Leader>f :GFiles<CR>
-nmap <Leader>F :Files<CR>
-nmap <Leader>t :BTags<CR>
-nmap <Leader>T :Tags<CR>
-" nmap <Leader>m :Methods<CR>
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>l :BLines<CR>
-nmap <Leader>L :Lines<CR>
-nmap <Leader>h :History<CR>
-" nmap <Leader>H :GHistory<CR>
-nmap <Leader>: :History:<CR>
-nmap <Leader>M :Maps<CR>
-nmap <Leader>C :Commands<CR>
-nmap <Leader>' :Marks<CR>
-nmap <Leader>s :Filetypes<CR>
-nmap <Leader>S :Snippets<CR>
-nmap <Leader><Leader>h :Helptags!<CR>
-
-" Ag search project
-nmap <Leader>/ <Plug>AgRawSearch
-vmap <Leader>/ <Plug>AgRawVisualSelection
-nmap <Leader>* <Plug>AgRawWordUnderCursor
-
-" Run tests
-nmap <Leader>rt :w<CR>:TestToggleStrategy<CR>
-nmap <Leader>rs :w<CR>:TestSuite<CR>
-nmap <Leader>rf :w<CR>:TestFile<CR>
-nmap <Leader>rl :w<CR>:TestLast<CR>
-nmap <Leader>rn :w<CR>:TestNearest<CR>
-nmap <Leader>rv :w<CR>:TestVisit<CR>
-
-" Run terminal command in interactive shell
-nmap <Leader><Leader>r :Run!<Space>
-nmap <Leader><Leader>i :Run! in<Space>
-nmap <Leader><Leader>p :Run! in project<Space>
-nmap <Leader><Leader>a :Run! art<Space>
-
-" Git / Github
-nmap <Leader><Leader>gst :Gstatus<CR><Space>o
-nmap <Leader><Leader>gc :Gcommit<CR><Space>o
-nmap <Leader><Leader>gbr :Gbrowse<CR>
-nmap <Leader><Leader>gbl :Gblame<CR>
-
-" Panel toggles
-nmap <Leader><Tab> :NERDTreeToggle<CR>
-nmap <Leader><Leader><Tab> :NERDTree<CR>
-nmap <Leader><Leader><Tab>f :NERDTreeFind<CR>zz
-nmap <Leader>\ :TagbarToggle<CR>
-nmap <Leader><Leader>u :UndotreeToggle<CR>
-let g:lt_quickfix_list_toggle_map = '<Leader><Leader>q'
-let g:lt_location_list_toggle_map = '<Leader><Leader>l'
-
-" Single character sneak
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
-
-" Delete text on line
-nmap <Leader>d 0D
-
-" Open lines, but stay in normal mode
-nmap <S-CR> O<Esc>
-nmap <CR> o<Esc>
-
-" Open line below, with an extra blank line below that one
-nnoremap <Leader><CR> o<C-o>O
-
-" Quickly append semicolon or comma
-imap ;; <Esc>A;<Esc>
-imap ,, <Esc>A,<Esc>
-
-" Keep visual selection when indenting
-xnoremap > >gv
-xnoremap < <gv
-
-" Move line(s) up and down
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
-
-" Quicker macro playback
-nnoremap Q @q<CR>
-xnoremap Q :norm @q<CR>
-xnoremap @ :<C-u>call PlaybackMacroOverVisualRange()<CR>
-
-" Break undo sequence on specific characters
-inoremap , ,<C-g>u
-inoremap . .<C-g>u
-inoremap ! !<C-g>u
-inoremap ? ?<C-g>u
-
-" EasyAlign
-nmap ga <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
-
-" UltiSnips
-let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-" Phpactor
-nnoremap <Leader>p :call phpactor#ContextMenu()<CR>
-nnoremap <Leader>pg :call phpactor#GotoDefinition()<CR>
-nnoremap <Leader>pi :call phpactor#UseAdd()<CR>
-nnoremap <Leader>pt :call phpactor#Transform()<CR>
-
-" PHP docblocks
-nnoremap <Leader>D :call pdv#DocumentWithSnip()<CR>
-
-" Disable unimpaired mappings
-let g:nremap = {"[e": "", "]e": ""}
-
-" Emmet
-imap <C-e> <plug>(emmet-expand-abbr)
-nmap ]e <plug>(emmet-move-next)
-nmap [e <plug>(emmet-move-prev)
-
-" Vdebug
-nnoremap <Leader>B :Breakpoint<CR>
-nnoremap <Leader>V :VdebugStart<CR>
+" Dynamic sourcing
+call s:SourceConfigFilesIn('plugins')
 
 
 " ------------------------------------------------------------------------------
@@ -398,17 +195,40 @@ augroup END
 
 augroup vimrc
   autocmd!
-  autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+  autocmd BufWritePost $MYVIMRC,{plugins,mappings}.vim nested source $MYVIMRC
+  autocmd BufWritePost plugins/* echo 'wat'
   autocmd BufReadPost $MYVIMRC call VimrcMappings()
 augroup END
 
 function! VimrcMappings()
+  nnoremap <buffer><nowait> <leader>ps :call JumpToPluginSettings()<CR>
+  nnoremap <buffer><nowait> <leader>pm :call JumpToMappings()<CR>
   nnoremap <buffer><nowait> <leader>pg :call GoToPluginUrl()<CR>
   nnoremap <buffer><nowait> <leader>py :call YankPluginUrl()<CR>
   nnoremap <buffer><nowait> <leader>pp :call PastePluginFromClipboard()<CR>
   nnoremap <buffer><nowait> <leader>pi :PlugInstall<CR>
   nnoremap <buffer><nowait> <leader>pu :PlugUpdate<CR>
   nnoremap <buffer><nowait> <leader>pc :PlugClean<CR>
+endfunction
+
+function! GetRef()
+  let line = line('.')
+  normal {jj
+  let ref = matchlist(getline('.'), 'Ref: \(.*\)')[1]
+  execute 'normal ' . line . 'G'
+  return ref
+endfunction
+
+function! JumpToPluginSettings()
+  silent execute 'edit ' s:VimrcPath('plugins/' . GetRef() . '.vim')
+endfunction
+
+function! JumpToMappings()
+  let ref = matchlist(expand('%:t'), '\(.*\)\.')[1]
+  silent execute 'edit ' s:VimrcPath('mappings.vim')
+  if ref != GetRef()
+    call search('Ref: ' . ref)
+  endif
 endfunction
 
 function! YankPluginUrl()
@@ -436,33 +256,6 @@ function! PastePluginFromClipboard()
   call search("Plug \'.*\'", 'b')
   execute "normal oPlug " . substitute("'p'", 'p', GetInstallablePluginFromClipboard(), '')
 endfunction
-
-
-" ------------------------------------------------------------------------------
-" # Fzf
-" ------------------------------------------------------------------------------
-
-let g:fzf_colors = {
-  \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Label'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Label'],
-  \ 'info':    ['fg', 'Comment'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Function'],
-  \ 'pointer': ['fg', 'Statement'],
-  \ 'marker':  ['fg', 'Conditional'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-command! Mapsn call fzf#vim#maps('n', 0)
-command! Mapsx call fzf#vim#maps('x', 0)
-command! Mapso call fzf#vim#maps('o', 0)
-command! Mapsi call fzf#vim#maps('i', 0)
-command! Mapsv call fzf#vim#maps('v', 0)
-command! Mapsa call fzf#vim#maps('a', 0)
 
 
 " ------------------------------------------------------------------------------
@@ -620,3 +413,5 @@ let g:ctrlsf_auto_focus = {
 command! -n=* -comp=customlist,ctrlsf#comp#Completion CtrlSFSmart call ctrlsf#Search(agriculture#smart_quote_input(<q-args>))
 
 nmap <Leader><Leader><Leader>/ :CtrlSFSmart<Space>
+
+
