@@ -193,10 +193,15 @@ augroup END
 " # Vimrc Local
 " ------------------------------------------------------------------------------
 
-augroup vimrc
+augroup autosource_vimrc
   autocmd!
-  autocmd BufWritePost $MYVIMRC,{plugins,mappings}.vim nested source $MYVIMRC
-  " autocmd BufWritePost plugins/* echo 'wat'
+  execute 'autocmd BufWritePost '
+    \ . join([$MYVIMRC, s:VimrcPath('vimrc'), s:VimrcPath('*.vim')], ',')
+    \ . ' nested source ' . $MYVIMRC
+augroup END
+
+augroup vimrc_mappings
+  autocmd!
   autocmd BufReadPost $MYVIMRC call VimrcMappings()
 augroup END
 
