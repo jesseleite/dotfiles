@@ -1,6 +1,22 @@
+" ------------------------------------------------------------------------------
+" # Register Quickfix Local Mappings
+" ------------------------------------------------------------------------------
+
+augroup quickfix_mappings
+  autocmd!
+  autocmd FileType qf call QuickfixLocalMappings()
+augroup END
+
+
+" ------------------------------------------------------------------------------
+" # Quickfix Helpers
+" ------------------------------------------------------------------------------
+
+command! RemoveQuickfixItem silent! call RemoveQuickfixItem()
+command! PreviewQuickfixItem silent! call PreviewQuickfixItem()
+
 " When using `dd` in the quickfix list, remove the item from the quickfix list.
 " https://stackoverflow.com/questions/42905008/quickfix-list-how-to-add-and-remove-entries
-
 function! RemoveQuickfixItem()
   let curqfidx = line('.') - 1
   let qfall = getqflist()
@@ -10,4 +26,7 @@ function! RemoveQuickfixItem()
   copen
 endfunction
 
-command! RemoveQuickfixItem silent! call RemoveQuickfixItem()
+function! PreviewQuickfixItem()
+  .cc
+  wincmd j
+endfunction

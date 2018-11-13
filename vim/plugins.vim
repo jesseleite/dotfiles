@@ -8,7 +8,7 @@ Plug 'scrooloose/nerdtree'              " File system browser
 Plug 'ludovicchabant/vim-gutentags'     " Tag generation
 Plug 'majutsushi/tagbar'                " Tag browser
 Plug 'mbbill/undotree'                  " Undo tree
-Plug 'Valloric/ListToggle'              " Quickfix/Location toggler
+Plug 'milkypostman/vim-togglelist'      " Quickfix/Location toggler
 Plug 'airblade/vim-gitgutter'           " Git gutters
 Plug 'tpope/vim-fugitive'               " Git commands
 Plug 'tpope/vim-rhubarb'                " Github commands
@@ -48,3 +48,45 @@ Plug 'AndrewRadev/writable_search.vim'  " Writable search buffer from quickfix
 
 " Plugin: bufkill
 let g:BufKillCreateMappings = 0
+
+" Plugin: togglelist
+let g:toggle_list_no_mappings = 1
+
+" Plugin: nerdtree
+let g:NERDTreeWinSize=45
+let g:NERDTreeQuitOnOpen = 1
+
+" Plugin: phpactor
+let g:phpactorBranch = 'develop'
+
+" Plugin: peekaboo
+let g:peekaboo_window = 'vertical botright 60new'
+
+" Plugin: ultisnips
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+
+" Plugin: pdv
+let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
+
+" Plugin: deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#source('_', 'max_menu_width', 120)
+call deoplete#custom#option('auto_complete_delay', 600)
+
+" Plugin: vdebug
+let g:vdebug_options= {
+  \ "port" : 9001,
+  \ }
+
+" Plugin: polyglot
+let g:vim_markdown_frontmatter = 1
+
+" Disable unimparied mappings for emmet
+" Plugin: unimpaired
+let g:nremap = {"[e": "", "]e": ""}
+
+" Plugin: targets
+let g:targets_seekRanges = 'cc cr cb cB lc ac Ac lr lb ar ab lB Ar aB Ab AB'
+
+" Plugin: writable-search
+let g:writable_search_new_buffer_command = 'enew'

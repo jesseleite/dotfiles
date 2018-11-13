@@ -84,30 +84,38 @@ nmap <Leader>rn :w<CR>:TestNearest<CR>
 nmap <Leader>rv :w<CR>:TestVisit<CR>
 
 " Run terminal command in interactive shell
+" Plugin: run-interactive
 nmap <Leader><Leader>r :Run!<Space>
 nmap <Leader><Leader>i :Run! in<Space>
 nmap <Leader><Leader>p :Run! in project<Space>
 nmap <Leader><Leader>a :Run! art<Space>
 
-" Git / Github
+" Git
+" Plugin: fugitive
 nmap <Leader><Leader>gst :Gstatus<CR><Space>o
 nmap <Leader><Leader>gc :Gcommit<CR><Space>o
-nmap <Leader><Leader>gbr :Gbrowse<CR>
 nmap <Leader><Leader>gbl :Gblame<CR>
 
-" Panel toggles
+" Github
+" Plugin: rhubarb
+nmap <Leader><Leader>gbr :Gbrowse<CR>
+
+" File system browser
+" Plugin: nerdtree
 nmap <Leader><Tab> :NERDTreeToggle<CR>
 nmap <Leader><Leader><Tab> :NERDTree<CR>
 nmap <Leader><Leader><Tab>f :NERDTreeFind<CR>zz
-nmap <Leader>\ :TagbarToggle<CR>
-nmap <Leader><Leader>u :UndotreeToggle<CR>
-let g:lt_quickfix_list_toggle_map = '<Leader><Leader>q'
 
-" Quickfix
-" Local: quickfix
-let g:lt_location_list_toggle_map = '<Leader><Leader>l'
+" Tag browser
+" Plugin: tagbar
+nmap <Leader>\ :TagbarToggle<CR>
+
+" Undo history
+" Plugin: undotree
+nmap <Leader><Leader>u :UndotreeToggle<CR>
 
 " Single character sneak
+" Plugin: sneak
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
@@ -139,51 +147,71 @@ inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-" Quicker macro playback
-nnoremap Q @q<CR>
-xnoremap Q :norm @q<CR>
-xnoremap @ :<C-u>call PlaybackMacroOverVisualRange()<CR>
-
 " Break undo sequence on specific characters
 inoremap , ,<C-g>u
 inoremap . .<C-g>u
 inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
 
-" EasyAlign
+" Quicker macro playback
+" Local: macro
+nnoremap Q @q<CR>
+xnoremap Q :norm @q<CR>
+xnoremap @ :<C-u>call PlaybackMacroOverVisualRange()<CR>
+
+" Vertically align
+" Plugin: easy-align
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
-" UltiSnips
-let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+" Snippet
+" Plugin: ultisnips
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" Phpactor
+" Plugin: Phpactor
 nnoremap <Leader>p :call phpactor#ContextMenu()<CR>
 nnoremap <Leader>pg :call phpactor#GotoDefinition()<CR>
 nnoremap <Leader>pi :call phpactor#UseAdd()<CR>
 nnoremap <Leader>pt :call phpactor#Transform()<CR>
 
 " PHP docblocks
+" Plugin: pdv
 nnoremap <Leader>D :call pdv#DocumentWithSnip()<CR>
 
-" Disable unimpaired mappings
-let g:nremap = {"[e": "", "]e": ""}
-
-" Emmet
+" HTML and CSS abbreviation expansion
+" Plugin: emmet
 imap <C-e> <plug>(emmet-expand-abbr)
 nmap ]e <plug>(emmet-move-next)
 nmap [e <plug>(emmet-move-prev)
 
-" Vdebug
+" Debugger
+" Plugin: vdebug
 nnoremap <Leader>B :Breakpoint<CR>
 nnoremap <Leader>V :VdebugStart<CR>
 
-" These mappings will only work in vimrc related files
+" Toggle quickfix and location lists
+" Plugin: togglelist
+nnoremap <Leader><Leader>q :call ToggleQuickfixList()<CR>
+nnoremap <Leader><Leader>l :call ToggleLocationList()<CR>
+
+" Local: quickfix
+function! QuickfixLocalMappings()
+  nnoremap <buffer> <CR> <CR>
+  nnoremap <buffer><nowait> p :PreviewQuickfixItem<CR>
+  nnoremap <buffer> dd :RemoveQuickfixItem<CR>
+  nnoremap <buffer> <Leader>w :OpenWritableSearchBufferFromQuickfix<CR>
+endfunction
+
+" Local: help
+function! HelpLocalMappings()
+  nnoremap <buffer> <CR> <C-]>
+  nnoremap <buffer> <Esc> <C-t>
+endfunction
+
 " Local: vimrc
-function! VimrcOnlyMappings()
+function! VimrcLocalMappings()
   nnoremap <buffer><nowait> <leader>gc :GoToRelatedVimrcConfig<CR>
   nnoremap <buffer><nowait> <leader>gm :GoToRelatedVimrcMappings<CR>
   nnoremap <buffer><nowait> <leader>pg :GoToPluginUrl<CR>

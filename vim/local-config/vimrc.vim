@@ -1,10 +1,10 @@
 " ------------------------------------------------------------------------------
-" # Register Mappings
+" # Register Vimrc Local Mappings
 " ------------------------------------------------------------------------------
 
-augroup vimrc_only_mappings
+augroup vimrc_local_mappings
   autocmd!
-  execute 'autocmd BufReadPost ' . join(g:vimrc_related_paths, ',') . ' call VimrcOnlyMappings()'
+  execute 'autocmd BufReadPost ' . join(g:vimrc_related_paths, ',') . ' call VimrcLocalMappings()'
 augroup END
 
 

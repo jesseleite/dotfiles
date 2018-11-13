@@ -1,3 +1,7 @@
+let test#php#patterns = {
+  \ 'test':      ['\v^\s*function (\w*)\(', '\v^\s*public function (\w*)\('],
+  \ 'namespace': [] }
+
 function! ShtuffStrategy(cmd)
   call system("shtuff into " . shellescape(g:shtuff_as) . " " . shellescape("clear;" . a:cmd))
 endfunction
