@@ -12,28 +12,35 @@ silent! source $VIMRUNTIME/defaults.vim
 " # Sourcing
 " ------------------------------------------------------------------------------
 
-" Set dotfiles path
+" Dotfiles path
 let g:dotfiles_path = '/Users/jesseleite/.dotfiles'
 
 " Get path relative to vimrc
-function! s:VimrcPath(path)
+function! VimrcPath(path)
   return g:dotfiles_path . '/vim/' . a:path
 endfunction
 
+" Vimrc related paths
+let g:vimrc_related_paths = [
+  \ $MYVIMRC,
+  \ VimrcPath('vimrc'),
+  \ VimrcPath('*.vim')
+  \ ]
+
 " Source plugins
 call plug#begin('~/.vim/plugged')
-  execute 'source ' . s:VimrcPath('plugins.vim')
+  execute 'source ' . VimrcPath('plugins.vim')
 call plug#end()
 
 " Can this be included via vim-plug?
 packadd! matchit
 
 " Source mappings
-execute 'source ' s:VimrcPath('mappings.vim')
+execute 'source ' VimrcPath('mappings.vim')
 
 " Setup dynamic sourcing
 function! s:SourceConfigFilesIn(folder)
-  for config_file in split(glob(s:VimrcPath(a:folder . '/*')), '\n')
+  for config_file in split(glob(VimrcPath(a:folder . '/*')), '\n')
     if filereadable(config_file)
       execute 'source' config_file
     endif
@@ -43,6 +50,12 @@ endfunction
 " Dynamic sourcing
 call s:SourceConfigFilesIn('local-config')
 call s:SourceConfigFilesIn('plugin-config')
+
+" Auto sourcing
+augroup autosource_vimrc
+  autocmd!
+  execute 'autocmd BufWritePost ' . join(g:vimrc_related_paths, ',') . ' nested source ' . $MYVIMRC
+augroup END
 
 
 " ------------------------------------------------------------------------------
