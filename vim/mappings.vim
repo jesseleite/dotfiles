@@ -180,3 +180,16 @@ nmap [e <plug>(emmet-move-prev)
 " Vdebug
 nnoremap <Leader>B :Breakpoint<CR>
 nnoremap <Leader>V :VdebugStart<CR>
+
+" These mappings will only work in vimrc related files
+" Local: vimrc
+function! VimrcOnlyMappings()
+  nnoremap <buffer><nowait> <leader>gc :GoToRelatedVimrcConfig<CR>
+  nnoremap <buffer><nowait> <leader>gm :GoToRelatedVimrcMappings<CR>
+  nnoremap <buffer><nowait> <leader>pg :GoToPluginUrl<CR>
+  nnoremap <buffer><nowait> <leader>py :YankPluginUrl<CR>
+  nnoremap <buffer><nowait> <leader>pp :PastePluginFromClipboard<CR>
+  nnoremap <buffer><nowait> <leader>pi :PlugInstall<CR>
+  nnoremap <buffer><nowait> <leader>pu :PlugUpdate<CR>
+  nnoremap <buffer><nowait> <leader>pc :PlugClean<CR>
+endfunction
