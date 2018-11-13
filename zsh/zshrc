@@ -97,7 +97,7 @@ alias lager="less +F storage/logs/laravel.log"
 alias ldocs="open http://laravel.com/docs"
 alias pls="php please"
 alias plsc="pls clear:cache && pls clear:stache && pls clear:static && pls clear:glide"
-alias plsjlo="cp ~/.dotfiles/statamic/stubs/jlo.yaml site/users/jlo.yaml"
+alias plsjlo="cp ~/.dotfiles/statamic/jlo.yaml site/users/jlo.yaml"
 function plscomp() { ( cd statamic && comp $* ) }
 alias psr1="php-cs-fixer fix --level=psr1"
 alias psr2="php-cs-fixer fix --level=psr2"
