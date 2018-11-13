@@ -13,7 +13,7 @@ silent! source $VIMRUNTIME/defaults.vim
 " ------------------------------------------------------------------------------
 
 " Dotfiles path
-let g:dotfiles_path = '/Users/jesseleite/.dotfiles'
+let g:dotfiles_path = $HOME . '/.dotfiles'
 
 " Get path relative to vimrc
 function! VimrcPath(path)
