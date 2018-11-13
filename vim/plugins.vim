@@ -70,8 +70,9 @@ let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
 " Plugin: deoplete
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#source('_', 'max_menu_width', 120)
-call deoplete#custom#option('auto_complete_delay', 600)
+" call deoplete#custom#source('_', 'max_menu_width', 120)
+" call deoplete#custom#option('auto_complete_delay', 600)
+" ...Why do these cause boot errors after moving from vimrc to this file?
 
 " Plugin: vdebug
 let g:vdebug_options= {
