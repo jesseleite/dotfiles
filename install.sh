@@ -37,8 +37,8 @@ rm -rf ~/.oh-my-zsh
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 rm -rf ~/.zshrc-template
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc-template
-ln -sf ~/.dotfiles/.zshrc ~/.zshrc
-ln -sf ~/.dotfiles/an-old-hope.zsh-theme ~/.oh-my-zsh/themes
+ln -sf ~/.dotfiles/zsh/zshrc ~/.zshrc
+ln -sf ~/.dotfiles/zsh/an-old-hope.zsh-theme ~/.oh-my-zsh/themes
 
 # Set default shell.
 echo "$(which zsh)" >> /etc/shells
@@ -53,7 +53,6 @@ rm -rf ~/.tipz
 git clone https://github.com/molovo/tipz ~/.tipz
 
 # Configure Vim.
-ln -sf ~/.dotfiles/.vi-mode.zsh ~/.vi-mode.zsh
 ln -sf ~/.dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/.dotfiles/vim/snippets ~/.vim/UltiSnips
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

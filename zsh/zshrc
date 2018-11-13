@@ -32,14 +32,13 @@ source /usr/local/etc/profile.d/z.sh
 
 # Vim love.
 export EDITOR='vim'
-source ~/.vi-mode.zsh
-[ -f ~/.dotfiles/.vim.zsh ] && source ~/.dotfiles/.vim.zsh
+source ~/.dotfiles/zsh/vi-mode.zsh
+[ -f ~/.dotfiles/zsh/vim.zsh ] && source ~/.dotfiles/zsh/vim.zsh
 
 #Fzf love.
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -a --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND='ag -a --hidden --ignore .git -g ""'
-[ -f ~/.dotfiles/.fzf.zsh ] && source ~/.dotfiles/.fzf.zsh
+[ -f ~/.dotfiles/zsh/fzf.zsh ] && source ~/.dotfiles/zsh/fzf.zsh
 
 # Wat love.
 eval "$(thefuck --alias wat)"
