@@ -58,7 +58,7 @@ ln -sf ~/.dotfiles/vim/snippets ~/.vim/UltiSnips
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Configure Ctags.
-ln -sf ~/.dotfiles/.ctags.d ~/.ctags.d
+ln -sf ~/.dotfiles/ctags ~/.ctags.d
 
 # Install and configure Valet.
 composer global require laravel/valet
