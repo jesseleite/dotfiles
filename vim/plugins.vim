@@ -45,3 +45,6 @@ Plug 'houtsnip/vim-emacscommandline'    " Emacs style mappings for ex commands
 Plug 'wellle/targets.vim'               " Additional text objects, and better seeking
 Plug 'justinmk/vim-sneak'               " Sneak motion and better f/t motions
 Plug 'AndrewRadev/writable_search.vim'  " Writable search buffer from quickfix
+
+" Plugin: bufkill
+let g:BufKillCreateMappings = 0

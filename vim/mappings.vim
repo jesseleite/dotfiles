@@ -40,7 +40,7 @@ nnoremap <S-Tab> <C-w>W
 nnoremap <Leader>o <C-w>o
 
 " Close buffer, and disable intrusive BuffKill mappings
-let g:BufKillCreateMappings = 0
+" Plugin: bufkill
 nmap <silent> <Leader>c :BD<CR>
 
 " Next/prev git change, and disable intrusive GitGutter mappings

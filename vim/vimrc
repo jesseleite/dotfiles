@@ -205,11 +205,11 @@ let s:vimrc_paths = [
 augroup vimrc
   autocmd!
   execute 'autocmd BufWritePost ' . join(s:vimrc_paths, ',') . ' nested source ' . $MYVIMRC
-  execute 'autocmd BufReadPost ' . join(s:vimrc_paths, ',') . ' call VimrcMappings()'
+  execute 'autocmd BufReadPost ' . join(s:vimrc_paths, ',') . ' call VimrcOnlyMappings()'
 augroup END
 
-function! VimrcMappings()
-  nnoremap <buffer><nowait> <leader>gs :call GoToConfigFile()<CR>
+function! VimrcOnlyMappings()
+  nnoremap <buffer><nowait> <leader>gc :call GoToRelatedConfig()<CR>
   nnoremap <buffer><nowait> <leader>gm :call GoToRelatedMappings()<CR>
   nnoremap <buffer><nowait> <leader>pg :call GoToPluginUrl()<CR>
   nnoremap <buffer><nowait> <leader>py :call YankPluginUrl()<CR>
@@ -221,9 +221,14 @@ endfunction
 
 function! GetRefFromAnnotation()
   let line = line('.')
-  normal {jj
-  let ref = matchlist(getline('.'), '" \(.*\): \(.*\)')
+  normal {
+  let pattern = '" \(.*\): \(.*\)'
+  call search(pattern, '', line + 3)
+  let ref = matchlist(getline('.'), pattern)
   execute 'normal ' . line . 'G'
+  if empty(ref)
+    return {'type': 'n/a', 'slug': 'n/a'}
+  endif
   return {'type': tolower(ref[1]), 'slug': ref[2]}
 endfunction
 
@@ -236,18 +241,41 @@ function! BuildAnnotationForRef(ref)
   return a:ref['type'] . ': ' . a:ref['slug']
 endfunction
 
-function! GoToConfigFile()
+function! GoToRef(ref)
+  let current_ref = GetRefFromAnnotation()
+  if current_ref == a:ref
+    return
+  endif
+  let found_ref = search(BuildAnnotationForRef(a:ref) . '\c')
+  if found_ref == 0
+    echo 'Ref not found.'
+  endif
+endfunction
+
+function! GoToRelatedConfig()
   let ref = GetRefFromAnnotation()
-  silent execute 'edit ' s:VimrcPath(ref['type'] . '-config/' . ref['slug'] . '.vim')
+  let path = s:VimrcPath(ref['type'] . '-config/' . ref['slug'] . '.vim')
+  if filereadable(path)
+    silent execute 'edit ' . path
+  elseif ref['type'] == 'plugin'
+    silent execute 'edit ' . s:VimrcPath('plugins.vim')
+    call GoToRef(ref)
+  elseif ref['type'] == 'local'
+    silent execute 'edit ' . s:VimrcPath('vimrc')
+    call GoToRef(ref)
+  else
+    echo 'Config not found.'
+  endif
 endfunction
 
 function! GoToRelatedMappings()
-  let config_ref = GetRefForCurrentConfigFile()
-  silent execute 'edit ' s:VimrcPath('mappings.vim')
-  let mappings_ref = GetRefFromAnnotation()
-  if config_ref != mappings_ref
-    call search(BuildAnnotationForRef(config_ref) . '\c')
+  if expand('%:t') == 'plugins.vim'
+    let ref = GetRefFromAnnotation()
+  else
+    let ref = GetRefForCurrentConfigFile()
   endif
+  silent execute 'edit ' s:VimrcPath('mappings.vim')
+  call GoToRef(ref)
 endfunction
 
 function! YankPluginUrl()
