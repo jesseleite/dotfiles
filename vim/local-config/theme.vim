@@ -1,6 +1,20 @@
+" ------------------------------------------------------------------------------
+" # Everything cosmetic
+" ------------------------------------------------------------------------------
+
+" Overall colour scheme
 colorscheme base16-monokai
+
+" Airline colour scheme
 let g:airline_theme = 'base16color'
 
+" Customize vertical split character
+set fillchars+=vert:\ ,
+
+" Highlight 121st character on lines that exceed 120
+call matchadd('ColorColumn', '\%121v', 100)
+
+" Customize highlight colors
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight Search ctermbg=blue ctermfg=white
