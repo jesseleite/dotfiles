@@ -12,11 +12,21 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 set relativenumber
 set noshowmode
-set updatetime=1000                            " Set updatetime for CursorHold, gitgutter, etc.
-set completeopt=menu,menuone,noinsert,noselect " Auto complete menu options
-" set lazyredraw                               " Had this for some reason, but it causes deoplete flicker
 
+" Set updatetime for CursorHold, gitgutter, etc.
+set updatetime=1000
+
+" Auto complete menu options
+set completeopt=menu,menuone,noinsert,noselect
+
+" Yeah, it's a package, but it comes with vim
+packadd! matchit
+
+" Check for external changes and reload buffer
 augroup check_for_external_changes
   autocmd!
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
 augroup END
+
+" This one causes deoplete flicker?
+" set lazyredraw

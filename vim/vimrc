@@ -32,9 +32,6 @@ call plug#begin('~/.vim/plugged')
   execute 'source ' . VimrcPath('plugins.vim')
 call plug#end()
 
-" Can this be included via vim-plug?
-packadd! matchit
-
 " Source mappings
 execute 'source ' VimrcPath('mappings.vim')
 
