@@ -29,8 +29,8 @@ brew services start mysql@5.7
 # https://superuser.com/questions/1333504/brew-install-mysql5-7-cant-connect-to-local-mysql-server-through-socket
 
 # Configure Git.
-ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -sf ~/.dotfiles/.gitignore_global ~/.gitignore_global
+ln -sf ~/.dotfiles/git/gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/git/gitignore_global ~/.gitignore_global
 
 # Oh-My-Zsh.
 rm -rf ~/.oh-my-zsh
