@@ -1,3 +1,4 @@
+// -- hyper-stylesheet-hash:3151e6019fa4819358e9a18037c85706 --
 // Future versions of Hyper may add additional config options,
 // which will not automatically be merged into this file.
 // See https://hyper.is#cfg for all currently supported options.
@@ -6,10 +7,10 @@ module.exports = {
   config: {
     // choose either `'stable'` for receiving highly polished,
     // or `'canary'` for less polished but more frequent updates
-    updateChannel: 'stable',
+    updateChannel: 'canary',
 
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 14,
 
     // font family with optional fallbacks
     fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
@@ -21,13 +22,10 @@ module.exports = {
     fontWeightBold: 'bold',
 
     // line height as a relative unit
-    lineHeight: 1,
-
-    // letter spacing as a relative unit
-    letterSpacing: 0,
+    lineHeight: 1.9,
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: 'rgba(248,28,229,0.8)',
+    cursorColor: 'rgba(255,255,255,0.6)',
 
     // terminal text color under BLOCK cursor
     cursorAccentColor: '#000',
@@ -39,11 +37,11 @@ module.exports = {
     cursorBlink: false,
 
     // color of the text
-    foregroundColor: '#fff',
+    foregroundColor: '#C0C2C7',
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: '#000',
+    backgroundColor: 'rgba(0, 0, 0, 1)',
 
     // terminal selection color
     selectionColor: 'rgba(248,28,229,0.3)',
@@ -67,28 +65,28 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    padding: '12px 14px',
+    padding: '18px 12px 15px 20px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     colors: {
-      black: '#000000',
-      red: '#C51E14',
-      green: '#1DC121',
-      yellow: '#C7C329',
-      blue: '#0A2FC4',
-      magenta: '#C839C5',
-      cyan: '#20C5C6',
-      white: '#C7C7C7',
-      lightBlack: '#686868',
-      lightRed: '#FD6F6B',
-      lightGreen: '#67F86F',
-      lightYellow: '#FFFA72',
-      lightBlue: '#6A76FB',
-      lightMagenta: '#FD7CFC',
-      lightCyan: '#68FDFE',
-      lightWhite: '#FFFFFF',
+      black: '#212121',
+      red: '#FC3458',
+      green: '#67B252',
+      yellow: '#E0C646',
+      blue: '#43A4CF',
+      magenta: '#E96721',
+      cyan: '#43A4CF',
+      white: '#C0C2C7',
+      lightBlack: '#424242',
+      lightRed: '#E22543',
+      lightGreen: '#67B252',
+      lightYellow: '#E6CE57',
+      lightBlue: '#43A4CF',
+      lightMagenta: '#E96721',
+      lightCyan: '#43A4CF',
+      lightWhite: '#FFFFFF'
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -103,7 +101,7 @@ module.exports = {
     //
     // PowerShell on Windows
     // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
-    shell: '',
+    shell: 'zsh',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
@@ -129,6 +127,14 @@ module.exports = {
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+
+    modifierKeys: { cmdIsMeta: true, altIsMeta: true },
+
+    summon: {
+      hotkey: 'Command+Esc',
+      hideDock: false,
+      hideOnBlur: false,
+    },
   },
 
   // a list of plugins to fetch and install from npm
@@ -137,7 +143,10 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
+  plugins: [
+    'hyperterm-summon',
+    'hyper-stylesheet',
+  ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
@@ -147,5 +156,7 @@ module.exports = {
   keymaps: {
     // Example
     // 'window:devtools': 'cmd+alt+o',
+    'window:reload': 'ctrl+cmd+r',
+    'window:reloadFull': 'ctrl+cmd+shift+r',
   },
 };

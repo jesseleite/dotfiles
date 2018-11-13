@@ -45,8 +45,8 @@ echo "$(which zsh)" >> /etc/shells
 chsh -s $(which zsh)
 
 # Configure Hyper.
-ln -sf ~/.dotfiles/.hyper.js ~/.hyper.js
-ln -sf ~/.dotfiles/.hyper.css ~/.hyper.css
+ln -sf ~/.dotfiles/hyper/hyper.js ~/.hyper.js
+ln -sf ~/.dotfiles/hyper/hyper.css ~/.hyper.css
 
 # Install Tipz.
 rm -rf ~/.tipz
