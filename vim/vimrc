@@ -196,16 +196,16 @@ augroup END
 " # Vimrc Local
 " ------------------------------------------------------------------------------
 
-augroup autosource_vimrc
-  autocmd!
-  execute 'autocmd BufWritePost '
-    \ . join([$MYVIMRC, s:VimrcPath('vimrc'), s:VimrcPath('*.vim')], ',')
-    \ . ' nested source ' . $MYVIMRC
-augroup END
+let s:vimrc_paths = [
+  \ $MYVIMRC,
+  \ s:VimrcPath('vimrc'),
+  \ s:VimrcPath('*.vim')
+  \ ]
 
-augroup vimrc_mappings
+augroup vimrc
   autocmd!
-  autocmd BufReadPost $MYVIMRC call VimrcMappings()
+  execute 'autocmd BufWritePost ' . join(s:vimrc_paths, ',') . ' nested source ' . $MYVIMRC
+  execute 'autocmd BufReadPost ' . join(s:vimrc_paths, ',') . ' call VimrcMappings()'
 augroup END
 
 function! VimrcMappings()
