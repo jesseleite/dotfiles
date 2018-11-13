@@ -1,3 +1,7 @@
+" ------------------------------------------------------------------------------
+" # Mappings
+" ------------------------------------------------------------------------------
+
 " Leader
 let mapleader = "\<Space>"
 
@@ -23,10 +27,6 @@ nmap <silent> <Leader>R :w<CR>:call system('chrome-cli reload')<CR>
 
 " Write and source, for plugin development?
 nmap <Leader><Leader>w :w<CR>:so %<CR>
-
-" Edit .vimrc
-nmap <Leader><Leader>v :edit $MYVIMRC<CR>
-nmap <Leader><Leader>V :source $MYVIMRC<CR>
 
 " Open in finder
 nmap <silent> <Leader><Leader>o :!open $PWD<CR><CR>
@@ -211,6 +211,9 @@ function! HelpLocalMappings()
 endfunction
 
 " Local: vimrc
+nmap <Leader><Leader>v :EditVimrc<CR>
+nmap <Leader><Leader>vm :EditVimMappings<CR>
+nmap <Leader><Leader>vp :EditVimPlugins<CR>
 function! VimrcLocalMappings()
   nnoremap <buffer><nowait> <leader>gc :GoToRelatedVimrcConfig<CR>
   nnoremap <buffer><nowait> <leader>gm :GoToRelatedVimrcMappings<CR>

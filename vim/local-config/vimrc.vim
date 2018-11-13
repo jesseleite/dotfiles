@@ -9,7 +9,20 @@ augroup END
 
 
 " ------------------------------------------------------------------------------
-" # Navigation Commands
+" # Basic Edit Commands
+" ------------------------------------------------------------------------------
+
+command! EditVimrc call EditVimConfig('vimrc')
+command! EditVimMappings call EditVimConfig('mappings.vim')
+command! EditVimPlugins call EditVimConfig('plugins.vim')
+
+function! EditVimConfig(file)
+  execute 'edit ' . VimrcPath(a:file)
+endfunction
+
+
+" ------------------------------------------------------------------------------
+" # Smart Navigation Commands
 " ------------------------------------------------------------------------------
 
 command! GoToRelatedVimrcConfig call GoToRelatedVimrcConfig()
@@ -76,7 +89,7 @@ endfunction
 
 
 " ------------------------------------------------------------------------------
-" # Plugin Commands
+" # Plugin Helper Commands
 " ------------------------------------------------------------------------------
 
 command! GoToPluginUrl call GoToPluginUrl()
@@ -95,6 +108,7 @@ function! YankPluginUrl()
 endfunction
 
 function! PastePluginFromClipboard()
+  execute 'edit ' . VimrcPath('plugins.vim')
   normal G
   call search("Plug \'.*\'", 'b')
   execute "normal oPlug " . substitute("'p'", 'p', s:get_installable_plugin_from_clipboard(), '')
