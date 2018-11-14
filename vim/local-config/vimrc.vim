@@ -27,6 +27,7 @@ endfunction
 
 command! GoToRelatedVimrcConfig call GoToRelatedVimrcConfig()
 command! GoToRelatedVimrcMappings call GoToRelatedVimrcMappings()
+command! GoToRelatedPlugCommand call GoToRelatedPlugCommand()
 
 function! GoToRelatedVimrcConfig()
   if expand('%:t') == 'plugins.vim' || match(expand('%:h:t'), 'config') > 0
@@ -59,6 +60,20 @@ function! GoToRelatedVimrcMappings()
   endif
   silent execute 'edit ' VimrcPath('mappings.vim')
   call s:go_to_ref(ref)
+endfunction
+
+function! GoToRelatedPlugCommand()
+  if expand('%:t') == 'plugins.vim' || expand('%:t') == 'mappings.vim'
+    let ref = s:get_ref_from_annotation()
+  else
+    let ref = s:get_ref_for_current_config_file()
+  endif
+  silent execute 'edit ' . VimrcPath('plugins.vim')
+  normal gg
+  let found = search("'.*" . ref['slug'] . ".*'\\c")
+  if found == 0
+    echo 'Plugin not found.'
+  endif
 endfunction
 
 function! s:get_ref_from_annotation()
