@@ -29,6 +29,10 @@ command! GoToRelatedVimrcConfig call GoToRelatedVimrcConfig()
 command! GoToRelatedVimrcMappings call GoToRelatedVimrcMappings()
 
 function! GoToRelatedVimrcConfig()
+  if expand('%:t') == 'plugins.vim' || match(expand('%:h:t'), 'config') > 0
+    echo 'Already in config.'
+    return
+  endif
   let ref = s:get_ref_from_annotation()
   let path = VimrcPath(ref['type'] . '-config/' . ref['slug'] . '.vim')
   if filereadable(path)
@@ -40,12 +44,15 @@ function! GoToRelatedVimrcConfig()
     silent execute 'edit ' . VimrcPath('vimrc')
     call s:go_to_ref(ref)
   else
-    echo 'Config not found.'
+    echo 'Ref not found.'
   endif
 endfunction
 
 function! GoToRelatedVimrcMappings()
-  if expand('%:t') == 'plugins.vim'
+  if expand('%:t') == 'mappings.vim'
+    echo 'Already in mappings.'
+    return
+  elseif expand('%:t') == 'plugins.vim'
     let ref = s:get_ref_from_annotation()
   else
     let ref = s:get_ref_for_current_config_file()
