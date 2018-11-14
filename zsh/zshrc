@@ -64,16 +64,17 @@ function alg() { alias | ag "$*" }
 alias ip="curl icanhazip.com"
 
 # Config Aliases.
-alias zshrc="sudo vim ~/.zshrc"
-alias hyperjs="sudo vim ~/.hyper.js"
-alias hypercss="sudo vim ~/.hyper.css"
 alias so="source ~/.zshrc"
-alias vimrc="sudo vim ~/.vimrc"
-alias gitconfig="sudo vim ~/.dotfiles/git/gitconfig"
+alias zshrc="z dot && vim ./zsh/zshrc"
+alias hyperjs="z dot && vim ./hyper/hyper.js"
+alias hypercss="z dot && vim ./hyper/hyper.css"
+alias vimrc="z dot && vim ./vim/vimrc"
+alias vmap="z dot && vim ./vim/mappings.vim"
+alias vplug="z dot && vim ./vim/plugins.vim"
+alias gitconfig="z dot && vim ./git/gitconfig"
 alias gituser="bash ~/.dotfiles/git/user.sh"
 alias hosts="sudo vim /etc/hosts"
-alias hse="sudo vim ~/.homestead/Homestead.yaml"
-alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy"
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && echo 'Copied SSH key to clipboard 🔑'"
 
 # Workflow Aliases.
 alias c="clear"
