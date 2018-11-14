@@ -1,0 +1,15 @@
+snippet header "Define comment header."
+" ------------------------------------------------------------------------------
+" # ${0:Installed Plugins}
+" ------------------------------------------------------------------------------
+endsnippet
+
+snippet fn "Define function."
+function! ${1:name}($2)
+  ${0:"}
+endfunction
+endsnippet
+
+snippet cmd "Define simple command."
+command! ${1:Name} ${0:call SomeFunction()}
+endsnippet
