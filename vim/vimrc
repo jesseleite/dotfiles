@@ -1,4 +1,13 @@
 " ------------------------------------------------------------------------------
+" # Vimrc
+" ------------------------------------------------------------------------------
+" # This file sets up my basic vim environment.  Here I set a few defaults,
+" # paths, and source the rest of the config files as necessary.  Most
+" # of the config lives in plugins.vim and mappings.vim, with more
+" # elaborate config in /local-config and /plugin-config.
+
+
+" ------------------------------------------------------------------------------
 " # Defaults
 " ------------------------------------------------------------------------------
 

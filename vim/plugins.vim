@@ -1,3 +1,7 @@
+" ------------------------------------------------------------------------------
+" # Installed Plugins
+" ------------------------------------------------------------------------------
+
 Plug '/usr/local/opt/fzf'               " Fzf fuzzy finder
 Plug 'junegunn/fzf.vim'                 " Fzf vim wrapper
 Plug 'jesseleite/vim-agriculture'       " Better ag search
@@ -45,6 +49,13 @@ Plug 'houtsnip/vim-emacscommandline'    " Emacs style mappings for ex commands
 Plug 'wellle/targets.vim'               " Additional text objects, and better seeking
 Plug 'justinmk/vim-sneak'               " Sneak motion and better f/t motions
 Plug 'AndrewRadev/writable_search.vim'  " Writable search buffer from quickfix
+
+
+" ------------------------------------------------------------------------------
+" # Basic Plugin Configuration
+" ------------------------------------------------------------------------------
+" # This is for basic plugin config only.  More elaborate plugin config
+" # files are located in the /plugin-config folder.
 
 " Plugin: bufkill
 let g:BufKillCreateMappings = 0

@@ -1,6 +1,6 @@
 # Dotfiles
 
-My embarrassing dotfiles 😳
+My dotfiles 📺
 
 # Why a repo?
 
@@ -8,7 +8,7 @@ Create your own dotfiles repo, clone it down on multiple computers, and symlink 
 
 # Why share?
 
-Because sharing is caring 🌷
+Sharing is caring; We learn from each other 🌷
 
 # Who am I?
 
