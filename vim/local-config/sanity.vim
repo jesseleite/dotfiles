@@ -25,7 +25,7 @@ packadd! matchit
 " Check for external changes and reload buffer
 augroup check_for_external_changes
   autocmd!
-  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * checktime
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if filereadable(bufname('%')) | checktime
 augroup END
 
 " This one causes deoplete flicker?
