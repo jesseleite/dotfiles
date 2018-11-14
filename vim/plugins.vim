@@ -50,6 +50,12 @@ Plug 'wellle/targets.vim'               " Additional text objects, and better se
 Plug 'justinmk/vim-sneak'               " Sneak motion and better f/t motions
 Plug 'AndrewRadev/writable_search.vim'  " Writable search buffer from quickfix
 
+" Explicit annotation bindings for more accurate go to
+let g:explicit_annotation_bindings = {
+  \ 'fzf': 'fzf.vim',
+  \ 'writable-search': 'writable_search.vim',
+  \ }
+
 
 " ------------------------------------------------------------------------------
 " # Basic Plugin Configuration

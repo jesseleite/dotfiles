@@ -70,7 +70,8 @@ function! GoToRelatedPlugCommand()
   endif
   silent execute 'edit ' . VimrcPath('plugins.vim')
   normal gg
-  let found = search("'.*" . ref['slug'] . ".*'\\c")
+  let query = get(g:explicit_annotation_bindings, ref['slug'], ref['slug'])
+  let found = search("'.*" . query . ".*'\\c")
   if found == 0
     echo 'Plugin not found.'
   endif
