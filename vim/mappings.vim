@@ -217,7 +217,7 @@ nmap <Leader><Leader>vp :EditVimPlugins<CR>
 function! VimrcLocalMappings()
   nnoremap <buffer><nowait> <leader>gc :GoToRelatedVimrcConfig<CR>
   nnoremap <buffer><nowait> <leader>gm :GoToRelatedVimrcMappings<CR>
-  nnoremap <buffer><nowait> <leader>gp :GoToRelatedPlugCommand<CR>
+  nnoremap <buffer><nowait> <leader>gp :GoToRelatedPlugDefinition<CR>
   nnoremap <buffer><nowait> <leader>pg :GoToPluginUrl<CR>
   nnoremap <buffer><nowait> <leader>py :YankPluginUrl<CR>
   nnoremap <buffer><nowait> <leader>pp :PastePluginFromClipboard<CR>

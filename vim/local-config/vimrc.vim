@@ -27,14 +27,17 @@ endfunction
 
 command! GoToRelatedVimrcConfig call GoToRelatedVimrcConfig()
 command! GoToRelatedVimrcMappings call GoToRelatedVimrcMappings()
-command! GoToRelatedPlugCommand call GoToRelatedPlugCommand()
+command! GoToRelatedPlugDefinition call GoToRelatedPlugDefinition()
 
 function! GoToRelatedVimrcConfig()
-  if expand('%:t') == 'plugins.vim' || match(expand('%:h:t'), 'config') > 0
+  if expand('%:t') == 'plugins.vim' && match(getline('.'), "Plug '") > -1
+    let ref = s:get_ref_from_plug_definition()
+  elseif expand('%:t') == 'plugins.vim' || match(expand('%:h:t'), 'config') > 0
     echo 'Already in config.'
     return
+  else
+    let ref = s:get_ref_from_annotation()
   endif
-  let ref = s:get_ref_from_annotation()
   let path = VimrcPath(ref['type'] . '-config/' . ref['slug'] . '.vim')
   if filereadable(path)
     silent execute 'edit ' . path
@@ -53,6 +56,8 @@ function! GoToRelatedVimrcMappings()
   if expand('%:t') == 'mappings.vim'
     echo 'Already in mappings.'
     return
+  elseif expand('%:t') == 'plugins.vim' && match(getline('.'), "Plug '") > -1
+    let ref = s:get_ref_from_plug_definition()
   elseif expand('%:t') == 'plugins.vim'
     let ref = s:get_ref_from_annotation()
   else
@@ -62,8 +67,10 @@ function! GoToRelatedVimrcMappings()
   call s:go_to_ref(ref)
 endfunction
 
-function! GoToRelatedPlugCommand()
-  if expand('%:t') == 'plugins.vim' || expand('%:t') == 'mappings.vim'
+function! GoToRelatedPlugDefinition()
+  if expand('%:t') == 'plugins.vim' && match(getline('.'), "Plug '") > -1
+    let ref = s:get_ref_from_plug_definition()
+  elseif expand('%:t') == 'plugins.vim' || expand('%:t') == 'mappings.vim'
     let ref = s:get_ref_from_annotation()
   else
     let ref = s:get_ref_for_current_config_file()
@@ -71,7 +78,7 @@ function! GoToRelatedPlugCommand()
   silent execute 'edit ' . VimrcPath('plugins.vim')
   normal gg
   let query = get(g:explicit_annotation_bindings, ref['slug'], ref['slug'])
-  let found = search("'.*" . query . ".*'\\c")
+  let found = search("/.*" . query . ".*'\\c")
   if found == 0
     echo 'Plugin not found.'
   endif
@@ -93,6 +100,16 @@ endfunction
 function! s:get_ref_for_current_config_file()
   let ref = matchlist(expand('%:p:r'), '\([^/]*\)-config/\([^/]*\)$')
   return {'type': tolower(ref[1]), 'slug': ref[2]}
+endfunction
+
+function! s:get_ref_from_plug_definition()
+  let matched = matchlist(getline('.'), "/\\(.*\\)'")[1]
+  let fallback = substitute(matched, 'vim-', '', '')
+  let fallback = substitute(fallback, '\.vim', '', '')
+  return {
+    \ 'type': 'plugin',
+    \ 'slug': get(FlipDictionary(g:explicit_annotation_bindings), matched, fallback)
+    \ }
 endfunction
 
 function! s:build_annotation_for_ref(ref)
