@@ -30,14 +30,11 @@ command! GoToRelatedVimrcMappings call GoToRelatedVimrcMappings()
 command! GoToRelatedPlugDefinition call GoToRelatedPlugDefinition()
 
 function! GoToRelatedVimrcConfig()
-  if expand('%:t') == 'plugins.vim' && match(getline('.'), "Plug '") > -1
-    let ref = s:get_ref_from_plug_definition()
-  elseif expand('%:t') == 'plugins.vim' || match(expand('%:h:t'), 'config') > 0
+  if match(getline('.'), "Plug '") == -1 && (expand('%:t') == 'plugins.vim' || match(expand('%:h:t'), 'config') > 0)
     echo 'Already in config.'
     return
-  else
-    let ref = s:get_ref_from_annotation()
   endif
+  let ref = s:get_ref()
   let path = VimrcPath(ref['type'] . '-config/' . ref['slug'] . '.vim')
   if filereadable(path)
     silent execute 'edit ' . path
@@ -56,31 +53,33 @@ function! GoToRelatedVimrcMappings()
   if expand('%:t') == 'mappings.vim'
     echo 'Already in mappings.'
     return
-  elseif expand('%:t') == 'plugins.vim' && match(getline('.'), "Plug '") > -1
-    let ref = s:get_ref_from_plug_definition()
-  elseif expand('%:t') == 'plugins.vim'
-    let ref = s:get_ref_from_annotation()
-  else
-    let ref = s:get_ref_for_current_config_file()
   endif
+  let ref = s:get_ref()
   silent execute 'edit ' VimrcPath('mappings.vim')
   call s:go_to_ref(ref)
 endfunction
 
 function! GoToRelatedPlugDefinition()
-  if expand('%:t') == 'plugins.vim' && match(getline('.'), "Plug '") > -1
-    let ref = s:get_ref_from_plug_definition()
-  elseif expand('%:t') == 'plugins.vim' || expand('%:t') == 'mappings.vim'
-    let ref = s:get_ref_from_annotation()
-  else
-    let ref = s:get_ref_for_current_config_file()
+  if match(getline('.'), "Plug '") > -1
+    echo 'Already in plugin definitions.'
   endif
+  let ref = s:get_ref()
   silent execute 'edit ' . VimrcPath('plugins.vim')
   normal gg
   let query = get(g:explicit_annotation_bindings, ref['slug'], ref['slug'])
   let found = search("/.*" . query . ".*'\\c")
   if found == 0
-    echo 'Plugin not found.'
+    echo 'Plugin definition not found.'
+  endif
+endfunction
+
+function! s:get_ref()
+  if expand('%:t') == 'plugins.vim' && match(getline('.'), "Plug '") > -1
+    return s:get_ref_from_plug_definition()
+  elseif expand('%:t') == 'plugins.vim' || expand('%:t') == 'mappings.vim'
+    return s:get_ref_from_annotation()
+  else
+    return s:get_ref_for_current_config_file()
   endif
 endfunction
 
