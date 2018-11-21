@@ -112,3 +112,7 @@ let g:writable_search_new_buffer_command = 'enew'
 
 " Plugin: easy-align
 let g:easy_align_ignore_groups = []
+
+" Plugin: winmode
+let g:win_mode_horizontal_resize_step = 6
+let g:win_mode_vertical_resize_step = 2
