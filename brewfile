@@ -41,7 +41,6 @@ cask 'virtualbox-extension-pack'
 cask 'steam'
 cask 'discord'
 cask 'vlc'
-cask 'kaleidoscope'
 cask 'imageoptim'
 
 # Mac App Store
