@@ -108,3 +108,6 @@ let g:targets_seekRanges = 'cc cr cb cB lc ac Ac lr lb ar ab lB Ar aB Ab AB'
 
 " Plugin: writable-search
 let g:writable_search_new_buffer_command = 'enew'
+
+" Plugin: easy-align
+let g:easy_align_ignore_groups = []
