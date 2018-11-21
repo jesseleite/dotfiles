@@ -12,6 +12,8 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 set relativenumber
 set noshowmode
+set splitbelow
+set splitright
 
 " Set updatetime for CursorHold, gitgutter, etc.
 set updatetime=1000

@@ -49,6 +49,7 @@ Plug 'houtsnip/vim-emacscommandline'    " Emacs style mappings for ex commands
 Plug 'wellle/targets.vim'               " Additional text objects, and better seeking
 Plug 'justinmk/vim-sneak'               " Sneak motion and better f/t motions
 Plug 'AndrewRadev/writable_search.vim'  " Writable search buffer from quickfix
+Plug 'hsanson/vim-winmode'              " Window resizer
 
 " Explicit annotation bindings for more accurate go to
 let g:explicit_annotation_bindings = {

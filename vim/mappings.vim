@@ -25,19 +25,22 @@ map <C-s> <Esc>:w<CR>
 " Write and reload current tab in chrome
 nmap <silent> <Leader>R :w<CR>:call system('chrome-cli reload')<CR>
 
-" Write and source, for plugin development?
-nmap <Leader><Leader>w :w<CR>:so %<CR>
-
 " Open in finder
 nmap <silent> <Leader><Leader>o :!open $PWD<CR><CR>
 
 " Browse with valet open
 nmap <silent> <Leader><Leader>b :!valet open<CR><CR>
 
-" Windows
+" Cycle through windows
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
+
+" Make window only window
 nnoremap <Leader>o <C-w>o
+
+" Resize window
+" Plugin: winmode
+nmap <Leader><Leader>w <Plug>WinModeResizeStart
 
 " Close buffer, and disable intrusive BuffKill mappings
 " Plugin: bufkill
