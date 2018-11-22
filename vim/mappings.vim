@@ -178,6 +178,7 @@ nnoremap <Leader>p :call phpactor#ContextMenu()<CR>
 nnoremap <Leader>pg :call phpactor#GotoDefinition()<CR>
 nnoremap <Leader>pi :call phpactor#UseAdd()<CR>
 nnoremap <Leader>pt :call phpactor#Transform()<CR>
+nnoremap <Leader>ph :call phpactor#Hover()<CR>
 
 " PHP docblocks
 " Plugin: pdv
