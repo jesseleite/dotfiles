@@ -29,7 +29,7 @@ Plug 'ntpeters/vim-better-whitespace'        " Highlight and trim whitespace
 Plug 'tpope/vim-unimpaired'                  " Handy bracket mappings
 Plug 'tpope/vim-surround'                    " Surround commands
 Plug 'tpope/vim-repeat'                      " Better . repeating
-Plug 'qpkorr/vim-bufkill'                    " Close buffer without closing window or split
+Plug 'moll/vim-bbye'                         " Close buffer without closing window or split
 Plug 'junegunn/goyo.vim'                     " Distraction free writing
 Plug 'junegunn/limelight.vim'                " Hyper focus writing
 Plug 'junegunn/vim-easy-align'               " Text alignment
@@ -63,9 +63,6 @@ let g:explicit_annotation_bindings = {
 " ------------------------------------------------------------------------------
 " # This is for basic plugin config only.  More elaborate plugin config
 " # files are located in the /plugin-config folder.
-
-" Plugin: bufkill
-let g:BufKillCreateMappings = 0
 
 " Plugin: togglelist
 let g:toggle_list_no_mappings = 1

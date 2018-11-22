@@ -43,8 +43,8 @@ nnoremap <Leader>o <C-w>o
 nmap <Leader><Leader>w <Plug>WinModeResizeStart
 
 " Close buffer, and disable intrusive BuffKill mappings
-" Plugin: bufkill
-nmap <silent> <Leader>c :BD<CR>
+" Plugin: bbye
+nmap <silent> <Leader>c :Bdelete<CR>
 
 " Next/prev git change, and disable intrusive GitGutter mappings
 let g:gitgutter_map_keys = 0
