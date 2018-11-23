@@ -34,14 +34,15 @@ Plug 'junegunn/goyo.vim'                     " Distraction free writing
 Plug 'junegunn/limelight.vim'                " Hyper focus writing
 Plug 'junegunn/vim-easy-align'               " Text alignment
 Plug 'junegunn/vader.vim'                    " Vimscript test framework
+Plug 'phpactor/phpactor',
+  \ {'for': 'php', 'do': 'composer install'} " PHP refactoring and introspection
 Plug 'tobyS/vmustache'                       " PHP docblocks dependency
 Plug 'tobyS/pdv'                             " PHP docblocks
+Plug 'alvan/vim-php-manual'                  " PHP help
 Plug 'mattn/emmet-vim'                       " HTML/CSS expand abbreviation magic
 Plug 'Shougo/deoplete.nvim'                  " IDE-like autocompletion
 Plug 'roxma/nvim-yarp'                       " Deoplete dependency
 Plug 'roxma/vim-hug-neovim-rpc'              " Deoplete dependency
-Plug 'phpactor/phpactor',
-  \ {'for': 'php', 'do': 'composer install'} " PHP refactoring and introspection
 Plug 'kristijanhusak/deoplete-phpactor'      " PHP Deoplete source
 Plug 'vim-vdebug/vdebug'                     " Debugging
 Plug 'christoomey/vim-run-interactive'       " Run terminal commands in interactive shell

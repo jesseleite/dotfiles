@@ -173,16 +173,17 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" Plugin: Phpactor
-nnoremap <Leader>p :call phpactor#ContextMenu()<CR>
-nnoremap <Leader>pg :call phpactor#GotoDefinition()<CR>
-nnoremap <Leader>pi :call phpactor#UseAdd()<CR>
-nnoremap <Leader>pt :call phpactor#Transform()<CR>
-nnoremap <Leader>ph :call phpactor#Hover()<CR>
+" Php intelligence
+" Plugin: phpactor
+autocmd FileType php nnoremap <buffer> <Leader>i :call phpactor#ContextMenu()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>ig :call phpactor#GotoDefinition()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>ii :call phpactor#UseAdd()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>it :call phpactor#Transform()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>ih :call phpactor#Hover()<CR>
 
-" PHP docblocks
+" Php intelligence
 " Plugin: pdv
-nnoremap <Leader>D :call pdv#DocumentWithSnip()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>id :call pdv#DocumentWithSnip()<CR>
 
 " HTML and CSS abbreviation expansion
 " Plugin: emmet

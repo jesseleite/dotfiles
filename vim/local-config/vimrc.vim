@@ -104,6 +104,7 @@ endfunction
 function! s:get_ref_from_plug_definition()
   let matched = matchlist(getline('.'), "/\\(.*\\)'")[1]
   let fallback = substitute(matched, 'vim-', '', '')
+  let fallback = substitute(matched, '-vim', '', '')
   let fallback = substitute(fallback, '\.vim', '', '')
   return {
     \ 'type': 'plugin',
