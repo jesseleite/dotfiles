@@ -149,7 +149,7 @@ phpv() {
 alias php56="phpv php@5.6"
 alias php70="phpv php@7.0"
 alias php71="phpv php@7.1"
-alias php72="phpv php"
+alias php72="phpv php@7.2"
 
 # MacOS Aliases.
 alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
