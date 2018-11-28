@@ -131,9 +131,15 @@ function tink() {(
 alias ting="art tinker ting.php"
 
 # https://murze.be/easily-switch-php-versions-in-laravel-valet
+
+INSTALLED_PHP_VERSIONS=('php@5.6' 'php@7.0' 'php@7.1' 'php@7.2')
+
 phpv() {
     valet stop
-    brew unlink php@5.6 php@7.0 php@7.1 php@7.2
+    for version in $INSTALLED_PHP_VERSIONS; do
+        brew services stop $version
+        brew unlink $version
+    done
     brew link --force --overwrite $1
     brew services start $1
     composer global update
