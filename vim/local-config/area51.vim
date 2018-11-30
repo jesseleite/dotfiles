@@ -103,6 +103,7 @@ nmap <Leader>psi :PhpSortImports<CR>
 nmap <Leader>psl :PhpSortImportsByLength<CR>
 
 " Stop arrow matching on indent
+" See: /usr/local/share/vim/vim81/indent/php.vim
 let g:PHP_noArrowMatching = 1
 
 " Messing with CtrlSF
