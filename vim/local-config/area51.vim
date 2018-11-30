@@ -102,6 +102,9 @@ command! -bar PhpSortImportsByLength call PhpSortImports('length')
 nmap <Leader>psi :PhpSortImports<CR>
 nmap <Leader>psl :PhpSortImportsByLength<CR>
 
+" Stop arrow matching on indent
+let g:PHP_noArrowMatching = 1
+
 " Messing with CtrlSF
 
 let g:ctrlsf_ackprg = '/usr/local/bin/ag'
