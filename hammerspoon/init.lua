@@ -28,7 +28,7 @@ hs.grid.setMargins({x=16, y=16})
 positions = {
 
   spacious = {
-    center       = '5,3 15x12',
+    center       = '8,2 14x16',
     left         = '4,2 10x16',
     right        = '16,2 10x16',
   },
@@ -50,6 +50,11 @@ positions = {
     right        = '15,0 15x20',
   },
 
+  twoThirds = {
+    left        = '0,0 20x20',
+    right       = '10,0 20x20',
+  },
+
 }
 
 
@@ -57,15 +62,23 @@ positions = {
 -- Window Movements
 --------------------------------------------------------------------------------
 
+hs.hotkey.bind(hyper, 'c', chain({
+  positions.spacious.center,
+  positions.spacious.left,
+  positions.spacious.right,
+}))
+
 hs.hotkey.bind(hyper, 'h', chain({
   positions.thirds.left,
   positions.halves.left,
+  positions.twoThirds.left,
   positions.spacious.left,
 }))
 
 hs.hotkey.bind(hyper, 'l', chain({
   positions.thirds.right,
   positions.halves.right,
+  positions.twoThirds.right,
   positions.spacious.right,
 }))
 
