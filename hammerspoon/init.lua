@@ -13,6 +13,7 @@ hs.hotkey.bind(hyper, 'c', hs.toggleConsole)
 -- Wicked ideas from guys I should learn from...
 -- https://aaronlasseigne.com/2016/02/16/switching-from-slate-to-hammerspoon/
 -- https://github.com/jimeh/dotfiles/blob/master/hammerspoon/window_management.lua
+-- https://wincent.com/wiki/Hammerspoon
 
 
 -----------------------------------------------
