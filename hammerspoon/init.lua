@@ -1,104 +1,83 @@
+-- Define Hyper Modifiers
+hyper = {"cmd", "alt", "ctrl"}
+lilHyper = {"cmd", "ctrl"}
+bigHyper = {"cmd", "alt", "ctrl", "shift"}
+
+-- Hammerspoon Meta Mappings
+hs.hotkey.bind(hyper, 'r', hs.reload)
+hs.hotkey.bind(hyper, 'c', hs.toggleConsole)
+
+-- Spoon Installer?
+-- hs.loadSpoon("SpoonInstall")
+
+-- Wicked ideas from guys I should learn from...
+-- https://aaronlasseigne.com/2016/02/16/switching-from-slate-to-hammerspoon/
+-- https://github.com/jimeh/dotfiles/blob/master/hammerspoon/window_management.lua
+
+
 -----------------------------------------------
--- This is a mess!  You should probably close your eyes.
+-- Global Window Management Settings
 -----------------------------------------------
 
 hs.window.animationDuration = 0
-
-hs.grid.setMargins({w=10, h=10})
-
-hs.hotkey.bind({"cmd", "ctrl"}, "space", function()
-    hs.grid.show()
-end)
+hs.grid.setGrid('30x20')
+hs.grid.setMargins({x=16, y=16})
 
 positions = {
-  maximized = hs.layout.maximized,
-
-  centered = {x=0.3, y=0.15, w=0.4, h=0.7},
-  centeredTall = {x=0.3, y=0.05, w=0.4, h=0.9},
-  centeredWide = {x=0.25, y=0.15, w=0.5, h=0.7},
-
-  left34 = {x=0, y=0, w=0.34, h=1},
-  left50 = hs.layout.left50,
-  left66 = {x=0, y=0, w=0.66, h=1},
-
-  right34 = {x=0.66, y=0, w=0.34, h=1},
-  right50 = hs.layout.right50,
-  right66 = {x=0.34, y=0, w=0.66, h=1},
-
-  upper50 = {x=0, y=0, w=1, h=0.5},
-  upper50Left50 = {x=0, y=0, w=0.5, h=0.5},
-  upper50Right50 = {x=0.5, y=0, w=0.5, h=0.5},
-
-  lower50 = {x=0, y=0.5, w=1, h=0.5},
-  lower50Left50 = {x=0, y=0.5, w=0.5, h=0.5},
-  lower50Right50 = {x=0.5, y=0.5, w=0.5, h=0.5}
+  leftThird         = {x=0, y=0, w=10, h=20},
+  leftThirdTop      = {x=0, y=0, w=10, h=10},
+  leftThirdBottom   = {x=0, y=10, w=10, h=10},
+  centerThird       = {x=10, y=0, w=10, h=20},
+  centerThirdTop    = {x=10, y=0, w=10, h=10},
+  centerThirdBottom = {x=10, y=10, w=10, h=10},
+  rightThird        = {x=20, y=0, w=10, h=20},
+  rightThirdTop     = {x=20, y=0, w=10, h=10},
+  rightThirdBottom  = {x=20, y=10, w=10, h=10},
 }
 
-function bindKey(key, fn)
-  hs.hotkey.bind({"cmd", "ctrl"}, key, fn)
-end
 
-grid = {
-  {key="f", units={positions.maximized}},
-  {key="c", units={positions.centered, positions.centeredTall, positions.centeredWide}},
+-----------------------------------------------
+-- Layouts
+-----------------------------------------------
 
-  {key="h", units={positions.left50, positions.left66, positions.left34}},
-  {key="j", units={positions.lower50}},
-  {key="k", units={positions.upper50}},
-  {key="l", units={positions.right50, positions.right66, positions.right34}},
-
-  {key="y", units={positions.upper50Left50}},
-  {key="u", units={positions.upper50Right50}},
-  {key="b", units={positions.lower50Left50}},
-  {key="n", units={positions.lower50Right50}},
-}
-
-hs.fnutils.each(grid, function(entry)
-  bindKey(entry.key, function()
-    local units = entry.units
-    local screen = hs.screen.mainScreen()
-    local window = hs.window.focusedWindow()
-    local windowGeo = window:frame()
-
-    local index = 0
-    hs.fnutils.find(units, function(unit)
-      index = index + 1
-
-      local geo = hs.geometry.new(unit):fromUnitRect(screen:frame()):floor()
-      return windowGeo:equals(geo)
-    end)
-    if index == #units then index = 0 end
-
-    window:moveToUnit(units[index + 1])
-  end)
-end)
-
-bindKey('1', function()
+hs.hotkey.bind(lilHyper, '1', function()
+  local screen = hs.screen.mainScreen()
   hs.layout.apply({
-    {"Google Chrome", nil, screen, positions.right34,        nil, nil},
-    {"Hyper",         nil, screen, positions.centered,       nil, nil},
-    {"Slack",         nil, screen, positions.lower50Left50,  nil, nil}
+    {"Google Chrome", nil, screen, gridCellToUnitRect(positions.rightThird, screen),      nil, nil},
+    {"Hyper",         nil, screen, gridCellToUnitRect(positions.centerThird, screen),     nil, nil},
+    {"Slack",         nil, screen, gridCellToUnitRect(positions.leftThirdTop, screen),    nil, nil},
+    {"Discord",       nil, screen, gridCellToUnitRect(positions.leftThirdBottom, screen), nil, nil},
   })
 end)
 
+function gridCellToUnitRect(cell, screen)
+  return hs.geometry.toUnitRect(hs.grid.getCell(cell, screen), screen:frame())
+end
+
+
 -----------------------------------------------
--- Hyper hjkl to switch window focus
+-- Hjkl to switch window focus
 -----------------------------------------------
 
-local hyper = {"cmd", "shift"}
-
-hs.hotkey.bind(hyper, 'k', function()
+hs.hotkey.bind(lilHyper, 'k', function()
     hs.window.focusedWindow():focusWindowNorth()
 end)
 
-hs.hotkey.bind(hyper, 'j', function()
+hs.hotkey.bind(lilHyper, 'j', function()
     hs.window.focusedWindow():focusWindowSouth()
 end)
 
-hs.hotkey.bind(hyper, 'l', function()
+hs.hotkey.bind(lilHyper, 'l', function()
     hs.window.focusedWindow():focusWindowEast()
 end)
 
-hs.hotkey.bind(hyper, 'h', function()
+hs.hotkey.bind(lilHyper, 'h', function()
     hs.window.focusedWindow():focusWindowWest()
 end)
+
+
+-----------------------------------------------
+-- The End
+-----------------------------------------------
+
+hs.notify.show('Hammerspoon loaded', '', '...more like hammerspork')

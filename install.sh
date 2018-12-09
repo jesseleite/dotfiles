@@ -71,6 +71,9 @@ composer global require laravel/installer
 composer global require tightenco/lambo
 composer global require statamic/cli
 
+# Install hammerspoon.
+ln -s ~/.dotfiles/hammerspoon/init.lua ~/.hammerspoon/init.lua
+
 # Hush terminal login.
 touch ~/.hushlogin
 
