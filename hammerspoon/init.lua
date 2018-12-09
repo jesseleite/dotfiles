@@ -9,6 +9,7 @@ bigHyper = {"cmd", "alt", "ctrl", "shift"}
 hs.hotkey.bind(hyper, 'r', hs.reload)
 hs.hotkey.bind(hyper, 'c', hs.toggleConsole)
 
+local chain = require('chain')
 
 -- Wicked ideas from guys I should learn from...
 -- https://aaronlasseigne.com/2016/02/16/switching-from-slate-to-hammerspoon/
@@ -55,6 +56,19 @@ positions = {
 --------------------------------------------------------------------------------
 -- Window Movements
 --------------------------------------------------------------------------------
+
+hs.hotkey.bind(hyper, 'h', chain({
+  positions.thirds.left,
+  positions.halves.left,
+  positions.spacious.left,
+}))
+
+hs.hotkey.bind(hyper, 'l', chain({
+  positions.thirds.right,
+  positions.halves.right,
+  positions.spacious.right,
+}))
+
 hs.hotkey.bind(lilHyper, 's', function ()
   snap()
 end)
