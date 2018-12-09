@@ -24,42 +24,47 @@ hs.grid.setGrid('30x20')
 hs.grid.setMargins({x=16, y=16})
 
 positions = {
-  leftThird         = {x=0, y=0, w=10, h=20},
-  leftThirdTop      = {x=0, y=0, w=10, h=10},
-  leftThirdBottom   = {x=0, y=10, w=10, h=10},
-  centerThird       = {x=10, y=0, w=10, h=20},
-  centerThirdTop    = {x=10, y=0, w=10, h=10},
-  centerThirdBottom = {x=10, y=10, w=10, h=10},
-  rightThird        = {x=20, y=0, w=10, h=20},
-  rightThirdTop     = {x=20, y=0, w=10, h=10},
-  rightThirdBottom  = {x=20, y=10, w=10, h=10},
+  spacious = {
+    center       = {x=5, y=3, w=15, h=12},
+    left         = {x=4, y=2, w=10, h=16},
+    right        = {x=16, y=2, w=10, h=16},
+  },
+  thirds = {
+    left         = {x=0, y=0, w=10, h=20},
+    leftTop      = {x=0, y=0, w=10, h=10},
+    leftBottom   = {x=0, y=10, w=10, h=10},
+    center       = {x=10, y=0, w=10, h=20},
+    centerTop    = {x=10, y=0, w=10, h=10},
+    centerBottom = {x=10, y=10, w=10, h=10},
+    right        = {x=20, y=0, w=10, h=20},
+    rightTop     = {x=20, y=0, w=10, h=10},
+    rightBottom  = {x=20, y=10, w=10, h=10},
+  },
 }
 
 
 -----------------------------------------------
--- Layouts
+-- Multi Window Layouts
 -----------------------------------------------
 
-local thisScreen = hs.screen.mainScreen()
-
+-- Just editor and browser
 hs.hotkey.bind(lilHyper, '1', function()
-  moveApp('Hyper', positions.centerThird)
-  moveApp('Google Chrome', positions.rightThird)
-  moveApp('GitHub Desktop', positions.centerThird)
-  moveApp('Slack', positions.leftThirdTop)
-  moveApp('Discord', positions.leftThirdBottom)
+  moveApp('Hyper', positions.spacious.left)
+  moveApp('Google Chrome', positions.spacious.right)
 end)
 
-function moveApp(application, cell)
-  local window = hs.window.find(application)
-  if (window) then
-    hs.grid.set(window, cell, thisScreen)
-  end
-end
+-- All the things
+hs.hotkey.bind(lilHyper, '2', function()
+  moveApp('Hyper', positions.thirds.center)
+  moveApp('Google Chrome', positions.thirds.right)
+  moveApp('GitHub Desktop', positions.thirds.center)
+  moveApp('Slack', positions.thirds.leftTop)
+  moveApp('Discord', positions.thirds.leftBottom)
+end)
 
 
 -----------------------------------------------
--- Hjkl to switch window focus
+-- Focus Window
 -----------------------------------------------
 
 hs.hotkey.bind(lilHyper, 'k', function()
@@ -77,6 +82,24 @@ end)
 hs.hotkey.bind(lilHyper, 'h', function()
   hs.window.focusedWindow():focusWindowWest()
 end)
+
+hs.hotkey.bind(lilHyper, 's', function()
+  local window = hs.window.focusedWindow()
+  hs.grid.snap(window)
+  print(hs.inspect(hs.grid.get(window)))
+end)
+
+
+-----------------------------------------------
+-- Helpers
+-----------------------------------------------
+
+function moveApp(application, cell)
+  local window = hs.window.find(application)
+  if (window) then
+    hs.grid.set(window, cell, hs.screen.mainScreen())
+  end
+end
 
 
 -----------------------------------------------
