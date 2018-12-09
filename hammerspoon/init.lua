@@ -60,19 +60,19 @@ end
 -----------------------------------------------
 
 hs.hotkey.bind(lilHyper, 'k', function()
-    hs.window.focusedWindow():focusWindowNorth()
+  hs.window.focusedWindow():focusWindowNorth()
 end)
 
 hs.hotkey.bind(lilHyper, 'j', function()
-    hs.window.focusedWindow():focusWindowSouth()
+  hs.window.focusedWindow():focusWindowSouth()
 end)
 
 hs.hotkey.bind(lilHyper, 'l', function()
-    hs.window.focusedWindow():focusWindowEast()
+  hs.window.focusedWindow():focusWindowEast()
 end)
 
 hs.hotkey.bind(lilHyper, 'h', function()
-    hs.window.focusedWindow():focusWindowWest()
+  hs.window.focusedWindow():focusWindowWest()
 end)
 
 

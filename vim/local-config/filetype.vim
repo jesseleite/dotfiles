@@ -6,6 +6,7 @@ augroup filetype_settings
   autocmd!
   autocmd FileType zsh setlocal ts=2 sw=2 sts=2 expandtab
   autocmd FileType vim setlocal ts=2 sw=2 sts=2 expandtab
+  autocmd FileType lua setlocal ts=2 sw=2 sts=2 expandtab
   autocmd FileType php setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s omnifunc=phpactor#Complete
   autocmd FileType html setlocal ts=4 sw=4 sts=4 expandtab
   autocmd FileType css setlocal ts=4 sw=4 sts=4 expandtab
