@@ -43,17 +43,18 @@ positions = {
 local thisScreen = hs.screen.mainScreen()
 
 hs.hotkey.bind(lilHyper, '1', function()
-  hs.layout.apply({
-    {"Google Chrome",  nil, thisScreen, gridCellToUnitRect(positions.rightThird, thisScreen),      nil, nil},
-    {"Hyper",          nil, thisScreen, gridCellToUnitRect(positions.centerThird, thisScreen),     nil, nil},
-    {"GitHub Desktop", nil, thisScreen, gridCellToUnitRect(positions.centerThird, thisScreen),     nil, nil},
-    {"Slack",          nil, thisScreen, gridCellToUnitRect(positions.leftThirdTop, thisScreen),    nil, nil},
-    {"Discord",        nil, thisScreen, gridCellToUnitRect(positions.leftThirdBottom, thisScreen), nil, nil},
-  })
+  moveApp('Hyper', positions.centerThird)
+  moveApp('Google Chrome', positions.rightThird)
+  moveApp('GitHub Desktop', positions.centerThird)
+  moveApp('Slack', positions.leftThirdTop)
+  moveApp('Discord', positions.leftThirdBottom)
 end)
 
-function gridCellToUnitRect(cell, screen)
-  return hs.geometry.toUnitRect(hs.grid.getCell(cell, screen), screen:frame())
+function moveApp(application, cell)
+  local window = hs.window.find(application)
+  if (window) then
+    hs.grid.set(window, cell, thisScreen)
+  end
 end
 
 
