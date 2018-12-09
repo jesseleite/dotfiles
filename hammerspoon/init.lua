@@ -40,13 +40,15 @@ positions = {
 -- Layouts
 -----------------------------------------------
 
+local thisScreen = hs.screen.mainScreen()
+
 hs.hotkey.bind(lilHyper, '1', function()
-  local screen = hs.screen.mainScreen()
   hs.layout.apply({
-    {"Google Chrome", nil, screen, gridCellToUnitRect(positions.rightThird, screen),      nil, nil},
-    {"Hyper",         nil, screen, gridCellToUnitRect(positions.centerThird, screen),     nil, nil},
-    {"Slack",         nil, screen, gridCellToUnitRect(positions.leftThirdTop, screen),    nil, nil},
-    {"Discord",       nil, screen, gridCellToUnitRect(positions.leftThirdBottom, screen), nil, nil},
+    {"Google Chrome",  nil, thisScreen, gridCellToUnitRect(positions.rightThird, thisScreen),      nil, nil},
+    {"Hyper",          nil, thisScreen, gridCellToUnitRect(positions.centerThird, thisScreen),     nil, nil},
+    {"GitHub Desktop", nil, thisScreen, gridCellToUnitRect(positions.centerThird, thisScreen),     nil, nil},
+    {"Slack",          nil, thisScreen, gridCellToUnitRect(positions.leftThirdTop, thisScreen),    nil, nil},
+    {"Discord",        nil, thisScreen, gridCellToUnitRect(positions.leftThirdBottom, thisScreen), nil, nil},
   })
 end)
 
