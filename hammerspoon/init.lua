@@ -91,19 +91,25 @@ end)
 -- Multi Window Layouts
 --------------------------------------------------------------------------------
 
--- Just editor and browser
-hs.hotkey.bind(hyper, '1', function()
-  moveApp('Hyper', positions.spacious.left)
-  moveApp('Google Chrome', positions.spacious.right)
+-- Work
+hs.hotkey.bind(hyper, 'w', function()
+  moveApp('Hyper', largeOrSmallScreen(positions.thirds.center, positions.full))
+  moveApp('Google Chrome', largeOrSmallScreen(positions.thirds.right, '4,0 26x20'))
+  moveApp('Slack', largeOrSmallScreen(positions.thirds.leftTop, '0,2 22x16'))
+  moveApp('GitHub Desktop', largeOrSmallScreen(positions.thirds.center, '4,0 26x20'))
 end)
 
--- All the things
-hs.hotkey.bind(hyper, '2', function()
-  moveApp('Hyper', positions.thirds.center)
-  moveApp('Google Chrome', positions.thirds.right)
-  moveApp('GitHub Desktop', positions.thirds.center)
-  moveApp('Slack', positions.thirds.leftTop)
-  moveApp('Discord', positions.thirds.leftBottom)
+-- Editing only
+hs.hotkey.bind(hyper, 'e', function()
+  moveApp('Hyper', largeOrSmallScreen(positions.spacious.left, positions.full))
+  moveApp('Google Chrome', largeOrSmallScreen(positions.spacious.right, positions.full))
+end)
+
+-- ???
+hs.hotkey.bind(hyper, '0', function()
+  moveApp('iTunes', '1,1 12x18')
+  moveApp('Messages', '15,9 7x10')
+  moveApp('Discord', '20,1 9x11')
 end)
 
 
