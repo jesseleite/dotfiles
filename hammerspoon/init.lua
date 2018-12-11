@@ -26,6 +26,7 @@ hs.grid.setGrid('30x20')
 hs.grid.setMargins({x=16, y=16})
 
 positions = {
+  full           = '0,0 30x20',
 
   spacious = {
     center       = '8,2 14x16',
