@@ -94,16 +94,16 @@ end)
 
 -- Work
 hs.hotkey.bind(hyper, 'w', function()
-  moveApp('Hyper', largeOrSmallScreen(positions.thirds.center, positions.full))
-  moveApp('Google Chrome', largeOrSmallScreen(positions.thirds.right, '4,0 26x20'))
-  moveApp('Slack', largeOrSmallScreen(positions.thirds.leftTop, '0,2 22x16'))
+  moveApp('Hyper',          largeOrSmallScreen(positions.thirds.center, positions.full))
+  moveApp('Google Chrome',  largeOrSmallScreen(positions.thirds.right, '4,0 26x20'))
+  moveApp('Slack',          largeOrSmallScreen(positions.thirds.leftTop, '0,2 22x16'))
   moveApp('GitHub Desktop', largeOrSmallScreen(positions.thirds.center, '4,0 26x20'))
 end)
 
 -- Editing only
 hs.hotkey.bind(hyper, 'e', function()
-  moveApp('Hyper', largeOrSmallScreen(positions.spacious.left, positions.full))
-  moveApp('Google Chrome', largeOrSmallScreen(positions.spacious.right, positions.full))
+  moveApp('Hyper',          largeOrSmallScreen(positions.spacious.left, positions.full))
+  moveApp('Google Chrome',  largeOrSmallScreen(positions.spacious.right, positions.full))
 end)
 
 -- ???
