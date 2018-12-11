@@ -142,7 +142,10 @@ end
 function snap()
   local window = hs.window.focusedWindow()
   hs.grid.snap(window)
-  print(hs.inspect(hs.grid.get(window)))
+  local application = hs.application.frontmostApplication():name()
+  local cell = hs.grid.get(window)
+  local position = string.format('%s,%s %sx%s', math.floor(cell.x), math.floor(cell.y), math.floor(cell.w), math.floor(cell.h))
+  print(string.format('%s - %s', application, position))
 end
 
 
