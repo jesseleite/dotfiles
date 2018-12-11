@@ -148,6 +148,13 @@ function snap()
   print(string.format('%s - %s', application, position))
 end
 
+function largeOrSmallScreen(large, small)
+  if hs.screen.mainScreen():name() == 'LG HDR WQHD' then
+    return large
+  end
+  return small
+end
+
 
 --------------------------------------------------------------------------------
 -- The End
