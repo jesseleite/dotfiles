@@ -33,12 +33,8 @@ end)
 
 positions = {
   full           = '0,0 30x20',
-
-  spacious = {
-    center       = '8,2 14x16',
-    left         = '4,2 10x16',
-    right        = '16,2 10x16',
-  },
+  top            = '0,0 30x10',
+  bottom         = '0,10 30x10',
 
   thirds = {
     left         = '0,0 10x20',
@@ -61,6 +57,12 @@ positions = {
     right       = '6,0 24x20',
   },
 
+  spacious = {
+    center       = '8,2 14x16',
+    left         = '4,2 10x16',
+    right        = '16,2 10x16',
+  },
+
 }
 
 
@@ -68,14 +70,12 @@ positions = {
 -- Window Movements
 --------------------------------------------------------------------------------
 
-hs.hotkey.bind(lilHyper, 's', function ()
-  snap()
-end)
-
 hs.hotkey.bind(hyper, 'f', chain({positions.full}))
-hs.hotkey.bind(hyper, 'c', chain({positions.spacious.center, positions.spacious.left, positions.spacious.right}))
+hs.hotkey.bind(hyper, 'k', chain({positions.top}))
+hs.hotkey.bind(hyper, 'j', chain({positions.bottom}))
+hs.hotkey.bind(hyper, 's', chain({positions.spacious.center, positions.spacious.left, positions.spacious.right}))
 
-local largeX = { 'thirds', 'halves', 'twoThirds', 'spacious' }
+local largeX = { 'thirds', 'halves', 'twoThirds', }
 local smallX = { 'halves', 'twoThirds', 'fourFifths' }
 
 resetWhenSwitchingScreen(function ()
@@ -85,6 +85,10 @@ resetWhenSwitchingScreen(function ()
   hs.hotkey.bind(hyper, 'u', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'top')))
   hs.hotkey.bind(hyper, 'b', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'bottom')))
   hs.hotkey.bind(hyper, 'n', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'bottom')))
+end)
+
+hs.hotkey.bind(lilHyper, 's', function ()
+  snap()
 end)
 
 
