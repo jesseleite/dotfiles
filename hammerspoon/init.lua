@@ -121,7 +121,7 @@ end)
 
 -- An idea...
 -- If I tap one of these keys once, just move apps if they exist.
--- But if I tap a second time within 2 seconds, launch apps and hide the others?
+-- But if I tap a second time within 2 seconds, launch the unopened apps and hide the unessessary apps?
 
 hs.hotkey.bind(hyper, 'w', function()
   moveApp('Hyper', largeOrSmallScreen(positions.thirds.center, positions.full))
