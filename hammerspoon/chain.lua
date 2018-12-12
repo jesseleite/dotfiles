@@ -32,9 +32,9 @@ return (function(movements)
     then
       sequenceNumber = 1
       lastSeenChain = movements
-    elseif (sequenceNumber == 1) then
-      -- At end of chain, restart chain on next screen.
-      screen = screen:next()
+--  elseif (sequenceNumber == 1) then
+--    -- At end of chain, restart chain on next screen.
+--    screen = screen:next()
     end
     lastSeenAt = now
     lastSeenWindow = id
