@@ -33,8 +33,6 @@ end)
 
 positions = {
   full           = '0,0 30x20',
-  top            = '0,0 30x10',
-  bottom         = '0,10 30x10',
 
   thirds = {
     left         = '0,0 10x20',
@@ -54,37 +52,41 @@ positions = {
 
   fourFifths = {
     left        = '0,0 24x20',
+    center      = '3,0 24x20',
     right       = '6,0 24x20',
   },
-
-  spacious = {
-    center       = '8,2 14x16',
-    left         = '4,2 10x16',
-    right        = '16,2 10x16',
-  },
-
 }
 
 
 --------------------------------------------------------------------------------
 -- Window Movements
 --------------------------------------------------------------------------------
+-- f:    fullscreen
+-- hjkl: edge movements
+-- yu:   top corner movements
+-- bn:   bottom corner movements
+-- m:    middle column
+-- s:    snap to nearest grid region
 
 hs.hotkey.bind(hyper, 'f', chain({positions.full}))
-hs.hotkey.bind(hyper, 'k', chain({positions.top}))
-hs.hotkey.bind(hyper, 'j', chain({positions.bottom}))
-hs.hotkey.bind(hyper, 's', chain({positions.spacious.center, positions.spacious.left, positions.spacious.right}))
 
 local largeX = { 'thirds', 'halves', 'twoThirds', }
 local smallX = { 'halves', 'twoThirds', 'fourFifths' }
+local largeY = { 'thirds', 'full' }
+local smallY = { 'fourFifths', 'full' }
+local largeM = { 'thirds' }
+local smallM = { 'fourFifths' }
 
 resetWhenSwitchingScreen(function ()
   hs.hotkey.bind(hyper, 'h', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left')))
+  hs.hotkey.bind(hyper, 'j', chain(getPositions(largeOrSmallScreen(largeY, smallY), 'center', 'bottom')))
+  hs.hotkey.bind(hyper, 'k', chain(getPositions(largeOrSmallScreen(largeY, smallY), 'center', 'top')))
   hs.hotkey.bind(hyper, 'l', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right')))
   hs.hotkey.bind(hyper, 'y', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'top')))
   hs.hotkey.bind(hyper, 'u', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'top')))
   hs.hotkey.bind(hyper, 'b', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'bottom')))
   hs.hotkey.bind(hyper, 'n', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'bottom')))
+  hs.hotkey.bind(hyper, 'm', chain(getPositions(largeOrSmallScreen(largeM, smallM), 'center')))
 end)
 
 hs.hotkey.bind(lilHyper, 's', function ()
@@ -105,10 +107,10 @@ hs.hotkey.bind(hyper, 'w', function()
 end)
 
 -- Editing only
-hs.hotkey.bind(hyper, 'e', function()
-  moveApp('Hyper',          largeOrSmallScreen(positions.spacious.left, positions.full))
-  moveApp('Google Chrome',  largeOrSmallScreen(positions.spacious.right, positions.full))
-end)
+-- hs.hotkey.bind(hyper, 'e', function()
+--   moveApp('Hyper',          largeOrSmallScreen(positions.spacious.left, positions.full))
+--   moveApp('Google Chrome',  largeOrSmallScreen(positions.spacious.right, positions.full))
+-- end)
 
 -- ???
 hs.hotkey.bind(hyper, '0', function()
@@ -123,20 +125,20 @@ end)
 -- Switch Focus
 --------------------------------------------------------------------------------
 
-hs.hotkey.bind(lilHyper, 'k', function()
-  hs.window.filter.focusNorth()
+hs.hotkey.bind(lilHyper, 'h', function()
+  hs.window.filter.focusWest()
 end)
 
 hs.hotkey.bind(lilHyper, 'j', function()
   hs.window.filter.focusSouth()
 end)
 
-hs.hotkey.bind(lilHyper, 'l', function()
-  hs.window.filter.focusEast()
+hs.hotkey.bind(lilHyper, 'k', function()
+  hs.window.filter.focusNorth()
 end)
 
-hs.hotkey.bind(lilHyper, 'h', function()
-  hs.window.filter.focusWest()
+hs.hotkey.bind(lilHyper, 'l', function()
+  hs.window.filter.focusEast()
 end)
 
 

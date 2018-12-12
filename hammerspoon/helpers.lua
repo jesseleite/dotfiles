@@ -41,6 +41,9 @@ end
 
 function getPositions(sizes, leftOrRight, topOrBottom)
   local applyLeftOrRight = function (size)
+    if type(positions[size]) == 'string' then
+      return positions[size]
+    end
     return positions[size][leftOrRight]
   end
 
