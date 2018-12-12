@@ -74,8 +74,6 @@ local largeX = { 'thirds', 'halves', 'twoThirds', }
 local smallX = { 'halves', 'twoThirds', 'fourFifths' }
 local largeY = { 'thirds', 'full' }
 local smallY = { 'fourFifths', 'full' }
-local largeM = { 'thirds' }
-local smallM = { 'fourFifths' }
 
 resetWhenSwitchingScreen(function ()
   hs.hotkey.bind(hyper, 'h', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left')))
@@ -86,7 +84,7 @@ resetWhenSwitchingScreen(function ()
   hs.hotkey.bind(hyper, 'u', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'top')))
   hs.hotkey.bind(hyper, 'b', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'bottom')))
   hs.hotkey.bind(hyper, 'n', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'bottom')))
-  hs.hotkey.bind(hyper, 'm', chain(getPositions(largeOrSmallScreen(largeM, smallM), 'center')))
+  hs.hotkey.bind(hyper, 'm', chain(getPositions(largeOrSmallScreen(largeY, smallY), 'center')))
 end)
 
 hs.hotkey.bind(lilHyper, 's', function ()
