@@ -67,22 +67,30 @@ positions = {
 -- Window Movements
 --------------------------------------------------------------------------------
 
+hs.hotkey.bind(lilHyper, 's', function ()
+  snap()
+end)
+
 hs.hotkey.bind(hyper, 'f', chain({positions.full}))
 hs.hotkey.bind(hyper, 'c', chain({positions.spacious.center, positions.spacious.left, positions.spacious.right}))
 
 local largeX = { 'thirds', 'halves', 'twoThirds', 'spacious' }
 local smallX = { 'halves', 'twoThirds', 'fourFifths' }
 
-hs.hotkey.bind(hyper, 'h', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left')))
-hs.hotkey.bind(hyper, 'l', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right')))
-hs.hotkey.bind(hyper, 'y', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'top')))
-hs.hotkey.bind(hyper, 'u', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'top')))
-hs.hotkey.bind(hyper, 'b', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'bottom')))
-hs.hotkey.bind(hyper, 'n', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'bottom')))
+function bindGridMovements()
+  hs.hotkey.bind(hyper, 'h', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left')))
+  hs.hotkey.bind(hyper, 'l', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right')))
+  hs.hotkey.bind(hyper, 'y', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'top')))
+  hs.hotkey.bind(hyper, 'u', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'top')))
+  hs.hotkey.bind(hyper, 'b', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'bottom')))
+  hs.hotkey.bind(hyper, 'n', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'bottom')))
+end
 
-hs.hotkey.bind(lilHyper, 's', function ()
-  snap()
-end)
+bindMovements()
+
+hs.screen.watcher.newWithActiveScreen(function ()
+  bindMovements()
+end):start()
 
 
 --------------------------------------------------------------------------------
