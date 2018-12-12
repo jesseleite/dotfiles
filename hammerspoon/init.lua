@@ -52,28 +52,28 @@ resetWhenSwitchingScreen(function ()
 end)
 
 positions = {
-  full           = '0,0 30x20',
+  full     = '0,0 30x20',
 
   thirds = {
-    left         = '0,0 10x20',
-    center       = '10,0 10x20',
-    right        = '20,0 10x20',
+    left   = '0,0 10x20',
+    center = '10,0 10x20',
+    right  = '20,0 10x20',
   },
 
   halves = {
-    left         = '0,0 15x20',
-    right        = '15,0 15x20',
+    left   = '0,0 15x20',
+    right  = '15,0 15x20',
   },
 
   twoThirds = {
-    left        = '0,0 20x20',
-    right       = '10,0 20x20',
+    left   = '0,0 20x20',
+    right  = '10,0 20x20',
   },
 
   fourFifths = {
-    left        = '0,0 24x20',
-    center      = '3,0 24x20',
-    right       = '6,0 24x20',
+    left   = '0,0 24x20',
+    center = '3,0 24x20',
+    right  = '6,0 24x20',
   },
 }
 
