@@ -115,22 +115,26 @@ end)
 --------------------------------------------------------------------------------
 -- Multi Window Layouts
 --------------------------------------------------------------------------------
+-- w: standard work
+-- e: editing only
+-- 0: music and secondary chats
 
--- Work
+-- An idea...
+-- If I tap one of these keys once, just move apps if they exist.
+-- But if I tap a second time within 2 seconds, launch apps and hide the others?
+
 hs.hotkey.bind(hyper, 'w', function()
-  moveApp('Hyper',          largeOrSmallScreen(positions.thirds.center, positions.full))
-  moveApp('Google Chrome',  largeOrSmallScreen(positions.thirds.right, '4,0 26x20'))
-  moveApp('Slack',          largeOrSmallScreen(positions.thirds.leftTop, '0,2 22x16'))
+  moveApp('Hyper', largeOrSmallScreen(positions.thirds.center, positions.full))
+  moveApp('Google Chrome', largeOrSmallScreen(positions.thirds.right, '4,0 26x20'))
+  moveApp('Slack', largeOrSmallScreen('0,0 10x10', '0,2 22x16'))
   moveApp('GitHub Desktop', largeOrSmallScreen(positions.thirds.center, '4,0 26x20'))
 end)
 
--- Editing only
--- hs.hotkey.bind(hyper, 'e', function()
---   moveApp('Hyper',          largeOrSmallScreen(positions.spacious.left, positions.full))
---   moveApp('Google Chrome',  largeOrSmallScreen(positions.spacious.right, positions.full))
--- end)
+hs.hotkey.bind(hyper, 'e', function()
+  moveApp('Hyper', largeOrSmallScreen('4,2 10x16', positions.full))
+  moveApp('Google Chrome', largeOrSmallScreen('16,2 10x16', positions.full))
+end)
 
--- ???
 hs.hotkey.bind(hyper, '0', function()
   moveApp('iTunes', '1,1 12x18')
   moveApp('Messages', '15,9 7x10')
