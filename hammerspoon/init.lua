@@ -11,7 +11,6 @@ hs.hotkey.bind(hyper, '`', hs.toggleConsole)
 
 require('helpers')
 
--- 3rd party helpers that aren't spoons
 local chain = require('chain')
 
 -- Wicked ideas from guys I should learn from...
