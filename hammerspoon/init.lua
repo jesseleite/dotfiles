@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- Global Hammerspoon Config
+-- Global Config
 --------------------------------------------------------------------------------
 
 hyper = {"cmd", "alt", "ctrl"}
@@ -12,11 +12,6 @@ hs.hotkey.bind(hyper, '`', hs.toggleConsole)
 require('helpers')
 
 local chain = require('chain')
-
--- Wicked ideas from guys I should learn from...
--- https://aaronlasseigne.com/2016/02/16/switching-from-slate-to-hammerspoon/
--- https://github.com/jimeh/dotfiles/blob/master/hammerspoon/window_management.lua
--- https://wincent.com/wiki/Hammerspoon
 
 
 --------------------------------------------------------------------------------
@@ -148,3 +143,8 @@ end)
 --------------------------------------------------------------------------------
 
 hs.notify.show('Hammerspoon loaded', '', '...more like hammerspork')
+
+-- Wicked ideas from guys I should learn from...
+-- https://aaronlasseigne.com/2016/02/16/switching-from-slate-to-hammerspoon/
+-- https://github.com/jimeh/dotfiles/blob/master/hammerspoon/window_management.lua
+-- https://wincent.com/wiki/Hammerspoon
