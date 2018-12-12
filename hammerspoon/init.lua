@@ -26,9 +26,10 @@ local chain = require('chain')
 
 hs.window.animationDuration = 0
 hs.grid.setGrid('30x20')
-local largeMargins = {x=16, y=16}
-local smallMargins = {x=10, y=10}
-hs.grid.setMargins(largeOrSmallScreen(largeMargins, smallMargins))
+
+resetWhenSwitchingScreen(function ()
+  hs.grid.setMargins(largeOrSmallScreen({x=26, y=26}, {x=5, y=5}))
+end)
 
 positions = {
   full           = '0,0 30x20',
@@ -77,20 +78,14 @@ hs.hotkey.bind(hyper, 'c', chain({positions.spacious.center, positions.spacious.
 local largeX = { 'thirds', 'halves', 'twoThirds', 'spacious' }
 local smallX = { 'halves', 'twoThirds', 'fourFifths' }
 
-function bindGridMovements()
+resetWhenSwitchingScreen(function ()
   hs.hotkey.bind(hyper, 'h', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left')))
   hs.hotkey.bind(hyper, 'l', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right')))
   hs.hotkey.bind(hyper, 'y', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'top')))
   hs.hotkey.bind(hyper, 'u', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'top')))
   hs.hotkey.bind(hyper, 'b', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'bottom')))
   hs.hotkey.bind(hyper, 'n', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'bottom')))
-end
-
-bindMovements()
-
-hs.screen.watcher.newWithActiveScreen(function ()
-  bindMovements()
-end):start()
+end)
 
 
 --------------------------------------------------------------------------------

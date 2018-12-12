@@ -60,3 +60,11 @@ function getPositions(sizes, leftOrRight, topOrBottom)
 
   return map(applyLeftOrRight, sizes)
 end
+
+function resetWhenSwitchingScreen(f)
+  f()
+
+  hs.screen.watcher.newWithActiveScreen(function ()
+    f()
+  end):start()
+end
