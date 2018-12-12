@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- Helpers
+-- Language Helpers
 --------------------------------------------------------------------------------
 
 function map(f, t)
@@ -12,8 +12,13 @@ function map(f, t)
   return n;
 end
 
+
+--------------------------------------------------------------------------------
+-- Grid Helpers
+--------------------------------------------------------------------------------
+
 function moveApp(application, cell)
-  -- hs.application.launchOrFocus(application)
+  -- hs.application.launchOrFocus(application) -- ???
   local window = hs.window.find(application)
 
   if (window) then
@@ -29,14 +34,6 @@ function snap()
   local cell = hs.grid.get(window)
   local position = string.format('%s,%s %sx%s', math.floor(cell.x), math.floor(cell.y), math.floor(cell.w), math.floor(cell.h))
   print(string.format('%s - %s', application, position))
-end
-
-function largeOrSmallScreen(large, small)
-  if hs.screen.mainScreen():name() == 'LG HDR WQHD' then
-    return large
-  end
-
-  return small
 end
 
 function getPositions(sizes, leftOrRight, topOrBottom)
@@ -62,6 +59,19 @@ function getPositions(sizes, leftOrRight, topOrBottom)
   end
 
   return map(applyLeftOrRight, sizes)
+end
+
+
+--------------------------------------------------------------------------------
+-- Screen Helpers
+--------------------------------------------------------------------------------
+
+function largeOrSmallScreen(large, small)
+  if hs.screen.mainScreen():name() == 'LG HDR WQHD' then
+    return large
+  end
+
+  return small
 end
 
 function resetWhenSwitchingScreen(f)
