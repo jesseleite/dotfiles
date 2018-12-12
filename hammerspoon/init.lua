@@ -21,7 +21,28 @@ local chain = require('chain')
 
 
 --------------------------------------------------------------------------------
--- Global Window Management Settings
+-- Focus Window
+--------------------------------------------------------------------------------
+
+hs.hotkey.bind(lilHyper, 'h', function()
+  hs.window.filter.focusWest()
+end)
+
+hs.hotkey.bind(lilHyper, 'j', function()
+  hs.window.filter.focusSouth()
+end)
+
+hs.hotkey.bind(lilHyper, 'k', function()
+  hs.window.filter.focusNorth()
+end)
+
+hs.hotkey.bind(lilHyper, 'l', function()
+  hs.window.filter.focusEast()
+end)
+
+
+--------------------------------------------------------------------------------
+-- Grid Settings
 --------------------------------------------------------------------------------
 
 hs.window.animationDuration = 0
@@ -59,7 +80,7 @@ positions = {
 
 
 --------------------------------------------------------------------------------
--- Window Movements
+-- Grid Movements
 --------------------------------------------------------------------------------
 -- f:    fullscreen
 -- hjkl: edge movements
@@ -116,27 +137,6 @@ hs.hotkey.bind(hyper, '0', function()
   moveApp('Messages', '15,9 7x10')
   moveApp('Discord', '20,1 9x11')
   moveApp('Terminal', '14,1 3x5') -- For iTunes-Discord npm helper
-end)
-
-
---------------------------------------------------------------------------------
--- Switch Focus
---------------------------------------------------------------------------------
-
-hs.hotkey.bind(lilHyper, 'h', function()
-  hs.window.filter.focusWest()
-end)
-
-hs.hotkey.bind(lilHyper, 'j', function()
-  hs.window.filter.focusSouth()
-end)
-
-hs.hotkey.bind(lilHyper, 'k', function()
-  hs.window.filter.focusNorth()
-end)
-
-hs.hotkey.bind(lilHyper, 'l', function()
-  hs.window.filter.focusEast()
 end)
 
 
