@@ -28,7 +28,7 @@ hs.window.animationDuration = 0
 hs.grid.setGrid('30x20')
 
 resetWhenSwitchingScreen(function ()
-  hs.grid.setMargins(largeOrSmallScreen({x=26, y=26}, {x=5, y=5}))
+  hs.grid.setMargins(largeOrSmallScreen({x=16, y=16}, {x=10, y=10}))
 end)
 
 positions = {
