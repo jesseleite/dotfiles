@@ -9,6 +9,9 @@ bigHyper = {"cmd", "alt", "ctrl", "shift"}
 hs.hotkey.bind(hyper, 'r', hs.reload)
 hs.hotkey.bind(hyper, 'c', hs.toggleConsole)
 
+require('helpers')
+
+-- 3rd party helpers that aren't spoons
 local chain = require('chain')
 
 -- Wicked ideas from guys I should learn from...
@@ -23,7 +26,9 @@ local chain = require('chain')
 
 hs.window.animationDuration = 0
 hs.grid.setGrid('30x20')
-hs.grid.setMargins({x=16, y=16})
+local largeMargins = {x=16, y=16}
+local smallMargins = {x=10, y=10}
+hs.grid.setMargins(largeOrSmallScreen(largeMargins, smallMargins))
 
 positions = {
   full           = '0,0 30x20',
@@ -36,14 +41,8 @@ positions = {
 
   thirds = {
     left         = '0,0 10x20',
-    leftTop      = '0,0 10x10',
-    leftBottom   = '0,10 10x10',
     center       = '10,0 10x20',
-    centerTop    = '10,0 10x10',
-    centerBottom = '10,10 10x10',
     right        = '20,0 10x20',
-    rightTop     = '20,0 10x10',
-    rightBottom  = '20,10 10x10',
   },
 
   halves = {
@@ -56,6 +55,11 @@ positions = {
     right       = '10,0 20x20',
   },
 
+  fourFifths = {
+    left        = '0,0 24x20',
+    right       = '6,0 24x20',
+  },
+
 }
 
 
@@ -63,25 +67,18 @@ positions = {
 -- Window Movements
 --------------------------------------------------------------------------------
 
-hs.hotkey.bind(hyper, 'c', chain({
-  positions.spacious.center,
-  positions.spacious.left,
-  positions.spacious.right,
-}))
+hs.hotkey.bind(hyper, 'f', chain({positions.full}))
+hs.hotkey.bind(hyper, 'c', chain({positions.spacious.center, positions.spacious.left, positions.spacious.right}))
 
-hs.hotkey.bind(hyper, 'h', chain({
-  positions.thirds.left,
-  positions.halves.left,
-  positions.twoThirds.left,
-  positions.spacious.left,
-}))
+local largeX = { 'thirds', 'halves', 'twoThirds', 'spacious' }
+local smallX = { 'halves', 'twoThirds', 'fourFifths' }
 
-hs.hotkey.bind(hyper, 'l', chain({
-  positions.thirds.right,
-  positions.halves.right,
-  positions.twoThirds.right,
-  positions.spacious.right,
-}))
+hs.hotkey.bind(hyper, 'h', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left')))
+hs.hotkey.bind(hyper, 'l', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right')))
+hs.hotkey.bind(hyper, 'y', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'top')))
+hs.hotkey.bind(hyper, 'u', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'top')))
+hs.hotkey.bind(hyper, 'b', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'bottom')))
+hs.hotkey.bind(hyper, 'n', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'bottom')))
 
 hs.hotkey.bind(lilHyper, 's', function ()
   snap()
@@ -111,6 +108,7 @@ hs.hotkey.bind(hyper, '0', function()
   moveApp('iTunes', '1,1 12x18')
   moveApp('Messages', '15,9 7x10')
   moveApp('Discord', '20,1 9x11')
+  moveApp('Terminal', '14,1 3x5') -- For iTunes-Discord npm helper
 end)
 
 
@@ -133,34 +131,6 @@ end)
 hs.hotkey.bind(lilHyper, 'h', function()
   hs.window.filter.focusWest()
 end)
-
-
---------------------------------------------------------------------------------
--- Helpers
---------------------------------------------------------------------------------
-
-function moveApp(application, cell)
-  local window = hs.window.find(application)
-  if (window) then
-    hs.grid.set(window, cell, hs.screen.mainScreen())
-  end
-end
-
-function snap()
-  local window = hs.window.focusedWindow()
-  hs.grid.snap(window)
-  local application = hs.application.frontmostApplication():name()
-  local cell = hs.grid.get(window)
-  local position = string.format('%s,%s %sx%s', math.floor(cell.x), math.floor(cell.y), math.floor(cell.w), math.floor(cell.h))
-  print(string.format('%s - %s', application, position))
-end
-
-function largeOrSmallScreen(large, small)
-  if hs.screen.mainScreen():name() == 'LG HDR WQHD' then
-    return large
-  end
-  return small
-end
 
 
 --------------------------------------------------------------------------------
