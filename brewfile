@@ -4,6 +4,7 @@ tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'homebrew/bundle'
 tap 'universal-ctags/universal-ctags'
+tap 'exolnet/homebrew-deprecated'
 
 # Brew
 brew 'bash'
