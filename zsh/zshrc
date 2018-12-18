@@ -130,9 +130,12 @@ function tink() {(
 
 alias ting="art tinker ting.php"
 
-# https://murze.be/easily-switch-php-versions-in-laravel-valet
+# Easily switch between PHP versions with brew and valet.
+#
+# Slighly modified from Freek's great post: # https://murze.be/easily-switch-php-versions-in-laravel-valet
+# Note: Be sure to brew install each of the following PHP versions before running.
 
-INSTALLED_PHP_VERSIONS=('php@5.6' 'php@7.0' 'php@7.1' 'php@7.2')
+INSTALLED_PHP_VERSIONS=('php@5.6' 'php@7.0' 'php@7.1' 'php@7.2' 'php@7.3')
 
 phpv() {
     valet stop
@@ -141,7 +144,7 @@ phpv() {
         brew unlink $version
     done
     brew link --force --overwrite $1
-    brew services start $1
+    brew services restart $1
     composer global update
     valet install
 }
@@ -150,6 +153,7 @@ alias php56="phpv php@5.6"
 alias php70="phpv php@7.0"
 alias php71="phpv php@7.1"
 alias php72="phpv php@7.2"
+alias php73="phpv php@7.3"
 
 # MacOS Aliases.
 alias hideall="defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder"
