@@ -42,7 +42,7 @@ nnoremap <Leader>o <C-w>o
 " Plugin: winmode
 nmap <Leader><Leader>w <Plug>WinModeResizeStart
 
-" Close buffer, and disable intrusive BuffKill mappings
+" Close buffer
 " Plugin: bbye
 nmap <silent> <Leader>c :Bdelete<CR>
 
