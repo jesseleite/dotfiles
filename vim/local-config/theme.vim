@@ -18,6 +18,8 @@ call matchadd('ColorColumn', '\%121v', 100)
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight Search ctermbg=blue ctermfg=white
+highlight Sneak ctermbg=blue ctermfg=white
+highlight SneakScope ctermbg=black ctermfg=white
 highlight Visual ctermbg=black ctermfg=white
 highlight LineNr ctermbg=none
 highlight CursorLineNR ctermbg=green ctermfg=green

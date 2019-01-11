@@ -14,6 +14,7 @@ set relativenumber
 set noshowmode
 set splitbelow
 set splitright
+set hlsearch
 
 " Set updatetime for CursorHold, gitgutter, etc.
 set updatetime=1000

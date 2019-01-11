@@ -51,6 +51,7 @@ Plug 'wellle/targets.vim'                    " Additional text objects, and bett
 Plug 'justinmk/vim-sneak'                    " Sneak motion and better f/t motions
 Plug 'AndrewRadev/writable_search.vim'       " Writable search buffer from quickfix
 Plug 'hsanson/vim-winmode'                   " Window resizer
+Plug 'romainl/vim-cool'                      " Better hlsearch
 
 " Explicit annotation bindings for more accurate go to
 let g:explicit_annotation_bindings = {
@@ -114,3 +115,6 @@ let g:easy_align_ignore_groups = []
 " Plugin: winmode
 let g:win_mode_horizontal_resize_step = 6
 let g:win_mode_vertical_resize_step = 2
+
+" Plugin: cool
+let g:CoolTotalMatches = 1
