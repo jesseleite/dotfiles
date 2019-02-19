@@ -130,6 +130,8 @@ function tink() {(
 
 alias ting="art tinker ting.php"
 
+alias itun="in itun npm start"
+
 # Easily switch between PHP versions with brew and valet.
 #
 # Slighly modified from Freek's great post: # https://murze.be/easily-switch-php-versions-in-laravel-valet
