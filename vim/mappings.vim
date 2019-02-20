@@ -38,9 +38,12 @@ nnoremap <S-Tab> <C-w>W
 " Make window only window
 nnoremap <Leader>o <C-w>o
 
-" Resize window
+" Window management
 " Plugin: winmode
 nmap <Leader><Leader>w <Plug>WinModeResizeStart
+
+" Vertical split
+nmap <Leader>v :vsplit<CR>
 
 " Close buffer
 " Plugin: bbye
@@ -177,6 +180,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Plugin: phpactor
 autocmd FileType php nnoremap <buffer> <Leader>i :call phpactor#ContextMenu()<CR>
 autocmd FileType php nnoremap <buffer> <Leader>ig :call phpactor#GotoDefinition()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>iv :vsplit<CR>:call phpactor#GotoDefinition()<CR>
 autocmd FileType php nnoremap <buffer> <Leader>ii :call phpactor#UseAdd()<CR>
 autocmd FileType php nnoremap <buffer> <Leader>it :call phpactor#Transform()<CR>
 autocmd FileType php nnoremap <buffer> <Leader>ih :call phpactor#Hover()<CR>

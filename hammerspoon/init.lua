@@ -49,6 +49,10 @@ end)
 positions = {
   full     = '0,0 30x20',
 
+  center = {
+    wide   = '2,1 26x18',
+  },
+
   thirds = {
     left   = '0,0 10x20',
     center = '10,0 10x20',
@@ -84,6 +88,7 @@ positions = {
 -- s:    snap to nearest grid region
 
 hs.hotkey.bind(hyper, 'f', chain({positions.full}))
+hs.hotkey.bind(hyper, 'c', chain({positions.center.wide}))
 
 local largeX = { 'thirds', 'halves', 'twoThirds', }
 local smallX = { 'halves', 'twoThirds', 'fourFifths' }
