@@ -189,6 +189,10 @@ autocmd FileType php nnoremap <buffer> <Leader>ih :call phpactor#Hover()<CR>
 " Plugin: pdv
 autocmd FileType php nnoremap <buffer> <Leader>id :call pdv#DocumentWithSnip()<CR>
 
+" Laravel intelligence
+" Local: laravel
+autocmd FileType php nnoremap <buffer> <Leader>il :call LaravelGoToDefinition()<CR>
+
 " HTML and CSS abbreviation expansion
 " Plugin: emmet
 imap <C-e> <plug>(emmet-expand-abbr)
