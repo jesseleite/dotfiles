@@ -15,6 +15,11 @@ set noshowmode
 set splitbelow
 set splitright
 set hlsearch
+set title
+
+" Dynamically set titlestring to current project
+let currentProject = substitute(getcwd(), '^.*/', '', '')
+execute 'set titlestring=vim\ (' . currentProject . ')'
 
 " Set updatetime for CursorHold, gitgutter, etc.
 set updatetime=1000
