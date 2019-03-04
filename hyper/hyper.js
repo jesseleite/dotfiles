@@ -146,6 +146,7 @@ module.exports = {
   plugins: [
     'hyperterm-summon',
     'hyper-stylesheet',
+    'hyperterm-tabs',
   ],
 
   // in development, you can create a directory under
