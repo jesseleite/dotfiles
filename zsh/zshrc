@@ -134,6 +134,8 @@ alias ting="art tinker ting.php"
 
 alias itun="in itun npm start"
 
+alias threedocs="in docs npm run docs:dev"
+
 # Easily switch between PHP versions with brew and valet.
 #
 # Slighly modified from Freek's great post: # https://murze.be/easily-switch-php-versions-in-laravel-valet
