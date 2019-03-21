@@ -31,6 +31,9 @@ nmap <silent> <Leader><Leader>o :!open $PWD<CR><CR>
 " Browse with valet open
 nmap <silent> <Leader><Leader>b :!valet open<CR><CR>
 
+" Open in github desktop
+nmap <silent> <Leader><Leader>g :!github<CR><CR>
+
 " Cycle through windows
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
