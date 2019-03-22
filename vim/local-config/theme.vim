@@ -41,3 +41,6 @@ highlight Pmenu ctermfg=grey ctermbg=black
 highlight PmenuSel ctermfg=white ctermbg=blue
 highlight PmenuSbar ctermbg=black
 highlight PmenuThumb ctermbg=white
+
+" Link highlight colors
+highlight link Searchlight Incsearch

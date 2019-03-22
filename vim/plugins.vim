@@ -51,7 +51,8 @@ Plug 'wellle/targets.vim'                    " Additional text objects, and bett
 Plug 'justinmk/vim-sneak'                    " Sneak motion and better f/t motions
 Plug 'AndrewRadev/writable_search.vim'       " Writable search buffer from quickfix
 Plug 'hsanson/vim-winmode'                   " Window resizer
-Plug 'jesseleite/vim-noh'                    " Better hlsearch
+Plug 'jesseleite/vim-noh'                    " Automatic search highlight clearing
+Plug 'PeterRincker/vim-searchlight'          " Current search match highlighting
 
 " Explicit annotation bindings for more accurate go to
 let g:explicit_annotation_bindings = {
