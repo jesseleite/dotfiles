@@ -1,6 +1,11 @@
 # Tahg’ih’ohn’da’ehn
 tags
+tags.lock
+tags.temp
 !tags/
+
+# Linters and fixers
+.php_cs.cache
 
 # Statamic
 site/users/jlo.yaml
