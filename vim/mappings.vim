@@ -179,6 +179,10 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" Ale intelligence
+" Plugin: ale
+nnoremap <Leader>if :ALEFix<CR>
+
 " Php intelligence
 " Plugin: phpactor
 autocmd FileType php nnoremap <buffer> <Leader>i :call phpactor#ContextMenu()<CR>
