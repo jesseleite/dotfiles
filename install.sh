@@ -71,6 +71,12 @@ composer global require laravel/installer
 composer global require tightenco/lambo
 composer global require statamic/cli
 
+# Install other global PHP packages.
+composer global require hirak/prestissimo
+composer global require "squizlabs/php_codesniffer=*"
+composer global require phpmd/phpmd
+composer global require friendsofphp/php-cs-fixer
+
 # Install hammerspoon.
 ln -s ~/.dotfiles/hammerspoon/init.lua ~/.hammerspoon/init.lua
 
