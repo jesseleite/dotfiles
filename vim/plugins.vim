@@ -117,8 +117,5 @@ let g:easy_align_ignore_groups = []
 let g:win_mode_horizontal_resize_step = 6
 let g:win_mode_vertical_resize_step = 2
 
-" Plugin: cool
-let g:CoolTotalMatches = 1
-
 " Plugin: better-whitespace
 let g:strip_whitespace_confirm = 0
