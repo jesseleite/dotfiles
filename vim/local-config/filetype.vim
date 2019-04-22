@@ -17,3 +17,9 @@ augroup filetype_settings
   autocmd FileType vue syntax sync fromstart
   autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
 augroup END
+
+augroup framework_filetype_settings
+  autocmd!
+  autocmd BufRead,BufNewFile *.blade.php setlocal commentstring={{--\ %s\ --}}
+  autocmd BufRead,BufNewFile *.antlers.html setlocal commentstring={{#\ %s\ #}}
+augroup END
