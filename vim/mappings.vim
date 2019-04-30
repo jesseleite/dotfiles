@@ -96,8 +96,6 @@ nmap <Leader>rv :w<CR>:TestVisit<CR>
 " Plugin: run-interactive
 nmap <Leader><Leader>r :Run!<Space>
 nmap <Leader><Leader>i :Run! in<Space>
-nmap <Leader><Leader>p :Run! in project<Space>
-nmap <Leader><Leader>a :Run! art<Space>
 
 " Git
 " Plugin: fugitive
@@ -179,8 +177,9 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" Ale intelligence
+" Ale
 " Plugin: ale
+nnoremap <Leader><Leader>a :ALEToggle<CR>
 nnoremap <Leader>if :ALEFix<CR>
 
 " Php intelligence
