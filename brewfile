@@ -51,6 +51,7 @@ cask 'discord'
 cask 'vlc'
 cask 'imageoptim'
 cask '1password'
+cask 'boom-3d'
 
 # Mac App Store
 mas 'Divvy', id: 413857545
