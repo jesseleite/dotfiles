@@ -51,6 +51,8 @@ positions = {
 
   center = {
     wide   = '2,1 26x18',
+    normal = '6,1 18x18',
+    narrow = '10,1 10x18',
   },
 
   thirds = {
@@ -88,7 +90,7 @@ positions = {
 -- s:    snap to nearest grid region
 
 hs.hotkey.bind(hyper, 'f', chain({positions.full}))
-hs.hotkey.bind(hyper, 'c', chain({positions.center.wide}))
+hs.hotkey.bind(hyper, 'c', chain({positions.center.wide, positions.center.normal, positions.center.narrow}))
 
 local largeX = { 'thirds', 'halves', 'twoThirds', }
 local smallX = { 'halves', 'twoThirds', 'fourFifths' }
@@ -125,10 +127,10 @@ end)
 
 hs.hotkey.bind(hyper, 'w', function()
   moveApp('Hyper', largeOrSmallScreen(positions.thirds.center, positions.full))
-  moveApp('Google Chrome', largeOrSmallScreen(positions.thirds.right, '4,0 26x20'))
+  moveApp('Google Chrome', largeOrSmallScreen(positions.thirds.left, '4,0 26x20'))
   moveApp('GitHub Desktop', largeOrSmallScreen(positions.thirds.center, '4,0 26x20'))
-  moveApp('Slack', largeOrSmallScreen('0,0 10x10', '0,2 22x16'))
-  moveApp('Discord', largeOrSmallScreen('0,10 10x10', '0,2 22x16'))
+  moveApp('Slack', largeOrSmallScreen('20,0 10x10', '0,2 22x16'))
+  moveApp('Discord', largeOrSmallScreen('20,10 10x10', '0,2 22x16'))
 end)
 
 hs.hotkey.bind(hyper, 'e', function()
