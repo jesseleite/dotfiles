@@ -134,7 +134,10 @@ alias ting="art tinker ting.php"
 
 alias itun="in itun npm start"
 
-alias threedocs="in docs npm run docs:dev"
+# Statamic workflow
+alias cmsd="in docs npm run docs:dev"
+alias cmst="in cms shtuff as test"
+alias cmsw="in cms npm run watch"
 
 # Easily switch between PHP versions with brew and valet.
 #
