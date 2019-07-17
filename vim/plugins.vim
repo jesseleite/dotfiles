@@ -40,7 +40,7 @@ Plug 'tobyS/vmustache'                       " PHP docblocks dependency
 Plug 'tobyS/pdv'                             " PHP docblocks
 Plug 'alvan/vim-php-manual'                  " PHP help
 Plug 'mattn/emmet-vim'                       " HTML/CSS expand abbreviation magic
-Plug 'Shougo/deoplete.nvim'                  " IDE-like autocompletion
+" Plug 'Shougo/deoplete.nvim'                  " IDE-like autocompletion
 Plug 'roxma/nvim-yarp'                       " Deoplete dependency
 Plug 'roxma/vim-hug-neovim-rpc'              " Deoplete dependency
 Plug 'kristijanhusak/deoplete-phpactor'      " PHP Deoplete source
