@@ -36,8 +36,8 @@ source ~/.dotfiles/zsh/vi-mode.zsh
 [ -f ~/.dotfiles/zsh/vim.zsh ] && source ~/.dotfiles/zsh/vim.zsh
 
 #Fzf love.
-export FZF_DEFAULT_COMMAND='ag -a --hidden --ignore .git -g ""'
-export FZF_CTRL_T_COMMAND='ag -a --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='ag -u -g ""'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.dotfiles/zsh/fzf.zsh ] && source ~/.dotfiles/zsh/fzf.zsh
 
