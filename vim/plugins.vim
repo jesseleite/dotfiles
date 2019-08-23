@@ -53,6 +53,7 @@ Plug 'AndrewRadev/writable_search.vim'       " Writable search buffer from quick
 Plug 'hsanson/vim-winmode'                   " Window resizer
 Plug 'jesseleite/vim-noh'                    " Automatic search highlight clearing
 Plug 'PeterRincker/vim-searchlight'          " Current search match highlighting
+Plug 'sickill/vim-pasta'                     " Indent on paste
 
 " Explicit annotation bindings for more accurate go to
 let g:explicit_annotation_bindings = {
