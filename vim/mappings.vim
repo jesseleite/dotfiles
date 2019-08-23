@@ -9,6 +9,9 @@ let mapleader = "\<Space>"
 imap jk <Esc>
 cnoremap jk <C-c>
 
+" Edit the alternate / previously edited file
+nmap <Leader>6 <C-^>
+
 " Clear search highlighting
 nmap <silent> <Leader>jk :nohlsearch<CR>
 
