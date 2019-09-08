@@ -22,3 +22,13 @@ function! LaravelGoToView()
     echo 'Cannot find view.'
   endif
 endfunction
+
+" nmap <Leader>il :call LaravelGoToDefinition()<CR>
+
+" Need to be able to go through these...
+" return view('some.view.here');
+" return view("some.view.here");
+" return view('statamic::addons.index', [
+"     'title' => 'Addons'
+" ]);
+" return view('statamic::widgets.collection', compact('collection', 'title', 'button', 'limit'));
