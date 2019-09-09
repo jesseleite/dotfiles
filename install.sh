@@ -28,37 +28,24 @@ brew services start mysql@5.7
 # If still getting socket errors, follow instructions here:
 # https://superuser.com/questions/1333504/brew-install-mysql5-7-cant-connect-to-local-mysql-server-through-socket
 
-# Configure Git.
-ln -sf ~/.dotfiles/git/gitconfig ~/.gitconfig
-ln -sf ~/.dotfiles/git/gitignore_global ~/.gitignore_global
-
 # Oh-My-Zsh.
 rm -rf ~/.oh-my-zsh
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 rm -rf ~/.zshrc-template
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc-template
-ln -sf ~/.dotfiles/zsh/zshrc ~/.zshrc
 ln -sf ~/.dotfiles/zsh/an-old-hope.zsh-theme ~/.oh-my-zsh/themes
 
 # Set default shell.
 echo "$(which zsh)" >> /etc/shells
 chsh -s $(which zsh)
 
-# Configure Hyper.
-ln -sf ~/.dotfiles/hyper/hyper.js ~/.hyper.js
-ln -sf ~/.dotfiles/hyper/hyper.css ~/.hyper.css
-
 # Install Tipz.
 rm -rf ~/.tipz
 git clone https://github.com/molovo/tipz ~/.tipz
 
 # Configure Vim.
-ln -sf ~/.dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/.dotfiles/vim/snippets ~/.vim/UltiSnips
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Configure Ctags.
-ln -sf ~/.dotfiles/ctags ~/.ctags.d
 
 # Install and configure Valet.
 composer global require laravel/valet
@@ -76,9 +63,6 @@ composer global require hirak/prestissimo
 composer global require "squizlabs/php_codesniffer=*"
 composer global require phpmd/phpmd
 composer global require friendsofphp/php-cs-fixer
-
-# Install hammerspoon.
-ln -s ~/.dotfiles/hammerspoon/init.lua ~/.hammerspoon/init.lua
 
 # Hush terminal login.
 touch ~/.hushlogin
