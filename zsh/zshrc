@@ -65,6 +65,7 @@ function alg() { alias | ag "$*" }
 alias ip="curl icanhazip.com"
 
 # Config Aliases.
+alias dotinstall="~/.dotfiles/install"
 alias so="source ~/.zshrc"
 alias zshrc="z dot && vim ./zsh/zshrc"
 alias hyperjs="z dot && vim ./hyper/hyper.js"
