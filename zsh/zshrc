@@ -7,7 +7,7 @@ export THEME_COMPUTER='X-Wing'
 export THEME_PROMPT='R2-D2::'
 
 # Other misc settings.
-CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"
 # DISABLE_AUTO_UPDATE="true"
 # export UPDATE_ZSH_DAYS=13
 # DISABLE_LS_COLORS="true"
