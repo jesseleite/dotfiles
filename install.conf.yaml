@@ -23,6 +23,10 @@
     command: "brew bundle --file=~/.dotfiles/brewfile"
   - description: Removing old brew files
     command: "brew cleanup"
+  - description: Adding zsh to list of acceptable shells
+    command: "[[ \"$(ag $(which zsh) /etc/shells)\" ]] || sudo sh -c \"echo $(which zsh) >> /etc/shells\""
+  - description: Making zsh the default shell
+    command: "chsh -s $(which zsh)"
   - description: Installing vim-plug
     command: "[ -f ~/.vim/autoload/plug.vim ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 - link:
