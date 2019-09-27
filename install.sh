@@ -4,7 +4,3 @@ brew services start mysql@5.7
 
 # If still getting socket errors, follow instructions here:
 # https://superuser.com/questions/1333504/brew-install-mysql5-7-cant-connect-to-local-mysql-server-through-socket
-
-# Install Tipz.
-rm -rf ~/.tipz
-git clone https://github.com/molovo/tipz ~/.tipz

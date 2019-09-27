@@ -55,3 +55,5 @@
     command: "[ -d ~/Code ] || mkdir ~/Code"
   - description: Parking valet on code directory
     command: "valet park ~/Code"
+  - description: Installing tipz
+    command: "[ -d ~/.tipz ] || git clone https://github.com/molovo/tipz ~/.tipz"
