@@ -1,16 +1,13 @@
-# Dotfiles
+# Why Dotfiles?
 
-My dotfiles 📺
+[Dotfiles for the Bashful](https://jesseleite.com/posts/5/dotfiles-for-the-bashful) 🌷
 
-# Why a repo?
+# Installation
 
-Create your own dotfiles repo, clone it down on multiple computers, and symlink up your .vimrc, etc. to keep environments syncronized 👌
+- `git clone https://github.com/jesseleite/dotfiles ~/.dotfiles`
+- `~/.dotfiles/install`
 
-# Why share?
-
-Sharing is caring; We learn from each other 🌷
-
-# Who am I?
+# Who Am I?
 
 Just a hack 🔨
 

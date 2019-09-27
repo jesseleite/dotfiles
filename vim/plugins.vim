@@ -54,6 +54,8 @@ Plug 'hsanson/vim-winmode'                   " Window resizer
 Plug 'jesseleite/vim-noh'                    " Automatic search highlight clearing
 Plug 'PeterRincker/vim-searchlight'          " Current search match highlighting
 Plug 'sickill/vim-pasta'                     " Indent on paste
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-function'
 
 " Explicit annotation bindings for more accurate go to
 let g:explicit_annotation_bindings = {
