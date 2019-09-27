@@ -1,0 +1,26 @@
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/Users/jesseleite/Code/cms"
+        },
+        {
+            "type": "path",
+            "url": "/Users/jesseleite/Code/migrator"
+        },
+        {
+            "type": "path",
+            "url": "/Users/jesseleite/Code/three-statamic",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "/Users/jesseleite/Code/three-sandbox",
+            "options": {
+                "symlink": false
+            }
+        }
+    ]
+}
