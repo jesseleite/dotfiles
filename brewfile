@@ -1,7 +1,6 @@
 # Taps
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
-tap 'caskroom/versions'
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
 tap 'homebrew/bundle'
 tap 'universal-ctags/universal-ctags'
 tap 'exolnet/homebrew-deprecated'
@@ -55,7 +54,6 @@ cask '1password'
 cask 'boom-3d'
 
 # Mac App Store
-mas 'Divvy', id: 413857545
 mas 'SnippetsLab', id: 1006087419
 mas 'Harvest', id: 506189836
 
