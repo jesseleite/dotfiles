@@ -1,4 +1,3 @@
-- clean: ['~']
 - defaults:
     link:
       create: true
@@ -9,6 +8,7 @@
 - shell:
   - description: Validating sudo credentials
     command: "sudo --validate"
+- clean: ['~']
 - link:
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
@@ -50,9 +50,7 @@
   - description: Installing vim-plug
     command: "[ -f ~/.vim/autoload/plug.vim ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   - description: Installing global composer dependencies
-    command: "composer global install"
-  - description: Adding valet to sudoers
-    command: "sudo valet trust"
+    command: "sh composer/global_install"
   - description: Initializing valet
     command: "sudo valet install"
   - description: Making code directory
@@ -61,3 +59,5 @@
     command: "valet park ~/Code"
   - description: Installing tipz
     command: "[ -d ~/.tipz ] || git clone https://github.com/molovo/tipz ~/.tipz"
+  - description: Clearing sudo credential cache
+    command: "sudo --reset-timestamp"

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Run composer global install, without clearing `sudo --validate` cache.
+echo "Temporarily enabling COMPOSER_ALLOW_SUPERUSER"
+export COMPOSER_ALLOW_SUPERUSER=1
+composer global install
+echo "Disabling COMPOSER_ALLOW_SUPERUSER"
+export COMPOSER_ALLOW_SUPERUSER=0
