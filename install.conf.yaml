@@ -36,7 +36,7 @@
   - description: Installing brew bundler
     command: "brew tap homebrew/bundle"
   - description: Installing brewfile bundle
-    command: "brew bundle --file=~/.dotfiles/brewfile"
+    command: "brew bundle"
   - description: Linking brew installed mysql 5.7
     command: "brew link --force mysql@5.7"
   - description: Starting mysql service whenever mac boots
