@@ -41,9 +41,6 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.dotfiles/zsh/fzf.zsh ] && source ~/.dotfiles/zsh/fzf.zsh
 
-# Wat love.
-eval "$(thefuck --alias wat)"
-
 # Nvm love.
 # export NVM_DIR="$HOME/.nvm"
 #   . "/usr/local/opt/nvm/nvm.sh"
