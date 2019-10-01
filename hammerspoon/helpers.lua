@@ -12,6 +12,10 @@ function map(f, t)
   return n;
 end
 
+function sleep(milliseconds)
+  hs.timer.usleep(milliseconds * 1000)
+end
+
 
 --------------------------------------------------------------------------------
 -- Grid Helpers
@@ -24,6 +28,10 @@ function moveApp(application, cell)
   if (window) then
     hs.grid.set(window, cell, hs.screen.mainScreen())
   end
+end
+
+function moveCurrentWindow(cell)
+  hs.grid.set(hs.window.focusedWindow(), cell, hs.screen.mainScreen())
 end
 
 function snap()

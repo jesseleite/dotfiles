@@ -118,6 +118,7 @@ end)
 -- Multi Window Layouts
 --------------------------------------------------------------------------------
 -- w: standard work
+-- t: expand editor and open test window on left
 -- e: editing only
 -- 0: music and secondary chats
 
@@ -143,6 +144,20 @@ hs.hotkey.bind(hyper, '0', function()
   moveApp('Messages', '15,9 7x10')
   moveApp('Discord', '20,1 9x11')
   moveApp('in itun npm start', '14,2 4x5') -- For iTunes-Discord npm helper
+end)
+
+hs.hotkey.bind(hyper, 't', function ()
+  hs.focus()
+  local button,zArg = hs.dialog.textPrompt('Where would you like to run tests?', 'Specify z-compatible jump target:')
+  hs.application.launchOrFocus('Hyper')
+  moveCurrentWindow(positions.twoThirds.right)
+  sleep(500)
+  hs.application.frontmostApplication():selectMenuItem({'Shell', 'New Window'})
+  sleep(500)
+  moveCurrentWindow(positions.thirds.left)
+  hs.eventtap.keyStrokes('in ' .. zArg .. ' shtuff as test')
+  hs.eventtap.keyStroke({}, 'return')
+  hs.window.switcher.nextWindow()
 end)
 
 
