@@ -17,14 +17,6 @@ function! RecordGif()
 endfunction
 command! RecordGif silent! call RecordGif()
 
-augroup goyo_events
-  autocmd!
-  autocmd User GoyoEnter nested call <SID>goyo_enter()
-  autocmd User GoyoLeave nested call <SID>goyo_leave()
-augroup END
-
-let g:limelight_conceal_ctermfg = 'black'
-
 if !exists("*s:goyo_enter")
   function! s:goyo_enter()
     nnoremap j gj

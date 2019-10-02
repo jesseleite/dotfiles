@@ -30,8 +30,6 @@ Plug 'tpope/vim-unimpaired'                  " Handy bracket mappings
 Plug 'tpope/vim-surround'                    " Surround commands
 Plug 'tpope/vim-repeat'                      " Better . repeating
 Plug 'moll/vim-bbye'                         " Close buffer without closing window or split
-Plug 'junegunn/goyo.vim'                     " Distraction free writing
-Plug 'junegunn/limelight.vim'                " Hyper focus writing
 Plug 'junegunn/vim-easy-align'               " Text alignment
 Plug 'junegunn/vader.vim'                    " Vimscript test framework
 Plug 'phpactor/phpactor',
