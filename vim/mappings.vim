@@ -102,7 +102,7 @@ nmap <Leader><Leader>i :Run! in<Space>
 
 " Git
 " Plugin: fugitive
-nmap <Leader>g :Gstatus<CR><Space>o
+nmap <Leader>g :Gedit :<CR>
 nmap <Leader><Leader>gp :Gpush<CR>
 nmap <Leader><Leader>gbl :Gblame<CR>
 
