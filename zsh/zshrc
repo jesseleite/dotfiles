@@ -84,6 +84,7 @@ alias ta="phpunit"
 alias deps="comp install && rm -rf node_modules && npm install && npm run dev"
 alias n="npm run"
 function sync() { gf; gl; if [ $(git_current_branch) != "master" ]; then gp; fi; }
+alias gst="vim '+Gedit :'"
 alias gpom="gl origin master"
 alias nah="grhh && gclean"
 alias gh="github"
