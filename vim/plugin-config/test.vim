@@ -43,12 +43,12 @@ augroup END
 " ------------------------------------------------------------------------------
 
 function! TestToggleStrategy()
-  if exists("g:test#strategy")
-    let g:test#strategy = "basic"
-    echo "Test Strategy: default"
-  else
+  if get(g:, 'test#strategy', 'basic') == 'basic'
     let g:test#strategy = "shtuff"
     echo "Test Strategy: shtuff into test"
+  else
+    let g:test#strategy = "basic"
+    echo "Test Strategy: basic"
   endif
 endfunction
 
