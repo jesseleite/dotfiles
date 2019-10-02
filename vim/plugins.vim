@@ -8,7 +8,8 @@ Plug 'jesseleite/vim-agriculture'            " Better ag search
 Plug 'chriskempson/base16-vim'               " Base16 theming architecture
 Plug 'vim-airline/vim-airline'               " Status line
 Plug 'vim-airline/vim-airline-themes'        " Status line themes
-Plug 'scrooloose/nerdtree'                   " File system browser
+Plug 'scrooloose/nerdtree',
+  \ {'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFind']} " File system browser
 Plug 'ludovicchabant/vim-gutentags'          " Tag generation
 Plug 'majutsushi/tagbar'                     " Tag browser
 Plug 'mbbill/undotree'                       " Undo tree
@@ -42,7 +43,8 @@ Plug 'mattn/emmet-vim'                       " HTML/CSS expand abbreviation magi
 Plug 'roxma/nvim-yarp'                       " Deoplete dependency
 Plug 'roxma/vim-hug-neovim-rpc'              " Deoplete dependency
 Plug 'kristijanhusak/deoplete-phpactor'      " PHP Deoplete source
-Plug 'vim-vdebug/vdebug'                     " Debugging
+Plug 'vim-vdebug/vdebug',
+  \ {'on': ['Breakpoint', 'VdebugStart']}    " Debugging
 Plug 'christoomey/vim-run-interactive'       " Run terminal commands in interactive shell
 Plug 'houtsnip/vim-emacscommandline'         " Emacs style mappings for ex commands
 Plug 'wellle/targets.vim'                    " Additional text objects, and better seeking
@@ -52,6 +54,8 @@ Plug 'hsanson/vim-winmode'                   " Window resizer
 Plug 'jesseleite/vim-noh'                    " Automatic search highlight clearing
 Plug 'PeterRincker/vim-searchlight'          " Current search match highlighting
 Plug 'sickill/vim-pasta'                     " Indent on paste
+Plug 'tweekmonster/startuptime.vim',
+  \ {'on': 'StartupTime'}                    " Human readable vim startup time profiling
 
 " Why aren't these working?
 " Plug 'kana/vim-textobj-user'

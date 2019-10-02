@@ -21,8 +21,15 @@ command! TestToggleStrategy call TestToggleStrategy()
 let g:shtuff_as = "test"
 let g:test#custom_strategies = {'shtuff': function('ShtuffStrategy')}
 
-if match(system('shtuff has test'), 'was found') > 0
-  let g:test#strategy = "shtuff"
-elseif exists('g:test#strategy')
-  unlet g:test#strategy
-endif
+function! DetectDefaultTestStrategy()
+  if exists("g:test#strategy")
+    return
+  elseif match(system('shtuff has test'), 'was found') > 0
+    let g:test#strategy = "shtuff"
+  endif
+endfunction
+
+augroup detect_default_test_strategy
+  autocmd!
+  autocmd BufReadPost */tests/* call DetectDefaultTestStrategy()
+augroup END
