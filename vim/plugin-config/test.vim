@@ -26,6 +26,8 @@ function! DetectDefaultTestStrategy()
     return
   elseif match(system('shtuff has test'), 'was found') > 0
     let g:test#strategy = "shtuff"
+  else
+    let g:test#strategy = "basic"
   endif
 endfunction
 
