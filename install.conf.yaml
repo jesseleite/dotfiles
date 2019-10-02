@@ -59,5 +59,7 @@
     command: "valet park ~/Code"
   - description: Installing tipz
     command: "[ -d ~/.tipz ] || git clone https://github.com/molovo/tipz ~/.tipz"
+  - description: Installing vim plugins
+    command: "vim +PlugInstall +qa"
   - description: Clearing sudo credential cache
     command: "sudo --reset-timestamp"
