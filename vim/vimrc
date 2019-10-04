@@ -21,12 +21,18 @@ silent! source $VIMRUNTIME/defaults.vim
 " # Paths
 " ------------------------------------------------------------------------------
 
-" Parent dotfiles path
+" Parent paths
 let g:dotfiles_path = $HOME . '/.dotfiles'
+let g:dotvim_path = $HOME . '/.vim'
 
-" Get path relative to vimrc
+" Get path relative to .vimrc file
 function! VimrcPath(path)
   return g:dotfiles_path . '/vim/' . a:path
+endfunction
+
+" Get path relative to .vim directory
+function! DotVimPath(path)
+  return g:dotvim_path . '/' . a:path
 endfunction
 
 " Vimrc related paths for autocmds
