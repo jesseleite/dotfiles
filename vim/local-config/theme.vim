@@ -19,9 +19,10 @@ highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight Search ctermbg=blue ctermfg=white
 highlight IncSearch ctermbg=red ctermfg=white
+highlight link Searchlight Incsearch
 highlight Sneak ctermbg=blue ctermfg=white
-highlight SneakScope ctermbg=black ctermfg=white
 highlight Visual ctermbg=black ctermfg=white
+highlight SneakScope ctermbg=black ctermfg=white
 highlight LineNr ctermbg=none
 highlight CursorLineNR ctermbg=green ctermfg=green
 highlight SignColumn ctermbg=none
@@ -41,6 +42,9 @@ highlight Pmenu ctermfg=grey ctermbg=black
 highlight PmenuSel ctermfg=white ctermbg=blue
 highlight PmenuSbar ctermbg=black
 highlight PmenuThumb ctermbg=white
-
-" Link highlight colors
-highlight link Searchlight Incsearch
+highlight Folded ctermbg=black ctermfg=darkgrey
+highlight FoldColumn ctermbg=none ctermfg=darkgrey
+highlight clear DiffChange
+highlight DiffText ctermbg=blue ctermfg=white
+highlight DiffAdd ctermbg=green ctermfg=white
+highlight DiffDelete ctermbg=red ctermfg=white
