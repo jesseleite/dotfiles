@@ -1,5 +1,23 @@
+# Unalias oh-my-zsh aliases, in favour of these functions.
+unalias gst
+unalias gco
+unalias gbd
+
+# Git status with fugitive.
+gst() {
+  if [ -n "$1" ]; then
+    z $1
+  fi
+
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    vim '+Gedit :'
+  else
+    git status
+  fi
+}
+
 # Git checkout with fzf.
-fco() {
+gco() {
   if [ -n "$1" ]; then git checkout $1; return; fi
   local branches branch
   branches=$(git branch -vv)
@@ -8,7 +26,7 @@ fco() {
 }
 
 # Git checkout remote branch with fzf.
-fcr() {
+gcr() {
   git fetch
   if [ -n "$1" ]; then git checkout $1; return; fi
   local branches branch
@@ -18,15 +36,10 @@ fcr() {
 }
 
 # Git delete branch with fzf.
-fbd() {
+gbd() {
   if [ -n "$1" ]; then git branch -d $1; return; fi
   local branches branch
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf +m) &&
   git branch -d $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
-
-# Replace oh-my-zsh aliases.
-alias gco="fco"
-alias gcr="fcr"
-alias gbd="fbd"

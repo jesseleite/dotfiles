@@ -35,11 +35,13 @@ export EDITOR='vim'
 source ~/.dotfiles/zsh/vi-mode.zsh
 [ -f ~/.dotfiles/zsh/vim.zsh ] && source ~/.dotfiles/zsh/vim.zsh
 
-#Fzf love.
+# Fzf love.
 export FZF_DEFAULT_COMMAND='ag -u -g ""'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.dotfiles/zsh/fzf.zsh ] && source ~/.dotfiles/zsh/fzf.zsh
+
+# Git love.
+[ -f ~/.dotfiles/zsh/git.zsh ] && source ~/.dotfiles/zsh/git.zsh
 
 # Nvm love.
 # export NVM_DIR="$HOME/.nvm"
@@ -84,7 +86,6 @@ alias ta="phpunit"
 alias deps="comp install && rm -rf node_modules && npm install && npm run dev"
 alias n="npm run"
 function sync() { gf; gl; if [ $(git_current_branch) != "master" ]; then gp; fi; }
-alias gst="vim '+Gedit :'"
 alias gpom="gl origin master"
 alias nah="grhh && gclean"
 alias gh="github"
