@@ -57,8 +57,8 @@ nmap <silent> <Leader>c :Bdelete<CR>
 
 " Next/prev git change, and disable intrusive GitGutter mappings
 let g:gitgutter_map_keys = 0
-nmap [c <Plug>GitGutterPrevHunk
-nmap ]c <Plug>GitGutterNextHunk
+nmap [c <Plug>(GitGutterPrevHunk)
+nmap ]c <Plug>(GitGutterNextHunk)
 
 " Fzf fuzzy finders
 " Plugin: fzf
