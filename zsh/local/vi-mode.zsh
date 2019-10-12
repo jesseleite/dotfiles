@@ -1,3 +1,7 @@
+# ------------------------------------------------------------------------------
+# My custom vi-mode config
+# ------------------------------------------------------------------------------
+
 # Vi Mode Enable
 bindkey -v
 
@@ -14,7 +18,7 @@ bindkey '^w' backward-kill-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-# Export prompt color for purer theme
+# Export prompt color for my custom theme
 vim_ins_color="$fg[yellow]"
 vim_cmd_color="$fg[magenta]"
 vim_prompt_color=$vim_ins_color

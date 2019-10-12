@@ -1,6 +1,5 @@
 # ------------------------------------------------------------------------------
-# Aliases and functions for Python
+# Source environment specific stuff
 # ------------------------------------------------------------------------------
 
-alias python="python3"
-alias pip="pip3"
+[ -f ~/.wb ] && source ~/.wb

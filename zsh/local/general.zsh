@@ -1,5 +1,12 @@
+# ------------------------------------------------------------------------------
+# General aliases and functions
+# ------------------------------------------------------------------------------
+
 alias c="clear"
 alias o="open ."
+
+# Search aliases
+function alg() { alias | ag "$*" }
 
 # Run any command from anywhere, without leaving current working directory.
 #

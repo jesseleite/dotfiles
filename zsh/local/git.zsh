@@ -1,14 +1,16 @@
-function sync() { gf; gl; if [ $(git_current_branch) != "master" ]; then gp; fi; }
+# ------------------------------------------------------------------------------
+# Aliases and functions for Git
+# ------------------------------------------------------------------------------
+
 alias gpom="gl origin master"
 alias nah="grhh && gclean"
-alias gh="github"
 
-# Unalias oh-my-zsh aliases, in favour of these functions.
+# Unalias oh-my-zsh aliases, in favour of following functions
 unalias gst
 unalias gco
 unalias gbd
 
-# Git status with fugitive.
+# Git status with fugitive
 gst() {
   if [ -n "$1" ]; then
     z $1
@@ -21,7 +23,7 @@ gst() {
   fi
 }
 
-# Git checkout with fzf.
+# Git checkout with fzf
 gco() {
   if [ -n "$1" ]; then git checkout $1; return; fi
   local branches branch
@@ -30,7 +32,7 @@ gco() {
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-# Git checkout remote branch with fzf.
+# Git checkout remote branch with fzf
 gcr() {
   git fetch
   if [ -n "$1" ]; then git checkout $1; return; fi
@@ -40,7 +42,7 @@ gcr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# Git delete branch with fzf.
+# Git delete branch with fzf
 gbd() {
   if [ -n "$1" ]; then git branch -d $1; return; fi
   local branches branch
