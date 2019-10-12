@@ -1,3 +1,8 @@
+function sync() { gf; gl; if [ $(git_current_branch) != "master" ]; then gp; fi; }
+alias gpom="gl origin master"
+alias nah="grhh && gclean"
+alias gh="github"
+
 # Unalias oh-my-zsh aliases, in favour of these functions.
 unalias gst
 unalias gco

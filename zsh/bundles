@@ -5,8 +5,6 @@ zsh-users/zsh-syntax-highlighting
 rupa/z
 molovo/tipz
 
-# Source Local Plugins
-~/.dotfiles/zsh/vi-mode.zsh
-~/.dotfiles/zsh/vim.zsh
-~/.dotfiles/zsh/purer.zsh-theme
-~/.dotfiles/zsh/git.zsh
+# Source Local Configs
+~/.dotfiles/zsh/local
+~/.dotfiles/zsh/local/purer.zsh-theme
