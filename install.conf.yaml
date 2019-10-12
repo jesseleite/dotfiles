@@ -13,7 +13,6 @@
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
     ~/.zshrc: zsh/zshrc
-    ~/.oh-my-zsh/themes/an-old-hope.zsh-theme: zsh/an-old-hope.zsh-theme
     ~/.vimrc: vim/vimrc
     ~/.vim/ultisnips: vim/snippets
     ~/.hyper.js: hyper/hyper.js
@@ -27,8 +26,6 @@
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
   - description: Telling gatekeeper to allow unidentified developers
     command: "sudo spctl --master-disable"
-  - description: Installing oh-my-zh
-    command: "[ -d ~/.oh-my-zsh ] || sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""
   - description: Installing brew
     command: "[ -x \"$(which brew)\" ] || /usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
   - description: Updating brew
@@ -47,6 +44,8 @@
     command: "[[ \"$(ag $(which zsh) /etc/shells)\" ]] || sudo sh -c \"echo $(which zsh) >> /etc/shells\""
   - description: Making zsh the default shell
     command: "sudo chsh -s $(which zsh)"
+  - description: Compiling antibody bundles
+    command: "sh zsh/bundles_compile"
   - description: Installing vim-plug
     command: "[ -f ~/.vim/autoload/plug.vim ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   - description: Installing vim plugins
@@ -61,7 +60,5 @@
     command: "[ -d ~/Code ] || mkdir ~/Code"
   - description: Parking valet on code directory
     command: "valet park ~/Code"
-  - description: Installing tipz
-    command: "[ -d ~/.tipz ] || git clone https://github.com/molovo/tipz ~/.tipz"
   - description: Clearing sudo credential cache
     command: "sudo --reset-timestamp"

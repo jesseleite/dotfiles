@@ -1,0 +1,12 @@
+# Clone & Source Plugins
+robbyrussell/oh-my-zsh
+robbyrussell/oh-my-zsh path:plugins/git
+zsh-users/zsh-syntax-highlighting
+rupa/z
+molovo/tipz
+
+# Source Local Plugins
+~/.dotfiles/zsh/vi-mode.zsh
+~/.dotfiles/zsh/vim.zsh
+~/.dotfiles/zsh/purer.zsh-theme
+~/.dotfiles/zsh/git.zsh
