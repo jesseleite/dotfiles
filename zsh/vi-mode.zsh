@@ -14,23 +14,26 @@ bindkey '^w' backward-kill-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-# Show mode
-vim_ins_mode=''
-vim_cmd_mode='vi-mode'
-vim_mode=$vim_ins_mode
+# Export prompt color for purer theme
+vim_ins_color="$fg[yellow]"
+vim_cmd_color="$fg[magenta]"
+vim_prompt_color=$vim_ins_color
+
 function zle-keymap-select {
-  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+  vim_prompt_color="${${KEYMAP/vicmd/${vim_cmd_color}}/(main|viins)/${vim_ins_color}}"
   zle reset-prompt
 }
+
 zle -N zle-keymap-select
   function zle-line-finish {
-  vim_mode=$vim_ins_mode
+  vim_prompt_color=$vim_ins_color
 }
+
 zle -N zle-line-finish
 
 # Fixing a bug
 # Something to do with showing wrong mode
 function TRAPINT() {
-  vim_mode=$vim_ins_mode
+  vim_prompt_color=$vim_ins_color
   return $(( 128 + $1 ))
 }
