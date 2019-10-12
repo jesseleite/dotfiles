@@ -6,3 +6,13 @@ EDITOR='vim'
 
 # Source bundles and configs.
 [ -f ~/.dotfiles/zsh/bundles.sh ] && source ~/.dotfiles/zsh/bundles.sh
+
+# Compile bundles and source zshrc.
+sz() {
+  sh ~/.dotfiles/zsh/bundles_compile
+  source ~/.zshrc
+  echo 'Sourced zshrc'
+}
+
+# Run dotfiles installer.
+alias dotinstall="~/.dotfiles/install"

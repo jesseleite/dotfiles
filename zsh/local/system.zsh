@@ -1,13 +1,3 @@
-# Compile bundles and source zshrc.
-sz() {
-  sh ~/.dotfiles/zsh/bundles_compile
-  source ~/.zshrc
-  echo 'Sourced zshrc'
-}
-
-# Run dotfiles installer.
-alias dotinstall="~/.dotfiles/install"
-
 # Edit specific config files.
 alias zshrc="z dot && vim ./zsh/zshrc"
 alias hyperjs="z dot && vim ./hyper/hyper.js"
