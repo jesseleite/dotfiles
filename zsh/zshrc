@@ -1,18 +1,49 @@
-# Set oh-my-zsh path.
+# ------------------------------------------------------------------------------
+# Zshrc
+# ------------------------------------------------------------------------------
+# This file sets up my basic zsh environment.  Here I set a few defaults,
+# paths, and source the rest of the config files as necessary.  Most
+# plugins are installed and sourced via brew or antibody, with
+# more elaborate configuration in the /local directory.
+
+
+# ------------------------------------------------------------------------------
+# Paths
+# ------------------------------------------------------------------------------
+
+export PATH=${PATH}:/bin
+export PATH=${PATH}:/usr/bin
+export PATH=${PATH}:/usr/local/bin
+export PATH=${PATH}:/sbin
+export PATH=${PATH}:/usr/sbin
+export PATH=${PATH}:/usr/local/sbin
+export PATH=${PATH}:/usr/local/git/bin
+export PATH=${PATH}:~/.composer/vendor/bin
+export PATH=${PATH}:vendor/bin
+export PATH=${PATH}:/home/vagrant/bin
+
+
+# ------------------------------------------------------------------------------
+# Sourcing
+# ------------------------------------------------------------------------------
+
+# Set oh-my-zsh path
 ZSH=$(antibody path robbyrussell/oh-my-zsh)
 
-# Set default editor.
-EDITOR='vim'
-
-# Source bundles and configs.
+# Source compiled antibody bundles and configs
 [ -f ~/.dotfiles/zsh/bundles.sh ] && source ~/.dotfiles/zsh/bundles.sh
 
-# Compile bundles and source zshrc.
+
+# ------------------------------------------------------------------------------
+# Helpers
+# ------------------------------------------------------------------------------
+
+# Compile bundles and source zshrc
 sz() {
   sh ~/.dotfiles/zsh/bundles_compile
   source ~/.zshrc
   echo 'Sourced zshrc'
 }
 
-# Run dotfiles installer.
+# Run dotfiles installer
 alias dotinstall="~/.dotfiles/install"
