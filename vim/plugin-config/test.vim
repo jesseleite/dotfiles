@@ -6,16 +6,7 @@ let test#php#patterns = {
   \ 'test':      ['\v^\s*function (\w*)\(', '\v^\s*public function (\w*)\('],
   \ 'namespace': [] }
 
-
-" ------------------------------------------------------------------------------
-" # Setup Shtuff Test Strategy
-" ------------------------------------------------------------------------------
-
-function! ShtuffStrategy(cmd)
-  call system("shtuff into test " . shellescape("clear;" . a:cmd))
-endfunction
-
-let g:test#custom_strategies = {'shtuff': function('ShtuffStrategy')}
+let test#shtuff#receiver = 'test'
 
 
 " ------------------------------------------------------------------------------
