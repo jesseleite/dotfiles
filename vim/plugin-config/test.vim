@@ -6,7 +6,7 @@ let test#php#patterns = {
   \ 'test':      ['\v^\s*function (\w*)\(', '\v^\s*public function (\w*)\('],
   \ 'namespace': [] }
 
-let test#shtuff#receiver = 'test'
+let g:shtuff_receiver = 'test'
 
 
 " ------------------------------------------------------------------------------
