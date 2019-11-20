@@ -2,8 +2,8 @@
 # Fzf Config
 # ------------------------------------------------------------------------------
 
-FZF_DEFAULT_COMMAND='ag -u -g ""'
-FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_DEFAULT_COMMAND='ag -u -g ""'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 
 # ------------------------------------------------------------------------------
