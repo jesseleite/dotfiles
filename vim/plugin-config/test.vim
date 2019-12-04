@@ -6,6 +6,11 @@ let test#php#patterns = {
   \ 'test':      ['\v^\s*function (\w*)\(', '\v^\s*public function (\w*)\('],
   \ 'namespace': [] }
 
+let test#php#phpunit#options = {
+  \ 'nearest': '--testdox',
+  \ 'file':    '--testdox',
+  \ }
+
 let g:shtuff_receiver = 'test'
 
 
