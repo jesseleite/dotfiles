@@ -3,10 +3,10 @@
         "laravel/installer": "^2.1",
         "tightenco/lambo": "^0.5.0",
         "statamic/cli": "^1.0",
-        "laravel/valet": "^2.1",
         "hirak/prestissimo": "^0.3.9",
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "^2.6",
-        "friendsofphp/php-cs-fixer": "^2.14"
+        "friendsofphp/php-cs-fixer": "^2.14",
+        "laravel/valet": "^2.7"
     }
 }

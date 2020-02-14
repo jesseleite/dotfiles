@@ -10,7 +10,7 @@
         },
         {
             "type": "path",
-            "url": "/Users/jesseleite/Code/three-statamic",
+            "url": "/Users/jesseleite/Code/statamic",
             "options": {
                 "symlink": false
             }
