@@ -11,6 +11,8 @@ alias gundo="git reset HEAD^"
 unalias gst
 unalias gco
 unalias gbd
+unalias gcmsg
+unalias gcam
 
 # Git status with fugitive
 gst() {
@@ -51,6 +53,18 @@ gbd() {
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf +m) &&
   git branch -d $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# Commit with message
+# Note: Oh-my-zsh has this alias already, but this function removes the need to wrap the message in quotes.
+gcmsg() {
+  git commit -m "$*"
+}
+
+# Add all and commit with message
+# Note: Oh-my-zsh has this alias already, but it doesn't add untracked files.
+gcam() {
+  gaa && gcmsg "$*"
 }
 
 # Checkout PR
