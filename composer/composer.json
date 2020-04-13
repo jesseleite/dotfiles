@@ -7,6 +7,6 @@
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "^2.6",
         "friendsofphp/php-cs-fixer": "^2.14",
-        "laravel/valet": "^2.7"
+        "laravel/valet": "^2.9"
     }
 }

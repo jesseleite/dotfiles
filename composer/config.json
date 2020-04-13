@@ -7,20 +7,6 @@
         {
             "type": "path",
             "url": "/Users/jesseleite/Code/migrator"
-        },
-        {
-            "type": "path",
-            "url": "/Users/jesseleite/Code/statamic",
-            "options": {
-                "symlink": false
-            }
-        },
-        {
-            "type": "path",
-            "url": "/Users/jesseleite/Code/three-sandbox",
-            "options": {
-                "symlink": false
-            }
         }
     ]
 }
