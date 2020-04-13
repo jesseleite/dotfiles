@@ -5,6 +5,7 @@
 alias gpom="gl origin master"
 alias nah="grhh && gclean"
 alias gin="gaa && gcmsg 'Initial commit.'"
+alias gundo="git reset HEAD^"
 
 # Unalias oh-my-zsh aliases, in favour of following functions
 unalias gst
