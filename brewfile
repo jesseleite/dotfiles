@@ -13,7 +13,7 @@ brew 'python@2'
 brew 'git'
 brew 'hub'
 brew 'vim'
-brew 'fzf'
+brew 'fzf', args: ['HEAD']
 brew 'tree'
 brew 'wget'
 brew 'bat'
