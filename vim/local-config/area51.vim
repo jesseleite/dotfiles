@@ -57,7 +57,7 @@ function! DuplicateCurrentFile(path)
   execute "edit " . path
 endfunction
 
-command! -bar -nargs=1 Duplicate call DuplicateCurrentFile(<q-args>)
+command! -nargs=1 Duplicate call DuplicateCurrentFile(<q-args>)
 
 " Php import sorting.
 " Look into php-cs-fixer and ale instead? :P
