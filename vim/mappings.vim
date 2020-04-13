@@ -64,6 +64,7 @@ nmap ]c <Plug>(GitGutterNextHunk)
 " Plugin: fzf
 nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
+nmap <Leader>u :UFiles<CR>
 nmap <Leader>t :BTags<CR>
 nmap <Leader>T :Tags<CR>
 " nmap <Leader>m :Methods<CR>

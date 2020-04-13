@@ -25,3 +25,5 @@ command! Mapso call fzf#vim#maps('o', 0)
 command! Mapsi call fzf#vim#maps('i', 0)
 command! Mapsv call fzf#vim#maps('v', 0)
 command! Mapsa call fzf#vim#maps('a', 0)
+
+command! UFiles call fzf#run(fzf#wrap({'source': 'git ls-files --exclude-standard --others --modified'}))
