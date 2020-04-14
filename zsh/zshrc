@@ -21,6 +21,7 @@ export PATH=${PATH}:/usr/local/git/bin
 export PATH=${PATH}:~/.composer/vendor/bin
 export PATH=${PATH}:vendor/bin
 export PATH=${PATH}:/home/vagrant/bin
+export PATH=${PATH}:~/.dotfiles/bin
 
 
 # ------------------------------------------------------------------------------
