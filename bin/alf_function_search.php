@@ -1,7 +1,8 @@
+#!/usr/bin/env php
 <?php
 
-// Usage example...
-// functions | php cli_function_search.php 'search query'
+// USAGE: declare -f | php alf_function_search.php 'search query'
+// TODO: Convert this into a bash script?
 
 $functionsBlob = stream_get_contents(STDIN);
 

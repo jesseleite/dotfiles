@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)
+
+FUNCTIONS=$($SHELL -ic declare\ -f | php ${DIR}/alf_function_search.php "$*")
+ALIASES=$($SHELL -ic alias | ag --color "$*")
+
+[ -z "$FUNCTIONS" ] || echo -e "\n\e[0;34mFunctions:\e[0m\n$FUNCTIONS"
+[ -z "$ALIASES" ] || echo -e "\n\e[0;34mAliases:\e[0m\n$ALIASES"
