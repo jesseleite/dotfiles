@@ -14,8 +14,8 @@ $query = $argv[1];
 $matchingFunctions = [];
 
 foreach ($functions as $function) {
-    if (strpos($function, $query) !== false) {
-        $matchingFunctions[] = str_replace($query, "\e[0;31m{$query}\e[0m", $function);
+    if (preg_match("/$query/i", $function)) {
+        $matchingFunctions[] = preg_replace("/($query)/i", "\e[0;31m$1\e[0m", $function);
     }
 }
 

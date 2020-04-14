@@ -7,7 +7,7 @@ fi
 
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)
 FUNCTIONS=$($SHELL -ic declare\ -f | php ${DIR}/alf_function_search.php "$*")
-ALIASES=$($SHELL -ic alias | grep --color=always "$*")
+ALIASES=$($SHELL -ic alias | grep -i --color=always "$*")
 
 [[ -z $FUNCTIONS ]] || echo -e "\n\e[0;33mFunctions:\e[0m\n$FUNCTIONS"
 [[ -z $ALIASES ]] || echo -e "\n\e[0;33mAliases:\e[0m\n$ALIASES"
