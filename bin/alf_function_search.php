@@ -15,7 +15,7 @@ $matchingFunctions = [];
 
 foreach ($functions as $function) {
     if (strpos($function, $query) !== false) {
-        $matchingFunctions[] = str_replace($query, "\e[0;30;43m{$query}\e[0m", $function);
+        $matchingFunctions[] = str_replace($query, "\e[0;31m{$query}\e[0m", $function);
     }
 }
 

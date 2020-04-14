@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
+if [ $# -eq 0 ]; then
+  echo "What would you like alf to search for?"
+  exit 1
+fi
+
 DIR=$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)
-
 FUNCTIONS=$($SHELL -ic declare\ -f | php ${DIR}/alf_function_search.php "$*")
-ALIASES=$($SHELL -ic alias | ag --color "$*")
+ALIASES=$($SHELL -ic alias | grep --color=always "$*")
 
-[ -z "$FUNCTIONS" ] || echo -e "\n\e[0;34mFunctions:\e[0m\n$FUNCTIONS"
-[ -z "$ALIASES" ] || echo -e "\n\e[0;34mAliases:\e[0m\n$ALIASES"
+[[ -z $FUNCTIONS ]] || echo -e "\n\e[0;33mFunctions:\e[0m\n$FUNCTIONS"
+[[ -z $ALIASES ]] || echo -e "\n\e[0;33mAliases:\e[0m\n$ALIASES"
