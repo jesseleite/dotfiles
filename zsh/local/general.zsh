@@ -5,8 +5,14 @@
 alias c="clear"
 alias o="open ."
 
-# Search aliases
-function alg() { alias | ag "$*" }
+# Ask alf to search aliases and functions
+function alf() {
+  local funcs aliases
+  funcs=$(functions | php ~/.dotfiles/bin/cli_function_search.php "$*")
+  aliases=$(alias | ag --color "$*")
+  if [ -z "$funcs" ] || echo "\n\e[0;34mFunctions:\e[0m\n$funcs"
+  if [ -z "$aliases" ] || echo "\n\e[0;34mAliases:\e[0m\n$aliases"
+}
 
 # Run any command from anywhere, without leaving current working directory.
 #
