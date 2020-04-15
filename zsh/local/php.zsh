@@ -15,7 +15,7 @@ alias psr2="php-cs-fixer fix --level=psr2"
 # - Run `brew install php@5.6 php@7.0 php@7.1 php@7.2 php@7.3`.
 # - Restart and run function to install your desired version.
 
-INSTALLED_PHP_VERSIONS=('php@5.6' 'php@7.0' 'php@7.1' 'php@7.2' 'php@7.3')
+INSTALLED_PHP_VERSIONS=('php@7.0' 'php@7.1' 'php@7.2' 'php@7.3')
 
 phpv() {
     valet stop
@@ -29,7 +29,6 @@ phpv() {
     valet install
 }
 
-alias php56="phpv php@5.6"
 alias php70="phpv php@7.0"
 alias php71="phpv php@7.1"
 alias php72="phpv php@7.2"
