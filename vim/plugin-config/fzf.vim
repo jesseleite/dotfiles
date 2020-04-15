@@ -7,10 +7,10 @@ let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'borde
 let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Label'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'hl':      ['fg', 'String'],
+  \ 'fg+':     ['fg', 'Operator', 'CursorColumn', 'Normal'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Label'],
+  \ 'hl+':     ['fg', 'String'],
   \ 'info':    ['fg', 'Comment'],
   \ 'border':  ['fg', 'Ignore'],
   \ 'prompt':  ['fg', 'Function'],
