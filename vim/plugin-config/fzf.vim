@@ -28,5 +28,8 @@ command! Mapsa call fzf#vim#maps('a', 0)
 
 command! -bang MFiles call fzf#run(fzf#wrap({
   \ 'source': 'git status --short | sed s/^...//',
-  \ 'options': ['--multi', '--bind', 'alt-a:select-all,alt-d:deselect-all'],
-  \ }, <bang>0))
+  \ 'options': [
+  \   '--prompt', 'ModifiedFiles> ',
+  \   '--multi',
+  \   '--bind', 'alt-a:select-all,alt-d:deselect-all',
+  \ ]}, <bang>0))
