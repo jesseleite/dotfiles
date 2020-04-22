@@ -157,14 +157,11 @@ Plug 'inside/vim-textobj-function-php'
 " PHP Deoplete Source
 " Plug 'kristijanhusak/deoplete-phpactor', {'for': 'php'}
 
-" Why aren't these working?
-" Plug 'kana/vim-textobj-user'
-" Plug 'kana/vim-textobj-function'
-
 " Explicit annotation bindings for more accurate go to
 let g:explicit_annotation_bindings = {
   \ 'fzf': 'fzf.vim',
   \ 'writable-search': 'writable_search.vim',
+  \ 'textobj': 'vim-textobj-user',
   \ }
 
 
