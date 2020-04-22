@@ -143,7 +143,7 @@ Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 " Custom text objects
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-function'
-Plug 'inside/vim-textobj-function-php'
+Plug 'inside/vim-textobj-function-php', {'for': 'php'}
 
 " IDE-like autocompletion
 " Plug 'Shougo/deoplete.nvim'
