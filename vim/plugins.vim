@@ -140,6 +140,11 @@ Plug 'vim-vdebug/vdebug', {'on': ['Breakpoint', 'VdebugStart']}
 " PHP refactoring and introspection
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
+" Custom text objects
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-function'
+Plug 'inside/vim-textobj-function-php'
+
 " IDE-like autocompletion
 " Plug 'Shougo/deoplete.nvim'
 
