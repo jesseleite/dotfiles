@@ -109,15 +109,6 @@ resetWhenSwitchingScreen(function ()
   hs.hotkey.bind(hyper, 'm', chain(getPositions(largeOrSmallScreen(largeY, smallY), 'center')))
 end)
 
--- Specifically for recording vim gifs on retina
-hs.hotkey.bind(hyper, 'g', function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  f.w = 1200
-  f.h = 850
-  win:setFrameInScreenBounds(f)
-end)
-
 hs.hotkey.bind(lilHyper, 's', function ()
   snap()
 end)
@@ -152,7 +143,15 @@ hs.hotkey.bind(hyper, '0', function()
   moveApp('iTunes', '1,1 12x18')
   moveApp('Messages', '15,9 7x10')
   moveApp('Discord', '20,1 9x11')
-  moveApp('in itun npm start', '14,2 4x5') -- For iTunes-Discord npm helper
+end)
+
+-- Specifically for recording vim gifs on retina
+hs.hotkey.bind(hyper, 'g', function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  f.w = 1200
+  f.h = 850
+  win:setFrameInScreenBounds(f)
 end)
 
 hs.hotkey.bind(hyper, 't', function ()
