@@ -24,6 +24,7 @@
 - create:
     - ~/Code
     - ~/.vim/undo
+    - ~/.vim/fzf_history
 - shell:
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
