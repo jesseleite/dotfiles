@@ -24,7 +24,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " File system browser
-Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFind']}
+Plug 'lambdalisue/fern.vim' , {'on': 'Fern'}
 
 " Tag generation
 Plug 'ludovicchabant/vim-gutentags'
@@ -162,10 +162,6 @@ let g:explicit_annotation_bindings = {
 
 " Plugin: togglelist
 let g:toggle_list_no_mappings = 1
-
-" Plugin: nerdtree
-let g:NERDTreeWinSize=45
-let g:NERDTreeQuitOnOpen = 1
 
 " Plugin: phpactor
 let g:phpactorBranch = 'develop'

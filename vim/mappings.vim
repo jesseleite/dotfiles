@@ -111,10 +111,30 @@ nmap <Leader><Leader>gbl :Gblame<CR>
 nmap <Leader><Leader>gbr :Gbrowse<CR>
 
 " File system browser
-" Plugin: nerdtree
-nmap <Leader><Tab> :NERDTreeToggle<CR>
-nmap <Leader><Leader><Tab> :NERDTree<CR>
-nmap <Leader><Leader><Tab>f :NERDTreeFind<CR>zz
+" Plugin: fern
+nmap <Leader><Leader>f :Fern . -reveal=%<CR>
+nmap <Leader><Leader>F :Fern .<CR>
+function! FernLocalMappings()
+  nmap <buffer><nowait> l <Plug>(fern-action-expand)
+  nmap <buffer><nowait> h <Plug>(fern-action-collapse)
+  nmap <buffer><nowait> s <Plug>(fern-action-hidden-toggle)
+  nmap <buffer><nowait> b <Plug>(fern-action-leave)
+  nmap <buffer><nowait> <CR> <Plug>(fern-action-open)
+  nmap <buffer><nowait> v <Plug>(fern-action-open:vsplit)
+  nmap <buffer><nowait> o <Plug>(fern-action-open:system)
+  nmap <buffer><nowait> f <Plug>(fern-action-new-file)
+  nmap <buffer><nowait> d <Plug>(fern-action-new-dir)
+  nmap <buffer><nowait> - <Plug>(fern-action-mark-toggle)
+  nmap <buffer><nowait> r <Plug>(fern-action-rename)
+  nmap <buffer><nowait> c <Plug>(fern-action-copy)
+  nmap <buffer><nowait> m <Plug>(fern-action-move)
+  nmap <buffer><nowait> y <Plug>(fern-action-clipboard-copy)
+  nmap <buffer><nowait> x <Plug>(fern-action-clipboard-move)
+  nmap <buffer><nowait> p <Plug>(fern-action-clipboard-paste)
+  nmap <buffer><nowait> D <Plug>(fern-action-trash)
+  nmap <buffer><nowait> go :call FernActionGithubOpen()<CR>
+  nmap <buffer><nowait> g? <Plug>(fern-action-help:all)
+endfunction
 
 " Undo history
 " Plugin: undotree
