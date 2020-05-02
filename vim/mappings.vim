@@ -104,11 +104,11 @@ nmap <Leader><Leader>i :Run! in<Space>
 " Plugin: fugitive
 nmap <Leader>g :Gedit :<CR>
 nmap <Leader><Leader>gp :Gpush<CR>
-nmap <Leader><Leader>gbl :Gblame<CR>
+nmap <Leader><Leader>gb :Gblame<CR>
 
 " Github
 " Plugin: rhubarb
-nmap <Leader><Leader>gbr :Gbrowse<CR>
+nmap <Leader><Leader>go :Gbrowse<CR>
 
 " File system browser
 " Plugin: fern
