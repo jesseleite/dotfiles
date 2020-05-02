@@ -10,6 +10,7 @@ hs.hotkey.bind(hyper, 'r', hs.reload)
 hs.hotkey.bind(hyper, '`', hs.toggleConsole)
 
 require('helpers')
+require('area51')
 
 local chain = require('chain')
 
@@ -143,29 +144,6 @@ hs.hotkey.bind(hyper, '0', function()
   moveApp('iTunes', '1,1 12x18')
   moveApp('Messages', '15,9 7x10')
   moveApp('Discord', '20,1 9x11')
-end)
-
--- Specifically for recording vim gifs on retina
-hs.hotkey.bind(hyper, 'g', function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  f.w = 1200
-  f.h = 850
-  win:setFrameInScreenBounds(f)
-end)
-
-hs.hotkey.bind(hyper, 't', function ()
-  hs.focus()
-  local button,zArg = hs.dialog.textPrompt('Where would you like to run tests?', 'Specify z-compatible jump target:')
-  hs.application.launchOrFocus('Hyper')
-  moveCurrentWindow(positions.twoThirds.right)
-  sleep(500)
-  hs.application.frontmostApplication():selectMenuItem({'Shell', 'New Window'})
-  sleep(500)
-  moveCurrentWindow(positions.thirds.left)
-  hs.eventtap.keyStrokes('in ' .. zArg .. ' shtuff as test')
-  hs.eventtap.keyStroke({}, 'return')
-  hs.window.switcher.nextWindow()
 end)
 
 
