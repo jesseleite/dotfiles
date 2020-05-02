@@ -1,0 +1,20 @@
+{
+    "languageserver": {
+        "phpactor": {
+            "trace.server": "verbose",
+            "command": "~/.vim/plugged/phpactor/bin/phpactor",
+            "args": ["language-server"],
+            "filetypes": ["php"],
+            "initializationOptions": {
+                "indexer.poll_time": 10000,
+                "logging.enabled": true,
+                "logging.fingers_crossed": false,
+                "logging.path": "/tmp\/phpactor.log",
+                "logging.level": "debug",
+                "logging.formatter": "pretty"
+            },
+            "settings": {
+            }
+        }
+    }
+}

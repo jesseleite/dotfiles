@@ -2,9 +2,6 @@
 " # Experimental Stuff
 " ------------------------------------------------------------------------------
 
-" Always insert completion popup candidate without entering new line.
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-
 " Strip whitespace on save
 augroup misc_commands
   autocmd!

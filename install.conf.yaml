@@ -15,6 +15,7 @@
     ~/.zshrc: zsh/zshrc
     ~/.vimrc: vim/vimrc
     ~/.vim/ultisnips: vim/snippets
+    ~/.vim/coc-settings.json: vim/coc/settings.json
     ~/.hyper.js: hyper/hyper.js
     ~/.hyper.css: hyper/hyper.css
     ~/.ctags.d: ctags

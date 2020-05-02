@@ -137,29 +137,22 @@ Plug 'tobyS/vmustache'
 " Debugging
 Plug 'vim-vdebug/vdebug', {'on': ['Breakpoint', 'VdebugStart']}
 
+" LSP intelligence engine
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " PHP refactoring and introspection
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install', 'branch': 'develop'}
 
 " Custom text objects
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-function'
 Plug 'inside/vim-textobj-function-php', {'for': 'php'}
 
-" IDE-like autocompletion
-" Plug 'Shougo/deoplete.nvim'
-
-" Dependency for Shougo/deoplete.nvim
-" Plug 'roxma/nvim-yarp'
-
-" Dependency for Shougo/deoplete.nvim
-" Plug 'roxma/vim-hug-neovim-rpc'
-
-" PHP Deoplete Source
-" Plug 'kristijanhusak/deoplete-phpactor', {'for': 'php'}
 
 " Explicit annotation bindings for more accurate go to
 let g:explicit_annotation_bindings = {
   \ 'fzf': 'fzf.vim',
+  \ 'coc': 'coc.nvim',
   \ 'writable-search': 'writable_search.vim',
   \ 'textobj': 'vim-textobj-user',
   \ }
@@ -189,12 +182,6 @@ let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
 " Plugin: pdv
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
-
-" Plugin: deoplete
-let g:deoplete#enable_at_startup = 1
-" call deoplete#custom#source('_', 'max_menu_width', 120)
-" call deoplete#custom#option('auto_complete_delay', 600)
-" ...Why do these cause boot errors after moving from vimrc to this file?
 
 " Plugin: vdebug
 let g:vdebug_options= {

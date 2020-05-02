@@ -185,22 +185,22 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 nnoremap <Leader><Leader>a :ALEToggle<CR>
 nnoremap <Leader>if :ALEFix<CR>
 
-" Php intelligence
+" Generic LSP intelligence
+" Plugin: coc
+nmap <silent> <Leader>ig <Plug>(coc-definition)
+nmap <silent> <Leader>iv :vsplit<CR><Plug>(coc-definition)
+nmap <silent> <Leader>it <Plug>(coc-type-definition)
+inoremap <silent><expr> <C-l> coc#refresh()
+
+" PHP intelligence
 " Plugin: phpactor
-autocmd FileType php nnoremap <buffer> <Leader>i :call phpactor#ContextMenu()<CR>
-autocmd FileType php nnoremap <buffer> <Leader>ig :call phpactor#GotoDefinition()<CR>
-autocmd FileType php nnoremap <buffer> <Leader>iv :vsplit<CR>:call phpactor#GotoDefinition()<CR>
-autocmd FileType php nnoremap <buffer> <Leader>ii :call phpactor#UseAdd()<CR>
-autocmd FileType php nnoremap <buffer> <Leader>it :call phpactor#Transform()<CR>
-autocmd FileType php nnoremap <buffer> <Leader>ih :call phpactor#Hover()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>p :call phpactor#ContextMenu()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>pi :call phpactor#UseAdd()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>pt :call phpactor#Transform()<CR>
 
-" Php intelligence
+" PHP docblock generation
 " Plugin: pdv
-autocmd FileType php nnoremap <buffer> <Leader>id :call pdv#DocumentWithSnip()<CR>
-
-" Laravel intelligence
-" Local: laravel
-autocmd FileType php nnoremap <buffer> <Leader>il :call LaravelGoToDefinition()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>pd :call pdv#DocumentWithSnip()<CR>
 
 " HTML and CSS abbreviation expansion
 " Plugin: emmet
