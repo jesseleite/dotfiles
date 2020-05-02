@@ -29,9 +29,6 @@ Plug 'scrooloose/nerdtree', {'on': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFind'
 " Tag generation
 Plug 'ludovicchabant/vim-gutentags'
 
-" Tag browser
-Plug 'majutsushi/tagbar'
-
 " Undo tree
 Plug 'mbbill/undotree'
 
@@ -147,7 +144,6 @@ Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install', 'branch': 'de
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-function'
 Plug 'inside/vim-textobj-function-php', {'for': 'php'}
-
 
 " Explicit annotation bindings for more accurate go to
 let g:explicit_annotation_bindings = {

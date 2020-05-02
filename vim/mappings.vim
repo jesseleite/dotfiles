@@ -116,10 +116,6 @@ nmap <Leader><Tab> :NERDTreeToggle<CR>
 nmap <Leader><Leader><Tab> :NERDTree<CR>
 nmap <Leader><Leader><Tab>f :NERDTreeFind<CR>zz
 
-" Tag browser
-" Plugin: tagbar
-nmap <Leader>\ :TagbarToggle<CR>
-
 " Undo history
 " Plugin: undotree
 nmap <Leader><Leader>u :UndotreeToggle<CR>
