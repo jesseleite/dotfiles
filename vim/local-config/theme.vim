@@ -14,7 +14,7 @@ set fillchars+=vert:\ ,
 " Highlight 121st character on lines that exceed 120
 call matchadd('ColorColumn', '\%121v', 100)
 
-" Customize highlight colors
+" Customize UI colors
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight Search ctermbg=blue ctermfg=white
@@ -48,3 +48,18 @@ highlight clear DiffChange
 highlight DiffText ctermbg=blue ctermfg=white
 highlight DiffAdd ctermbg=green ctermfg=white
 highlight DiffDelete ctermbg=red ctermfg=white
+
+" Customize syntax colours
+highlight Function ctermfg=white
+highlight String ctermfg=blue
+highlight Boolean ctermfg=magenta
+highlight Number ctermfg=yellow
+highlight phpInclude ctermfg=blue
+highlight phpVarSelector ctermfg=white
+highlight phpMethodsVar ctermfg=white
+highlight phpType ctermfg=green
+highlight phpKeyword ctermfg=magenta
+highlight phpNullValue ctermfg=yellow
+highlight phpComment ctermfg=darkgrey
+highlight phpTodo ctermfg=darkgrey
+highlight jsOperator ctermfg=white
