@@ -10,6 +10,8 @@ window:
 font:
   normal:
     family: Menlo
+  bold:
+    style: Regular
   size: 16.0
   offset:
    y: 18
