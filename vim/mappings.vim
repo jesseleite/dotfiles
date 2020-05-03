@@ -110,10 +110,10 @@ nmap <Leader><Leader>gb :Gblame<CR>
 " Plugin: rhubarb
 nmap <Leader><Leader>go :Gbrowse<CR>
 
-" File system browser
+" File system explorer
 " Plugin: fern
-nmap <Leader><Leader>f :Fern . -reveal=%<CR>
-nmap <Leader><Leader>F :Fern .<CR>
+nmap <Leader>e :FernReveal .<CR>
+nmap <Leader>E :Fern .<CR>
 function! FernLocalMappings()
   nmap <buffer><nowait> l <Plug>(fern-action-expand)
   nmap <buffer><nowait> h <Plug>(fern-action-collapse)

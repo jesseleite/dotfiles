@@ -23,7 +23,7 @@ Plug 'vim-airline/vim-airline'
 " Status line themes
 Plug 'vim-airline/vim-airline-themes'
 
-" File system browser
+" File system explorer
 Plug 'lambdalisue/fern.vim' , {'on': 'Fern'}
 
 " Tag generation
