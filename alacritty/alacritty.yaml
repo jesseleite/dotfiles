@@ -19,6 +19,8 @@ colors:
   cursor:
     text:    '#000000'
     cursor:  '#ffffff'
+  selection:
+    background: '#212121'
   normal:
     black:   '#212121'
     red:     '#FC3458'

@@ -21,7 +21,7 @@ highlight Search ctermbg=blue ctermfg=white
 highlight IncSearch ctermbg=red ctermfg=white
 highlight link Searchlight Incsearch
 highlight Sneak ctermbg=blue ctermfg=white
-highlight Visual ctermbg=black ctermfg=white
+highlight Visual ctermbg=black
 highlight SneakScope ctermbg=black ctermfg=white
 highlight LineNr ctermbg=none
 highlight CursorLineNR ctermbg=black ctermfg=black
