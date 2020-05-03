@@ -20,7 +20,7 @@ bindkey '^e' end-of-line
 
 # Export prompt color for my custom theme
 vim_ins_color="$fg[yellow]"
-vim_cmd_color="$fg[magenta]"
+vim_cmd_color="$fg[green]"
 vim_prompt_color=$vim_ins_color
 
 function zle-keymap-select {
