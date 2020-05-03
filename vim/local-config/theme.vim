@@ -24,7 +24,7 @@ highlight Sneak ctermbg=blue ctermfg=white
 highlight Visual ctermbg=black ctermfg=white
 highlight SneakScope ctermbg=black ctermfg=white
 highlight LineNr ctermbg=none
-highlight CursorLineNR ctermbg=green ctermfg=green
+highlight CursorLineNR ctermbg=black ctermfg=black
 highlight SignColumn ctermbg=none
 highlight ColorColumn ctermbg=black
 highlight GitGutterAdd ctermbg=none ctermfg=green
