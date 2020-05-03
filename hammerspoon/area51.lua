@@ -25,13 +25,3 @@ hs.hotkey.bind(hyper, 't', function ()
   hs.eventtap.keyStroke({}, 'return')
   hs.window.switcher.nextWindow()
 end)
-
--- Summon alacritty
--- hs.hotkey.bind({"cmd"}, "escape", function()
---   local alacritty = hs.application.find('Alacritty')
---   if alacritty:isFrontmost() then
---     alacritty:hide()
---   else
---     hs.application.launchOrFocus("/Applications/Alacritty.app")
---   end
--- end)
