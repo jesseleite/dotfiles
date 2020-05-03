@@ -16,6 +16,7 @@ set splitbelow
 set splitright
 set hlsearch
 set title
+set ttymouse=xterm2
 
 " Dynamically set titlestring to current project
 let currentProject = substitute(getcwd(), '^.*/', '', '')
