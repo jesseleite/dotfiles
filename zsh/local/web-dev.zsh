@@ -10,8 +10,7 @@ alias n="npm run"
 alias deps="comp install && rm -rf node_modules && npm install && npm run dev"
 
 # Run tests
-alias t="phpunit --exclude-group slow"
-alias ta="phpunit"
+alias tp="phpunit"
 
 # Open shtuff receiving shell for tests with z argument
 st() {
