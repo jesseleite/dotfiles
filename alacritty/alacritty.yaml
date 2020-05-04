@@ -47,5 +47,7 @@ mousetrue:
     modifiers: Command
 key_bindings:
   - { key: N, mods: Command, action: SpawnNewInstance }
-  - { key: A, mods: Alt, chars: "\x1ba" }
-  - { key: D, mods: Alt, chars: "\x1bd" }
+  - { key: A, mods: Alt, chars: "\x1ba" } # For fzf
+  - { key: D, mods: Alt, chars: "\x1bd" } # For fzf
+  - { key: H, mods: Alt, chars: "\x1bh" } # For tmux
+  - { key: L, mods: Alt, chars: "\x1bl" } # For tmux
