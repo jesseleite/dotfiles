@@ -26,7 +26,7 @@ colors:
   normal:
     black:   '#212121'
     red:     '#FF3F61'
-    green:   '#67B252'
+    green:   '#86E86A'
     yellow:  '#FFE35F'
     blue:    '#3EB4E8'
     magenta: '#FF7B34'
@@ -35,7 +35,7 @@ colors:
   bright:
     black:   '#424242'
     red:     '#FF3F61'
-    green:   '#67B252'
+    green:   '#86E86A'
     yellow:  '#FFE35F'
     blue:    '#3EB4E8'
     magenta: '#FF7B34'

@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "8917375244a30a7122631c58cf48183412f347c1"
+        "revision": "579b5d1f1d37bdb35bc31bbd83d3ec148cc1094f"
       },
       "homebrew/cask-fonts": {
         "revision": "5c1d98b8e2d2212ef561ef3d4232a2291a055539"
@@ -11,7 +11,7 @@
         "revision": "30553cc19411f9f46702730d67cf542a8e2fa4c3"
       },
       "universal-ctags/universal-ctags": {
-        "revision": "a63986ba838043d651d09e3ab6de70388eeaf876"
+        "revision": "057a72691574ab09d500bf15ac6ba625c8a5c74d"
       },
       "exolnet/deprecated": {
         "revision": "8480601002563e78dc285f91ac4b178d45220cc0"
@@ -700,7 +700,7 @@
       "mojave": {
         "HOMEBREW_VERSION": "2.2.14",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "ffa734b69ff689eda3fe0589be9a5ac5a1b4a8d9",
+        "Homebrew/homebrew-core": "46b41b27375cff5e875c26df9c7f3576e88eccc8",
         "CLT": "10.2.1.0.1.1554506761",
         "Xcode": "10.3",
         "macOS": "10.14.5"
