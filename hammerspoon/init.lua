@@ -9,6 +9,7 @@ bigHyper = {"cmd", "alt", "ctrl", "shift"}
 hs.hotkey.bind(hyper, 'r', hs.reload)
 hs.hotkey.bind(hyper, '`', hs.toggleConsole)
 
+require('summon')
 require('helpers')
 require('area51')
 
@@ -20,12 +21,7 @@ local chain = require('chain')
 --------------------------------------------------------------------------------
 
 hs.hotkey.bind({"cmd"}, "escape", function()
-  local alacritty = hs.application.get('Alacritty')
-  if alacritty and alacritty:isFrontmost() then
-    alacritty:hide()
-  else
-    hs.application.launchOrFocus("/Applications/Alacritty.app")
-  end
+  summon('Alacritty')
   setLayout()
 end)
 
