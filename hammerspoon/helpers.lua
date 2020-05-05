@@ -22,10 +22,12 @@ end
 --------------------------------------------------------------------------------
 
 function moveApp(application, cell)
-  -- hs.application.launchOrFocus(application) -- ???
-  local window = hs.window.find(application)
-
-  if (window) then
+  local app = hs.application.get(application)
+  if app == nil then
+    return false
+  end
+  local window = hs.application.mainWindow(app)
+  if window then
     hs.grid.set(window, cell, hs.screen.mainScreen())
   end
 end
@@ -88,4 +90,24 @@ function resetWhenSwitchingScreen(f)
   hs.screen.watcher.newWithActiveScreen(function ()
     f()
   end):start()
+end
+
+
+--------------------------------------------------------------------------------
+-- Layout Helpers
+--------------------------------------------------------------------------------
+
+function setLayout(layout, saveCurrentLayout)
+  if layout then
+    layouts[layout]()
+    if saveCurrentLayout then
+      currentLayout = layout
+    end
+  elseif currentLayout then
+    layouts[currentLayout]()
+  end
+end
+
+function resetLayout()
+  currentLayout = nil
 end

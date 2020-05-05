@@ -26,6 +26,7 @@ hs.hotkey.bind({"cmd"}, "escape", function()
   else
     hs.application.launchOrFocus("/Applications/Alacritty.app")
   end
+  setLayout()
 end)
 
 
@@ -58,7 +59,7 @@ hs.window.animationDuration = 0
 hs.grid.setGrid('30x20')
 
 resetWhenSwitchingScreen(function ()
-  hs.grid.setMargins(largeOrSmallScreen({x=16, y=16}, {x=10, y=10}))
+  hs.grid.setMargins(largeOrSmallScreen({x=28, y=28}, {x=10, y=10}))
 end)
 
 positions = {
@@ -124,7 +125,7 @@ resetWhenSwitchingScreen(function ()
   hs.hotkey.bind(hyper, 'm', chain(getPositions(largeOrSmallScreen(largeY, smallY), 'center')))
 end)
 
-hs.hotkey.bind(lilHyper, 's', function ()
+hs.hotkey.bind(hyper, 's', function ()
   snap()
 end)
 
@@ -132,33 +133,43 @@ end)
 --------------------------------------------------------------------------------
 -- Multi Window Layouts
 --------------------------------------------------------------------------------
--- w: standard work
--- t: expand editor and open test window on left
--- e: editing only
--- 0: music and secondary chats
+-- w: normal work environment
+-- e: extended work environment
+-- q: music and other secondary stuff
+-- 0: disable current layout
 
--- An idea...
--- If I tap one of these keys once, just move apps if they exist.
--- But if I tap a second time within 2 seconds, launch the unopened apps and hide the unessessary apps?
+currentLayout = nil
 
-hs.hotkey.bind(hyper, 'w', function()
-  moveApp('Hyper', largeOrSmallScreen(positions.thirds.center, positions.full))
-  moveApp('Google Chrome', largeOrSmallScreen(positions.thirds.left, '4,0 26x20'))
-  moveApp('GitHub Desktop', largeOrSmallScreen(positions.thirds.center, '4,0 26x20'))
-  moveApp('Slack', largeOrSmallScreen('20,0 10x10', '0,2 22x16'))
-  moveApp('Discord', largeOrSmallScreen('20,10 10x10', '0,2 22x16'))
-end)
+layouts = {
 
-hs.hotkey.bind(hyper, 'e', function()
-  moveApp('Hyper', largeOrSmallScreen('4,2 10x16', positions.full))
-  moveApp('Google Chrome', largeOrSmallScreen('16,2 10x16', positions.full))
-end)
+  w = function ()
+    moveApp('Alacritty', largeOrSmallScreen(positions.thirds.center, positions.full))
+    moveApp('Google Chrome', largeOrSmallScreen(positions.thirds.left, '4,0 26x20'))
+    moveApp('GitHub Desktop', largeOrSmallScreen(positions.thirds.center, '4,0 26x20'))
+    moveApp('Slack', largeOrSmallScreen('20,0 10x10', '0,2 22x16'))
+    moveApp('Discord', largeOrSmallScreen('20,10 10x10', '0,2 22x16'))
+  end,
 
-hs.hotkey.bind(hyper, '0', function()
-  moveApp('iTunes', '1,1 12x18')
-  moveApp('Messages', '15,9 7x10')
-  moveApp('Discord', '20,1 9x11')
-end)
+  e = function ()
+    moveApp('Alacritty', positions.twoThirds.right)
+    moveApp('Google Chrome', positions.thirds.left)
+    moveApp('GitHub Desktop', positions.thirds.center)
+    moveApp('Slack', '20,0 10x10')
+    moveApp('Discord', '20,10 10x10')
+  end,
+
+  q = function ()
+    moveApp('iTunes', '1,1 12x18')
+    moveApp('Messages', '15,9 7x10')
+    moveApp('Discord', '20,1 9x11')
+  end,
+
+}
+
+hs.hotkey.bind(hyper, 'w', function() setLayout('w', true) end)
+hs.hotkey.bind(hyper, 'e', function() setLayout('e', true) end)
+hs.hotkey.bind(hyper, 'q', function() setLayout('q') end)
+hs.hotkey.bind(hyper, '0', function() resetLayout() end)
 
 
 --------------------------------------------------------------------------------
