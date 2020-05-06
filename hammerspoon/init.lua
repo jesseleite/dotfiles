@@ -102,7 +102,7 @@ positions = {
 -- s:    snap to nearest grid region
 
 hs.hotkey.bind(hyper, 'f', chain({positions.full}))
-hs.hotkey.bind(hyper, 'c', chain({positions.center.wide, positions.center.normal, positions.center.narrow}))
+hs.hotkey.bind(hyper, 'c', chain({positions.center.normal, positions.center.wide, positions.center.narrow}))
 
 local largeX = { 'thirds', 'halves', 'twoThirds', }
 local smallX = { 'halves', 'twoThirds', 'fourFifths' }
