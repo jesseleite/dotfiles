@@ -28,11 +28,3 @@ command! Mapso call fzf#vim#maps('o', 0)
 command! Mapsi call fzf#vim#maps('i', 0)
 command! Mapsv call fzf#vim#maps('v', 0)
 command! Mapsa call fzf#vim#maps('a', 0)
-
-command! -bang MFiles call fzf#run(fzf#wrap({
-  \ 'source': 'git status --short | sed s/^...//',
-  \ 'options': [
-  \   '--prompt', 'ModifiedFiles> ',
-  \   '--multi',
-  \   '--bind', 'alt-a:select-all,alt-d:deselect-all',
-  \ ]}, <bang>0))
