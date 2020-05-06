@@ -12,6 +12,7 @@ let g:fzf_history_dir = '~/.vim/fzf_history'
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
 let g:fzf_preview_window = ''
 
+" TODO: Convert these to fzf highlight groups (ie. FzfPrompt)
 let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -21,7 +22,7 @@ let g:fzf_colors = {
   \ 'hl+':     ['fg', 'String'],
   \ 'info':    ['fg', 'Comment'],
   \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Function'],
+  \ 'prompt':  ['fg', 'GitGutterAdd'],
   \ 'pointer': ['fg', 'Statement'],
   \ 'marker':  ['fg', 'Conditional'],
   \ 'spinner': ['fg', 'Label'],
