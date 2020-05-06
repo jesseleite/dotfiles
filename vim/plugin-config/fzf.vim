@@ -4,6 +4,11 @@
 
 let g:fzf_history_dir = '~/.vim/fzf_history'
 
+
+" ------------------------------------------------------------------------------
+" # Theming
+" ------------------------------------------------------------------------------
+
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
 let g:fzf_preview_window = ''
 
@@ -21,6 +26,11 @@ let g:fzf_colors = {
   \ 'marker':  ['fg', 'Conditional'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+
+" ------------------------------------------------------------------------------
+" # Mappings Finders
+" ------------------------------------------------------------------------------
 
 command! Mapsn call fzf#vim#maps('n', 0)
 command! Mapsx call fzf#vim#maps('x', 0)
