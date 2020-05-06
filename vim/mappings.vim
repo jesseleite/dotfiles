@@ -70,8 +70,8 @@ nmap <Leader>T :Tags<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>l :BLines<CR>
 nmap <Leader>L :Lines<CR>
-nmap <Leader>h :History<CR>
-" nmap <Leader>H :GHistory<CR>
+nmap <Leader>h :CwdHistory<CR>
+nmap <Leader>H :History<CR>
 nmap <Leader>: :History:<CR>
 nmap <Leader>M :Maps<CR>
 nmap <Leader>C :Commands<CR>
