@@ -14,6 +14,10 @@ set fillchars+=vert:\ ,
 " Highlight 121st character on lines that exceed 120
 call matchadd('ColorColumn', '\%121v', 100)
 
+" Helper to fuzzy find highlights
+command! -nargs=1 -complete=highlight FindHighlight
+  \ exec 'filter /\c.*' . substitute('<args>', ' ', '\\\&\.\*', '') . '/ hi'
+
 " Customize UI colors
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
