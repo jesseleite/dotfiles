@@ -65,7 +65,12 @@ gcmsg() {
 # Add all and commit with message
 # Note: Oh-my-zsh has this alias already, but it doesn't add untracked files.
 gcam() {
-  gaa && gcmsg "$*"
+  git add --all && git commit -m "$*"
+}
+
+# Add all and stash with message
+gstam() {
+  git add --all && git stash push -m "$*"
 }
 
 # Checkout PR
