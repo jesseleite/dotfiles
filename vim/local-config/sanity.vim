@@ -39,9 +39,12 @@ augroup check_for_external_changes
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if filereadable(bufname('%')) | checktime
 augroup END
 
+" Automatically resize vim's windows when resizing vim
+augroup equalize_windows_on_resize
+  autocmd!
+  autocmd VimResized * exec "normal \<c-w>="
+augroup END
+
 " Persistent undo
 let &undodir=DotVimPath('undo')
 set undofile
-
-" This one causes deoplete flicker?
-" set lazyredraw
