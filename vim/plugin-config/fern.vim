@@ -15,9 +15,10 @@ function! FernActionGithubOpen()
 endfunction
 
 function! FernReveal(location)
+  let current_file = match(@%, '/') == 0 ? @% : getcwd() . '/' . @%
   if empty(@%)
     exec 'Fern ' . a:location
-  elseif filereadable(getcwd() . '/' . @%)
+  elseif filereadable(current_file)
     exec 'Fern ' . a:location . ' -reveal=%'
   else
     exec 'Fern ' . substitute(@%, '/'. expand('%:t'), '', '') . ' -reveal=%'
