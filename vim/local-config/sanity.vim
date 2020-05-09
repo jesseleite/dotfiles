@@ -19,6 +19,8 @@ set title
 set ttymouse=xterm2
 set cursorline
 set cursorlineopt=number
+set ignorecase
+set smartcase
 
 " Dynamically set titlestring to current project
 let currentProject = substitute(getcwd(), '^.*/', '', '')
