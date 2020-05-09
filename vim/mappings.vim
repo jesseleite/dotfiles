@@ -147,6 +147,10 @@ map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
+" Toggle camel case motions
+" Plugin: camel-case-motions
+nmap <silent> <Leader><Leader>c :ToggleCamelCaseMotions<CR>
+
 " Delete text on line
 nmap <Leader>d 0D
 

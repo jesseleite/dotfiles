@@ -107,6 +107,9 @@ Plug 'wellle/targets.vim'
 " Sneak motion and better f/t motions
 Plug 'justinmk/vim-sneak'
 
+" Camel case motions
+Plug 'bkad/CamelCaseMotion'
+
 " Writable search buffer from quickfix
 Plug 'AndrewRadev/writable_search.vim'
 
@@ -151,6 +154,7 @@ let g:explicit_annotation_bindings = {
   \ 'coc': 'coc.nvim',
   \ 'writable-search': 'writable_search.vim',
   \ 'textobj': 'vim-textobj-user',
+  \ 'camel-case-motions': 'CamelCaseMotion',
   \ }
 
 
