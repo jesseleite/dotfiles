@@ -45,12 +45,12 @@ command! Mapsa call fzf#vim#maps('a', 0)
 " # Cwd History Finder
 " ------------------------------------------------------------------------------
 
-command! -bang CwdHistory call fzf#run(fzf#wrap({
+command! -bang CwdHistory call fzf#run(fzf#wrap(s:p(<bang>0, {
   \ 'source': s:directory_history(),
   \ 'options': [
   \   '--prompt', 'CwdHistory> ',
   \   '--multi',
-  \ ]}, <bang>0))
+  \ ]}), <bang>0))
 
 function! s:directory_history()
   return fzf#vim#_uniq(map(
@@ -81,4 +81,12 @@ endfunction
 
 function! s:buflisted()
   return filter(range(1, bufnr('$')), 'buflisted(v:val) && getbufvar(v:val, "&filetype") != "qf"')
+endfunction
+
+function! s:p(bang, ...)
+  let preview_window = get(g:, 'fzf_preview_window', a:bang && &columns >= 80 || &columns >= 120 ? 'right': '')
+  if len(preview_window)
+    return call('fzf#vim#with_preview', add(copy(a:000), preview_window))
+  endif
+  return {}
 endfunction
