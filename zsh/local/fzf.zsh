@@ -4,6 +4,7 @@
 
 export FZF_DEFAULT_COMMAND='ag -u -g ""'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_DEFAULT_OPTS='--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "alt-p:toggle-preview"'
 
 
 # ------------------------------------------------------------------------------
