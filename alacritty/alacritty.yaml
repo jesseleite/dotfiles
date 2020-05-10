@@ -14,7 +14,7 @@ font:
     style: Regular
   size: 16.0
   offset:
-   y: 18
+    y: 18
   glyph_offset:
     y: 9
 colors:
@@ -49,5 +49,6 @@ key_bindings:
   - { key: N, mods: Command, action: SpawnNewInstance }
   - { key: A, mods: Alt, chars: "\x1ba" } # For fzf
   - { key: D, mods: Alt, chars: "\x1bd" } # For fzf
+  - { key: P, mods: Alt, chars: "\x1bp" } # For fzf
   - { key: H, mods: Alt, chars: "\x1bh" } # For tmux
   - { key: L, mods: Alt, chars: "\x1bl" } # For tmux
