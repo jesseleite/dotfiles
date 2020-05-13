@@ -13,3 +13,10 @@ endsnippet
 snippet cmd "Define simple command."
 command! ${1:Name} ${0:call SomeFunction()}
 endsnippet
+
+snippet aug "Define autocmd group."
+augroup ${1:group_name}
+  autocmd! *
+  autocmd ${2:BufEnter *.php call SomeFunction()}
+augroup END
+endsnippet
