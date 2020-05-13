@@ -42,51 +42,45 @@ command! Mapsa call fzf#vim#maps('a', 0)
 
 
 " ------------------------------------------------------------------------------
-" # Cwd History Finder
+" # Scoped History Finders
 " ------------------------------------------------------------------------------
 
-command! -bang CwdHistory call fzf#run(fzf#wrap(s:p(<bang>0, {
-  \ 'source': s:directory_history(),
+command! -bang PHistory call fzf#run(fzf#wrap(s:preview(<bang>0, {
+  \ 'source': s:file_history_from_directory(s:get_git_root()),
+  \ 'options': [
+  \   '--prompt', 'ProjectHistory> ',
+  \   '--multi',
+  \ ]}), <bang>0))
+
+command! -bang CwdHistory call fzf#run(fzf#wrap(s:preview(<bang>0, {
+  \ 'source': s:file_history_from_directory(getcwd()),
   \ 'options': [
   \   '--prompt', 'CwdHistory> ',
   \   '--multi',
   \ ]}), <bang>0))
 
-function! s:directory_history()
-  return fzf#vim#_uniq(map(
-    \ filter([expand('%')], 'len(v:val)')
-    \   + filter(map(s:buflisted_sorted(), 'bufname(v:val)'), 'len(v:val)')
-    \   + filter(copy(v:oldfiles), "s:file_is_in_cwd(fnamemodify(v:val, ':p'))"),
-    \ 'fnamemodify(v:val, ":~:.")'))
+function! s:file_history_from_directory(directory)
+  return fzf#vim#_uniq(filter(fzf#vim#_recent_files(), "s:file_is_in_directory(fnamemodify(v:val, ':p'), a:directory)"))
 endfunction
 
-function! s:file_is_in_cwd(file)
-  return filereadable(a:file) && match(a:file, getcwd() . '/') == 0
+function! s:file_is_in_directory(file, directory)
+  return filereadable(a:file) && match(a:file, a:directory . '/') == 0
 endfunction
 
 
 " ------------------------------------------------------------------------------
-" # Script functions copied directly from fzf.vim to make above things work
+" # Script functions copied from fzf.vim to make above things work
 " ------------------------------------------------------------------------------
 
-function! s:buflisted_sorted()
-  return sort(s:buflisted(), 's:sort_buffers')
-endfunction
-
-function! s:sort_buffers(...)
-  let [b1, b2] = map(copy(a:000), 'get(g:fzf#vim#buffers, v:val, v:val)')
-  " Using minus between a float and a number in a sort function causes an error
-  return b1 < b2 ? 1 : -1
-endfunction
-
-function! s:buflisted()
-  return filter(range(1, bufnr('$')), 'buflisted(v:val) && getbufvar(v:val, "&filetype") != "qf"')
-endfunction
-
-function! s:p(bang, ...)
+function! s:preview(bang, ...)
   let preview_window = get(g:, 'fzf_preview_window', a:bang && &columns >= 80 || &columns >= 120 ? 'right': '')
   if len(preview_window)
     return call('fzf#vim#with_preview', add(copy(a:000), preview_window))
   endif
   return {}
+endfunction
+
+function! s:get_git_root()
+  let root = split(system('git rev-parse --show-toplevel'), '\n')[0]
+  return v:shell_error ? '' : root
 endfunction
