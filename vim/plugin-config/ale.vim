@@ -27,6 +27,13 @@ let g:ale_fixers = {
   \ 'php': ['php_cs_fixer'],
   \ }
 
-if filereadable('.php_cs.dist')
-  let g:ale_fix_on_save = 1
-endif
+augroup fix_on_save
+  autocmd! *
+  autocmd BufEnter *.php call s:fix_php()
+augroup END
+
+function! s:fix_php()
+  if filereadable('.php_cs.dist')
+    let b:ale_fix_on_save = 1
+  endif
+endfunction
