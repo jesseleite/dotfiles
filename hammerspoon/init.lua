@@ -155,7 +155,7 @@ layouts = {
   end,
 
   q = function ()
-    moveApp('iTunes', '1,1 12x18')
+    moveApp('Music', '1,1 12x18')
     moveApp('Messages', '15,9 7x10')
     moveApp('Discord', '20,1 9x11')
   end,
