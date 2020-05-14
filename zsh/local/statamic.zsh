@@ -9,6 +9,7 @@ alias pls="php please"
 alias cmsd="in docs npm run docs:dev"
 alias cmst="in cms shtuff as test"
 alias cmsw="in cms npm run watch"
+alias plsuser="cp ~/.dotfiles/statamic/jesseleite@gmail.com.yaml users/jesseleite@gmail.com.yaml"
 
 # V2
 alias plsc="pls clear:cache && pls clear:stache && pls clear:static && pls clear:glide"
