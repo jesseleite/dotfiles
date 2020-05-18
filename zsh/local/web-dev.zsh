@@ -4,7 +4,9 @@
 
 # Package managers
 alias comp="composer"
+alias ci="composer install"
 alias n="npm run"
+alias ni="npm install"
 
 # Reinstall dependencies
 alias deps="comp install && rm -rf node_modules && npm install && npm run dev"
