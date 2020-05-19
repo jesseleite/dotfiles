@@ -6,6 +6,8 @@ let test#php#patterns = {
   \ 'test':      ['\v^\s*function (\w*)\(', '\v^\s*public function (\w*)\('],
   \ 'namespace': [] }
 
+let test#php#phpunit#executable = 'vendor/bin/phpunit'
+
 let test#php#phpunit#options = {
   \ 'nearest': '--testdox',
   \ 'file':    '--testdox',
