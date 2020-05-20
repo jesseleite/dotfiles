@@ -17,3 +17,13 @@ alias plsjlo="cp ~/.dotfiles/statamic/jlo.yaml site/users/jlo.yaml"
 
 # Talons
 plscomp() { ( cd statamic && comp $* ) }
+
+# Symlink local statamic packages, no matter how they are composer required
+sym() {
+  if [ -n "$1" ]; then
+    rm -rf vendor/statamic/$1
+    ln -s ~/Code/$1 vendor/statamic/$1
+  fi
+
+  la vendor/statamic
+}
