@@ -106,3 +106,12 @@ let g:ctrlsf_auto_focus = {
 command! -n=* -comp=customlist,ctrlsf#comp#Completion CtrlSFSmart call ctrlsf#Search(agriculture#smart_quote_input(<q-args>))
 
 nmap <Leader><Leader><Leader>/ :CtrlSFSmart<Space>
+
+" Not sure I actually want this
+" let g:user_emmet_settings = {
+" \  'html' : {
+" \    'indent_blockelement': 1,
+" \  },
+" \}
+
+set noesckeys
