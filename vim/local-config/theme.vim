@@ -67,3 +67,5 @@ highlight phpNullValue ctermfg=yellow
 highlight phpComment ctermfg=darkgrey
 highlight phpTodo ctermfg=darkgrey
 highlight jsOperator ctermfg=white
+
+highlight CocFloating ctermbg=234
