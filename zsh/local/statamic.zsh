@@ -28,6 +28,25 @@ plslink() {
   la vendor/statamic
 }
 
+# Setup a fresh starter kit with user
+plsstarter() {
+  if [ -z "$1" ]; then $1
+    echo 'Please specify repo name to create for your starter kit site!'
+    return
+  fi
+
+  cd ~/Code
+  g clone https://github.com/statamic/starter-kit-cool-writings.git $1
+  cd $1
+  rm -rf .git
+  comp install
+  cp .env.example .env
+  art key:generate
+  gin
+  plsuser
+  b
+}
+
 # Setup a fresh statamic app, clear site, and install migrator
 plsmig() {
   if [ -z "$1" ]; then
@@ -36,15 +55,17 @@ plsmig() {
   fi
 
   cd ~/Code
-  composer create-project statamic/statamic $1 --prefer-dist --stability=dev
+  comp create-project statamic/statamic $1 --prefer-dist --stability=dev
   cd $1
   gin
-  composer require statamic/migrator
+  comp require statamic/migrator
+  echo 'DISABLE_MIGRATOR_STATS=true' >> .env
   gcam 'Require migrator.'
   plslink cms
   plslink migrator
-  php please site:clear -n
+  pls site:clear -n
   gcam 'Clear site.'
-  open .
+  o
+  plsuser
   echo "\nGo forth and migrate!"
 }

@@ -11,3 +11,6 @@ molovo/tipz
 
 # Source Fzf (This needs to happen after vi-mode bindings to give precedence to fzf bindings)
 ~/.dotfiles/zsh/local/fzf.zsh
+
+# Source Statamic stuff (This needs to happen after other aliases are created)
+~/.dotfiles/zsh/local/statamic.zsh
