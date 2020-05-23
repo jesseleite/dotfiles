@@ -120,7 +120,7 @@ function! FernLocalMappings()
   nmap <buffer><nowait> s <Plug>(fern-action-hidden-toggle)
   nmap <buffer><nowait> b <Plug>(fern-action-leave)
   nmap <buffer><nowait> <CR> <Plug>(fern-action-open)
-  nmap <buffer><nowait> v <Plug>(fern-action-open:vsplit)
+  nmap <buffer><nowait> v <Plug>(fern-action-open:rightest)<C-w><C-p>
   nmap <buffer><nowait> o <Plug>(fern-action-open:system)
   nmap <buffer><nowait> f <Plug>(fern-action-new-file)
   nmap <buffer><nowait> d <Plug>(fern-action-new-dir)
