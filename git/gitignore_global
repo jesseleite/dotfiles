@@ -9,7 +9,7 @@ tags.temp
 
 # Statamic
 site/users/jlo.yaml
-users/jesseleite@gmail.com.yaml
+users/jesseleite@example.com.yaml
 
 # Talon
 app/site/addons
