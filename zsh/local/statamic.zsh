@@ -69,6 +69,7 @@ plsmig() {
   gcam 'Require migrator.'
   plslink cms
   plslink migrator
+  plslink dist
   pls site:clear -n
   gcam 'Clear site.'
   o
