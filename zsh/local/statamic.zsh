@@ -18,14 +18,20 @@ alias plsjlo="cp ~/.dotfiles/statamic/jlo.yaml site/users/jlo.yaml"
 # Talons
 plscomp() { ( cd statamic && comp $* ) }
 
-# Symlink local statamic packages, no matter how they are composer required
+# Symlink local statamic packages/assets, no matter how they are composer required
 plslink() {
-  if [ -n "$1" ]; then
+  if [ "$1" = 'dist' ] || [ "$1" = 'cp' ]; then
+    rm -rf public/vendor/statamic/cp
+    ln -s ~/Code/cms/resources/dist public/vendor/statamic/cp
+  elif [ -n "$1" ]; then
     rm -rf vendor/statamic/$1
     ln -s ~/Code/$1 vendor/statamic/$1
   fi
 
+  echo "\nIn vendor/statamic:"
   la vendor/statamic
+  echo "\nIn public/vendor/statamic:"
+  la public/vendor/statamic
 }
 
 # Setup a fresh starter kit with user
