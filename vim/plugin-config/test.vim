@@ -8,11 +8,6 @@ let test#php#patterns = {
 
 let test#php#phpunit#executable = 'vendor/bin/phpunit'
 
-let test#php#phpunit#options = {
-  \ 'nearest': '--testdox',
-  \ 'file':    '--testdox',
-  \ }
-
 let g:shtuff_receiver = 'test'
 
 
