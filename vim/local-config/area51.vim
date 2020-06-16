@@ -113,5 +113,3 @@ nmap <Leader><Leader><Leader>/ :CtrlSFSmart<Space>
 " \    'indent_blockelement': 1,
 " \  },
 " \}
-
-set noesckeys
