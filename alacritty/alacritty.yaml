@@ -17,6 +17,7 @@ font:
     y: 18
   glyph_offset:
     y: 9
+  use_thin_strokes: false
 colors:
   cursor:
     text:    '#000000'
