@@ -14,19 +14,19 @@ let g:fzf_preview_window = 'right:50%:noborder:hidden'
 
 " TODO: Convert these to fzf highlight groups (ie. FzfPrompt)
 let g:fzf_colors = {
-  \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'String'],
-  \ 'fg+':     ['fg', 'Operator', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'String'],
-  \ 'info':    ['fg', 'Comment'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'GitGutterAdd'],
-  \ 'pointer': ['fg', 'Statement'],
-  \ 'marker':  ['fg', 'Conditional'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+  \ 'fg':      ['fg', 'FzfFg'],
+  \ 'bg':      ['bg', 'FzfBg'],
+  \ 'hl':      ['fg', 'FzfHl'],
+  \ 'fg+':     ['fg', 'FzfFgCurrent'],
+  \ 'bg+':     ['bg', 'FzfBgCurrent'],
+  \ 'hl+':     ['fg', 'FzfHlCurrent'],
+  \ 'info':    ['fg', 'FzfInfo'],
+  \ 'border':  ['fg', 'FzfBorder'],
+  \ 'prompt':  ['fg', 'FzfPrompt'],
+  \ 'pointer': ['fg', 'FzfPointer'],
+  \ 'marker':  ['fg', 'FzfMarker'],
+  \ 'spinner': ['fg', 'FzfSpinner'],
+  \ 'header':  ['fg', 'FzfHeader'] }
 
 
 " ------------------------------------------------------------------------------

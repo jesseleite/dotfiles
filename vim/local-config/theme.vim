@@ -53,6 +53,24 @@ highlight DiffText ctermbg=blue ctermfg=white
 highlight DiffAdd ctermbg=green ctermfg=white
 highlight DiffDelete ctermbg=red ctermfg=white
 
+" Fzf colours
+highlight FzfFg ctermfg=white
+highlight FzfBg ctermbg=none
+highlight FzfHl ctermfg=blue
+highlight FzfFgCurrent ctermfg=white
+highlight FzfBgCurrent ctermbg=black
+highlight FzfHlCurrent ctermfg=blue
+highlight FzfInfo ctermfg=darkgrey
+highlight FzfBorder ctermfg=white
+highlight FzfPrompt ctermfg=green
+highlight FzfPointer ctermfg=red
+highlight FzfMarker ctermfg=red
+highlight FzfSpinner ctermfg=green
+highlight FzfHeader ctermfg=green
+
+" Coc colours
+highlight CocFloating ctermbg=234
+
 " Customize syntax colours
 highlight Function ctermfg=white
 highlight String ctermfg=blue
@@ -67,5 +85,3 @@ highlight phpNullValue ctermfg=yellow
 highlight phpComment ctermfg=darkgrey
 highlight phpTodo ctermfg=darkgrey
 highlight jsOperator ctermfg=white
-
-highlight CocFloating ctermbg=234
