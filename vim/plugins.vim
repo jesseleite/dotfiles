@@ -63,7 +63,7 @@ Plug 'janko-m/vim-test'
 Plug 'junegunn/vim-peekaboo'
 
 " Insert brackets, quotes, etc. in pairs
-Plug 'jiangmiao/auto-pairs'
+Plug 'tmsvg/pear-tree'
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -209,3 +209,6 @@ let g:strip_whitespace_confirm = 0
 
 " Plugin: sneak
 let g:sneak#use_ic_scs = 1
+
+" Plugin: pear-tree
+let g:pear_tree_repeatable_expand = 0
