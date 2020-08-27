@@ -2,10 +2,6 @@
     "repositories": [
         {
             "type": "path",
-            "url": "/Users/jesseleite/Code/cms"
-        },
-        {
-            "type": "path",
             "url": "/Users/jesseleite/Code/migrator"
         }
     ]
