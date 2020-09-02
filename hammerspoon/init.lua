@@ -141,13 +141,13 @@ layouts = {
   q = function ()
     moveApp('Music', '1,1 12x18')
     moveApp('Messages', '15,9 7x10')
-    moveApp('Discord', '20,1 9x11')
+    moveApp('Telegram', '14,9 6x9')
+    moveApp('Discord', '21,2 8x11')
   end,
 
 }
 
 hs.hotkey.bind(hyper, 'w', function() setLayout('w', true) end)
-hs.hotkey.bind(hyper, 'e', function() setLayout('e', true) end)
 hs.hotkey.bind(hyper, 'q', function() setLayout('q') end)
 hs.hotkey.bind(hyper, '0', function() resetLayout() end)
 
