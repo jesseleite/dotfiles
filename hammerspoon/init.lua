@@ -53,10 +53,7 @@ end)
 
 hs.window.animationDuration = 0
 hs.grid.setGrid('30x20')
-
-resetWhenSwitchingScreen(function ()
-  hs.grid.setMargins(largeOrSmallScreen({x=28, y=28}, {x=10, y=10}))
-end)
+hs.grid.setMargins('36x36')
 
 positions = {
   full     = '0,0 30x20',
@@ -104,22 +101,18 @@ positions = {
 hs.hotkey.bind(hyper, 'f', chain({positions.full}))
 hs.hotkey.bind(hyper, 'c', chain({positions.center.normal, positions.center.wide, positions.center.narrow}))
 
-local largeX = { 'thirds', 'halves', 'twoThirds', }
-local smallX = { 'halves', 'twoThirds', 'fourFifths' }
-local largeY = { 'thirds', 'full' }
-local smallY = { 'fourFifths', 'full' }
+local chainX = { 'thirds', 'halves', 'twoThirds', }
+local chainY = { 'thirds', 'full' }
 
-resetWhenSwitchingScreen(function ()
-  hs.hotkey.bind(hyper, 'h', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left')))
-  hs.hotkey.bind(hyper, 'j', chain(getPositions(largeOrSmallScreen(largeY, smallY), 'center', 'bottom')))
-  hs.hotkey.bind(hyper, 'k', chain(getPositions(largeOrSmallScreen(largeY, smallY), 'center', 'top')))
-  hs.hotkey.bind(hyper, 'l', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right')))
-  hs.hotkey.bind(hyper, 'y', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'top')))
-  hs.hotkey.bind(hyper, 'u', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'top')))
-  hs.hotkey.bind(hyper, 'b', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'left', 'bottom')))
-  hs.hotkey.bind(hyper, 'n', chain(getPositions(largeOrSmallScreen(largeX, smallX), 'right', 'bottom')))
-  hs.hotkey.bind(hyper, 'm', chain(getPositions(largeOrSmallScreen(largeY, smallY), 'center')))
-end)
+hs.hotkey.bind(hyper, 'h', chain(getPositions(chainX, 'left')))
+hs.hotkey.bind(hyper, 'j', chain(getPositions(chainY, 'center', 'bottom')))
+hs.hotkey.bind(hyper, 'k', chain(getPositions(chainY, 'center', 'top')))
+hs.hotkey.bind(hyper, 'l', chain(getPositions(chainX, 'right')))
+hs.hotkey.bind(hyper, 'y', chain(getPositions(chainX, 'left', 'top')))
+hs.hotkey.bind(hyper, 'u', chain(getPositions(chainX, 'right', 'top')))
+hs.hotkey.bind(hyper, 'b', chain(getPositions(chainX, 'left', 'bottom')))
+hs.hotkey.bind(hyper, 'n', chain(getPositions(chainX, 'right', 'bottom')))
+hs.hotkey.bind(hyper, 'm', chain(getPositions(chainY, 'center')))
 
 hs.hotkey.bind(hyper, 's', function ()
   snap()
@@ -139,11 +132,11 @@ currentLayout = nil
 layouts = {
 
   w = function ()
-    moveApp('Alacritty', largeOrSmallScreen(positions.thirds.center, positions.full))
-    moveApp('Google Chrome', largeOrSmallScreen(positions.thirds.left, '4,0 26x20'))
-    moveApp('GitHub Desktop', largeOrSmallScreen(positions.thirds.center, '4,0 26x20'))
-    moveApp('Slack', largeOrSmallScreen('20,0 10x10', '0,2 22x16'))
-    moveApp('Discord', largeOrSmallScreen('20,10 10x10', '0,2 22x16'))
+    moveApp('Alacritty', positions.thirds.center)
+    moveApp('Google Chrome', positions.thirds.left)
+    moveApp('GitHub Desktop', positions.thirds.center)
+    moveApp('Slack', '20,0 10x10')
+    moveApp('Discord', '20,10 10x10')
   end,
 
   e = function ()

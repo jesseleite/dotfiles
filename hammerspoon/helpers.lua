@@ -73,27 +73,6 @@ end
 
 
 --------------------------------------------------------------------------------
--- Screen Helpers
---------------------------------------------------------------------------------
-
-function largeOrSmallScreen(large, small)
-  if hs.screen.mainScreen():name() == 'LG HDR WQHD' then
-    return large
-  end
-
-  return small
-end
-
-function resetWhenSwitchingScreen(f)
-  f()
-
-  hs.screen.watcher.newWithActiveScreen(function ()
-    f()
-  end):start()
-end
-
-
---------------------------------------------------------------------------------
 -- Layout Helpers
 --------------------------------------------------------------------------------
 
