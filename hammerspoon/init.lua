@@ -122,8 +122,7 @@ end)
 --------------------------------------------------------------------------------
 -- Multi Window Layouts
 --------------------------------------------------------------------------------
--- w: normal work environment
--- e: extended work environment
+-- w: work layout
 -- q: music and other secondary stuff
 -- 0: disable current layout
 
@@ -132,14 +131,6 @@ currentLayout = nil
 layouts = {
 
   w = function ()
-    moveApp('Alacritty', positions.thirds.center)
-    moveApp('Google Chrome', positions.thirds.left)
-    moveApp('GitHub Desktop', positions.thirds.center)
-    moveApp('Slack', '20,0 10x10')
-    moveApp('Discord', '20,10 10x10')
-  end,
-
-  e = function ()
     moveApp('Alacritty', positions.twoThirds.right)
     moveApp('Google Chrome', positions.thirds.left)
     moveApp('GitHub Desktop', positions.thirds.center)
