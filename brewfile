@@ -33,6 +33,7 @@ brew 'yarn'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
 brew 'chrome-cli'
 brew 'shyaml'
+brew 'trash'
 
 # Cask
 cask 'google-chrome'
