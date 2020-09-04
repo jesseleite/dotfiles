@@ -18,6 +18,21 @@ end
 
 
 --------------------------------------------------------------------------------
+-- Modal Helpers
+--------------------------------------------------------------------------------
+
+function activateModal(mods, key)
+  local modal = hs.hotkey.modal.new(mods, key)
+  modal:bind('', 'escape', nil, function() modal:exit() end)
+  return modal
+end
+
+function modalBind(modal, key, fn)
+  modal:bind('', key, nil, function() fn(); modal:exit() end)
+end
+
+
+--------------------------------------------------------------------------------
 -- Grid Helpers
 --------------------------------------------------------------------------------
 

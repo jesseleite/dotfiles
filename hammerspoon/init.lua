@@ -35,6 +35,26 @@ end)
 
 
 --------------------------------------------------------------------------------
+-- Window Modal
+--------------------------------------------------------------------------------
+
+windowModal = activateModal(lilHyper, 'w')
+
+modalBind(windowModal, 'h', function () hs.window.filter.focusWest() end)
+modalBind(windowModal, 'j', function () hs.window.filter.focusSouth() end)
+modalBind(windowModal, 'k', function () hs.window.filter.focusNorth() end)
+modalBind(windowModal, 'l', function () hs.window.filter.focusEast() end)
+
+modalBind(windowModal, 'a', function () hs.application.launchOrFocus('Alacritty') end)
+modalBind(windowModal, 'c', function () hs.application.launchOrFocus('Google Chrome') end)
+modalBind(windowModal, 's', function () hs.application.launchOrFocus('Slack') end)
+modalBind(windowModal, 'd', function () hs.application.launchOrFocus('Discord') end)
+modalBind(windowModal, 't', function () hs.application.launchOrFocus('Telegram') end)
+modalBind(windowModal, 'g', function () hs.application.launchOrFocus('Github Desktop') end)
+modalBind(windowModal, 'm', function () hs.application.launchOrFocus('Music') end)
+
+
+--------------------------------------------------------------------------------
 -- Grid Settings
 --------------------------------------------------------------------------------
 
@@ -110,8 +130,8 @@ end)
 -- Multi Window Layouts
 --------------------------------------------------------------------------------
 -- w: work layout
--- q: music and other secondary stuff
--- 0: disable current layout
+-- s: secondary space layout
+-- r: reset current layout
 
 currentLayout = nil
 
@@ -125,7 +145,7 @@ layouts = {
     moveApp('Discord', '20,10 10x10')
   end,
 
-  q = function ()
+  s = function ()
     moveApp('Music', '1,1 12x18')
     moveApp('Messages', '15,9 7x10')
     moveApp('Telegram', '14,9 6x9')
@@ -134,9 +154,11 @@ layouts = {
 
 }
 
-hs.hotkey.bind(hyper, 'w', function() setLayout('w', true) end)
-hs.hotkey.bind(hyper, 'q', function() setLayout('q') end)
-hs.hotkey.bind(hyper, '0', function() resetLayout() end)
+layoutModal = activateModal(lilHyper, 'l')
+
+modalBind(layoutModal, 'w', function () setLayout('w', true) end)
+modalBind(layoutModal, 's', function () setLayout('w', true) end)
+modalBind(layoutModal, 'r', function () resetLayout() end)
 
 
 --------------------------------------------------------------------------------
