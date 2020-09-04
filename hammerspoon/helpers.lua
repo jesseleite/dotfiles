@@ -85,8 +85,10 @@ function setLayout(layout, saveCurrentLayout)
   elseif currentLayout then
     layouts[currentLayout]()
   end
+  hs.notify.show('Layout Set', '', layout)
 end
 
 function resetLayout()
   currentLayout = nil
+  hs.notify.show('Layout Reset', '', '')
 end
