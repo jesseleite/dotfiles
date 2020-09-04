@@ -4,7 +4,6 @@
 
 hyper = {"cmd", "alt", "ctrl"}
 lilHyper = {"cmd", "ctrl"}
-bigHyper = {"cmd", "alt", "ctrl", "shift"}
 
 hs.hotkey.bind(hyper, 'r', hs.reload)
 hs.hotkey.bind(hyper, '`', hs.toggleConsole)
