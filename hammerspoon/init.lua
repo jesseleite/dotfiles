@@ -8,11 +8,20 @@ lilHyper = {"cmd", "ctrl"}
 hs.hotkey.bind(hyper, 'r', hs.reload)
 hs.hotkey.bind(hyper, '`', hs.toggleConsole)
 
+hs.loadSpoon("ReloadConfiguration")
+
 require('summon')
 require('helpers')
 require('area51')
 
 local chain = require('chain')
+
+
+--------------------------------------------------------------------------------
+-- Reload Configuration On Save
+--------------------------------------------------------------------------------
+
+spoon.ReloadConfiguration:start()
 
 
 --------------------------------------------------------------------------------
