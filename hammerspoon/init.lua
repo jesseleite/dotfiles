@@ -35,27 +35,6 @@ end)
 
 
 --------------------------------------------------------------------------------
--- Focus Window
---------------------------------------------------------------------------------
-
-hs.hotkey.bind(lilHyper, 'h', function()
-  hs.window.filter.focusWest()
-end)
-
-hs.hotkey.bind(lilHyper, 'j', function()
-  hs.window.filter.focusSouth()
-end)
-
-hs.hotkey.bind(lilHyper, 'k', function()
-  hs.window.filter.focusNorth()
-end)
-
-hs.hotkey.bind(lilHyper, 'l', function()
-  hs.window.filter.focusEast()
-end)
-
-
---------------------------------------------------------------------------------
 -- Grid Settings
 --------------------------------------------------------------------------------
 
