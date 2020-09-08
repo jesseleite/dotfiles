@@ -148,6 +148,9 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-function'
 Plug 'inside/vim-textobj-function-php', {'for': 'php'}
 
+" Share content with carbon.now.sh
+Plug 'kristijanhusak/vim-carbon-now-sh'
+
 " Explicit annotation bindings for more accurate go to
 let g:explicit_annotation_bindings = {
   \ 'fzf': 'fzf.vim',
