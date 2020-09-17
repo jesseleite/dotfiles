@@ -50,10 +50,17 @@ gcr() {
 # Git delete branch with fzf
 gbd() {
   if [ -n "$1" ]; then git branch -d $1; return; fi
-  local branches branch
+  local branches branch selected
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf +m) &&
-  git branch -d $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  selected=$(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  echo "Are you sure you would like to delete branch [$selected]? (Type 'delete' to confirm)"
+  read confirmation
+  if [[ "$confirmation" == "delete" ]]; then
+    git branch -D $selected
+  else
+    echo "Aborted"
+  fi
 }
 
 # Commit with message
