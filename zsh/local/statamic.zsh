@@ -15,6 +15,14 @@ alias plsuser="cp ~/.dotfiles/statamic/jesseleite@example.com.yaml users/jessele
 alias plsc="pls clear:cache && pls clear:stache && pls clear:static && pls clear:glide"
 alias plsjlo="cp ~/.dotfiles/statamic/jlo.yaml site/users/jlo.yaml"
 
+plsdaily() {
+  open -g "bear://x-callback-url/create?title=Daily%20Todo&tags=statamic%2C%20daily&timestamp=yes&text=%0A%0A-%20%5B%20%5D%20Check%20email%0A-%20%5B%20%5D%20Help%20Scout%20support%0A-%20%5B%20%5D%20Github%20notifications%0A-%20%5B%20%5D%20Fix%20a%20bug%0A%0A%23%23%20Goals%0A%0A-%20"
+}
+
+plsweekly() {
+  open -g "bear://x-callback-url/create?title=Weekly%20Todo&tags=statamic%2C%20weekly&timestamp=yes&text=%0A%0A-%20%5B%20%5D%20Create%20knowledge%20base%20article%0A-%20%5B%20%5D%20Create%20short%20video%20tutorial%0A%0A%23%23%20Goals%0A%0A-%20"
+}
+
 # Talons
 plscomp() { ( cd statamic && comp $* ) }
 
