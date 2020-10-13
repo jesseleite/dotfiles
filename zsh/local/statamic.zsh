@@ -84,3 +84,7 @@ plsmig() {
   plsuser
   echo "\nGo forth and migrate!"
 }
+
+plsv3() {
+  statamic install $1
+}
