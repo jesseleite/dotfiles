@@ -41,8 +41,11 @@ nmap <silent> <Leader><Leader>g :!github<CR><CR>
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
 
+" Plugin: maximizer
+nnoremap <Leader>o :MaximizerToggle<CR>
+
 " Make window only window
-nnoremap <Leader>o <C-w>o
+nnoremap <Leader>O <C-w>o
 
 " Window management
 " Plugin: winmode

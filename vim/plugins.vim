@@ -116,6 +116,9 @@ Plug 'AndrewRadev/writable_search.vim'
 " Window resizer
 Plug 'hsanson/vim-winmode'
 
+" Window maximizer
+Plug 'szw/vim-maximizer'
+
 " Automatic search highlight clearing
 Plug 'jesseleite/vim-noh'
 
