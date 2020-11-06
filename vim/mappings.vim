@@ -42,7 +42,7 @@ nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
 
 " Plugin: maximizer
-nnoremap <Leader>o :MaximizerToggle<CR>
+nnoremap <silent> <Leader>o :MaximizerToggle<CR>
 
 " Make window only window
 nnoremap <Leader>O <C-w>o
