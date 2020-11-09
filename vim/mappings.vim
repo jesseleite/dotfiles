@@ -52,7 +52,7 @@ nnoremap <Leader>O <C-w>o
 nmap <Leader><Leader>w <Plug>WinModeResizeStart
 
 " Vertical split
-nmap <Leader>v :vsplit<CR>
+nmap <silent> <Leader>v :vsplit<CR>
 
 " Close buffer
 " Plugin: bbye
