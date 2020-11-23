@@ -41,7 +41,6 @@ cask 'firefox'
 cask 'hyper-canary'
 cask 'alacritty'
 cask 'github'
-cask 'sequel-pro'
 cask 'karabiner-elements'
 cask 'hammerspoon'
 cask 'transmit'
@@ -59,10 +58,13 @@ cask 'boom-3d'
 cask 'the-unarchiver'
 cask 'gifox'
 cask 'blackhole'
+cask 'tinkerwell'
+cask 'tableplus'
 
 # Mac App Store
 mas 'SnippetsLab', id: 1006087419
 mas 'Harvest', id: 506189836
+mas 'Bear Notes', id: 1091189122
 
 # Fonts
 # cask 'font-source-code-pro'
