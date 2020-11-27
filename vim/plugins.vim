@@ -57,7 +57,7 @@ Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 
 " Test runner
-Plug 'janko-m/vim-test'
+Plug 'vim-test/vim-test'
 
 " Peek into registers
 Plug 'junegunn/vim-peekaboo'
