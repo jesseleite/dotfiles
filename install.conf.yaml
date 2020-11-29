@@ -31,6 +31,8 @@
 - shell:
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
+  - description: Clearing password policies
+    command: "sudo pwpolicy -clearaccountpolicies"
   - description: Telling gatekeeper to allow unidentified developers
     command: "sudo spctl --master-disable"
   - description: Installing brew
