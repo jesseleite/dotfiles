@@ -1,6 +1,5 @@
 # Taps
 tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
 tap 'homebrew/bundle'
 tap 'universal-ctags/universal-ctags'
 tap 'exolnet/homebrew-deprecated'
@@ -9,7 +8,6 @@ tap 'exolnet/homebrew-deprecated'
 brew 'bash'
 brew 'zsh'
 brew 'python'
-brew 'python@2'
 brew 'git'
 brew 'hub'
 brew 'vim'
@@ -29,7 +27,6 @@ brew 'redis'
 brew 'antibody'
 brew 'composer'
 brew 'node'
-brew 'yarn'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
 brew 'chrome-cli'
 brew 'shyaml'
@@ -38,7 +35,6 @@ brew 'trash'
 # Cask
 cask 'google-chrome'
 cask 'firefox'
-cask 'hyper-canary'
 cask 'alacritty'
 cask 'github'
 cask 'karabiner-elements'
@@ -54,7 +50,6 @@ cask 'discord'
 cask 'vlc'
 cask 'imageoptim'
 cask '1password'
-cask 'boom-3d'
 cask 'the-unarchiver'
 cask 'gifox'
 cask 'blackhole'
@@ -63,10 +58,5 @@ cask 'tableplus'
 
 # Mac App Store
 mas 'SnippetsLab', id: 1006087419
-mas 'Harvest', id: 506189836
+#mas 'Harvest', id: 506189836
 mas 'Bear Notes', id: 1091189122
-
-# Fonts
-# cask 'font-source-code-pro'
-# cask 'font-source-sans-pro'
-# cask 'font-source-serif-pro'

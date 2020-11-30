@@ -20,8 +20,6 @@
     ~/.vim/coc-settings.json: vim/coc/settings.json
     ~/.alacritty.yml: alacritty/alacritty.yaml
     ~/.tmux.conf: tmux/tmux.conf
-    ~/.hyper.js: hyper/hyper.js
-    ~/.hyper.css: hyper/hyper.css
     ~/.ctags.d: ctags
     ~/.hammerspoon: hammerspoon
     ~/.config/karabiner/karabiner.json: karabiner/karabiner.json
