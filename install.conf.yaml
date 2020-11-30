@@ -5,6 +5,8 @@
       force: true
     shell:
       quiet: true
+      stdout: false
+      stderr: false
 - shell:
   - description: Validating sudo credentials
     command: "sudo --validate"
