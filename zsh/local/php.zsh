@@ -10,7 +10,7 @@ alias psr2="php-cs-fixer fix --level=psr2"
 # Switch PHP versions with less migraine?
 # ------------------------------------------------------------------------------
 
-INSTALLED_PHP_VERSIONS=('php@7.2' 'php@7.3' 'php')
+INSTALLED_PHP_VERSIONS=('php@7.2' 'php@7.3' 'php@7.4' 'php')
 
 phpv() {
   if [ -z "$1" ]; then
@@ -23,7 +23,7 @@ phpv() {
     sudo brew services stop $version
   done
   version="php@$(sed "s/php@//" <<< "$1")"
-  version=$(sed "s/php@7.4/php/" <<< "$version")
+  version=$(sed "s/php@8.0/php/" <<< "$version")
   valet use $version
   echo "Updating memory_limit to 2G..."
   sed -i "" "s/memory_limit.*=.*M/memory_limit\ =\ 2G/" $(php --ini | ag "/.*/php-memory-limits.ini")

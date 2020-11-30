@@ -28,6 +28,9 @@ export PATH=${PATH}:~/.dotfiles/bin
 # Sourcing
 # ------------------------------------------------------------------------------
 
+# Disable completion directory permission verification
+ZSH_DISABLE_COMPFIX=true
+
 # Set oh-my-zsh path
 ZSH=$(antibody path robbyrussell/oh-my-zsh)
 

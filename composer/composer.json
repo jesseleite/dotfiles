@@ -2,7 +2,7 @@
     "require": {
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "^2.6",
-        "friendsofphp/php-cs-fixer": "^2.14",
+        "friendsofphp/php-cs-fixer": "^2.16",
         "laravel/valet": "^2.9",
         "laravel/installer": "^4.0",
         "statamic/cli": "^2.0"
