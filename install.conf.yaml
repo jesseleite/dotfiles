@@ -22,6 +22,7 @@
     ~/.hyper.css: hyper/hyper.css
     ~/.ctags.d: ctags
     ~/.hammerspoon: hammerspoon
+    ~/.config/karabiner/karabiner.json: karabiner/karabiner.json
     ~/.composer/composer.json: composer/composer.json
     ~/.composer/config.json: composer/config.json
 - create:
