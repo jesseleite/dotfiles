@@ -25,3 +25,8 @@ st() {
 
 # Browse valet site
 alias b="valet open"
+
+# Get installed version of a specific composer package
+compv() {
+  composer show $1 | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1;
+}
