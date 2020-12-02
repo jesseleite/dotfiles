@@ -22,6 +22,7 @@ phpv() {
   for version in $INSTALLED_PHP_VERSIONS; do
     sudo brew services stop $version
   done
+  composer global update
   version="php@$(sed "s/php@//" <<< "$1")"
   version=$(sed "s/php@8.0/php/" <<< "$version")
   valet use $version
