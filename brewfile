@@ -3,6 +3,7 @@ tap 'homebrew/cask'
 tap 'homebrew/bundle'
 tap 'universal-ctags/universal-ctags'
 tap 'exolnet/homebrew-deprecated'
+tap 'deligoez/cask'
 
 # Brew
 brew 'bash'
@@ -57,6 +58,8 @@ cask 'blackhole'
 cask 'tinkerwell'
 cask 'tableplus'
 cask 'flux'
+cask 'xdebug-toggler'
+cask 'zoom'
 
 # Mac App Store
 mas 'SnippetsLab', id: 1006087419
