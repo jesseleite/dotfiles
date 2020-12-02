@@ -5,6 +5,7 @@
 alias c="clear"
 alias o="open ."
 alias rm="trash"
+alias rf="trash -rf"
 
 # Run any command from anywhere, without leaving current working directory.
 #
