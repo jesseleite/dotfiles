@@ -5,8 +5,6 @@
       force: true
     shell:
       quiet: true
-      stdout: false
-      stderr: false
 - shell:
   - description: Validating sudo credentials
     command: "sudo --validate"
@@ -45,6 +43,8 @@
     command: "arch -x86_64 brew tap homebrew/bundle"
   - description: Installing brewfile bundle
     command: "arch -x86_64 brew bundle"
+    stdout: true
+    stderr: true
   - description: Linking mysql 5.7
     command: "arch -x86_64 brew link --force mysql@5.7"
   - description: Starting mysql service whenever mac boots
