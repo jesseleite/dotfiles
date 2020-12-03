@@ -61,6 +61,10 @@
     command: "sudo chsh -s $(which zsh)"
   - description: Compiling antibody bundles
     command: "sh zsh/bundles_compile"
+  - description: Installing python bundle
+    command: "pip3 install -r pipfile"
+    stdout: true
+    stderr: true
   - description: Installing vim-plug
     command: "[ -f ~/.vim/autoload/plug.vim ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   - description: Installing vim plugins
