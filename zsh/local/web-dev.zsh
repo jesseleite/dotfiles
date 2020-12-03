@@ -28,5 +28,9 @@ alias b="valet open"
 
 # Get installed version of a specific composer package
 compv() {
-  composer show $1 | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1;
+  if [[ $1 == *"/"* ]]; then
+    composer show $1 | grep 'versions' | grep -o -E '\*\ .+' | cut -d' ' -f2 | cut -d',' -f1;
+  else
+    composer info | grep $1
+  fi
 }
