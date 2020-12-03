@@ -13,20 +13,20 @@ let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'borde
 let g:fzf_preview_window = 'right:50%:noborder:hidden'
 
 " TODO: Convert these to fzf highlight groups (ie. FzfPrompt)
-let g:fzf_colors = {
-  \ 'fg':      ['fg', 'FzfFg'],
-  \ 'bg':      ['bg', 'FzfBg'],
-  \ 'hl':      ['fg', 'FzfHl'],
-  \ 'fg+':     ['fg', 'FzfFgCurrent'],
-  \ 'bg+':     ['bg', 'FzfBgCurrent'],
-  \ 'hl+':     ['fg', 'FzfHlCurrent'],
-  \ 'info':    ['fg', 'FzfInfo'],
-  \ 'border':  ['fg', 'FzfBorder'],
-  \ 'prompt':  ['fg', 'FzfPrompt'],
-  \ 'pointer': ['fg', 'FzfPointer'],
-  \ 'marker':  ['fg', 'FzfMarker'],
-  \ 'spinner': ['fg', 'FzfSpinner'],
-  \ 'header':  ['fg', 'FzfHeader'] }
+" let g:fzf_colors = {
+"   \ 'fg':      ['fg', 'FzfFg'],
+"   \ 'bg':      ['bg', 'FzfBg'],
+"   \ 'hl':      ['fg', 'FzfHl'],
+"   \ 'fg+':     ['fg', 'FzfFgCurrent'],
+"   \ 'bg+':     ['bg', 'FzfBgCurrent'],
+"   \ 'hl+':     ['fg', 'FzfHlCurrent'],
+"   \ 'info':    ['fg', 'FzfInfo'],
+"   \ 'border':  ['fg', 'FzfBorder'],
+"   \ 'prompt':  ['fg', 'FzfPrompt'],
+"   \ 'pointer': ['fg', 'FzfPointer'],
+"   \ 'marker':  ['fg', 'FzfMarker'],
+"   \ 'spinner': ['fg', 'FzfSpinner'],
+"   \ 'header':  ['fg', 'FzfHeader'] }
 
 
 " ------------------------------------------------------------------------------
