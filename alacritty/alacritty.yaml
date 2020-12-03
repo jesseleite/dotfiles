@@ -1,7 +1,7 @@
 window:
   dimensions:
-    columns: 140
-    lines: 24
+    columns: 130
+    lines: 34
   padding:
     x: 18
     y: 20
@@ -19,11 +19,15 @@ font:
     y: 9
   use_thin_strokes: false
 colors:
+  primary:
+    background: '#000000'
+    foreground: '#ffffff'
   cursor:
     text:    '#000000'
     cursor:  '#ffffff'
   selection:
     background: '#212121'
+    foreground: '#ffffff'
   normal:
     black:   '#212121'
     red:     '#FF3F61'
