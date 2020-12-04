@@ -8,6 +8,10 @@ alias ci="composer install"
 alias n="npm run"
 alias ni="npm install"
 
+# Switch composer versions
+alias comp1="composer self-update --1 && composer --version"
+alias comp2="composer self-update --2 && composer --version"
+
 # Reinstall dependencies
 alias deps="comp install && rm -rf node_modules && npm install && npm run dev"
 
