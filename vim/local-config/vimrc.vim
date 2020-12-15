@@ -132,22 +132,22 @@ endfunction
 " # Plugin Helper Commands
 " ------------------------------------------------------------------------------
 
-command! GoToPluginUrl call GoToPluginUrl()
-command! YankPluginUrl call YankPluginUrl()
-command! PastePluginFromClipboard call PastePluginFromClipboard()
+command! GoToPluginGithubUrl call GoToPluginGithubUrl()
+command! PlugYankGithubUrl call PlugYankGithubUrl()
+command! PlugPasteFromClipboard call PlugPasteFromClipboard()
 
-function! GoToPluginUrl()
-  call YankPluginUrl()
+function! GoToPluginGithubUrl()
+  call PlugYankGithubUrl()
   call system('chrome-cli open ' . @+)
 endfunction
 
-function! YankPluginUrl()
+function! PlugYankGithubUrl()
   normal ^wyi'
   let @+ = 'https://www.github.com/' . @+
   return @+
 endfunction
 
-function! PastePluginFromClipboard()
+function! PlugPasteFromClipboard()
   execute 'edit ' . VimrcPath('plugins.vim')
   normal G
   call search("Plug \'.*\'", 'b')

@@ -263,9 +263,9 @@ function! VimrcLocalMappings()
   nnoremap <buffer><nowait> <leader>gc :GoToRelatedVimrcConfig<CR>
   nnoremap <buffer><nowait> <leader>gm :GoToRelatedVimrcMappings<CR>
   nnoremap <buffer><nowait> <leader>gp :GoToRelatedPlugDefinition<CR>
-  nnoremap <buffer><nowait> <leader>pg :GoToPluginUrl<CR>
-  nnoremap <buffer><nowait> <leader>py :YankPluginUrl<CR>
-  nnoremap <buffer><nowait> <leader>pp :PastePluginFromClipboard<CR>
+  nnoremap <buffer><nowait> <leader>gg :GoToPluginGithubUrl<CR>
+  nnoremap <buffer><nowait> <leader>py :PlugYankGithubUrl<CR>
+  nnoremap <buffer><nowait> <leader>pp :PlugPasteFromClipboard<CR>
   nnoremap <buffer><nowait> <leader>pi :PlugInstall<CR>
   nnoremap <buffer><nowait> <leader>pu :PlugUpdate<CR>
   nnoremap <buffer><nowait> <leader>pc :PlugClean<CR>
