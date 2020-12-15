@@ -170,6 +170,9 @@ let g:explicit_annotation_bindings = {
 " # This is for basic plugin config only.  More elaborate plugin config
 " # files are located in the /plugin-config folder.
 
+" Plugin: gitgutter
+let g:gitgutter_map_keys = 0
+
 " Plugin: togglelist
 let g:toggle_list_no_mappings = 1
 

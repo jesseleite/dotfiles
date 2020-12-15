@@ -58,8 +58,8 @@ nmap <silent> <Leader>v :vsplit<CR>
 " Plugin: bbye
 nmap <silent> <Leader>c :Bdelete<CR>
 
-" Next/prev git change, and disable intrusive GitGutter mappings
-let g:gitgutter_map_keys = 0
+" Git gutter mappings
+" Plugin: gitgutter
 nmap [c <Plug>(GitGutterPrevHunk)
 nmap ]c <Plug>(GitGutterNextHunk)
 
