@@ -127,7 +127,7 @@ function! FernLocalMappings()
   nmap <buffer><nowait> o <Plug>(fern-action-open:system)
   nmap <buffer><nowait> f <Plug>(fern-action-new-file)
   nmap <buffer><nowait> d <Plug>(fern-action-new-dir)
-  nmap <buffer><nowait> - <Plug>(fern-action-mark-toggle)
+  nmap <buffer><nowait> - <Plug>(fern-action-mark:toggle)
   nmap <buffer><nowait> r <Plug>(fern-action-rename)
   nmap <buffer><nowait> c <Plug>(fern-action-copy)
   nmap <buffer><nowait> m <Plug>(fern-action-move)
@@ -135,7 +135,6 @@ function! FernLocalMappings()
   nmap <buffer><nowait> x <Plug>(fern-action-clipboard-move)
   nmap <buffer><nowait> p <Plug>(fern-action-clipboard-paste)
   nmap <buffer><nowait> D <Plug>(fern-action-trash)
-  nmap <buffer><nowait> go :call FernActionGithubOpen()<CR>
   nmap <buffer><nowait> g? <Plug>(fern-action-help:all)
 endfunction
 

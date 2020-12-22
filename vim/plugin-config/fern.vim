@@ -9,11 +9,6 @@ augroup fern_local_mappings
   autocmd FileType fern call FernLocalMappings()
 augroup END
 
-function! FernActionGithubOpen()
-  exec "norm \<Plug>(fern-action-open)"
-  Gbrowse
-endfunction
-
 function! FernReveal(location)
   let current_file = match(@%, '/') == 0 ? @% : getcwd() . '/' . @%
   if empty(@%)
