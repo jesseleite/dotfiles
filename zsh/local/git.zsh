@@ -7,6 +7,8 @@ alias nah="grhh && gclean"
 alias gin="git init && gaa && gcmsg 'Initial commit.'"
 alias gundo="git reset HEAD^"
 alias gh="github"
+alias gdb='git remote show origin | grep "HEAD branch" | cut -d " " -f5'
+alias gcod='gco $(gdb)'
 
 # Unalias oh-my-zsh aliases, in favour of following functions
 unalias gst
