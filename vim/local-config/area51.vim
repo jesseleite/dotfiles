@@ -113,3 +113,6 @@ nmap <Leader><Leader><Leader>/ :CtrlSFSmart<Space>
 " \    'indent_blockelement': 1,
 " \  },
 " \}
+
+"let g:signify_sign_change = '~'
+" let g:signify_sign_show_count = 0
