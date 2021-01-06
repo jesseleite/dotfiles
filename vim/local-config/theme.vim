@@ -31,10 +31,9 @@ highlight LineNr ctermbg=none
 highlight CursorLineNR ctermbg=black ctermfg=black
 highlight SignColumn ctermbg=none
 highlight ColorColumn ctermbg=black
-highlight GitGutterAdd ctermbg=none ctermfg=green
-highlight GitGutterChange ctermbg=none ctermfg=yellow
-highlight GitGutterDelete ctermbg=none ctermfg=red
-highlight GitGutterChangeDelete ctermbg=none ctermfg=red
+highlight SignifySignAdd ctermbg=none ctermfg=green
+highlight SignifySignChange ctermbg=none ctermfg=yellow
+highlight SignifySignDelete ctermbg=none ctermfg=red
 highlight VertSplit ctermbg=none ctermfg=none
 highlight StatusLine ctermfg=none ctermbg=none
 highlight StatusLineNC ctermfg=none ctermbg=none

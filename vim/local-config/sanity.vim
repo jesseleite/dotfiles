@@ -26,7 +26,7 @@ set smartcase
 let currentProject = substitute(getcwd(), '^.*/', '', '')
 execute 'set titlestring=vim\ (' . currentProject . ')'
 
-" Set updatetime for CursorHold, gitgutter, etc.
+" Set updatetime for CursorHold, etc.
 set updatetime=1000
 
 " Auto complete menu options

@@ -36,7 +36,7 @@ Plug 'mbbill/undotree'
 Plug 'milkypostman/vim-togglelist'
 
 " Git gutters
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 
 " Git commands
 Plug 'tpope/vim-fugitive'
@@ -170,8 +170,8 @@ let g:explicit_annotation_bindings = {
 " # This is for basic plugin config only.  More elaborate plugin config
 " # files are located in the /plugin-config folder.
 
-" Plugin: gitgutter
-let g:gitgutter_map_keys = 0
+" Plugin: signify
+let g:signify_sign_change = '~'
 
 " Plugin: togglelist
 let g:toggle_list_no_mappings = 1

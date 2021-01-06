@@ -58,11 +58,6 @@ nmap <silent> <Leader>v :vsplit<CR>
 " Plugin: bbye
 nmap <silent> <Leader>c :Bdelete<CR>
 
-" Git gutter mappings
-" Plugin: gitgutter
-nmap [c <Plug>(GitGutterPrevHunk)
-nmap ]c <Plug>(GitGutterNextHunk)
-
 " Fzf fuzzy finders
 " Plugin: fzf
 nmap <Leader>f :GFiles<CR>
