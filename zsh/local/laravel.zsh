@@ -10,6 +10,7 @@ alias artm="art migrate"
 alias navi="art queue:listen --tries=2"
 alias dusk="art dusk"
 alias lager="less +F storage/logs/laravel.log"
+alias ray="comp require spatie/laravel-ray --dev"
 
 function tink() {(
   if [ ! -f artisan ]; then

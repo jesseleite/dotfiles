@@ -25,11 +25,16 @@ spoon.ReloadConfiguration:start()
 
 
 --------------------------------------------------------------------------------
--- Summon Alacritty Terminal
+-- Summon Specific Apps
 --------------------------------------------------------------------------------
 
 hs.hotkey.bind({"cmd"}, "escape", function()
   summon('Alacritty')
+  setLayout()
+end)
+
+hs.hotkey.bind({"cmd"}, '`', function()
+  summon('Ray')
   setLayout()
 end)
 
@@ -51,6 +56,7 @@ modalBind(windowModal, 's', function () hs.application.launchOrFocus('Slack') en
 modalBind(windowModal, 'd', function () hs.application.launchOrFocus('Discord') end)
 modalBind(windowModal, 't', function () hs.application.launchOrFocus('Telegram') end)
 modalBind(windowModal, 'g', function () hs.application.launchOrFocus('Tower') end)
+modalBind(windowModal, 'r', function () hs.application.launchOrFocus('Ray') end)
 modalBind(windowModal, 'm', function () hs.application.launchOrFocus('Music') end)
 
 
@@ -140,6 +146,7 @@ layouts = {
   w = function ()
     moveApp('Alacritty', positions.twoThirds.right)
     moveApp('Google Chrome', positions.thirds.left)
+    moveApp('Ray', positions.thirds.left)
     moveApp('Tower', positions.thirds.center)
     moveApp('Slack', '20,0 10x10')
     moveApp('Discord', '20,10 10x10')
