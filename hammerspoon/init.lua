@@ -50,7 +50,7 @@ modalBind(windowModal, 'c', function () hs.application.launchOrFocus('Google Chr
 modalBind(windowModal, 's', function () hs.application.launchOrFocus('Slack') end)
 modalBind(windowModal, 'd', function () hs.application.launchOrFocus('Discord') end)
 modalBind(windowModal, 't', function () hs.application.launchOrFocus('Telegram') end)
-modalBind(windowModal, 'g', function () hs.application.launchOrFocus('Github Desktop') end)
+modalBind(windowModal, 'g', function () hs.application.launchOrFocus('Tower') end)
 modalBind(windowModal, 'm', function () hs.application.launchOrFocus('Music') end)
 
 
@@ -140,7 +140,7 @@ layouts = {
   w = function ()
     moveApp('Alacritty', positions.twoThirds.right)
     moveApp('Google Chrome', positions.thirds.left)
-    moveApp('GitHub Desktop', positions.thirds.center)
+    moveApp('Tower', positions.thirds.center)
     moveApp('Slack', '20,0 10x10')
     moveApp('Discord', '20,10 10x10')
   end,
