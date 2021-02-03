@@ -30,6 +30,9 @@ st() {
 # Browse valet site
 alias b="valet open"
 
+# Edit global composer config.
+alias compc="vim ~/.composer/config.json"
+
 # Get installed version of a specific composer package
 compv() {
   if [[ $1 == *"/"* ]]; then
