@@ -10,7 +10,7 @@ brew 'bash'
 brew 'zsh'
 brew 'python'
 brew 'git'
-brew 'hub'
+brew 'gh'
 brew 'vim'
 brew 'fzf', args: ['HEAD']
 brew 'tree'
