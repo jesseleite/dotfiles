@@ -102,7 +102,7 @@ function! s:get_ref_for_current_config_file()
 endfunction
 
 function! s:get_ref_from_plug_definition()
-  let matched = matchlist(getline('.'), "/\\(.*\\)'")[1]
+  let matched = matchlist(getline('.'), "/\\([^'\"]*\\)")[1]
   let fallback = substitute(matched, 'vim-', '', '')
   let fallback = substitute(fallback, '-vim', '', '')
   let fallback = substitute(fallback, '\.vim', '', '')
