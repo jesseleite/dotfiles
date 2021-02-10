@@ -1,75 +1,28 @@
 " ------------------------------------------------------------------------------
 " # Vimrc
 " ------------------------------------------------------------------------------
-" # This file sets up my basic vim environment.  Here I set a few defaults,
-" # paths, and source the rest of the config files as necessary.  Most
-" # of the config lives in plugins.vim and mappings.vim, with more
-" # elaborate config in /local-config and /plugin-config.
+" # This is my parent vimrc config, where I setup my defaults and source
+" # all of my plugins and config files using a plugin called Sourcery
+" # For more info, see https://github.com/jesseleite/vim-sourcery
 
 
 " ------------------------------------------------------------------------------
-" # Defaults
+" # Vim 8 Defaults
 " ------------------------------------------------------------------------------
+" # For more info, see :help defaults.vim
 
-" Vim 8 defaults
-" For more info, see :help defaults.vim
 unlet! skip_defaults_vim
 silent! source $VIMRUNTIME/defaults.vim
-
-
-" ------------------------------------------------------------------------------
-" # Paths
-" ------------------------------------------------------------------------------
-
-" Parent paths
-let g:dotfiles_path = $HOME . '/.dotfiles'
-let g:dotvim_path = $HOME . '/.vim'
-
-" Get path relative to .vimrc file
-function! VimrcPath(path)
-  return g:dotfiles_path . '/vim/' . a:path
-endfunction
-
-" Get path relative to .vim directory
-function! DotVimPath(path)
-  return g:dotvim_path . '/' . a:path
-endfunction
-
-" Vimrc related paths for autocmds
-let g:vimrc_related_paths = [
-  \ $MYVIMRC,
-  \ VimrcPath('vimrc'),
-  \ VimrcPath('*.vim')
-  \ ]
 
 
 " ------------------------------------------------------------------------------
 " # Sourcing
 " ------------------------------------------------------------------------------
 
-" Source plugins
+let g:sourcery#vimrc_path = $HOME . '/.dotfiles/vim'
+
 call plug#begin('~/.vim/plugged')
-  execute 'source' VimrcPath('plugins.vim')
+  execute 'source' g:sourcery#vimrc_path . '/plugins.vim'
 call plug#end()
 
-" Source mappings
-execute 'source' VimrcPath('mappings.vim')
-
-" Setup function for dynamic sourcing
-function! s:source_config_files_in(folder)
-  for config_file in split(glob(VimrcPath(a:folder . '/*')), '\n')
-    if filereadable(config_file)
-      execute 'source' config_file
-    endif
-  endfor
-endfunction
-
-" Dynamic sourcing
-call s:source_config_files_in('local-config')
-call s:source_config_files_in('plugin-config')
-
-" Auto sourcing
-augroup autosource_vimrc
-  autocmd!
-  execute 'autocmd BufWritePost' join(g:vimrc_related_paths, ',') 'nested source' $MYVIMRC
-augroup END
+call sourcery#source()

@@ -2,6 +2,9 @@
 " # Installed Plugins
 " ------------------------------------------------------------------------------
 
+" Source all the vim configs
+Plug '/Users/jesseleite/Code/vim-sourcery'
+
 " Human readable vim startup time profiling
 Plug 'tweekmonster/startuptime.vim', {'on': 'StartupTime'}
 

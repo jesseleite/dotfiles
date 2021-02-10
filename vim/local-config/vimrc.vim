@@ -4,7 +4,7 @@
 
 augroup vimrc_local_mappings
   autocmd!
-  execute 'autocmd BufReadPost ' . join(g:vimrc_related_paths, ',') . ' call VimrcLocalMappings()'
+  execute 'autocmd BufReadPost ' . join(sourcery#autosource_paths, ',') . ' call VimrcLocalMappings()'
 augroup END
 
 
@@ -17,7 +17,7 @@ command! EditVimMappings call EditVimConfig('mappings.vim')
 command! EditVimPlugins call EditVimConfig('plugins.vim')
 
 function! EditVimConfig(file)
-  execute 'edit ' . VimrcPath(a:file)
+  execute 'edit ' . sourcery#vimrc_path(a:file)
 endfunction
 
 
@@ -35,14 +35,14 @@ function! GoToRelatedVimrcConfig()
     return
   endif
   let ref = s:get_ref()
-  let path = VimrcPath(ref['type'] . '-config/' . ref['slug'] . '.vim')
+  let path = sourcery#vimrc_path(ref['type'] . '-config/' . ref['slug'] . '.vim')
   if filereadable(path)
     silent execute 'edit ' . path
   elseif ref['type'] == 'plugin'
-    silent execute 'edit ' . VimrcPath('plugins.vim')
+    silent execute 'edit ' . sourcery#vimrc_path('plugins.vim')
     call s:go_to_ref(ref)
   elseif ref['type'] == 'local'
-    silent execute 'edit ' . VimrcPath('vimrc')
+    silent execute 'edit ' . sourcery#vimrc_path('vimrc')
     call s:go_to_ref(ref)
   else
     echo 'Ref not found.'
@@ -55,7 +55,7 @@ function! GoToRelatedVimrcMappings()
     return
   endif
   let ref = s:get_ref()
-  silent execute 'edit ' VimrcPath('mappings.vim')
+  silent execute 'edit ' sourcery#vimrc_path('mappings.vim')
   call s:go_to_ref(ref)
 endfunction
 
@@ -64,7 +64,7 @@ function! GoToRelatedPlugDefinition()
     echo 'Already in plugin definitions.'
   endif
   let ref = s:get_ref()
-  silent execute 'edit ' . VimrcPath('plugins.vim')
+  silent execute 'edit ' . sourcery#vimrc_path('plugins.vim')
   normal gg
   let query = get(g:explicit_annotation_bindings, ref['slug'], ref['slug'])
   let found = search("/.*" . query . ".*'\\c")
@@ -148,7 +148,7 @@ function! PlugYankGithubUrl()
 endfunction
 
 function! PlugPasteFromClipboard()
-  execute 'edit ' . VimrcPath('plugins.vim')
+  execute 'edit ' . sourcery#vimrc_path('plugins.vim')
   normal G
   call search("Plug \'.*\'", 'b')
   execute "normal oPlug " . substitute("'p'", 'p', s:get_installable_plugin_from_clipboard(), '')
