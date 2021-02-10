@@ -49,11 +49,11 @@ let g:vimrc_related_paths = [
 
 " Source plugins
 call plug#begin('~/.vim/plugged')
-  execute 'source ' . VimrcPath('plugins.vim')
+  execute 'source' VimrcPath('plugins.vim')
 call plug#end()
 
 " Source mappings
-execute 'source ' VimrcPath('mappings.vim')
+execute 'source' VimrcPath('mappings.vim')
 
 " Setup function for dynamic sourcing
 function! s:source_config_files_in(folder)
@@ -71,5 +71,5 @@ call s:source_config_files_in('plugin-config')
 " Auto sourcing
 augroup autosource_vimrc
   autocmd!
-  execute 'autocmd BufWritePost ' . join(g:vimrc_related_paths, ',') . ' nested source ' . $MYVIMRC
+  execute 'autocmd BufWritePost' join(g:vimrc_related_paths, ',') 'nested source' $MYVIMRC
 augroup END
