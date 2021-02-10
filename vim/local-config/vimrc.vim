@@ -4,7 +4,7 @@
 
 augroup vimrc_local_mappings
   autocmd!
-  execute 'autocmd BufReadPost ' . join(sourcery#autosource_paths, ',') . ' call VimrcLocalMappings()'
+  execute 'autocmd BufReadPost ' . join(g:sourcery#autosource_paths, ',') . ' call VimrcLocalMappings()'
 augroup END
 
 
