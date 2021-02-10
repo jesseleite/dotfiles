@@ -82,20 +82,3 @@ gcam() {
 gstam() {
   git add --all && git stash push -m "$*"
 }
-
-# Checkout PR
-gpr() {
-    if [ -z "$1" ]; then
-        echo "Usage: gpr <pr number> [<local branch name>]"
-        return
-    fi
-
-    if [ $2 ]; then
-        branch=$2
-    else
-        branch=pr/$1
-    fi
-
-    git fetch origin pull/$1/head:$branch
-    git checkout $branch
-}
