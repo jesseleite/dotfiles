@@ -12,17 +12,15 @@
 " # For more info, see :help defaults.vim
 
 unlet! skip_defaults_vim
-silent! source $VIMRUNTIME/defaults.vim
+source $VIMRUNTIME/defaults.vim
 
 
 " ------------------------------------------------------------------------------
 " # Sourcing
 " ------------------------------------------------------------------------------
 
-let g:sourcery#vimrc_path = $HOME . '/.dotfiles/vim'
-
 call plug#begin('~/.vim/plugged')
-  execute 'source' g:sourcery#vimrc_path . '/plugins.vim'
+  source ~/.dotfiles/vim/plugins.vim
 call plug#end()
 
 call sourcery#source()

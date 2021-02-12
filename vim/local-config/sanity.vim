@@ -48,5 +48,5 @@ augroup equalize_windows_on_resize
 augroup END
 
 " Persistent undo
-let &undodir=sourcery#dotvim_path('undo')
+let &undodir=sourcery#system_vimfiles_path('undo')
 set undofile
