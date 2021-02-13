@@ -9,8 +9,8 @@
 " ------------------------------------------------------------------------------
 " # Vim 8 Defaults
 " ------------------------------------------------------------------------------
-" # For more info, see :help defaults.vim
 
+" For more info, see :help defaults.vim
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
@@ -19,8 +19,10 @@ source $VIMRUNTIME/defaults.vim
 " # Sourcing
 " ------------------------------------------------------------------------------
 
+" Source plugins
 call plug#begin('~/.vim/plugged')
   source ~/.dotfiles/vim/plugins.vim
 call plug#end()
 
+" Source everything else
 call sourcery#source()
