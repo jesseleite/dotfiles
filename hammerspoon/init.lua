@@ -113,6 +113,7 @@ positions = {
 
 hs.hotkey.bind(hyper, 'f', chain({positions.full}))
 hs.hotkey.bind(hyper, 'c', chain({positions.center.normal, positions.center.wide, positions.center.narrow}))
+hs.hotkey.bind(hyper, 't', chain({'1,3 14x13'}))
 
 local chainX = { 'thirds', 'halves', 'twoThirds', }
 local chainY = { 'thirds', 'full' }
