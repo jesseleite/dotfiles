@@ -113,3 +113,5 @@ nmap <Leader><Leader><Leader>/ :CtrlSFSmart<Space>
 " \    'indent_blockelement': 1,
 " \  },
 " \}
+
+autocmd FileType vim nnoremap <buffer> <leader>s :source %<CR>
