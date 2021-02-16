@@ -12,6 +12,7 @@ brew 'python'
 brew 'git'
 brew 'gh'
 brew 'vim'
+brew 'neovim'
 brew 'fzf', args: ['HEAD']
 brew 'tree'
 brew 'wget'
