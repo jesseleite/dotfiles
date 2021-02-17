@@ -114,10 +114,10 @@ nmap <Leader><Leader><Leader>/ :CtrlSFSmart<Space>
 " \  },
 " \}
 
-autocmd FileType vim nnoremap <buffer> <leader>s :source %<CR>
+" autocmd FileType vim nnoremap <buffer> <leader>s :source %<CR>
 
 function! ResourceAndRunLast()
-  source ~/Code/vim-sourcery/autoload/sourcery.vim
+  silent source /Users/jesseleite/Code/vim-sourcery/autoload/sourcery.vim
   execute @:
 endfunction
 
