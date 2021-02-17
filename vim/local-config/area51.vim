@@ -118,6 +118,7 @@ nmap <Leader><Leader><Leader>/ :CtrlSFSmart<Space>
 
 function! ResourceAndRunLast()
   silent source /Users/jesseleite/Code/vim-sourcery/autoload/sourcery.vim
+  call sourcery#index()
   execute @:
 endfunction
 
