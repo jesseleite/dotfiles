@@ -158,8 +158,9 @@ Plug 'inside/vim-textobj-function-php', {'for': 'php'}
 Plug 'kristijanhusak/vim-carbon-now-sh'
 
 " Explicit annotation bindings for more accurate go to
-let g:sourcery#explicit_annotation_bindings = {
-  \ 'camel-case-motions': 'CamelCaseMotion',
+let g:sourcery#explicit_plugin_bindings = {
+  \ '/usr/local/opt/fzf': 'base-fzf',
+  \ 'bkad/CamelCaseMotion': 'camel-case-motion',
   \ }
 
 
