@@ -10,6 +10,12 @@ function! ${1:name}($2)
 endfunction
 endsnippet
 
+snippet for "Define for loop."
+for ${1:item} in ${2:list}
+  ${0:"}
+endfor
+endsnippet
+
 snippet cmd "Define simple command."
 command! ${1:Name} ${0:call SomeFunction()}
 endsnippet
