@@ -43,21 +43,17 @@ end)
 -- Window Modal
 --------------------------------------------------------------------------------
 
-windowModal = activateModal(lilHyper, 'w')
+windowModal = activateModal(lilHyper, 'o')
 
-modalBind(windowModal, 'h', function () hs.window.filter.focusWest() end)
-modalBind(windowModal, 'j', function () hs.window.filter.focusSouth() end)
-modalBind(windowModal, 'k', function () hs.window.filter.focusNorth() end)
-modalBind(windowModal, 'l', function () hs.window.filter.focusEast() end)
-
-modalBind(windowModal, 'a', function () hs.application.launchOrFocus('Alacritty') end)
-modalBind(windowModal, 'c', function () hs.application.launchOrFocus('Google Chrome') end)
-modalBind(windowModal, 's', function () hs.application.launchOrFocus('Slack') end)
-modalBind(windowModal, 'd', function () hs.application.launchOrFocus('Discord') end)
-modalBind(windowModal, 't', function () hs.application.launchOrFocus('Telegram') end)
-modalBind(windowModal, 'g', function () hs.application.launchOrFocus('Tower') end)
-modalBind(windowModal, 'r', function () hs.application.launchOrFocus('Ray') end)
-modalBind(windowModal, 'm', function () hs.application.launchOrFocus('Music') end)
+modalBind(windowModal, 'a', function () summon('Alacritty') end)
+modalBind(windowModal, 'b', function () summon('Bear') end)
+modalBind(windowModal, 'c', function () summon('Google Chrome') end)
+modalBind(windowModal, 's', function () summon('Slack') end)
+modalBind(windowModal, 'd', function () summon('Discord') end)
+modalBind(windowModal, 't', function () summon('Telegram') end)
+modalBind(windowModal, 'g', function () summon('Tower') end)
+modalBind(windowModal, 'r', function () summon('Ray') end)
+modalBind(windowModal, 'm', function () summon('Music') end)
 
 
 --------------------------------------------------------------------------------
