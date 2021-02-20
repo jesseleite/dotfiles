@@ -25,6 +25,4 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Initialize sourcery
-call sourcery#source_path('plugin-config')
-call sourcery#source_path('local-config')
 call sourcery#init()
