@@ -41,25 +41,25 @@ nmap <silent> <Leader><Leader>g :!github<CR><CR>
 nnoremap <Tab> <C-w>w
 nnoremap <S-Tab> <C-w>W
 
-" Plugin: maximizer
+" Mappings: maximizer
 nnoremap <silent> <Leader>o :MaximizerToggle<CR>
 
 " Make window only window
 nnoremap <Leader>O <C-w>o
 
 " Window management
-" Plugin: winmode
+" Mappings: winmode
 nmap <Leader><Leader>w <Plug>WinModeResizeStart
 
 " Vertical split
 nmap <silent> <Leader>v :vsplit<CR>
 
 " Close buffer
-" Plugin: bbye
+" Mappings: bbye
 nmap <silent> <Leader>c :Bdelete<CR>
 
 " Fzf fuzzy finders
-" Plugin: fzf
+" Mappings: fzf
 nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
 nmap <Leader>m :GFiles?<CR>
@@ -79,13 +79,13 @@ nmap <Leader>S :Snippets<CR>
 nmap <Leader><Leader>h :Helptags!<CR>
 
 " Ag search project
-" Plugin: agriculture
+" Mappings: agriculture
 nmap <Leader>/ <Plug>AgRawSearch
 vmap <Leader>/ <Plug>AgRawVisualSelection
 nmap <Leader>* <Plug>AgRawWordUnderCursor
 
 " Run tests
-" Plugin: test
+" Mappings: test
 nmap <Leader>rt :w<CR>:TestToggleStrategy<CR>
 nmap <Leader>rs :w<CR>:TestSuite<CR>
 nmap <Leader>rf :w<CR>:TestFile<CR>
@@ -94,22 +94,22 @@ nmap <Leader>rn :w<CR>:TestNearest<CR>
 nmap <Leader>rv :w<CR>:TestVisit<CR>
 
 " Run terminal command in interactive shell
-" Plugin: run-interactive
+" Mappings: run-interactive
 nmap <Leader><Leader>r :Run!<Space>
 nmap <Leader><Leader>i :Run! in<Space>
 
 " Git
-" Plugin: fugitive
+" Mappings: fugitive
 nmap <Leader>g :Gedit :<CR>
 nmap <Leader><Leader>gp :Gpush<CR>
 nmap <Leader><Leader>gb :Gblame<CR>
 
 " Github
-" Plugin: rhubarb
+" Mappings: rhubarb
 nmap <Leader><Leader>go :Gbrowse<CR>
 
 " File system explorer
-" Plugin: fern
+" Mappings: fern
 nmap <Leader>e :FernReveal .<CR>
 nmap <Leader>E :Fern .<CR>
 function! FernLocalMappings()
@@ -134,18 +134,18 @@ function! FernLocalMappings()
 endfunction
 
 " Undo history
-" Plugin: undotree
+" Mappings: undotree
 nmap <Leader><Leader>u :UndotreeToggle<CR>
 
 " Single character sneak
-" Plugin: sneak
+" Mappings: sneak
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
 " Toggle camel case motions
-" Plugin: camel-case-motions
+" Mappings: camel-case-motions
 nmap <silent> <Leader><Leader>c :ToggleCamelCaseMotions<CR>
 
 " Delete text on line
@@ -181,61 +181,61 @@ inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
 
 " Quicker macro playback
-" Local: macro
+" Mappings: macro
 nnoremap Q @q<CR>
 xnoremap Q :norm @q<CR>
 xnoremap @ :<C-u>call PlaybackMacroOverVisualRange()<CR>
 
 " Vertically align
-" Plugin: easy-align
+" Mappings: easy-align
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 " Snippet
-" Plugin: ultisnips
+" Mappings: ultisnips
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Ale
-" Plugin: ale
+" Mappings: ale
 nnoremap <Leader><Leader>a :ALEToggle<CR>
 nnoremap <Leader>if :ALEFix<CR>
 
 " Generic LSP intelligence
-" Plugin: coc
+" Mappings: coc
 nmap <silent> <Leader>ig <Plug>(coc-definition)
 nmap <silent> <Leader>iv :vsplit<CR><Plug>(coc-definition)
 nmap <silent> <Leader>it <Plug>(coc-type-definition)
 inoremap <silent><expr> <C-l> coc#refresh()
 
 " PHP intelligence
-" Plugin: phpactor
+" Mappings: phpactor
 autocmd FileType php nnoremap <buffer> <Leader>p :call phpactor#ContextMenu()<CR>
 autocmd FileType php nnoremap <buffer> <Leader>pi :call phpactor#UseAdd()<CR>
 autocmd FileType php nnoremap <buffer> <Leader>pt :call phpactor#Transform()<CR>
 
 " PHP docblock generation
-" Plugin: pdv
+" Mappings: pdv
 autocmd FileType php nnoremap <buffer> <Leader>pd :call pdv#DocumentWithSnip()<CR>
 
 " HTML and CSS abbreviation expansion
-" Plugin: emmet
+" Mappings: emmet
 imap <C-e> <plug>(emmet-expand-abbr)
 nmap ]e <plug>(emmet-move-next)
 nmap [e <plug>(emmet-move-prev)
 
 " Debugger
-" Plugin: vdebug
+" Mappings: vdebug
 nnoremap <Leader>B :Breakpoint<CR>
 nnoremap <Leader>V :VdebugStart<CR>
 
 " Toggle quickfix and location lists
-" Plugin: togglelist
+" Mappings: togglelist
 nnoremap <Leader><Leader>q :call ToggleQuickfixList()<CR>
 nnoremap <Leader><Leader>l :call ToggleLocationList()<CR>
 
-" Local: quickfix
+" Mappings: quickfix
 function! QuickfixLocalMappings()
   nnoremap <buffer> <CR> <CR>
   nnoremap <buffer><nowait> p :PreviewQuickfixItem<CR>
@@ -243,20 +243,24 @@ function! QuickfixLocalMappings()
   nnoremap <buffer> <Leader>w :OpenWritableSearchBufferFromQuickfix<CR>
 endfunction
 
-" Local: help
+" Mappings: help
 function! HelpLocalMappings()
   nnoremap <buffer> <CR> <C-]>
   nnoremap <buffer> <Esc> <C-t>
 endfunction
 
-" Local: vimrc
+" Mappings: sourcery
+function! SourceryMappings()
+  nmap <buffer> <leader>gc <Plug>SourceryGoToRelatedConfig
+  nmap <buffer> <leader>gm <Plug>SourceryGoToRelatedMappings
+  nmap <buffer> <leader>gp <Plug>SourceryGoToRelatedPluginDefinition
+endfunction
+
+" Mappings: vimrc
 nmap <Leader><Leader>v :EditVimrc<CR>
 nmap <Leader><Leader>vm :EditVimMappings<CR>
 nmap <Leader><Leader>vp :EditVimPlugins<CR>
 function! VimrcLocalMappings()
-  nmap <buffer> <leader>gc <Plug>SourceryGoToRelatedConfig
-  nmap <buffer> <leader>gm <Plug>SourceryGoToRelatedMappings
-  nmap <buffer> <leader>gp <Plug>SourceryGoToRelatedPluginDefinition
   nnoremap <buffer><nowait> <leader>gg :GoToPluginGithubUrl<CR>
   nnoremap <buffer><nowait> <leader>py :PlugYankGithubUrl<CR>
   nnoremap <buffer><nowait> <leader>pp :PlugPasteFromClipboard<CR>

@@ -173,59 +173,59 @@ let g:sourcery#explicit_plugin_bindings = {
 " # This is for basic plugin config only.  More elaborate plugin config
 " # files are located in the /plugin-config folder.
 
-" Plugin: signify
+" Config: signify
 let g:signify_sign_change = '~'
 
-" Plugin: togglelist
+" Config: togglelist
 let g:toggle_list_no_mappings = 1
 
-" Plugin: phpactor
+" Config: phpactor
 let g:phpactorBranch = 'develop'
 
-" Plugin: peekaboo
+" Config: peekaboo
 let g:peekaboo_window = 'vertical botright 60new'
 
-" Plugin: ultisnips
+" Config: ultisnips
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
-" Plugin: pdv
+" Config: pdv
 let g:pdv_template_dir = $HOME . "/.vim/plugged/pdv/templates_snip"
 
-" Plugin: vdebug
+" Config: vdebug
 let g:vdebug_options= {
   \ "port" : 9001,
   \ }
 
-" Plugin: polyglot
+" Config: polyglot
 let g:vim_markdown_frontmatter = 1
 
 " Disable unimparied mappings for emmet
-" Plugin: unimpaired
+" Config: unimpaired
 let g:nremap = {"[e": "", "]e": ""}
 
-" Plugin: targets
+" Config: targets
 let g:targets_seekRanges = 'cc cr cb cB lc ac Ac lr lb ar ab lB Ar aB Ab AB rr ll rb al rB Al bb aa bB Aa BB AA'
 
-" Plugin: writable-search
+" Config: writable-search
 let g:writable_search_new_buffer_command = 'enew'
 
-" Plugin: easy-align
+" Config: easy-align
 let g:easy_align_ignore_groups = []
 
-" Plugin: winmode
+" Config: winmode
 let g:win_mode_horizontal_resize_step = 6
 let g:win_mode_vertical_resize_step = 2
 
-" Plugin: better-whitespace
+" Config: better-whitespace
 let g:strip_whitespace_confirm = 0
 
-" Plugin: sneak
+" Config: sneak
 let g:sneak#use_ic_scs = 1
 
-" Plugin: pear-tree
+" Config: pear-tree
 let g:pear_tree_repeatable_expand = 0
 
-" Plugin: hardtime
+" Config: hardtime
 let g:hardtime_default_on = 1
 let g:hardtime_maxcount = 3
 let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>", "w", "b"]

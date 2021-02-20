@@ -24,5 +24,7 @@ call plug#begin('~/.vim/plugged')
   source ~/.dotfiles/vim/plugins.vim
 call plug#end()
 
-" Source everything else
-call sourcery#source()
+" Initialize sourcery
+call sourcery#source_path('plugin-config')
+call sourcery#source_path('local-config')
+call sourcery#init()
