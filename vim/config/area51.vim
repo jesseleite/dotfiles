@@ -123,3 +123,17 @@ function! ResourceAndRunLast()
 endfunction
 
 nmap <Leader>s :call ResourceAndRunLast()<CR>
+
+function s:create_missing_directories(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+
+augroup create_missing_directories
+    autocmd!
+    autocmd BufWritePre * :call s:create_missing_directories(expand('<afile>'), +expand('<abuf>'))
+augroup END
