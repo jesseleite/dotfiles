@@ -2,6 +2,7 @@
 " # Sane Defaults
 " ------------------------------------------------------------------------------
 
+set exrc
 set hidden
 set nobackup
 set noswapfile
