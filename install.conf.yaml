@@ -16,7 +16,7 @@
     ~/.vimrc: vim/vimrc
     ~/.vim/ultisnips: vim/snippets
     ~/.vim/coc-settings.json: vim/coc/settings.json
-    ~/.alacritty.yml: alacritty/alacritty.yaml
+    ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.tmux.conf: tmux/tmux.conf
     ~/.ctags.d: ctags
     ~/.hammerspoon: hammerspoon
