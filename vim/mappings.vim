@@ -6,7 +6,7 @@
 let mapleader = "\<Space>"
 
 " Esc / Ctrl-c
-imap jk <Esc>
+inoremap jk <Esc>
 cnoremap jk <C-c>
 
 " Edit the alternate / previously edited file
