@@ -53,6 +53,7 @@ highlight DiffAdd ctermbg=green ctermfg=white
 highlight DiffDelete ctermbg=red ctermfg=white
 
 " Fzf colours
+" Highlights: fzf
 highlight FzfFg ctermfg=white
 highlight FzfBg ctermbg=none
 highlight FzfHl ctermfg=blue

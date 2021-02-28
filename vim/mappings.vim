@@ -76,7 +76,7 @@ nmap <Leader>C :Commands<CR>
 nmap <Leader>' :Marks<CR>
 nmap <Leader>s :Filetypes<CR>
 nmap <Leader>S :Snippets<CR>
-nmap <Leader><Leader>h :Helptags!<CR>
+nmap <Leader><Leader>h :Helptags<CR>
 
 " Ag search project
 " Mappings: agriculture

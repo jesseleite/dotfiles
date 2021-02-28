@@ -9,7 +9,7 @@ let g:fzf_history_dir = '~/.vim/fzf_history'
 " # Theming
 " ------------------------------------------------------------------------------
 
-let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.5, 'yoffset': 1, 'border': 'top' } }
+let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6, 'border': 'sharp' } }
 let g:fzf_preview_window = 'right:50%:noborder:hidden'
 
 " TODO: Convert these to fzf highlight groups (ie. FzfPrompt)
