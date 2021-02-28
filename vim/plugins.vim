@@ -14,6 +14,9 @@ Plug '/usr/local/opt/fzf'
 " Fzf vim wrapper
 Plug 'junegunn/fzf.vim'
 
+" Code commenting
+Plug 'tpope/vim-commentary'
+
 " Better ag search
 Plug 'jesseleite/vim-agriculture'
 
@@ -52,9 +55,6 @@ Plug 'sheerun/vim-polyglot'
 
 " Linters
 Plug 'w0rp/ale'
-
-" Code commenting
-Plug 'tpope/vim-commentary'
 
 " CSS colour rendering
 Plug 'ap/vim-css-color'
