@@ -29,7 +29,7 @@ spoon.ReloadConfiguration:start()
 --------------------------------------------------------------------------------
 
 hs.hotkey.bind({"cmd"}, "escape", function()
-  summon('Alacritty')
+  summon('kitty')
   setLayout()
 end)
 
@@ -109,7 +109,6 @@ positions = {
 
 hs.hotkey.bind(hyper, 'f', chain({positions.full}))
 hs.hotkey.bind(hyper, 'c', chain({positions.center.normal, positions.center.wide, positions.center.narrow}))
-hs.hotkey.bind(hyper, 't', chain({'1,3 14x13'}))
 
 local chainX = { 'thirds', 'halves', 'twoThirds', }
 local chainY = { 'thirds', 'full' }
@@ -126,6 +125,13 @@ hs.hotkey.bind(hyper, 'm', chain(getPositions(chainY, 'center')))
 
 hs.hotkey.bind(hyper, 's', function ()
   snap()
+end)
+
+-- Video stuff
+hs.hotkey.bind(hyper, 'v', chain({'1,3 14x13'}))
+hs.hotkey.bind(hyper, 't', chain({'15,3 14x13'}))
+hs.hotkey.bind(hyper, 'q', function()
+  hs.window.focusedWindow():setFrame({x = 62, y = 220, w = 1920, h = 1080})
 end)
 
 
