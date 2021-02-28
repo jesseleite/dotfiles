@@ -11,5 +11,5 @@ v() {
     z $1
   fi
 
-  vim
+  nvim
 }
