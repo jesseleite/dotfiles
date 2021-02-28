@@ -3,10 +3,12 @@
 " ------------------------------------------------------------------------------
 
 " Strip whitespace on save
-augroup misc_commands
-  autocmd!
-  autocmd BufEnter * EnableStripWhitespaceOnSave
-augroup END
+if exists('*EnableStripWhitespaceOnSave')
+  augroup misc_commands
+    autocmd!
+    autocmd BufEnter * EnableStripWhitespaceOnSave
+  augroup END
+endif
 
 function! RecordGif()
   let g:fzf_layout = { 'down': '~55%' }
