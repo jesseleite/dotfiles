@@ -7,20 +7,11 @@
 
 
 " ------------------------------------------------------------------------------
-" # Vim 8 Defaults
-" ------------------------------------------------------------------------------
-
-" For more info, see :help defaults.vim
-unlet! skip_defaults_vim
-source $VIMRUNTIME/defaults.vim
-
-
-" ------------------------------------------------------------------------------
 " # Sourcing
 " ------------------------------------------------------------------------------
 
 " Source plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin()
   source ~/.dotfiles/vim/plugins.vim
 call plug#end()
 

@@ -17,11 +17,17 @@ set splitbelow
 set splitright
 set hlsearch
 set title
-set ttymouse=xterm2
-set cursorline
-set cursorlineopt=number
 set ignorecase
 set smartcase
+set mouse=nvi
+set ttimeoutlen=5 " Vim8 defaulted to 100, but I'm trying out 5ms to avoid ESC lag
+set scrolloff=5
+
+if !has('nvim')
+  set ttymouse=xterm2
+  set cursorline
+  set cursorlineopt=number
+endif
 
 " Dynamically set titlestring to current project
 let currentProject = substitute(getcwd(), '^.*/', '', '')
