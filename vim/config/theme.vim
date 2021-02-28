@@ -68,6 +68,13 @@ highlight FzfMarker ctermfg=red
 highlight FzfSpinner ctermfg=green
 highlight FzfHeader ctermfg=green
 
+" Telescope colours
+" Highlights: telescope
+highlight TelescopeBorder ctermfg=darkgrey
+highlight TelescopePromptBorder ctermfg=darkgrey
+highlight TelescopeResultsBorder ctermfg=darkgrey
+highlight TelescopePreviewBorder ctermfg=darkgrey
+
 " Coc colours
 highlight CocFloating ctermbg=234
 

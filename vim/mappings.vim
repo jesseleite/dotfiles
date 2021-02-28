@@ -78,6 +78,11 @@ nmap <Leader>s :Filetypes<CR>
 nmap <Leader>S :Snippets<CR>
 nmap <Leader><Leader>h :Helptags<CR>
 
+" Telescope finders
+" Mappings: telescope
+nmap <Leader><Leader>f :Telescope git_files<CR>
+nmap <Leader><Leader>F :Telescope find_files<CR>
+
 " Ag search project
 " Mappings: agriculture
 nmap <Leader>/ <Plug>AgRawSearch

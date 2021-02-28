@@ -14,6 +14,11 @@ Plug '/usr/local/opt/fzf'
 " Fzf vim wrapper
 Plug 'junegunn/fzf.vim'
 
+" Telescope fuzzy finder
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " Code commenting
 Plug 'tpope/vim-commentary'
 
@@ -160,6 +165,9 @@ Plug 'kristijanhusak/vim-carbon-now-sh'
 " Stop repeating basic movement commands
 Plug 'takac/vim-hardtime'
 
+" Prime is greatest harpoonist
+Plug 'ThePrimeagen/harpoon'
+
 " Explicit annotation bindings for more accurate go to
 let g:sourcery#explicit_plugin_bindings = {
   \ '/usr/local/opt/fzf': 'base-fzf',
@@ -224,6 +232,7 @@ let g:sneak#use_ic_scs = 1
 
 " Config: pear-tree
 let g:pear_tree_repeatable_expand = 0
+let g:pear_tree_ft_disabled = ["TelescopePrompt"]
 
 " Config: hardtime
 let g:hardtime_default_on = 1
