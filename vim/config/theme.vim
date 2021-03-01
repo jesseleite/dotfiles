@@ -31,6 +31,9 @@ highlight LineNr ctermbg=none
 highlight CursorLineNR ctermbg=black ctermfg=black
 highlight SignColumn ctermbg=none
 highlight ColorColumn ctermbg=black
+highlight TabLine ctermbg=none ctermfg=darkgrey
+highlight TabLineFill ctermbg=none ctermfg=white
+highlight TabLineSel ctermbg=none ctermfg=white
 highlight SignifySignAdd ctermbg=none ctermfg=green
 highlight SignifySignChange ctermbg=none ctermfg=yellow
 highlight SignifySignDelete ctermbg=none ctermfg=red
