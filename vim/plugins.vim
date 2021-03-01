@@ -152,7 +152,7 @@ Plug 'vim-vdebug/vdebug', {'on': ['Breakpoint', 'VdebugStart']}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " PHP refactoring and introspection
-Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install', 'branch': 'develop'}
+Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 
 " Custom text objects
 Plug 'kana/vim-textobj-user'
@@ -186,9 +186,6 @@ let g:signify_sign_change = '~'
 
 " Config: togglelist
 let g:toggle_list_no_mappings = 1
-
-" Config: phpactor
-let g:phpactorBranch = 'develop'
 
 " Config: peekaboo
 let g:peekaboo_window = 'vertical botright 60new'
