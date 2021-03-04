@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 
 # Set default editor
-EDITOR='vim'
+export EDITOR='nvim'
 
 # Open vim with z argument
 v() {
