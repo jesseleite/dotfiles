@@ -3,7 +3,7 @@
 " ------------------------------------------------------------------------------
 
 " Leader
-let mapleader = "\<Space>"
+let mapleader = ' '
 
 " Esc / Ctrl-c
 inoremap jk <Esc>
