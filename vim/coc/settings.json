@@ -2,7 +2,7 @@
     "languageserver": {
         "phpactor": {
             "trace.server": "verbose",
-            "command": "~/.vim/plugged/phpactor/bin/phpactor",
+            "command": "~/.config/nvim/plugged/phpactor/bin/phpactor",
             "args": ["language-server"],
             "filetypes": ["php"],
             "initializationOptions": {
