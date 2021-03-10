@@ -6,6 +6,7 @@
         "laravel/valet": "^2.9",
         "laravel/installer": "^4.0",
         "statamic/cli": "^2.0",
-        "tightenco/takeout": "^1.8"
+        "tightenco/takeout": "^1.8",
+        "permafrost-dev/ray-cli": "^1.12"
     }
 }
