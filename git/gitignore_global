@@ -1,3 +1,6 @@
+# Project specific Vim configs
+.exrc
+
 # Tahg’ih’ohn’da’ehn
 tags
 tags.lock
