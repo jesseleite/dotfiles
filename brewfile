@@ -4,6 +4,7 @@ tap 'homebrew/bundle'
 tap 'universal-ctags/universal-ctags'
 tap 'exolnet/homebrew-deprecated'
 tap 'deligoez/cask'
+tap 'teamookla/speedtest'
 
 # Brew
 brew 'bash'
@@ -34,6 +35,7 @@ brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
 brew 'chrome-cli'
 brew 'shyaml'
 brew 'trash'
+brew 'speedtest'
 # brew 'docker' # installed M1 preview manually for now
 
 # Cask
