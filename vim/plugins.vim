@@ -161,6 +161,7 @@ Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-function'
 Plug 'inside/vim-textobj-function-php', {'for': 'php'}
+Plug 'whatyouhide/vim-textobj-xmlattr'
 
 " Share content with carbon.now.sh
 Plug 'kristijanhusak/vim-carbon-now-sh'
