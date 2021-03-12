@@ -1,10 +1,13 @@
+--------------------------------------------------------------------------------
+-- Telescope Config
+--------------------------------------------------------------------------------
+
+local telescope = require('telescope')
 local sorters = require('telescope.sorters')
 local actions = require('telescope.actions')
 
-require('telescope').setup{
+telescope.setup{
   defaults = {
-    file_sorter = sorters.get_fzy_sorter,
-    generic_sorter = sorters.get_fzy_sorter,
     prompt_prefix = '  ',
     borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
     mappings = {
@@ -16,4 +19,17 @@ require('telescope').setup{
   }
 }
 
-require('telescope').load_extension('sourcery')
+telescope.load_extension('fzy_native')
+telescope.load_extension('sourcery')
+
+
+--------------------------------------------------------------------------------
+-- Custom Finders
+--------------------------------------------------------------------------------
+
+-- local find_dotfiles = function() 
+--     require("telescope.builtin").find_files({
+--         prompt_title = 'My Dotfiles',
+--         cwd = "$HOME/.dotfiles",
+--     })
+-- end
