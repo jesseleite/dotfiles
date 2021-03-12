@@ -82,6 +82,7 @@ nmap <Leader><Leader>h :Helptags<CR>
 " Mappings: telescope
 nmap <Leader><Leader>f :Telescope git_files<CR>
 nmap <Leader><Leader>F :Telescope find_files<CR>
+nmap <Leader><Leader>v :Telescope sourcery<CR>
 
 " Ag search project
 " Mappings: agriculture
