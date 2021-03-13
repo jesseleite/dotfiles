@@ -21,9 +21,6 @@ nmap <Leader>q :q<CR>
 " Write
 nmap <Leader>w :w<CR>
 imap jw <Esc>:w<CR>
-map <D-s> <Esc>:w<CR>
-map <M-s> <Esc>:w<CR>
-map <C-s> <Esc>:w<CR>
 
 " Write and reload current tab in chrome
 nmap <silent> <Leader>R :w<CR>:call system('chrome-cli reload')<CR>
@@ -106,9 +103,7 @@ nmap <Leader><Leader>i :Run! in<Space>
 
 " Git
 " Mappings: fugitive
-nmap <Leader>g :Gedit :<CR>
-nmap <Leader><Leader>gp :Gpush<CR>
-nmap <Leader><Leader>gb :Gblame<CR>
+nmap <Leader>gg :Gedit :<CR>
 
 " Github
 " Mappings: rhubarb

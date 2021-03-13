@@ -239,4 +239,4 @@ let g:pear_tree_ft_disabled = ["TelescopePrompt"]
 " Config: hardtime
 let g:hardtime_default_on = 1
 let g:hardtime_maxcount = 3
-let g:list_of_normal_keys = ["h", "j", "k", "l", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>", "w", "b"]
+let g:list_of_normal_keys = ["h", "j", "k", "l", "w", "b", "<Up>", "<Down>", "<Left>", "<Right>"]

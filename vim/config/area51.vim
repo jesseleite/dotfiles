@@ -16,28 +16,6 @@ function! RecordGif()
 endfunction
 command! RecordGif silent! call RecordGif()
 
-if !exists("*s:goyo_enter")
-  function! s:goyo_enter()
-    nnoremap j gj
-    nnoremap k gk
-    Limelight
-  endfunction
-endif
-
-if !exists("*s:goyo_leave")
-  function! s:goyo_leave()
-    nunmap j
-    nunmap k
-    Limelight!
-    so $MYVIMRC
-  endfunction
-endif
-
-if has("gui_running")
-  set guioptions=
-  set guifont=Menlo\ LG100
-endif
-
 " command! -bang -nargs=+ Methods
 "   \ call fzf#vim#buffer_tags(<q-args>, { 'options': ['--nth', '..-2,-1', '--query', '^f$ '] })
 

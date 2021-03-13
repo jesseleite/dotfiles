@@ -22,6 +22,8 @@ set smartcase
 set mouse=nvi
 set ttimeoutlen=5 " Vim8 defaulted to 100, but I'm trying out 5ms to avoid ESC lag
 set scrolloff=5
+set updatetime=1000
+set completeopt=menu,menuone,noinsert,noselect
 
 if !has('nvim')
   set ttymouse=xterm2
@@ -29,15 +31,13 @@ if !has('nvim')
   set cursorlineopt=number
 endif
 
+" Persistent undo
+let &undodir=sourcery#system_vimfiles_path('undo')
+set undofile
+
 " Dynamically set titlestring to current project
 let currentProject = substitute(getcwd(), '^.*/', '', '')
 execute 'set titlestring=vim\ (' . currentProject . ')'
-
-" Set updatetime for CursorHold, etc.
-set updatetime=1000
-
-" Auto complete menu options
-set completeopt=menu,menuone,noinsert,noselect
 
 " Yeah, it's a package, but it comes with vim
 packadd! matchit
@@ -54,6 +54,3 @@ augroup equalize_windows_on_resize
   autocmd VimResized * exec "normal \<c-w>="
 augroup END
 
-" Persistent undo
-let &undodir=sourcery#system_vimfiles_path('undo')
-set undofile

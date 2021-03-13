@@ -21,7 +21,7 @@ function! DetectDefaultTestStrategy()
   elseif match(system('shtuff has test'), 'was found') > 0
     let g:test#strategy = "shtuff"
   else
-    let g:test#strategy = "basic"
+    let g:test#strategy = "neovim"
   endif
 endfunction
 
@@ -36,12 +36,12 @@ augroup END
 " ------------------------------------------------------------------------------
 
 function! TestToggleStrategy()
-  if get(g:, 'test#strategy', 'basic') == 'basic'
+  if get(g:, 'test#strategy', 'neovim') == 'neovim'
     let g:test#strategy = "shtuff"
     echo "Test Strategy: shtuff into test"
   else
-    let g:test#strategy = "basic"
-    echo "Test Strategy: basic"
+    let g:test#strategy = "neovim"
+    echo "Test Strategy: neovim"
   endif
 endfunction
 
