@@ -257,13 +257,6 @@ function! SourceryMappings()
   nmap <buffer> <leader>gp <Plug>SourceryGoToRelatedPluginDefinition
   nmap <buffer> <leader>gm <Plug>SourceryGoToRelatedMappings
   nmap <buffer> <leader>gc <Plug>SourceryGoToRelatedConfig
-endfunction
-
-" Mappings: vimrc
-nmap <Leader><Leader>v :EditVimrc<CR>
-nmap <Leader><Leader>vm :EditVimMappings<CR>
-nmap <Leader><Leader>vp :EditVimPlugins<CR>
-function! VimrcLocalMappings()
   nnoremap <buffer><nowait> <leader>gg :GoToPluginGithubUrl<CR>
   nnoremap <buffer><nowait> <leader>py :PlugYankGithubUrl<CR>
   nnoremap <buffer><nowait> <leader>pp :PlugPasteFromClipboard<CR>
