@@ -62,3 +62,10 @@ augroup neovim_last_position
     \ |   exe "normal! g`\""
     \ | endif
 augroup END
+
+" Terminal defaults
+augroup neovim_terminal
+    autocmd!
+    autocmd TermOpen * :set nonumber norelativenumber
+    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
+augroup END

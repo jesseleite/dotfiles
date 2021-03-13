@@ -9,6 +9,9 @@ let mapleader = ' '
 inoremap jk <Esc>
 cnoremap jk <C-c>
 
+" Exit terminal mode
+tnoremap <Esc> <C-\><C-n>
+
 " Edit the alternate / previously edited file
 nmap <Leader>6 <C-^>
 
