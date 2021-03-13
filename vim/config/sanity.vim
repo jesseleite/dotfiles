@@ -54,3 +54,11 @@ augroup equalize_windows_on_resize
   autocmd VimResized * exec "normal \<c-w>="
 augroup END
 
+" Remember last cursor position
+augroup neovim_last_position
+  autocmd!
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
+augroup END
