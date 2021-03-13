@@ -123,9 +123,6 @@ Plug 'justinmk/vim-sneak'
 " Camel case motions
 Plug 'bkad/CamelCaseMotion'
 
-" Writable search buffer from quickfix
-Plug 'AndrewRadev/writable_search.vim'
-
 " Window resizer
 Plug 'hsanson/vim-winmode'
 
@@ -216,9 +213,6 @@ let g:nremap = {"[e": "", "]e": ""}
 
 " Config: targets
 let g:targets_seekRanges = 'cc cr cb cB lc ac Ac lr lb ar ab lB Ar aB Ab AB rr ll rb al rB Al bb aa bB Aa BB AA'
-
-" Config: writable-search
-let g:writable_search_new_buffer_command = 'enew'
 
 " Config: easy-align
 let g:easy_align_ignore_groups = []

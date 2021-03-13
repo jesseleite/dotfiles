@@ -65,7 +65,7 @@ augroup END
 
 " Terminal defaults
 augroup neovim_terminal
-    autocmd!
-    autocmd TermOpen * :set nonumber norelativenumber
-    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
+  autocmd!
+  autocmd TermOpen * :set nonumber norelativenumber
+  autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
 augroup END

@@ -244,7 +244,6 @@ function! QuickfixLocalMappings()
   nnoremap <buffer> <CR> <CR>
   nnoremap <buffer><nowait> p :PreviewQuickfixItem<CR>
   nnoremap <buffer> dd :RemoveQuickfixItem<CR>
-  nnoremap <buffer> <Leader>w :OpenWritableSearchBufferFromQuickfix<CR>
 endfunction
 
 " Mappings: help
