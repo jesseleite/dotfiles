@@ -45,3 +45,31 @@ augroup create_missing_directories
   autocmd!
   autocmd BufWritePre * :call s:create_missing_directories(expand('<afile>'), +expand('<abuf>'))
 augroup END
+
+" ------------------------------------------------------------------------------
+" # Reload and execution helpers for easier plugin dev...
+" ------------------------------------------------------------------------------
+
+lua reload_module = require('plenary.reload').reload_module
+
+function! ExecuteLine()
+  if &ft == 'lua'
+    call execute(printf(":lua %s", getline(".")))
+  elseif &ft == 'vim'
+    exe getline(">")
+  endif
+endfunction
+
+function! ExecuteFile()
+  if &filetype == 'vim'
+    silent! write
+    source %
+  elseif &filetype == 'lua'
+    silent! write
+    luafile %
+  endif
+endfunction
+
+nnoremap <leader>x :call ExecuteFile()<CR>
+nnoremap <leader><leader>x :call ExecuteLine()<CR>
+nnoremap <leader><leader>c :<up><CR>
