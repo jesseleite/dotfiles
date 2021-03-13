@@ -18,6 +18,7 @@
     ~/.vim/coc-settings.json: vim/coc/settings.json
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.tmux.conf: tmux/tmux.conf
+    ~/.config/tmuxinator: tmux/tmuxinator
     ~/.ctags.d: ctags
     ~/.hammerspoon: hammerspoon
     ~/.composer/composer.json: composer/composer.json

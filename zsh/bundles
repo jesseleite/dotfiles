@@ -2,6 +2,7 @@
 robbyrussell/oh-my-zsh
 robbyrussell/oh-my-zsh path:plugins/git
 robbyrussell/oh-my-zsh path:plugins/tmux
+robbyrussell/oh-my-zsh path:plugins/tmuxinator
 zsh-users/zsh-syntax-highlighting
 rupa/z
 molovo/tipz
