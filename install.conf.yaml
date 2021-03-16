@@ -25,8 +25,8 @@
     ~/.composer/config.json: composer/config.json
 - create:
     - ~/Code
-    - ~/.vim/undo
     - ~/.vim/fzf_history
+    - ~/.config/nvim/undo
 - shell:
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
