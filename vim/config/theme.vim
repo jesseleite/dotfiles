@@ -5,9 +5,6 @@
 " Overall colour scheme
 colorscheme base16-monokai
 
-" Airline colour scheme
-let g:airline_theme = 'base16color'
-
 " Customize vertical split character
 set fillchars+=vert:\ ,
 
