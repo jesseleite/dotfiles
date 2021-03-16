@@ -15,6 +15,7 @@ telescope.setup{
         ["<C-q>"] = actions.send_to_qflist,
       },
     },
+    file_ignore_patterns = { 'node_modules' },
   }
 }
 
@@ -27,7 +28,8 @@ telescope.load_extension('ultisnips')
 -- Custom Finders
 --------------------------------------------------------------------------------
 
--- local find_dotfiles = function() 
+-- Implemented directly with `Telescope find_files` mapping and `cwd` option...
+-- local find_dotfiles = function()
 --     require("telescope.builtin").find_files({
 --         prompt_title = 'My Dotfiles',
 --         cwd = "$HOME/.dotfiles",
