@@ -185,7 +185,10 @@ let g:sourcery#explicit_plugin_bindings = {
 " # files are located in the /plugin-config folder.
 
 " Config: signify
-let g:signify_sign_change = '~'
+let g:signify_sign_add = '▍'
+let g:signify_sign_change = '▍'
+let g:signify_sign_delete_first_line = '▔'
+let g:signify_sign_delete = '▁'
 
 " Config: togglelist
 let g:toggle_list_no_mappings = 1
