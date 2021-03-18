@@ -6,7 +6,7 @@
 Plug '/Users/jesseleite/Code/vim-sourcery'
 
 " Dump debug all the vim things
-Plug 'jesseleite/vim-raymond', {'for': ['vim', 'lua']}
+Plug 'jesseleite/vim-raymond'
 
 " Human readable vim startup time profiling
 Plug 'tweekmonster/startuptime.vim', {'on': 'StartupTime'}
