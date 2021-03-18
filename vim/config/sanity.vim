@@ -25,7 +25,10 @@ set scrolloff=5
 set updatetime=1000
 set completeopt=menu,menuone,noinsert,noselect
 
-if !has('nvim')
+" Neovim and/or Vim specific settings
+if has('nvim')
+  set shada=!,'250,<50,s10,h
+else
   set ttymouse=xterm2
   set cursorline
   set cursorlineopt=number
