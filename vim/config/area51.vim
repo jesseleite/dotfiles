@@ -2,6 +2,13 @@
 " # Experimental Stuff
 " ------------------------------------------------------------------------------
 
+function! Maps(search, leader)
+  let search = a:leader ? '<Leader>' . a:search : a:search
+  execute 'verbose map' search
+endfunction
+
+command! -bang -nargs=1 Maps call Maps(<q-args>, <bang>0)
+
 if exists('*EnableStripWhitespaceOnSave')
   augroup misc_commands
     autocmd!
