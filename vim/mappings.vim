@@ -106,7 +106,7 @@ nmap <Leader><Leader>i :Run! in<Space>
 
 " Git
 " Mappings: fugitive
-nmap <Leader>gg :Gedit :<CR>
+nmap <Leader>G :Gedit :<CR>
 
 " Github
 " Mappings: rhubarb
