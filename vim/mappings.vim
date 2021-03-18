@@ -58,31 +58,30 @@ nmap <silent> <Leader>v :vsplit<CR>
 " Mappings: bbye
 nmap <silent> <Leader>c :Bdelete<CR>
 
-" Fzf fuzzy finders
-" Mappings: fzf
-nmap <Leader>f :GFiles<CR>
-nmap <Leader>F :Files<CR>
-nmap <Leader>m :GFiles?<CR>
-nmap <Leader>t :BTags<CR>
-nmap <Leader>T :Tags<CR>
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>l :BLines<CR>
-nmap <Leader>L :Lines<CR>
-nmap <Leader>h :PHistory<CR>
-nmap <Leader>H :History<CR>
-nmap <Leader>: :History:<CR>
-nmap <Leader>M :Maps<CR>
-nmap <Leader>C :Commands<CR>
-nmap <Leader>' :Marks<CR>
-nmap <Leader>s :Filetypes<CR>
-nmap <Leader>S :Snippets<CR>
-nmap <Leader><Leader>h :Helptags<CR>
-
-" Telescope finders
+" Telescope fuzzy finders
 " Mappings: telescope
-nmap <Leader><Leader>f :Telescope git_files<CR>
-nmap <Leader><Leader>F :Telescope find_files<CR>
-nmap <Leader><Leader>v :Telescope sourcery<CR>
+nnoremap <Leader>f <Cmd>Telescope git_files<CR>
+nnoremap <Leader>F <Cmd>Telescope find_files find_command=rg,--files,--no-ignore,--hidden<CR>
+nnoremap <Leader>b <Cmd>Telescope buffers sort_lastused=true<CR>
+nnoremap <Leader>m <Cmd>Telescope git_status<CR>
+nnoremap <Leader>h <Cmd>Telescope oldfiles cwd_only=true prompt_title=Project\ History<CR>
+nnoremap <Leader>H <Cmd>Telescope oldfiles prompt_title=History<CR>
+nnoremap <Leader>t <Cmd>Telescope current_buffer_tags<CR>
+nnoremap <Leader>l <Cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<CR>
+nnoremap <Leader>C <Cmd>Telescope commands<CR>
+nnoremap <Leader>: <Cmd>Telescope command_history<CR>
+nnoremap <Leader>s <Cmd>Telescope filetypes<CR>
+nnoremap <Leader>S <Cmd>Telescope ultisnips<CR>
+nnoremap <Leader><Leader>h <Cmd>Telescope help_tags<CR>
+nnoremap <Leader><Leader>v <Cmd>Telescope sourcery<CR>
+nnoremap <Leader><Leader>d <Cmd>Telescope find_files cwd=~/.dotfiles prompt_title=Dotfiles<CR>
+nnoremap <Leader><Leader>t <Cmd>Telescope<CR>
+
+" TODO: Make live_raw_ag and live_raw_rg agriculture finders
+nnoremap <Leader><Leader>/ <Cmd>Telescope live_grep<CR>
+
+" TODO: Slow compared to fzf's tags? Not sure I need these enough to care right now
+" nmap <Leader>T :Tags<CR>
 
 " Ag search project
 " Mappings: agriculture

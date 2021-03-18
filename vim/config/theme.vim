@@ -52,22 +52,6 @@ highlight DiffText ctermbg=blue ctermfg=white
 highlight DiffAdd ctermbg=green ctermfg=white
 highlight DiffDelete ctermbg=red ctermfg=white
 
-" Fzf colours
-" Highlights: fzf
-highlight FzfFg ctermfg=white
-highlight FzfBg ctermbg=none
-highlight FzfHl ctermfg=blue
-highlight FzfFgCurrent ctermfg=white
-highlight FzfBgCurrent ctermbg=black
-highlight FzfHlCurrent ctermfg=blue
-highlight FzfInfo ctermfg=darkgrey
-highlight FzfBorder ctermfg=darkgrey
-highlight FzfPrompt ctermfg=green
-highlight FzfPointer ctermfg=red
-highlight FzfMarker ctermfg=red
-highlight FzfSpinner ctermfg=green
-highlight FzfHeader ctermfg=green
-
 " Telescope colours
 " Highlights: telescope
 highlight TelescopeBorder ctermfg=darkgrey
