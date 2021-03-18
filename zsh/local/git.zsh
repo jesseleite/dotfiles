@@ -25,7 +25,7 @@ gst() {
   fi
 
   if git rev-parse --git-dir > /dev/null 2>&1; then
-    vim '+Gedit :'
+    $EDITOR '+Gedit :'
   else
     git status
   fi
