@@ -207,10 +207,10 @@ nnoremap <Leader>if :ALEFix<CR>
 
 " Generic LSP intelligence
 " Mappings: coc
-nmap <silent> <Leader>ig <Plug>(coc-definition)
-nmap <silent> <Leader>iv :vsplit<CR><Plug>(coc-definition)
-nmap <silent> <Leader>it <Plug>(coc-type-definition)
-inoremap <silent><expr> <C-l> coc#refresh()
+" nmap <silent> <Leader>ig <Plug>(coc-definition)
+" nmap <silent> <Leader>iv :vsplit<CR><Plug>(coc-definition)
+" nmap <silent> <Leader>it <Plug>(coc-type-definition)
+" inoremap <silent><expr> <C-l> coc#refresh()
 
 " PHP intelligence
 " Mappings: phpactor

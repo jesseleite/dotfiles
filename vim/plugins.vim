@@ -151,7 +151,7 @@ Plug 'tobyS/vmustache'
 Plug 'vim-vdebug/vdebug', {'on': ['Breakpoint', 'VdebugStart']}
 
 " LSP intelligence engine
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " PHP refactoring and introspection
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
