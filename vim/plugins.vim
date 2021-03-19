@@ -135,6 +135,9 @@ Plug 'jesseleite/vim-noh'
 " Current search match highlighting
 Plug 'PeterRincker/vim-searchlight'
 
+" Momentary yank highlighting
+Plug 'machakann/vim-highlightedyank'
+
 " Indent on paste
 Plug 'sickill/vim-pasta'
 
@@ -233,6 +236,9 @@ let g:sneak#use_ic_scs = 1
 " Config: pear-tree
 let g:pear_tree_repeatable_expand = 0
 let g:pear_tree_ft_disabled = ["TelescopePrompt"]
+
+" Config: highlightedyank
+let g:highlightedyank_highlight_duration = 250
 
 " Config: hardtime
 let g:hardtime_default_on = 1
