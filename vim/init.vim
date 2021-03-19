@@ -15,5 +15,12 @@ call plug#begin()
   source ~/.dotfiles/vim/plugins.vim
 call plug#end()
 
+let g:sourcery#annotation_types = [
+  \ 'Mappings',
+  \ 'Config',
+  \ 'Highlights',
+  \ ]
+
 " Initialize sourcery
+call sourcery#source_path('colors')
 call sourcery#init()
