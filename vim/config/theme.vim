@@ -59,20 +59,23 @@ highlight TelescopePromptBorder ctermfg=darkgrey
 highlight TelescopeResultsBorder ctermfg=darkgrey
 highlight TelescopePreviewBorder ctermfg=darkgrey
 
-" Coc colours
-highlight CocFloating ctermbg=234
-
 " Customize syntax colours
-highlight Function ctermfg=white
-highlight String ctermfg=blue
-highlight Boolean ctermfg=magenta
-highlight Number ctermfg=yellow
-highlight phpInclude ctermfg=blue
-highlight phpVarSelector ctermfg=white
-highlight phpMethodsVar ctermfg=white
-highlight phpType ctermfg=green
-highlight phpKeyword ctermfg=magenta
-highlight phpNullValue ctermfg=yellow
-highlight phpComment ctermfg=darkgrey
-highlight phpTodo ctermfg=darkgrey
-highlight jsOperator ctermfg=white
+" Highlights: treesitter
+highlight TSFunction ctermfg=white
+highlight TSMethod ctermfg=white
+highlight TSProperty ctermfg=white
+highlight TSConstant ctermfg=magenta
+highlight TSVariable ctermfg=red
+highlight TSVariableBuiltin ctermfg=red
+highlight TSString ctermfg=blue
+highlight TSKeyword ctermfg=green
+highlight TSBoolean ctermfg=magenta
+highlight TSNumber ctermfg=yellow
+highlight TSInclude ctermfg=blue
+highlight TSType ctermfg=green
+highlight TSTypeBuiltin ctermfg=green
+highlight TSConstructor ctermfg=white
+highlight TSPunctDelimiter ctermfg=white
+highlight TSPunctBracket ctermfg=white
+highlight TSConditional ctermfg=green
+highlight TSTag ctermfg=green

@@ -1,6 +1,18 @@
 " ------------------------------------------------------------------------------
 " # Experimental Stuff
 " ------------------------------------------------------------------------------
+" # This is where I put stuff that I'm either testing or embarassed
+" # about. No shame; Just aliens, UFOs, and cows, and experiments.
+
+let g:PHP_noArrowMatching = 1
+" Stop arrow matching on indent
+" See: /usr/local/share/vim/vim81/indent/php.vim
+" Do I need this in Neovim?
+
+
+" ------------------------------------------------------------------------------
+" # Debug mappings...
+" ------------------------------------------------------------------------------
 
 function! Maps(search, leader)
   let search = a:leader ? '<Leader>' . a:search : a:search
@@ -9,31 +21,6 @@ endfunction
 
 command! -bang -nargs=1 Maps call Maps(<q-args>, <bang>0)
 
-if exists('*EnableStripWhitespaceOnSave')
-  augroup misc_commands
-    autocmd!
-    autocmd BufEnter * EnableStripWhitespaceOnSave
-  augroup END
-endif
-
-function! DuplicateCurrentFile(path)
-  let path = "%:h/" . a:path
-  execute "saveas " . path
-  execute "edit " . path
-endfunction
-
-command! -nargs=1 Duplicate call DuplicateCurrentFile(<q-args>)
-
-" Stop arrow matching on indent
-" See: /usr/local/share/vim/vim81/indent/php.vim
-let g:PHP_noArrowMatching = 1
-
-" Not sure I actually want this
-" let g:user_emmet_settings = {
-" \  'html' : {
-" \    'indent_blockelement': 1,
-" \  },
-" \}
 
 " ------------------------------------------------------------------------------
 " # Recursively missing directories when saving new file...
@@ -52,6 +39,20 @@ augroup create_missing_directories
   autocmd!
   autocmd BufWritePre * :call s:create_missing_directories(expand('<afile>'), +expand('<abuf>'))
 augroup END
+
+
+" ------------------------------------------------------------------------------
+" # Duplicate current file...
+" ------------------------------------------------------------------------------
+
+function! DuplicateCurrentFile(path)
+  let path = "%:h/" . a:path
+  execute "saveas " . path
+  execute "edit " . path
+endfunction
+
+command! -nargs=1 Duplicate call DuplicateCurrentFile(<q-args>)
+
 
 " ------------------------------------------------------------------------------
 " # Reload and execution helpers for easier plugin dev...
@@ -79,4 +80,3 @@ endfunction
 
 nnoremap <leader>x :call ExecuteFile()<CR>
 nnoremap <leader><leader>x :call ExecuteLine()<CR>
-nnoremap <leader><leader>c :<up><CR>

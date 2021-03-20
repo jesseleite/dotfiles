@@ -1,17 +1,4 @@
 " ------------------------------------------------------------------------------
-" # Basic Edit Commands
-" ------------------------------------------------------------------------------
-
-command! EditVimrc call EditVimConfig('vimrc')
-command! EditVimMappings call EditVimConfig('mappings.vim')
-command! EditVimPlugins call EditVimConfig('plugins.vim')
-
-function! EditVimConfig(file)
-  execute 'edit ' . sourcery#vim_dotfiles_path(a:file)
-endfunction
-
-
-" ------------------------------------------------------------------------------
 " # Plugin Helper Commands
 " ------------------------------------------------------------------------------
 

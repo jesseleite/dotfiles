@@ -3,7 +3,7 @@
 " ------------------------------------------------------------------------------
 
 " Source all the vim configs
-Plug '/Users/jesseleite/Code/vim-sourcery'
+Plug 'jesseleite/vim-sourcery'
 
 " Dump debug all the vim things
 Plug 'jesseleite/vim-raymond'
@@ -11,11 +11,10 @@ Plug 'jesseleite/vim-raymond'
 " Human readable vim startup time profiling
 Plug 'tweekmonster/startuptime.vim', {'on': 'StartupTime'}
 
-" Fzf fuzzy finder
-Plug '/usr/local/opt/fzf'
-
-" Fzf vim wrapper
-Plug 'junegunn/fzf.vim'
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/playground'
 
 " Telescope fuzzy finder
 Plug 'nvim-lua/popup.nvim'
@@ -24,11 +23,20 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'fhill2/telescope-ultisnips.nvim'
 
+" Prime is the greatest harpoonist of all time
+Plug 'ThePrimeagen/harpoon'
+
 " Code commenting
 Plug 'tpope/vim-commentary'
 
-" Better ag search
-Plug 'jesseleite/vim-agriculture'
+" Git commands
+Plug 'tpope/vim-fugitive'
+
+" Github commands
+Plug 'tpope/vim-rhubarb'
+
+" Git gutters
+Plug 'mhinz/vim-signify'
 
 " Base16 theming architecture
 Plug 'chriskempson/base16-vim'
@@ -50,18 +58,6 @@ Plug 'mbbill/undotree'
 
 " Quickfix/Location toggler
 Plug 'milkypostman/vim-togglelist'
-
-" Git gutters
-Plug 'mhinz/vim-signify'
-
-" Git commands
-Plug 'tpope/vim-fugitive'
-
-" Github commands
-Plug 'tpope/vim-rhubarb'
-
-" Language pack
-Plug 'sheerun/vim-polyglot'
 
 " Linters
 Plug 'w0rp/ale'
@@ -141,29 +137,15 @@ Plug 'machakann/vim-highlightedyank'
 " Indent on paste
 Plug 'sickill/vim-pasta'
 
-" PHP Help
-Plug 'alvan/vim-php-manual', {'for': 'php'}
-
 " PHP docblocks
+Plug 'tobyS/vmustache'
 Plug 'tobyS/pdv', {'for': 'php'}
 
-" Dependency for tobyS/pdv
-Plug 'tobyS/vmustache'
-
-" Debugging
+" Debugging (look into dap)
 Plug 'vim-vdebug/vdebug', {'on': ['Breakpoint', 'VdebugStart']}
-
-" LSP intelligence engine
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " PHP refactoring and introspection
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
-
-" Custom text objects
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-function'
-Plug 'inside/vim-textobj-function-php', {'for': 'php'}
-Plug 'whatyouhide/vim-textobj-xmlattr'
 
 " Share content with carbon.now.sh
 Plug 'kristijanhusak/vim-carbon-now-sh'
@@ -171,8 +153,14 @@ Plug 'kristijanhusak/vim-carbon-now-sh'
 " Stop repeating basic movement commands
 Plug 'takac/vim-hardtime'
 
-" Prime is greatest harpoonist
-Plug 'ThePrimeagen/harpoon'
+" Cheat.sh
+Plug 'RishabhRD/popfix'
+Plug 'RishabhRD/nvim-cheat.sh'
+
+" Delete the hell outta this if/when my `:Telescope live_grep_raw` PR gets merged!
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'jesseleite/vim-agriculture'
 
 " Explicit annotation bindings for more accurate go to
 let g:sourcery#explicit_plugin_bindings = {
@@ -184,8 +172,15 @@ let g:sourcery#explicit_plugin_bindings = {
 " ------------------------------------------------------------------------------
 " # Basic Plugin Configuration
 " ------------------------------------------------------------------------------
-" # This is for basic plugin config only.  More elaborate plugin config
-" # files are located in the /plugin-config folder.
+" # This is for basic plugin config only. More elaborate config files
+" # are located in the /config folder.
+
+" Config: sourcery
+let g:sourcery#annotation_types = [
+  \ 'Mappings',
+  \ 'Config',
+  \ 'Highlights',
+  \ ]
 
 " Config: signify
 let g:signify_sign_add = '▍'
@@ -213,7 +208,7 @@ let g:vdebug_options= {
 " Config: polyglot
 let g:vim_markdown_frontmatter = 1
 
-" Disable unimparied mappings for emmet
+" Disable mappings for emmet
 " Config: unimpaired
 let g:nremap = {"[e": "", "]e": ""}
 

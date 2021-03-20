@@ -51,6 +51,12 @@ augroup check_for_external_changes
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if filereadable(bufname('%')) | checktime
 augroup END
 
+" Strip whitespace on save
+augroup strip_whitespace_on_save
+  autocmd!
+  autocmd BufEnter * EnableStripWhitespaceOnSave
+augroup END
+
 " Automatically resize vim's windows when resizing vim
 augroup equalize_windows_on_resize
   autocmd!

@@ -66,6 +66,7 @@ nnoremap <Leader>b <Cmd>Telescope buffers sort_lastused=true<CR>
 nnoremap <Leader>m <Cmd>Telescope git_status<CR>
 nnoremap <Leader>h <Cmd>Telescope oldfiles cwd_only=true prompt_title=Project\ History<CR>
 nnoremap <Leader>H <Cmd>Telescope oldfiles prompt_title=History<CR>
+nnoremap <Leader>/ <Cmd>Telescope live_grep_raw<CR>
 nnoremap <Leader>t <Cmd>Telescope current_buffer_tags<CR>
 nnoremap <Leader>l <Cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<CR>
 nnoremap <Leader>C <Cmd>Telescope commands<CR>
@@ -77,15 +78,9 @@ nnoremap <Leader><Leader>v <Cmd>Telescope sourcery<CR>
 nnoremap <Leader><Leader>d <Cmd>Telescope find_files cwd=~/.dotfiles prompt_title=Dotfiles<CR>
 nnoremap <Leader><Leader>t <Cmd>Telescope<CR>
 
-" TODO: Make live_raw_ag and live_raw_rg agriculture finders
-nnoremap <Leader><Leader>/ <Cmd>Telescope live_grep<CR>
-
-" TODO: Slow compared to fzf's tags? Not sure I need these enough to care right now
-" nmap <Leader>T :Tags<CR>
-
 " Ag search project
 " Mappings: agriculture
-nmap <Leader>/ <Plug>AgRawSearch
+nmap <Leader><Leader>/ <Plug>AgRawSearch
 vmap <Leader>/ <Plug>AgRawVisualSelection
 nmap <Leader>* <Plug>AgRawWordUnderCursor
 
@@ -218,7 +213,7 @@ nnoremap <Leader><Leader>a :ALEToggle<CR>
 nnoremap <Leader>if :ALEFix<CR>
 
 " Generic LSP intelligence
-" Mappings: coc
+" Mappings: lsp
 " nmap <silent> <Leader>ig <Plug>(coc-definition)
 " nmap <silent> <Leader>iv :vsplit<CR><Plug>(coc-definition)
 " nmap <silent> <Leader>it <Plug>(coc-type-definition)
@@ -249,6 +244,9 @@ nnoremap <Leader>V :VdebugStart<CR>
 " Mappings: togglelist
 nnoremap <Leader><Leader>q :call ToggleQuickfixList()<CR>
 nnoremap <Leader><Leader>l :call ToggleLocationList()<CR>
+
+" Mappings: treesitter
+nnoremap <Leader><Leader>s :TSHighlightCapturesUnderCursor<CR>
 
 " Mappings: quickfix
 function! QuickfixLocalMappings()
