@@ -89,6 +89,18 @@ nmap <Leader>/ <Plug>AgRawSearch
 vmap <Leader>/ <Plug>AgRawVisualSelection
 nmap <Leader>* <Plug>AgRawWordUnderCursor
 
+" Mappings: harpoon
+nnoremap <Leader>gh :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <Leader>ga :lua require("harpoon.mark").add_file()<CR>
+nnoremap <Leader>gr :lua require("harpoon.mark").rm_file()<CR>
+nnoremap <leader>gx :lua require("harpoon.mark").clear_all()<CR>
+nnoremap <Leader>gj :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <Leader>gk :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <Leader>gl :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <Leader>g; :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <Leader>gu :lua require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <Leader>gi :lua require("harpoon.term").gotoTerminal(2)<CR>
+
 " Run tests
 " Mappings: test
 nmap <Leader>rt :w<CR>:TestToggleStrategy<CR>
