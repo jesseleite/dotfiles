@@ -41,10 +41,11 @@ highlight CursorLine ctermbg=black ctermfg=none
 highlight QuickFixLine ctermbg=black ctermfg=none
 highlight ALEErrorSign ctermbg=none ctermfg=red
 highlight ALEWarningSign ctermbg=none ctermfg=magenta
-highlight Pmenu ctermfg=grey ctermbg=black
+highlight Pmenu ctermfg=white ctermbg=black
 highlight PmenuSel ctermfg=white ctermbg=blue
 highlight PmenuSbar ctermbg=black
 highlight PmenuThumb ctermbg=white
+highlight CompeDocumentation ctermbg=233
 highlight Folded ctermbg=black ctermfg=darkgrey
 highlight FoldColumn ctermbg=none ctermfg=darkgrey
 highlight clear DiffChange

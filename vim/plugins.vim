@@ -50,6 +50,12 @@ Plug 'vim-airline/vim-airline-themes'
 " File system explorer
 Plug 'lambdalisue/fern.vim' , {'on': 'Fern'}
 
+" Neovim LSP
+Plug 'neovim/nvim-lspconfig'
+
+" Auto completion
+Plug 'hrsh7th/nvim-compe'
+
 " Tag generation
 Plug 'ludovicchabant/vim-gutentags'
 

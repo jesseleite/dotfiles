@@ -214,10 +214,15 @@ nnoremap <Leader>if :ALEFix<CR>
 
 " Generic LSP intelligence
 " Mappings: lsp
-" nmap <silent> <Leader>ig <Plug>(coc-definition)
-" nmap <silent> <Leader>iv :vsplit<CR><Plug>(coc-definition)
-" nmap <silent> <Leader>it <Plug>(coc-type-definition)
-" inoremap <silent><expr> <C-l> coc#refresh()
+nnoremap <silent> <Leader>ig <Cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <Leader>iv :vsplit<CR><Cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <Leader>id <Cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <Leader>ir <Cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <Leader>ii <Cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> K <Cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent> <C-k> <Cmd>lua vim.lsp.buf.signature_help()<CR>
+" nnoremap <silent> <C-n> <Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+" nnoremap <silent> <C-p> <Cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 " PHP intelligence
 " Mappings: phpactor
