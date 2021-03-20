@@ -2,9 +2,14 @@
 " # Plugin Helper Commands
 " ------------------------------------------------------------------------------
 
+command! UseLocalPluginRepo call UseLocalPluginRepo()
 command! GoToPluginGithubUrl call GoToPluginGithubUrl()
 command! PlugYankGithubUrl call PlugYankGithubUrl()
 command! PlugPasteFromClipboard call PlugPasteFromClipboard()
+
+function! UseLocalPluginRepo()
+   s/'[^/]\+/'\/Users\/jesseleite\/Code/
+endfunction
 
 function! GoToPluginGithubUrl()
   call PlugYankGithubUrl()
@@ -21,6 +26,7 @@ function! PlugPasteFromClipboard()
   execute 'edit ' . sourcery#vim_dotfiles_path('plugins.vim')
   normal G
   call search("Plug \'.*\'", 'b')
+  normal o
   execute "normal oPlug " . substitute("'p'", 'p', s:get_installable_plugin_from_clipboard(), '')
 endfunction
 
