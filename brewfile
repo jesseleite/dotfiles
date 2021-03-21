@@ -5,6 +5,7 @@ tap 'universal-ctags/universal-ctags'
 tap 'exolnet/homebrew-deprecated'
 tap 'deligoez/cask'
 tap 'teamookla/speedtest'
+tap 'saadparwaiz1/personal' # For `lua-language-server`
 
 # Brew
 brew 'bash'
@@ -37,6 +38,7 @@ brew 'chrome-cli'
 brew 'shyaml'
 brew 'trash'
 brew 'speedtest'
+brew 'lua-language-server'
 # brew 'docker' # installed M1 preview manually for now
 
 # Cask

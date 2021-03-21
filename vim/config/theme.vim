@@ -53,14 +53,12 @@ highlight DiffText ctermbg=blue ctermfg=white
 highlight DiffAdd ctermbg=green ctermfg=white
 highlight DiffDelete ctermbg=red ctermfg=white
 
-" Telescope colours
 " Highlights: telescope
 highlight TelescopeBorder ctermfg=darkgrey
 highlight TelescopePromptBorder ctermfg=darkgrey
 highlight TelescopeResultsBorder ctermfg=darkgrey
 highlight TelescopePreviewBorder ctermfg=darkgrey
 
-" Customize syntax colours
 " Highlights: treesitter
 highlight TSFunction ctermfg=white
 highlight TSMethod ctermfg=white
@@ -80,3 +78,14 @@ highlight TSPunctDelimiter ctermfg=white
 highlight TSPunctBracket ctermfg=white
 highlight TSConditional ctermfg=green
 highlight TSTag ctermfg=green
+
+" Highlights: lsp
+highlight LspDiagnosticsDefaultError ctermfg=red
+highlight LspDiagnosticsDefaultWarning ctermfg=magenta
+highlight LspDiagnosticsDefaultInformation ctermfg=yellow
+highlight LspDiagnosticsDefaultHint ctermfg=blue
+
+sign define LspDiagnosticsSignError text=❱❱ texthl=LspDiagnosticsSignError linehl= numhl=
+sign define LspDiagnosticsSignWarning text=❱❱ texthl=LspDiagnosticsSignWarning linehl= numhl=
+sign define LspDiagnosticsSignInformation text=❱❱ texthl=LspDiagnosticsSignInformation linehl= numhl=
+sign define LspDiagnosticsSignHint text=❱❱ texthl=LspDiagnosticsSignHint linehl= numhl=
