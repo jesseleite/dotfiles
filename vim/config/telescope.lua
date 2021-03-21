@@ -4,6 +4,7 @@
 
 local telescope = require('telescope')
 local actions = require('telescope.actions')
+local builtin = require('telescope.builtin')
 
 telescope.setup {
   defaults = {
@@ -28,10 +29,36 @@ telescope.load_extension('ultisnips')
 -- Custom Finders
 --------------------------------------------------------------------------------
 
--- Implemented directly with `Telescope find_files` mapping and `cwd` option...
--- local find_dotfiles = function()
---     require("telescope.builtin").find_files({
---         prompt_title = 'My Dotfiles',
---         cwd = "$HOME/.dotfiles",
---     })
--- end
+builtin.all_files = function ()
+  builtin.find_files({
+    prompt_title = 'All Files',
+    find_command = {'rg', '--files', '--no-ignore', '--hidden'},
+  })
+end
+
+builtin.dotfiles = function ()
+  builtin.find_files({
+    prompt_title = 'Dotfiles',
+    cwd = "$HOME/.dotfiles",
+  })
+end
+
+builtin.project_history = function ()
+  builtin.oldfiles({
+    prompt_title = 'Project History',
+    cwd_only = true,
+  })
+end
+
+builtin.history = function()
+  builtin.oldfiles({
+    prompt_title = 'History',
+  })
+end
+
+builtin.current_buffer_lines = function ()
+  builtin.current_buffer_fuzzy_find({
+    prompt_title = 'Current Buffer Lines',
+    sorting_strategy = 'ascending',
+  })
+end

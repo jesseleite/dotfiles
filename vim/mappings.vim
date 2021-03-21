@@ -61,21 +61,21 @@ nmap <silent> <Leader>c :Bdelete<CR>
 " Telescope fuzzy finders
 " Mappings: telescope
 nnoremap <Leader>f <Cmd>Telescope git_files<CR>
-nnoremap <Leader>F <Cmd>Telescope find_files find_command=rg,--files,--no-ignore,--hidden<CR>
+nnoremap <Leader>F <Cmd>Telescope all_files<CR>
 nnoremap <Leader>b <Cmd>Telescope buffers sort_lastused=true<CR>
 nnoremap <Leader>m <Cmd>Telescope git_status<CR>
-nnoremap <Leader>h <Cmd>Telescope oldfiles cwd_only=true prompt_title=Project\ History<CR>
-nnoremap <Leader>H <Cmd>Telescope oldfiles prompt_title=History<CR>
+nnoremap <Leader>h <Cmd>Telescope project_history<CR>
+nnoremap <Leader>H <Cmd>Telescope history<CR>
 nnoremap <Leader>/ <Cmd>Telescope live_grep_raw<CR>
 nnoremap <Leader>t <Cmd>Telescope current_buffer_tags<CR>
-nnoremap <Leader>l <Cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<CR>
+nnoremap <Leader>l <Cmd>Telescope current_buffer_lines<CR>
 nnoremap <Leader>C <Cmd>Telescope commands<CR>
 nnoremap <Leader>: <Cmd>Telescope command_history<CR>
 nnoremap <Leader>s <Cmd>Telescope filetypes<CR>
 nnoremap <Leader>S <Cmd>Telescope ultisnips<CR>
 nnoremap <Leader><Leader>h <Cmd>Telescope help_tags<CR>
 nnoremap <Leader><Leader>v <Cmd>Telescope sourcery<CR>
-nnoremap <Leader><Leader>d <Cmd>Telescope find_files cwd=~/.dotfiles prompt_title=Dotfiles<CR>
+nnoremap <Leader><Leader>d <Cmd>Telescope dotfiles<CR>
 nnoremap <Leader><Leader>t <Cmd>Telescope<CR>
 
 " Ag search project
