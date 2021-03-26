@@ -6,6 +6,7 @@ alias c="clear"
 alias o="open ."
 alias rm="trash"
 alias rf="trash -rf"
+alias sizes='du -sh -c *'
 
 # Run any command from anywhere, without leaving current working directory.
 #
