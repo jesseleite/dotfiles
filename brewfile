@@ -6,6 +6,7 @@ tap 'exolnet/homebrew-deprecated'
 tap 'deligoez/cask'
 tap 'teamookla/speedtest'
 tap 'saadparwaiz1/personal' # For `lua-language-server`
+tap 'nicoverbruggen/homebrew-cask' # For `phpmon`
 
 # Brew
 brew 'bash'
@@ -62,7 +63,6 @@ cask 'gifox'
 cask 'tinkerwell'
 cask 'tableplus'
 cask 'flux'
-cask 'xdebug-toggler'
 cask 'zoom'
 cask 'paw'
 cask 'helo'
@@ -72,6 +72,7 @@ cask 'gitter'
 cask 'loopback'
 cask 'selfcontrol'
 cask 'cleanshot'
+cask 'phpmon'
 #cask 'adobe-creative-cloud'
 #cask 'vagrant'
 #cask 'virtualbox'

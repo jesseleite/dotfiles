@@ -72,6 +72,8 @@
     command: "sh composer/global_update"
   - description: Initializing valet
     command: "sudo valet install"
+  - description: Trust valet
+    command: "sudo valet trust"
   - description: Parking valet on code directory
     command: "valet park ~/Code"
   - description: Clearing sudo credential cache
