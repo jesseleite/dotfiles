@@ -43,9 +43,9 @@ brew 'lua-language-server'
 # brew 'docker' # installed M1 preview manually for now
 
 # Cask
+cask 'kitty'
 cask 'google-chrome'
 cask 'firefox'
-cask 'alacritty'
 cask 'github'
 cask 'tower'
 cask 'karabiner-elements'

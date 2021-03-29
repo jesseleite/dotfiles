@@ -147,7 +147,7 @@ currentLayout = nil
 layouts = {
 
   w = function ()
-    moveApp('Alacritty', positions.twoThirds.right)
+    moveApp('kitty', positions.twoThirds.right)
     moveApp('Google Chrome', positions.thirds.left)
     moveApp('Ray', positions.thirds.left)
     moveApp('Tower', positions.thirds.center)
