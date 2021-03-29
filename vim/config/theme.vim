@@ -45,13 +45,13 @@ highlight Pmenu ctermfg=white ctermbg=black
 highlight PmenuSel ctermfg=white ctermbg=blue
 highlight PmenuSbar ctermbg=black
 highlight PmenuThumb ctermbg=white
-highlight CompeDocumentation ctermbg=233
 highlight Folded ctermbg=black ctermfg=darkgrey
 highlight FoldColumn ctermbg=none ctermfg=darkgrey
 highlight clear DiffChange
 highlight DiffText ctermbg=blue ctermfg=white
 highlight DiffAdd ctermbg=green ctermfg=white
 highlight DiffDelete ctermbg=red ctermfg=white
+highlight Todo ctermbg=none ctermfg=blue
 
 " Highlights: telescope
 highlight TelescopeBorder ctermfg=darkgrey
@@ -89,3 +89,6 @@ sign define LspDiagnosticsSignError text=❱❱ texthl=LspDiagnosticsSignError l
 sign define LspDiagnosticsSignWarning text=❱❱ texthl=LspDiagnosticsSignWarning linehl= numhl=
 sign define LspDiagnosticsSignInformation text=❱❱ texthl=LspDiagnosticsSignInformation linehl= numhl=
 sign define LspDiagnosticsSignHint text=❱❱ texthl=LspDiagnosticsSignHint linehl= numhl=
+
+" Highlights: compe
+highlight CompeDocumentation ctermbg=233
