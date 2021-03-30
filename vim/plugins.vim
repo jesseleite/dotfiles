@@ -146,6 +146,9 @@ Plug 'machakann/vim-highlightedyank'
 " Indent on paste
 Plug 'sickill/vim-pasta'
 
+" Markdown previewer
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 " PHP docblocks
 Plug 'tobyS/vmustache'
 Plug 'tobyS/pdv', {'for': 'php'}
