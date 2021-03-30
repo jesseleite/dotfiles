@@ -9,6 +9,8 @@ tags.temp
 
 # Linters and fixers
 .php_cs.cache
+phpstan.neon
+jsconfig.json
 
 # Statamic
 site/users/jlo.yaml
