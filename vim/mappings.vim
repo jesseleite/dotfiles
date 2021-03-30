@@ -207,11 +207,6 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" Ale
-" Mappings: ale
-nnoremap <Leader><Leader>a :ALEToggle<CR>
-nnoremap <Leader>if :ALEFix<CR>
-
 " Generic LSP intelligence
 " Mappings: lsp
 nnoremap <silent> <Leader>ig <Cmd>lua vim.lsp.buf.definition()<CR>

@@ -68,9 +68,6 @@ Plug 'mbbill/undotree'
 " Quickfix/Location toggler
 Plug 'milkypostman/vim-togglelist'
 
-" Linters
-Plug 'w0rp/ale'
-
 " CSS colour rendering
 Plug 'ap/vim-css-color'
 
