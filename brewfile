@@ -40,6 +40,7 @@ brew 'shyaml'
 brew 'trash'
 brew 'speedtest'
 brew 'lua-language-server'
+brew 'httpie'
 # brew 'docker' # installed M1 preview manually for now
 
 # Cask
