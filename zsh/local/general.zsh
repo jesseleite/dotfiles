@@ -8,6 +8,9 @@ alias rm="trash"
 alias rf="trash -rf"
 alias sizes='du -sh -c *'
 
+# Copy pwd to clipboard
+alias cwd="pwd && pwd | pbcopy && echo 'Copied to clipboard 📁'"
+
 # Run any command from anywhere, without leaving current working directory.
 #
 # Usage: `in [target] [command]`
