@@ -32,7 +32,7 @@ st() {
 alias b="valet open"
 
 # Edit global composer config.
-alias compc="vim ~/.composer/config.json"
+alias compc="nvim ~/.composer/config.json"
 
 # Get installed version of a specific composer package
 compv() {
