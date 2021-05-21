@@ -31,7 +31,9 @@ lspconfig.vimls.setup { }
 
 -- PHP
 lspconfig.intelephense.setup { }
--- lspconfig.phpactor.setup { } -- Cannot get diagnostics to work
+-- lspconfig.phpactor.setup {
+--   cmd = {vim.fn.stdpath('config') .. '/plugged/phpactor/bin/phpactor', 'language-server'},
+-- }
 
 -- Vue
 lspconfig.vuels.setup { }
