@@ -214,6 +214,7 @@ nnoremap <silent> <Leader>iv :vsplit<CR><Cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <Leader>id <Cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <Leader>ir <Cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> <Leader>ii <Cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <Leader>ie <Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nnoremap <silent> K <Cmd>lua vim.lsp.buf.hover()<CR>
 " nnoremap <silent> <C-k> <Cmd>lua vim.lsp.buf.signature_help()<CR>
 " nnoremap <silent> <C-n> <Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
