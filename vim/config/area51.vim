@@ -4,12 +4,6 @@
 " # This is where I put stuff that I'm either testing or embarassed
 " # about. No shame; Just aliens, UFOs, and cows, and experiments.
 
-let g:PHP_noArrowMatching = 1
-" Stop arrow matching on indent
-" See: /usr/local/share/vim/vim81/indent/php.vim
-" Do I need this in Neovim?
-
-
 " ------------------------------------------------------------------------------
 " # Debug mappings...
 " ------------------------------------------------------------------------------
