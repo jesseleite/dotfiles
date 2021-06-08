@@ -160,7 +160,7 @@ Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 Plug 'kristijanhusak/vim-carbon-now-sh'
 
 " Stop repeating basic movement commands
-Plug 'takac/vim-hardtime'
+" Plug 'takac/vim-hardtime'
 
 " Cheat.sh
 Plug 'RishabhRD/popfix'
