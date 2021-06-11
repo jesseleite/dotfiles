@@ -67,15 +67,17 @@ nnoremap <Leader>m <Cmd>Telescope git_status<CR>
 nnoremap <Leader>h <Cmd>Telescope project_history<CR>
 nnoremap <Leader>H <Cmd>Telescope history<CR>
 nnoremap <Leader>/ <Cmd>Telescope live_grep_raw<CR>
-nnoremap <Leader>t <Cmd>Telescope current_buffer_tags<CR>
+nnoremap <Leader>s <Cmd>Telescope lsp_document_symbols<CR>
+nnoremap <Leader>S <Cmd>Telescope lsp_dynamic_workspace_symbols<CR>
+" nnoremap <Leader>r <Cmd>Telescope lsp_references<CR>
 nnoremap <Leader>l <Cmd>Telescope current_buffer_lines<CR>
 nnoremap <Leader>C <Cmd>Telescope commands<CR>
 nnoremap <Leader>: <Cmd>Telescope command_history<CR>
-nnoremap <Leader>s <Cmd>Telescope filetypes<CR>
-nnoremap <Leader>S <Cmd>Telescope ultisnips<CR>
-nnoremap <Leader><Leader>h <Cmd>Telescope help_tags<CR>
 nnoremap <Leader><Leader>v <Cmd>Telescope sourcery<CR>
 nnoremap <Leader><Leader>d <Cmd>Telescope dotfiles<CR>
+nnoremap <Leader><Leader>h <Cmd>Telescope help_tags<CR>
+nnoremap <Leader><Leader>s <Cmd>Telescope filetypes<CR>
+nnoremap <Leader><Leader>S <Cmd>Telescope ultisnips<CR>
 nnoremap <Leader><Leader>t <Cmd>Telescope<CR>
 
 " Ag search project
