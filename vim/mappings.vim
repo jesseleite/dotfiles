@@ -61,16 +61,16 @@ nmap <silent> <Leader>c :Bdelete<CR>
 " Telescope fuzzy finders
 " Mappings: telescope
 nnoremap <Leader>f <Cmd>Telescope git_files<CR>
-nnoremap <Leader>F <Cmd>Telescope all_files<CR>
+nnoremap <Leader>F <Cmd>Telescope find_files<CR>
 nnoremap <Leader>b <Cmd>Telescope buffers sort_lastused=true<CR>
 nnoremap <Leader>m <Cmd>Telescope git_status<CR>
 nnoremap <Leader>h <Cmd>Telescope project_history<CR>
-nnoremap <Leader>H <Cmd>Telescope history<CR>
+nnoremap <Leader>H <Cmd>Telescope oldfiles<CR>
 nnoremap <Leader>/ <Cmd>Telescope live_grep_raw<CR>
 nnoremap <Leader>s <Cmd>Telescope lsp_document_symbols<CR>
 nnoremap <Leader>S <Cmd>Telescope lsp_dynamic_workspace_symbols<CR>
 " nnoremap <Leader>r <Cmd>Telescope lsp_references<CR>
-nnoremap <Leader>l <Cmd>Telescope current_buffer_lines<CR>
+nnoremap <Leader>l <Cmd>Telescope current_buffer_fuzzy_find<CR>
 nnoremap <Leader>C <Cmd>Telescope commands<CR>
 nnoremap <Leader>: <Cmd>Telescope command_history<CR>
 nnoremap <Leader><Leader>v <Cmd>Telescope sourcery<CR>
