@@ -15,6 +15,7 @@
     ~/.zshrc: zsh/zshrc
     ~/.config/nvim/init.vim: vim/init.vim
     ~/.config/nvim/ultisnips: vim/snippets
+    ~/.config/nvim/after/queries: vim/queries
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/tmuxinator: tmux/tmuxinator

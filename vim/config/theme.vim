@@ -67,6 +67,7 @@ highlight TSConstant ctermfg=magenta
 highlight TSVariable ctermfg=red
 highlight TSVariableBuiltin ctermfg=red
 highlight TSString ctermfg=blue
+highlight TSOperator ctermfg=white
 highlight TSKeyword ctermfg=green
 highlight TSBoolean ctermfg=magenta
 highlight TSNumber ctermfg=yellow
