@@ -14,7 +14,7 @@
     ~/.gitignore_global: git/gitignore_global
     ~/.zshrc: zsh/zshrc
     ~/.config/nvim/init.vim: vim/init.vim
-    ~/.vim/ultisnips: vim/snippets
+    ~/.config/nvim/ultisnips: vim/snippets
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/tmuxinator: tmux/tmuxinator
