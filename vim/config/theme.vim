@@ -77,8 +77,10 @@ highlight TSTypeBuiltin ctermfg=green
 highlight TSConstructor ctermfg=white
 highlight TSPunctDelimiter ctermfg=white
 highlight TSPunctBracket ctermfg=white
-highlight TSConditional ctermfg=green
+highlight TSConditional ctermfg=magenta
+highlight TSRepeat ctermfg=magenta
 highlight TSTag ctermfg=green
+highlight commentTSConstant ctermfg=darkgrey
 
 " Highlights: lsp
 highlight LspDiagnosticsDefaultError ctermfg=red
