@@ -1,1 +1,2 @@
+"self" @keyword
 "$" @operator
