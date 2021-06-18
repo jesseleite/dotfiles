@@ -2,7 +2,7 @@
 # General theme config
 # ------------------------------------------------------------------------------
 
-export TERM=xterm-256color
+export TERM=xterm-kitty
 
 ZSH_THEME_TERM_TITLE_IDLE="%~"
 

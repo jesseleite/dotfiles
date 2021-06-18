@@ -83,10 +83,14 @@ highlight TSTag ctermfg=green
 highlight commentTSConstant ctermfg=darkgrey
 
 " Highlights: lsp
-highlight LspDiagnosticsDefaultError ctermfg=red
-highlight LspDiagnosticsDefaultWarning ctermfg=magenta
-highlight LspDiagnosticsDefaultInformation ctermfg=yellow
-highlight LspDiagnosticsDefaultHint ctermfg=blue
+highlight LspDiagnosticsDefaultError ctermfg=red cterm=italic,undercurl
+highlight LspDiagnosticsDefaultWarning ctermfg=magenta cterm=italic,undercurl
+highlight LspDiagnosticsDefaultInformation ctermfg=yellow cterm=italic,undercurl
+highlight LspDiagnosticsDefaultHint ctermfg=blue cterm=italic,undercurl
+highlight LspDiagnosticsSignError ctermfg=red
+highlight LspDiagnosticsSignWarning ctermfg=magenta
+highlight LspDiagnosticsSignInformation ctermfg=yellow
+highlight LspDiagnosticsSignHint ctermfg=yellow
 
 sign define LspDiagnosticsSignError text=❱❱ texthl=LspDiagnosticsSignError linehl= numhl=
 sign define LspDiagnosticsSignWarning text=❱❱ texthl=LspDiagnosticsSignWarning linehl= numhl=
