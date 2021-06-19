@@ -3,7 +3,6 @@ tap 'homebrew/cask'
 tap 'homebrew/bundle'
 tap 'universal-ctags/universal-ctags'
 tap 'exolnet/homebrew-deprecated'
-tap 'deligoez/cask'
 tap 'teamookla/speedtest'
 tap 'saadparwaiz1/personal' # For `lua-language-server`
 tap 'nicoverbruggen/homebrew-cask' # For `phpmon`
