@@ -14,7 +14,8 @@ lspconfig.sumneko_lua.setup {
         path = vim.split(package.path, ';'),
       },
       diagnostics = {
-        globals = {'vim', 'Ray'},
+        globals = {'vim', 'Ray', 'hs', 'spoon'},
+        disable = {"lowercase-global"},
       },
       workspace = {
         library = {
