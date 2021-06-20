@@ -17,6 +17,7 @@ augroup filetype_settings
   autocmd FileType vue setlocal ts=4 sw=4 sts=4 expandtab commentstring=//\ %s
   autocmd FileType vue syntax sync fromstart
   autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
+  autocmd FileType markdown setlocal wrap
 augroup END
 
 augroup framework_filetype_settings

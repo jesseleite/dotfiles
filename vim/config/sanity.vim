@@ -24,6 +24,7 @@ set ttimeoutlen=5 " Vim8 defaulted to 100, but I'm trying out 5ms to avoid ESC l
 set scrolloff=5
 set updatetime=1000
 set completeopt=menu,menuone,noinsert,noselect
+set nowrap
 set autoindent
 set smartindent
 
