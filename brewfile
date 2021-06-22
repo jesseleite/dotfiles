@@ -3,9 +3,9 @@ tap 'homebrew/cask'
 tap 'homebrew/bundle'
 tap 'universal-ctags/universal-ctags'
 tap 'exolnet/homebrew-deprecated'
-tap 'teamookla/speedtest'
-tap 'saadparwaiz1/personal' # For `lua-language-server`
-tap 'nicoverbruggen/homebrew-cask' # For `phpmon`
+tap 'teamookla/speedtest'              # For `speedtest`
+tap 'saadparwaiz1/personal'            # For `lua-language-server`
+tap 'nicoverbruggen/homebrew-cask'     # For `phpmon`
 
 # Brew
 brew 'bash'
@@ -54,6 +54,7 @@ cask 'transmit'
 cask 'slack'
 cask 'telegram'
 cask 'steam'
+cask 'openemu'
 cask 'discord'
 cask 'vlc'
 cask 'imageoptim'
