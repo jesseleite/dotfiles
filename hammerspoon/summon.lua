@@ -19,10 +19,7 @@ end)
 function summon(appName, hideOnClose)
   hideOnClose = hideOnClose or false
   if currentlyFocusedAppName == appName and not next(hs.application.find(appName):allWindows()) then
-    hs.application.find(appName):kill()
-    hs.timer.doAfter(0.3, function()
-      hs.application.open(appName)
-    end)
+    hs.application.open(appName)
   elseif currentlyFocusedAppName ~= appName then
     hs.application.open(appName)
   else
