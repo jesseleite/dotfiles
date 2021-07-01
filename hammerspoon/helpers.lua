@@ -1,109 +1,97 @@
 --------------------------------------------------------------------------------
--- Language Helpers
---------------------------------------------------------------------------------
-
-function map(f, t)
-  n = {}
-
-  for k,v in pairs(t) do
-    n[k] = f(v);
-  end
-
-  return n;
-end
-
-function sleep(milliseconds)
-  hs.timer.usleep(milliseconds * 1000)
-end
-
-
---------------------------------------------------------------------------------
 -- Modal Helpers
 --------------------------------------------------------------------------------
 
-function activateModal(mods, key)
+function activateModal(mods, key, timeout)
+  timeout = timeout or false
   local modal = hs.hotkey.modal.new(mods, key)
+  local timer
   modal:bind('', 'escape', nil, function() modal:exit() end)
+  modal:bind('', 'q', nil, function() modal:exit() end)
+  modal:bind('ctrl', 'c', nil, function() modal:exit() end)
+  function modal:entered()
+    if timeout then
+      timer = hs.timer.doAfter(3, function() modal:exit() end)
+    end
+    print('modal entered')
+  end
+  function modal:exited()
+    if timer then
+      timer:stop()
+    end
+    print('modal exited')
+  end
   return modal
 end
 
-function modalBind(modal, key, fn)
-  modal:bind('', key, nil, function() fn(); modal:exit() end)
-end
-
-
---------------------------------------------------------------------------------
--- Grid Helpers
---------------------------------------------------------------------------------
-
-function moveApp(application, cell)
-  local app = hs.application.get(application)
-  if app == nil then
-    return false
-  end
-  local window = hs.application.mainWindow(app)
-  if window then
-    hs.grid.set(window, cell, hs.screen.mainScreen())
-  end
-end
-
-function moveCurrentWindow(cell)
-  hs.grid.set(hs.window.focusedWindow(), cell, hs.screen.mainScreen())
-end
-
-function snap()
-  local window = hs.window.focusedWindow()
-  hs.grid.snap(window)
-
-  local application = hs.application.frontmostApplication():name()
-  local cell = hs.grid.get(window)
-  local position = string.format('%s,%s %sx%s', math.floor(cell.x), math.floor(cell.y), math.floor(cell.w), math.floor(cell.h))
-  print(string.format('%s - %s', application, position))
-end
-
-function getPositions(sizes, leftOrRight, topOrBottom)
-  local applyLeftOrRight = function (size)
-    if type(positions[size]) == 'string' then
-      return positions[size]
+function modalBind(modal, key, fn, exitAfter)
+  exitAfter = exitAfter or false
+  modal:bind('', key, nil, function()
+    fn()
+    if exitAfter then
+      modal:exit()
     end
-    return positions[size][leftOrRight]
-  end
-
-  local applyTopOrBottom = function (position)
-    local h = math.floor(string.match(position, 'x([0-9]+)') / 2)
-    position = string.gsub(position, 'x[0-9]+', 'x'..h)
-    if topOrBottom == 'bottom' then
-      local y = math.floor(string.match(position, ',([0-9]+)') + h)
-      position = string.gsub(position, ',[0-9]+', ','..y)
-    end
-    return position
-  end
-
-  if (topOrBottom) then
-    return map(applyTopOrBottom, map(applyLeftOrRight, sizes))
-  end
-
-  return map(applyLeftOrRight, sizes)
+  end)
 end
 
 
 --------------------------------------------------------------------------------
--- Layout Helpers
+-- Yabai Helpers
 --------------------------------------------------------------------------------
 
-function setLayout(layout, saveCurrentLayout)
-  if layout then
-    layouts[layout]()
-    if saveCurrentLayout then
-      currentLayout = layout
+function yabaiCmd(cmd, fallbackCmd)
+  hs.task.new('/usr/local/bin/yabai', function(exitCode)
+    if exitCode == 1 then
+      yabaiCmd(fallbackCmd)
     end
-  elseif currentLayout then
-    layouts[currentLayout]()
-  end
-  hs.notify.show('Layout Set', '', layout)
+  end, hs.fnutils.concat({'-m'}, cmd)):start()
 end
 
-function resetLayout()
-  currentLayout = nil
-  hs.notify.show('Layout Reset', '', '')
+function yabai(binding, fallbackCmd)
+  if type(binding) == 'string' then
+    return yabaiRunFromString(binding)
+  elseif type(binding) == 'table' then
+    return yabaiCmd(binding, fallbackCmd)
+  elseif type(binding) == 'function' then
+    return binding()
+  else
+    print('incompatible binding type')
+  end
+end
+
+function yabaiRunFromString(binding)
+  if string.match(binding, 'OR') then
+    local cmds = hs.fnutils.map(hs.fnutils.split(binding, ' OR '), function(cmd)
+      return hs.fnutils.split(cmd, ' ');
+    end)
+    yabaiCmd(cmds[1], cmds[2])
+  elseif string.match(binding, 'AND') then
+    hs.fnutils.each(hs.fnutils.split(binding, ' AND '), function(cmd)
+      yabaiCmd(hs.fnutils.split(cmd, ' '))
+      print(hs.inspect(hs.fnutils.split(cmd, ' ')))
+    end)
+  else
+    yabaiCmd(hs.fnutils.split(binding, ' '))
+  end
+end
+
+
+--------------------------------------------------------------------------------
+-- Binding Helpers
+--------------------------------------------------------------------------------
+
+function registerKeyBindings(mods, bindings)
+  for key,binding in pairs(bindings) do
+    hs.hotkey.bind(mods, key, binding)
+  end
+end
+
+function registerModalBindings(mods, key, bindings, exitAfter)
+  exitAfter = exitAfter or false
+  local timeout = exitAfter == true
+  local modal = activateModal(mods, key, timeout)
+  for modalKey,binding in pairs(bindings) do
+    modalBind(modal, modalKey, binding, exitAfter)
+  end
+  return modal
 end

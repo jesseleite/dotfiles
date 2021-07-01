@@ -1,174 +1,117 @@
 --------------------------------------------------------------------------------
--- Global Config
+-- Setup
 --------------------------------------------------------------------------------
 
-hyper = {"cmd", "alt", "ctrl"}
-lilHyper = {"cmd", "ctrl"}
-
-hs.hotkey.bind(hyper, 'r', hs.reload)
-hs.hotkey.bind(hyper, '`', hs.toggleConsole)
-
-hs.loadSpoon("ReloadConfiguration")
+hyper = {"cmd", "alt", "ctrl"} -- or D+F 🤘
 
 require('summon')
 require('helpers')
 require('area51')
 
-local chain = require('chain')
+hs.loadSpoon("ReloadConfiguration"):start()
 
-
---------------------------------------------------------------------------------
--- Reload Configuration On Save
---------------------------------------------------------------------------------
-
-spoon.ReloadConfiguration:start()
+hs.hotkey.bind(hyper, 'r', hs.reload)
+hs.hotkey.bind(hyper, '`', hs.toggleConsole)
 
 
 --------------------------------------------------------------------------------
 -- Summon Specific Apps
 --------------------------------------------------------------------------------
 
-hs.hotkey.bind({"cmd"}, "escape", function()
-  summon('kitty')
-  setLayout()
-end)
+hs.hotkey.bind({'cmd'}, 'escape', function() summon('kitty') end)
 
-hs.hotkey.bind({"cmd"}, '`', function()
-  summon('Ray')
-  setLayout()
-end)
-
-
---------------------------------------------------------------------------------
--- Window Modal
---------------------------------------------------------------------------------
-
-windowModal = activateModal(lilHyper, 'o')
-
-modalBind(windowModal, 'a', function () summon('Alacritty') end)
-modalBind(windowModal, 'b', function () summon('Bear') end)
-modalBind(windowModal, 'c', function () summon('Google Chrome') end)
-modalBind(windowModal, 's', function () summon('Slack') end)
-modalBind(windowModal, 'd', function () summon('Discord') end)
-modalBind(windowModal, 't', function () summon('Telegram') end)
-modalBind(windowModal, 'g', function () summon('Tower') end)
-modalBind(windowModal, 'r', function () summon('Ray') end)
-modalBind(windowModal, 'm', function () summon('Music') end)
-
-
---------------------------------------------------------------------------------
--- Grid Settings
---------------------------------------------------------------------------------
-
-hs.window.animationDuration = 0
-hs.grid.setGrid('30x20')
-hs.grid.setMargins('36x36')
-
-positions = {
-  full     = '0,0 30x20',
-
-  center = {
-    wide   = '2,1 26x18',
-    normal = '6,1 18x18',
-    narrow = '10,1 10x18',
-  },
-
-  thirds = {
-    left   = '0,0 10x20',
-    center = '10,0 10x20',
-    right  = '20,0 10x20',
-  },
-
-  halves = {
-    left   = '0,0 15x20',
-    right  = '15,0 15x20',
-  },
-
-  twoThirds = {
-    left   = '0,0 20x20',
-    right  = '10,0 20x20',
-  },
-
-  fourFifths = {
-    left   = '0,0 24x20',
-    center = '3,0 24x20',
-    right  = '6,0 24x20',
-  },
+local summonModalBindings = {
+  k = 'kitty',
+  c = 'Google Chrome',
+  s = 'Slack',
+  d = 'Discord',
+  t = 'Tower',
+  r = 'Ray',
+  b = 'Bear',
+  m = 'Music',
+  e = 'Mimestream',
+  f = 'Finder',
 }
 
-
---------------------------------------------------------------------------------
--- Grid Movements
---------------------------------------------------------------------------------
--- f:    fullscreen
--- hjkl: edge movements
--- yu:   top corner movements
--- bn:   bottom corner movements
--- m:    middle column
--- s:    snap to nearest grid region
-
-hs.hotkey.bind(hyper, 'f', chain({positions.full}))
-hs.hotkey.bind(hyper, 'c', chain({positions.center.normal, positions.center.wide, positions.center.narrow}))
-
-local chainX = { 'thirds', 'halves', 'twoThirds', }
-local chainY = { 'thirds', 'full' }
-
-hs.hotkey.bind(hyper, 'h', chain(getPositions(chainX, 'left')))
-hs.hotkey.bind(hyper, 'j', chain(getPositions(chainY, 'center', 'bottom')))
-hs.hotkey.bind(hyper, 'k', chain(getPositions(chainY, 'center', 'top')))
-hs.hotkey.bind(hyper, 'l', chain(getPositions(chainX, 'right')))
-hs.hotkey.bind(hyper, 'y', chain(getPositions(chainX, 'left', 'top')))
-hs.hotkey.bind(hyper, 'u', chain(getPositions(chainX, 'right', 'top')))
-hs.hotkey.bind(hyper, 'b', chain(getPositions(chainX, 'left', 'bottom')))
-hs.hotkey.bind(hyper, 'n', chain(getPositions(chainX, 'right', 'bottom')))
-hs.hotkey.bind(hyper, 'm', chain(getPositions(chainY, 'center')))
-
-hs.hotkey.bind(hyper, 's', function ()
-  snap()
-end)
-
--- Video stuff
-hs.hotkey.bind(hyper, 'v', chain({'1,3 14x13'}))
-hs.hotkey.bind(hyper, 't', chain({'15,3 14x13'}))
-hs.hotkey.bind(hyper, 'q', function()
-  hs.window.focusedWindow():setFrame({x = 62, y = 220, w = 1920, h = 1080})
-end)
+registerModalBindings(hyper, 'space', hs.fnutils.map(summonModalBindings, function(app)
+  return function() summon(app) end
+end), true)
 
 
 --------------------------------------------------------------------------------
--- Multi Window Layouts
+-- Yabai Window Management
 --------------------------------------------------------------------------------
--- w: work layout
--- s: secondary space layout
--- r: reset current layout
 
-currentLayout = nil
-
-layouts = {
-
-  w = function ()
-    moveApp('kitty', positions.twoThirds.right)
-    moveApp('Google Chrome', positions.thirds.left)
-    moveApp('Ray', positions.thirds.left)
-    moveApp('Tower', positions.thirds.center)
-    moveApp('Slack', '20,0 10x10')
-    moveApp('Discord', '20,10 10x10')
-  end,
-
-  s = function ()
-    moveApp('Music', '1,1 12x18')
-    moveApp('Messages', '15,9 7x10')
-    moveApp('Telegram', '14,9 6x9')
-    moveApp('Discord', '21,2 8x11')
-  end,
-
+local yabaiKeyBindings = {
+  ['h'] = 'window --focus west',
+  ['j'] = 'window --focus south',
+  ['k'] = 'window --focus north',
+  ['l'] = 'window --focus east',
+  ['n'] = 'window --focus stack.next OR window --focus stack.first',
+  ['p'] = 'window --focus stack.prev OR window --focus stack.last',
+  ['o'] = 'window --toggle zoom-parent',
+  ['m'] = 'window --toggle zoom-fullscreen',
+  [']'] = 'space --focus next',
+  ['['] = 'space --focus prev',
+  ['0'] = 'space --balance',
+  ['='] = 'window --resize left:50:0 AND window --resize right:-50:0',
+  ['-'] = 'window --resize left:-50:0 AND window --resize right:50:0',
+  ['i'] = function() stackline.config:toggle('appearance.showIcons') end,
 }
 
-layoutModal = activateModal(lilHyper, 'l')
+local yabaiModalBindings = {
+  ['h'] = 'window --warp west',
+  ['j'] = 'window --warp south',
+  ['k'] = 'window --warp north',
+  ['l'] = 'window --warp east',
+  ['n'] = 'window --stack next',
+  ['p'] = 'window --stack prev',
+  ['f'] = 'window --toggle float',
+  ['s'] = 'window --toggle split',
+  ['o'] = 'window --toggle zoom-parent',
+  ['m'] = 'window --toggle zoom-fullscreen',
+  [']'] = 'space --focus next',
+  ['['] = 'space --focus prev',
+  ['0'] = 'space --balance',
+  ['='] = 'window --resize left:50:0 AND window --resize right:-50:0',
+  ['-'] = 'window --resize left:-50:0 AND window --resize right:50:0',
+  ['i'] = function() stackline.config:toggle('appearance.showIcons') end,
+  ['c'] = function() hs.window.focusedWindow():application():hide() end,
+}
 
-modalBind(layoutModal, 'w', function () setLayout('w', true) end)
-modalBind(layoutModal, 's', function () setLayout('w', true) end)
-modalBind(layoutModal, 'r', function () resetLayout() end)
+registerKeyBindings(hyper, hs.fnutils.map(yabaiKeyBindings, function(cmd)
+  return function() yabai(cmd) end
+end))
+
+local yabaiModal = registerModalBindings(hyper, 'y', hs.fnutils.map(yabaiModalBindings, function(cmd)
+  return function() yabai(cmd) end
+end))
+
+function yabaiModal:entered()
+  hs.window.highlight.ui.overlay = true
+  hs.window.highlight.ui.overlayColor = {0.5,0.25,0.75,0.25}
+  hs.window.highlight.start()
+end
+
+function yabaiModal:exited()
+  hs.window.highlight.stop()
+end
+
+
+--------------------------------------------------------------------------------
+-- Yabai Stack Icons
+--------------------------------------------------------------------------------
+
+stackline = require('stackline')
+
+stackline:init()
+
+stackline.config:set('appearance.size', 23)
+stackline.config:set('appearance.iconPadding', 1)
+stackline.config:set('appearance.offset.x', 5)
+stackline.config:set('appearance.offset.y', 12)
+stackline.config:set('appearance.pillThinness', 4)
+stackline.config:set('appearance.showIcons', false)
 
 
 --------------------------------------------------------------------------------
@@ -177,7 +120,5 @@ modalBind(layoutModal, 'r', function () resetLayout() end)
 
 hs.notify.show('Hammerspoon loaded', '', '...more like hammerspork')
 
--- Wicked ideas from guys I should learn from...
--- https://aaronlasseigne.com/2016/02/16/switching-from-slate-to-hammerspoon/
--- https://github.com/jimeh/dotfiles/blob/master/hammerspoon/window_management.lua
--- https://wincent.com/wiki/Hammerspoon
+-- Special thank you to Jose for all the rad Hammerspoon and Yabai ideas!
+-- https://github.com/josecanhelp/dotfiles

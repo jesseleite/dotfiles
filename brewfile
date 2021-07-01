@@ -6,6 +6,7 @@ tap 'exolnet/homebrew-deprecated'
 tap 'teamookla/speedtest'              # For `speedtest`
 tap 'saadparwaiz1/personal'            # For `lua-language-server`
 tap 'nicoverbruggen/homebrew-cask'     # For `phpmon`
+tap 'koekeishiya/formulae'             # For `yabai`
 tap 'yqrashawn/goku'                   # For `goku
 
 # Brew
@@ -41,6 +42,7 @@ brew 'trash'
 brew 'speedtest'
 brew 'lua-language-server'
 brew 'httpie'
+brew 'yabai'
 brew 'goku'
 # brew 'docker' # installed M1 preview manually for now
 

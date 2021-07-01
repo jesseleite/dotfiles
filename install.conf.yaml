@@ -17,6 +17,7 @@
     ~/.config/nvim/ultisnips: vim/snippets
     ~/.config/nvim/after/queries: vim/queries
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
+    ~/.config/yabai/yabairc: yabai/yabairc
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/tmuxinator: tmux/tmuxinator
     ~/.ctags.d: ctags
@@ -55,6 +56,8 @@
     command: "arch -x86_64 brew unlink php"
   - description: Linking php 7.4
     command: "arch -x86_64 brew link --force php@7.4"
+  - description: Starting yabai service whenever mac boots
+    command: "arch -x86_64 brew services start yabai"
   - description: Starting goku service whenever mac boots
     command: "arch -x86_64 brew services start goku"
   - description: Adding zsh to list of acceptable shells
