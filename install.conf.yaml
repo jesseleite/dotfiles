@@ -55,6 +55,8 @@
     command: "arch -x86_64 brew unlink php"
   - description: Linking php 7.4
     command: "arch -x86_64 brew link --force php@7.4"
+  - description: Starting goku service whenever mac boots
+    command: "arch -x86_64 brew services start goku"
   - description: Adding zsh to list of acceptable shells
     command: "[[ \"$(ag $(which zsh) /etc/shells)\" ]] || sudo sh -c \"echo $(which zsh) >> /etc/shells\""
   - description: Making zsh the default shell
