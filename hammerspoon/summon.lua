@@ -2,50 +2,34 @@
 -- Summon App / Toggle App Visibility
 --------------------------------------------------------------------------------
 
--- Note: When two or more app instances of the same name are running,
--- it's not always possible to get all of those instances via hs.application.find(),
--- and such was the case with Alacritty.  I'm not sure if this is a bug with
--- Hammerspoon?  Anyway, I was able to get this working by looping over
--- all running application windows and checking their names manually.
+local currentlyFocusedAppName
+local currentlyFocusedWindow
+local lastFocusedWindow
 
-local lastFocusedBeforeSummon = {}
+hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function(window, appName)
+  currentlyFocusedWindow = window
+  currentlyFocusedAppName = appName
+  print('-- Focused: (App: "' .. appName .. '", Window: "' .. window:title() .. '")')
+end)
 
-function summon(appName)
-  local appFound = false
-  local appIsVisible = false
-  local appSummoned = false
-  local apps = getAllRunningAppsWithName(appName)
-  for key,app in pairs(apps) do
-    appFound = true
-    appIsVisible = not app:isHidden()
-  end
-  if appFound then
-    for key,app in pairs(apps) do
-      if appIsVisible then
-        local lastFocused = hs.window.focusedWindow()
-        if (lastFocused:application():name() == appName) then
-          lastFocusedBeforeSummon[appName] = lastFocused
-        end
-        app:hide()
-      else
-        app:mainWindow():focus()
-        appSummoned = true
-      end
-    end
-    if lastFocusedBeforeSummon[appName] and appSummoned then
-      lastFocusedBeforeSummon[appName]:focus()
-    end
+hs.window.filter.default:subscribe(hs.window.filter.windowUnfocused, function(window, appName)
+  lastFocusedWindow = window
+end)
+
+function summon(appName, hideOnClose)
+  hideOnClose = hideOnClose or false
+  if currentlyFocusedAppName == appName and not next(hs.application.find(appName):allWindows()) then
+    hs.application.find(appName):kill()
+    hs.timer.doAfter(0.3, function()
+      hs.application.open(appName)
+    end)
+  elseif currentlyFocusedAppName ~= appName then
+    hs.application.open(appName)
   else
-    hs.application.launchOrFocus(appName)
-  end
-end
-
-function getAllRunningAppsWithName(appName)
-  local apps = {}
-  for key,window in pairs(hs.window.allWindows()) do
-    if window:application():name() == appName then
-      table.insert(apps, window:application())
+    if hideOnClose then
+      currentlyFocusedWindow:application():hide()
+    elseif lastFocusedWindow then
+      lastFocusedWindow:focus()
     end
   end
-  return apps
 end
