@@ -54,8 +54,8 @@ local yabaiKeyBindings = {
   [']'] = 'space --focus next',
   ['['] = 'space --focus prev',
   ['0'] = 'space --balance',
-  ['='] = 'window --resize left:50:0 AND window --resize right:-50:0',
-  ['-'] = 'window --resize left:-50:0 AND window --resize right:50:0',
+  ['-'] = 'window --resize left:50:0 AND window --resize right:-50:0',
+  ['='] = 'window --resize left:-50:0 AND window --resize right:50:0',
   ['i'] = function() stackline.config:toggle('appearance.showIcons') end,
 }
 
@@ -73,8 +73,8 @@ local yabaiModalBindings = {
   [']'] = 'space --focus next',
   ['['] = 'space --focus prev',
   ['0'] = 'space --balance',
-  ['='] = 'window --resize left:50:0 AND window --resize right:-50:0',
-  ['-'] = 'window --resize left:-50:0 AND window --resize right:50:0',
+  ['-'] = 'window --resize left:50:0 AND window --resize right:-50:0',
+  ['='] = 'window --resize left:-50:0 AND window --resize right:50:0',
   ['i'] = function() stackline.config:toggle('appearance.showIcons') end,
   ['c'] = function() hs.window.focusedWindow():application():hide() end,
 }
