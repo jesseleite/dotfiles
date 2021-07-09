@@ -9,8 +9,10 @@ telescope.setup {
   defaults = {
     prompt_prefix = '  ',
     sorting_strategy = "ascending",
-    prompt_position = "top",
-    layout_strategy = 'telescopic_jersey',
+    -- layout_strategy = "telescopic_jersey",
+    layout_config = {
+      prompt_position = "top",
+    },
     mappings = {
       i = {
         ["<Esc>"] = actions.close,
