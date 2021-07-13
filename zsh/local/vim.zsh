@@ -5,6 +5,9 @@
 # Set default editor
 export EDITOR='nvim'
 
+alias vim='nvim'
+alias bramvim='/usr/local/bin/vim'
+
 # Open vim with z argument
 v() {
   if [ -n "$1" ]; then
