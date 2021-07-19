@@ -92,6 +92,9 @@ highlight LspDiagnosticsSignWarning ctermfg=magenta
 highlight LspDiagnosticsSignInformation ctermfg=yellow
 highlight LspDiagnosticsSignHint ctermfg=yellow
 
+" Highlights: biscuits
+highlight BiscuitColor ctermfg=235 cterm=italic
+
 sign define LspDiagnosticsSignError text=❱❱ texthl=LspDiagnosticsSignError linehl= numhl=
 sign define LspDiagnosticsSignWarning text=❱❱ texthl=LspDiagnosticsSignWarning linehl= numhl=
 sign define LspDiagnosticsSignInformation text=❱❱ texthl=LspDiagnosticsSignInformation linehl= numhl=

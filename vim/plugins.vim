@@ -171,6 +171,9 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'jesseleite/vim-agriculture'
 
+" Closing tag annotations
+Plug 'code-biscuits/nvim-biscuits'
+
 " Explicit annotation bindings for more accurate go to
 let g:sourcery#explicit_plugin_bindings = {
   \ '/usr/local/opt/fzf': 'base-fzf',
