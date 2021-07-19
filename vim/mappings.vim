@@ -174,6 +174,10 @@ nnoremap <Leader><CR> o<C-o>O
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
+" Increment/decrement numbers holding shift-`+/-` keys instead of ctrl-`a/x`
+nmap + <C-a>
+nmap _ <C-x>
+
 " Keep visual selection when indenting
 xnoremap > >gv
 xnoremap < <gv
