@@ -41,6 +41,9 @@ Plug 'tpope/vim-rhubarb'
 " Git gutters
 Plug 'mhinz/vim-signify'
 
+" Inline git blame
+Plug 'APZelos/blamer.nvim'
+
 " Base16 theming architecture
 Plug 'chriskempson/base16-vim'
 
@@ -252,3 +255,11 @@ let g:highlightedyank_highlight_duration = 250
 let g:hardtime_default_on = 1
 let g:hardtime_maxcount = 3
 let g:list_of_normal_keys = ["h", "j", "k", "l", "w", "b", "<Up>", "<Down>", "<Left>", "<Right>"]
+
+" Config: blamer
+let g:blamer_enabled = 1
+let g:blamer_delay = 1500
+let g:blamer_relative_time = 1
+let g:blamer_prefix = '    ■ '
+let g:blamer_template = '<committer>, <committer-time>: <summary>'
+let g:blamer_show_in_insert_modes = 0
