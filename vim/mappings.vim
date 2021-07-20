@@ -177,6 +177,8 @@ imap ,, <Esc>A,<Esc>
 " Increment/decrement numbers holding shift-`+/-` keys instead of ctrl-`a/x`
 nmap + <C-a>
 nmap _ <C-x>
+vmap + <C-a>
+vmap _ <C-x>
 
 " Keep visual selection when indenting
 xnoremap > >gv
