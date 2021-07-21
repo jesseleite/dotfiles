@@ -31,6 +31,8 @@ local summonModalBindings = {
   m = 'Music',
   e = 'Mimestream',
   f = 'Finder',
+  q = 'TablePlus',
+  p = 'Paw',
 }
 
 registerModalBindings(hyper, 'space', hs.fnutils.map(summonModalBindings, function(app)
