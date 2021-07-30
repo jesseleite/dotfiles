@@ -48,13 +48,18 @@ yabai -m config window_gap                   40
 yabai -m config --space 2 layout             bsp
 
 # specific app settings
-yabai -m rule --add app="^Finder$" manage=off
-yabai -m rule --add app="Preferences" manage=off
-yabai -m rule --add app="Karabiner" manage=off
-yabai -m rule --add app="^Calendar$" manage=off
-yabai -m rule --add app="^Preview$" manage=off
-yabai -m rule --add app="^Music$" manage=off space=^1
-yabai -m rule --add app="^Mimestream$" manage=off space=^1
+yabai -m rule --add app=".*" manage=off
+yabai -m rule --add app="kitty" manage=on
+yabai -m rule --add app="Google Chrome" manage=on
+yabai -m rule --add app="Slack" title!="call" manage=on
+yabai -m rule --add app="Discord" title!="^Discord Updater$" manage=on
+yabai -m rule --add app="Tower" title!="^Window$" manage=on
+yabai -m rule --add app="Ray" manage=on
+yabai -m rule --add app="TablePlus" manage=on
+yabai -m rule --add app="Paw" title!="^$" manage=on
+yabai -m rule --add app="Gitter" manage=on
+yabai -m rule --add app="^Music$" space=^1
+yabai -m rule --add app="^Mimestream$" space=^1
 
 # signal example
 # yabai -m signal --add app="^Ray$" event=window_moved action="yabai -m window $YABAI_WINDOW_ID --resize abs:1920:1080"
