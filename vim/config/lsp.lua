@@ -49,3 +49,6 @@ lspconfig.jsonls.setup { }
 lspconfig.html.setup({
   filetypes = {'html', 'blade', 'antlers'}
 })
+
+-- Tailwind
+-- lspconfig.tailwindcss.setup { }
