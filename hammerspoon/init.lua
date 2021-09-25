@@ -22,12 +22,12 @@ hs.hotkey.bind({'cmd'}, 'escape', function() summon('kitty') end)
 
 local summonModalBindings = {
   k = 'kitty',
-  c = 'Google Chrome',
+  b = 'Brave Browser',
   s = 'Slack',
   d = 'Discord',
   t = 'Tower',
   r = 'Ray',
-  b = 'Bear',
+  n = 'Bear',
   m = 'Music',
   e = 'Mimestream',
   f = 'Finder',
