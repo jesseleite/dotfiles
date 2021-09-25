@@ -13,7 +13,7 @@ endfunction
 
 function! GoToPluginGithubUrl()
   call PlugYankGithubUrl()
-  call system('chrome-cli open ' . @+)
+  call system('open ' . @+)
 endfunction
 
 function! PlugYankGithubUrl()
