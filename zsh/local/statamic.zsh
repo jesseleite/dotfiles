@@ -45,19 +45,15 @@ plslink() {
 }
 
 # Setup a fresh starter kit with user
-plsstarter() {
+plsnew() {
   if [ -z "$1" ]; then $1
     echo 'Please specify repo name to create for your starter kit site!'
     return
   fi
 
-  cd ~/Code
-  g clone https://github.com/statamic/starter-kit-cool-writings.git $1
+  cd ~/Code/Playground
+  statamic new -n $1 statamic/starter-kit-cool-writings
   cd $1
-  rm -rf .git
-  comp install
-  cp .env.example .env
-  art key:generate
   gin
   plsuser
   b
