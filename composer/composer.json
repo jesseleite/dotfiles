@@ -5,10 +5,9 @@
         "friendsofphp/php-cs-fixer": "^2.16",
         "laravel/valet": "^2.9",
         "laravel/installer": "^4.0",
-        "statamic/cli": "^2.0",
         "tightenco/takeout": "^1.8",
         "permafrost-dev/ray-cli": "^1.12",
-        "phpactor/phpactor": "^0.17"
+        "statamic/cli": "^2.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
