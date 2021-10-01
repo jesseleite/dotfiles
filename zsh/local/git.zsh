@@ -50,6 +50,15 @@ gcr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
+# Git checkout tag with fzf
+gct() {
+  if [ -n "$1" ]; then git checkout $1; return; fi
+  local tags tag
+  tags=$(git tag)
+  tag=$(echo "$tags" | fzf +m)
+  git checkout $tag
+}
+
 # Git delete branch with fzf
 gbd() {
   if [ -n "$1" ]; then git branch -d $1; return; fi
