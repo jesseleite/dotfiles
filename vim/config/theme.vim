@@ -90,7 +90,7 @@ highlight LspDiagnosticsDefaultHint ctermfg=blue cterm=italic,undercurl
 highlight LspDiagnosticsSignError ctermfg=red
 highlight LspDiagnosticsSignWarning ctermfg=magenta
 highlight LspDiagnosticsSignInformation ctermfg=yellow
-highlight LspDiagnosticsSignHint ctermfg=yellow
+highlight LspDiagnosticsSignHint ctermfg=blue
 
 " Highlights: biscuits
 highlight BiscuitColor ctermfg=235 cterm=italic
