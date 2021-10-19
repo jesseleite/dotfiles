@@ -16,7 +16,11 @@ function tink() {(
   if [ ! -f artisan ]; then
     cd ~/Code/Laravel
   fi
-  php artisan tinker
+  if [ -z "$1" ]; then
+    php artisan tinker
+  else
+    php artisan tinker --execute="dd($1)"
+  fi
 )}
 
 alias ting="art tinker ting.php"
