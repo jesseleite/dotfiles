@@ -2,6 +2,10 @@
 " # Laravel Helpers
 " ------------------------------------------------------------------------------
 
+function! LaravelUnserializeCache()
+  silent exec "!ray --json $(php -r \"echo json_encode(unserialize(substr(trim('" . escape(getline('.'), '"') . "'), 10)));\")"
+endfunction
+
 function! LaravelGoToDefinition()
   call LaravelGoToView()
 endfunction
