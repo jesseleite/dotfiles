@@ -6,6 +6,13 @@ function! LaravelUnserializeCache()
   silent exec "!ray --json $(php -r \"echo json_encode(unserialize(substr(trim('" . escape(getline('.'), '"') . "'), 10)));\")"
 endfunction
 
+function! LaravelConvertToRealTimeFacade()
+  let classUnderCursor = expand("<cword>")
+  norm m'
+  call search('use .*\\'.classUnderCursor, 'b')
+  s/use /use Facades\\/
+endfunction
+
 function! LaravelGoToDefinition()
   call LaravelGoToView()
 endfunction

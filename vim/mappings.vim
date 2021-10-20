@@ -232,6 +232,7 @@ nnoremap <silent> K <Cmd>lua vim.lsp.buf.hover()<CR>
 " Mappings: phpactor
 autocmd FileType php nnoremap <buffer> <Leader>p :call phpactor#ContextMenu()<CR>
 autocmd FileType php nnoremap <buffer> <Leader>pi :call phpactor#UseAdd()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>pr :call LaravelConvertToRealTimeFacade()<CR>
 autocmd FileType php nnoremap <buffer> <Leader>pt :call phpactor#Transform()<CR>
 
 " PHP docblock generation
