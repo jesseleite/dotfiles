@@ -62,6 +62,7 @@ nmap <silent> <Leader>c :Bdelete<CR>
 " Mappings: telescope
 nnoremap <Leader>f <Cmd>Telescope git_files<CR>
 nnoremap <Leader>F <Cmd>Telescope find_files<CR>
+nnoremap <Leader>E <Cmd>Telescope file_browser<CR>
 nnoremap <Leader>b <Cmd>Telescope buffers sort_lastused=true<CR>
 nnoremap <Leader>m <Cmd>Telescope git_status<CR>
 nnoremap <Leader>h <Cmd>Telescope project_history<CR>
@@ -123,7 +124,6 @@ nmap <Leader><Leader>go :Gbrowse<CR>
 " File system explorer
 " Mappings: fern
 nmap <Leader>e :FernReveal .<CR>
-nmap <Leader>E :Fern .<CR>
 function! FernLocalMappings()
   nmap <buffer><nowait> l <Plug>(fern-action-expand)
   nmap <buffer><nowait> h <Plug>(fern-action-collapse)
