@@ -30,7 +30,7 @@ function tink() {(
 function rayi() {
   composer require spatie/laravel-ray --dev
   if [ ! -f tinkeray.php ]; then
-    echo "<?php\n\nray('wat');" >> tinkeray.php
+    echo "<?php\n\n\$test = 'tinkeray ready';\n\nray(\$test);" >> tinkeray.php
     echo "Created file [tinkeray.php]"
   else
     echo "File already exists [tinkeray.php]"

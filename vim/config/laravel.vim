@@ -26,9 +26,17 @@ function! LaravelRunTinkeray()
   endif
 endfunction
 
+function! LaravelEditTinkeray()
+  call LaravelRunTinkeray()
+  if search("'tinkeray ready'") > 0
+    norm f'va'
+  endif
+endfunction
+
 augroup auto_run_tinkeray_on_write
   autocmd!
   autocmd BufWritePost tinkeray.php :call LaravelRunTinkeray()
+  autocmd BufEnter tinkeray.php :call LaravelEditTinkeray()
 augroup END
 
 
