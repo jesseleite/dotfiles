@@ -8,8 +8,7 @@ endfunction
 
 function! LaravelConvertToRealTimeFacade()
   let classUnderCursor = expand("<cword>")
-  norm m'
-  call search('use .*\\'.classUnderCursor, 'b')
+  call search('use .*\\'.classUnderCursor, 'sb')
   s/use /use Facades\\/
 endfunction
 
