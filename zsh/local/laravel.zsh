@@ -14,7 +14,7 @@ alias rayi="comp require spatie/laravel-ray --dev"
 
 function tink() {(
   if [ ! -f artisan ]; then
-    cd ~/Code/Laravel
+    cd ~/Code/Playground/laravel
   fi
   if [ -z "$1" ]; then
     php artisan tinker
@@ -23,4 +23,3 @@ function tink() {(
   fi
 )}
 
-alias ting="art tinker ting.php"

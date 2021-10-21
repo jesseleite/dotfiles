@@ -13,6 +13,11 @@ function! LaravelConvertToRealTimeFacade()
   s/use /use Facades\\/
 endfunction
 
+
+" ------------------------------------------------------------------------------
+" # Experimenting...
+" ------------------------------------------------------------------------------
+
 function! LaravelGoToDefinition()
   call LaravelGoToView()
 endfunction

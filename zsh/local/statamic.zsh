@@ -46,7 +46,7 @@ plslink() {
 
 # Setup a fresh starter kit with user
 plsnew() {
-  if [ -z "$1" ]; then $1
+  if [ -z "$1" ]; then
     echo 'Please specify repo name to create for your starter kit site!'
     return
   fi
