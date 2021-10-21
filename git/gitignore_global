@@ -12,6 +12,9 @@ tags.temp
 phpstan.neon
 jsconfig.json
 
+# Laravel
+tinkeray.php
+
 # Statamic
 site/users/jlo.yaml
 users/jesseleite@example.com.yaml

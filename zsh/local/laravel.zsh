@@ -10,7 +10,6 @@ alias artm="art migrate"
 alias navi="art queue:listen --tries=2"
 alias dusk="art dusk"
 alias lager="less +F storage/logs/laravel.log"
-alias rayi="comp require spatie/laravel-ray --dev"
 
 function tink() {(
   if [ ! -f artisan ]; then
@@ -23,3 +22,17 @@ function tink() {(
   fi
 )}
 
+
+# ------------------------------------------------------------------------------
+# Install Laravel Ray and globally gitignored tinkeray.php file into project
+# ------------------------------------------------------------------------------
+
+function rayi() {
+  composer require spatie/laravel-ray --dev
+  if [ ! -f tinkeray.php ]; then
+    echo "<?php\n\nray('wat');" >> tinkeray.php
+    echo "Created file [tinkeray.php]"
+  else
+    echo "File already exists [tinkeray.php]"
+  fi
+}

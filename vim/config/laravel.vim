@@ -15,6 +15,25 @@ endfunction
 
 
 " ------------------------------------------------------------------------------
+" # Automatically run tinkeray.php on save
+" ------------------------------------------------------------------------------
+
+function! LaravelRunTinkeray()
+  redir @r
+  silent exec "!php artisan tinker tinkeray.php"
+  redir END
+  if match(@r, 'error') > -1 || match(@r, 'exception') > -1
+    echo @r
+  endif
+endfunction
+
+augroup auto_run_tinkeray_on_write
+  autocmd!
+  autocmd BufWritePost tinkeray.php :call LaravelRunTinkeray()
+augroup END
+
+
+" ------------------------------------------------------------------------------
 " # Experimenting...
 " ------------------------------------------------------------------------------
 
