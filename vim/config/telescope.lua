@@ -16,7 +16,7 @@ telescope.setup {
     mappings = {
       i = {
         ["<Esc>"] = actions.close,
-        ["<C-q>"] = actions.send_to_qflist,
+        ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
       },
     },
     file_ignore_patterns = { 'node_modules' },

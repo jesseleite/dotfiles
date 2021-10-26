@@ -265,8 +265,9 @@ nnoremap <Leader><Leader>s :TSHighlightCapturesUnderCursor<CR>
 " Mappings: quickfix
 function! QuickfixLocalMappings()
   nnoremap <buffer> <CR> <CR>
-  nnoremap <buffer><nowait> p :PreviewQuickfixItem<CR>
-  nnoremap <buffer> dd :RemoveQuickfixItem<CR>
+  nnoremap <buffer><nowait> t :call TelescopeQuickfix()<CR>
+  nnoremap <buffer><nowait> p :call PreviewQuickfixItem()<CR>
+  nnoremap <buffer> dd :call RemoveQuickfixItem()<CR>
 endfunction
 
 " Mappings: help

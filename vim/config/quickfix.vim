@@ -12,9 +12,6 @@ augroup END
 " # Quickfix Helpers
 " ------------------------------------------------------------------------------
 
-command! RemoveQuickfixItem silent! call RemoveQuickfixItem()
-command! PreviewQuickfixItem silent! call PreviewQuickfixItem()
-
 " When using `dd` in the quickfix list, remove the item from the quickfix list.
 " https://stackoverflow.com/questions/42905008/quickfix-list-how-to-add-and-remove-entries
 function! RemoveQuickfixItem()
@@ -29,4 +26,9 @@ endfunction
 function! PreviewQuickfixItem()
   .cc
   wincmd j
+endfunction
+
+function! TelescopeQuickfix()
+  cclose
+  Telescope quickfix
 endfunction
