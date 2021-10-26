@@ -13,7 +13,7 @@ alias lager="less +F storage/logs/laravel.log"
 
 function tink() {(
   if [ ! -f artisan ]; then
-    cd ~/Code/Playground/laravel
+    cd ~/Code/Playground/archon
   fi
   if [ -z "$1" ]; then
     php artisan tinker

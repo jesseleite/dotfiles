@@ -18,8 +18,11 @@ endfunction
 " ------------------------------------------------------------------------------
 
 function! LaravelRunTinkeray()
+  let artisan = filereadable('artisan') > 0
+    \ ? 'artisan'
+    \ : '~/Code/Playground/archon/artisan'
   redir @r
-  silent exec "!php artisan tinker tinkeray.php"
+  silent exec '!php' artisan 'tinker tinkeray.php'
   redir END
   if match(@r, 'error') > -1 || match(@r, 'exception') > -1
     echo @r
