@@ -177,6 +177,9 @@ Plug 'jesseleite/vim-agriculture'
 " Closing tag annotations
 Plug 'code-biscuits/nvim-biscuits'
 
+" Scrollbars
+Plug 'Xuyuanp/scrollbar.nvim'
+
 " Explicit annotation bindings for more accurate go to
 let g:sourcery#explicit_plugin_bindings = {
   \ '/usr/local/opt/fzf': 'base-fzf',
