@@ -9,10 +9,6 @@
       [:##l :right_arrow ["caps_as_modifier" 1]]
       [:##caps_lock :escape]
     ]}
-    {:des "Both SHIFT keys toggles CAPS lock" :rules [
-      [:!S#Pright_shift :caps_lock]
-      [:!R#Pleft_shift :caps_lock]
-    ]}
     {:des "D+F as Hyper (CMD+OPT+CTRL)" :rules [
       [[:d :f] :!COleft_control]
     ]}
