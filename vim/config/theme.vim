@@ -83,25 +83,24 @@ highlight TSTag ctermfg=green
 highlight commentTSConstant ctermfg=darkgrey
 
 " Highlights: lsp
-highlight LspDiagnosticsDefaultError ctermfg=red cterm=italic,undercurl
-highlight LspDiagnosticsDefaultWarning ctermfg=magenta cterm=italic,undercurl
-highlight LspDiagnosticsDefaultInformation ctermfg=yellow cterm=italic,undercurl
-highlight LspDiagnosticsDefaultHint ctermfg=blue cterm=italic,undercurl
-highlight LspDiagnosticsSignError ctermfg=red
-highlight LspDiagnosticsSignWarning ctermfg=magenta
-highlight LspDiagnosticsSignInformation ctermfg=yellow
-highlight LspDiagnosticsSignHint ctermfg=blue
+highlight DiagnosticError ctermfg=red cterm=italic,undercurl
+highlight DiagnosticWarning ctermfg=magenta cterm=italic,undercurl
+highlight DiagnosticInformation ctermfg=yellow cterm=italic,undercurl
+highlight DiagnosticHint ctermfg=blue cterm=italic,undercurl
+highlight DiagnosticSignError ctermfg=red
+highlight DiagnosticSignWarning ctermfg=magenta
+highlight DiagnosticSignInformation ctermfg=yellow
+highlight DiagnosticSignHint ctermfg=blue
+sign define DiagnosticSignError text=❱❱ texthl=DiagnosticSignError linehl= numhl=
+sign define DiagnosticSignWarning text=❱❱ texthl=DiagnosticSignWarning linehl= numhl=
+sign define DiagnosticSignInformation text=❱❱ texthl=DiagnosticSignInformation linehl= numhl=
+sign define DiagnosticSignHint text=❱❱ texthl=DiagnosticSignHint linehl= numhl=
 
 " Highlights: biscuits
 highlight BiscuitColor ctermfg=235 cterm=italic
 
 " Highlights: blamer
 highlight Blamer ctermfg=235 cterm=italic
-
-sign define LspDiagnosticsSignError text=❱❱ texthl=LspDiagnosticsSignError linehl= numhl=
-sign define LspDiagnosticsSignWarning text=❱❱ texthl=LspDiagnosticsSignWarning linehl= numhl=
-sign define LspDiagnosticsSignInformation text=❱❱ texthl=LspDiagnosticsSignInformation linehl= numhl=
-sign define LspDiagnosticsSignHint text=❱❱ texthl=LspDiagnosticsSignHint linehl= numhl=
 
 " Highlights: compe
 highlight CompeDocumentation ctermbg=233
