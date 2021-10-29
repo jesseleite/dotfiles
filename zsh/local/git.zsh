@@ -5,7 +5,6 @@
 alias gpom="gl origin master"
 alias nah="grhh && gclean"
 alias gin="git init && gaa && gcmsg 'Initial commit.'"
-alias gundo="git reset HEAD^"
 alias tower="gittower ."
 alias gdb='git remote show origin | grep "HEAD branch" | cut -d " " -f5'
 alias gcod='gco $(gdb)'
@@ -90,4 +89,12 @@ gcam() {
 # Add all and stash with message
 gstam() {
   git add --all && git stash push -m "$*"
+}
+
+# Undo last commit and tip of branch
+# TODO: If a number arg is passed, undo that many commits at once
+gundo() {
+  git reset HEAD^
+  echo "\nRecent commits:"
+  glog -n 5
 }
