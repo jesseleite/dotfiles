@@ -92,9 +92,13 @@ gstam() {
 }
 
 # Undo last commit and tip of branch
-# TODO: If a number arg is passed, undo that many commits at once
+# Optionally pass param to specify number of commits to undo (ie. `gundo 3`)
 gundo() {
-  git reset HEAD^
+  if [ -n "$1" ]; then
+    git reset HEAD~$1
+  else
+    git reset HEAD~1
+  fi
   echo "\nRecent commits:"
   glog -n 5
 }
