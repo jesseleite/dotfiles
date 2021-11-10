@@ -8,7 +8,6 @@ alias gin="git init && gaa && gcmsg 'Initial commit.'"
 alias tower="gittower ."
 alias gdb='git remote show origin | grep "HEAD branch" | cut -d " " -f5'
 alias gcod='gco $(gdb)'
-alias gpr='gh pr checkout'
 
 # Unalias oh-my-zsh aliases, in favour of following functions
 unalias gst
@@ -16,6 +15,7 @@ unalias gco
 unalias gbd
 unalias gcmsg
 unalias gcam
+unalias gpr
 
 # Git status with fugitive
 gst() {
@@ -39,6 +39,12 @@ gcr() {
   git fetch
   if [ -n "$1" ]; then git checkout $1; return; fi
   git branch --all | fzf | sed "s#remotes/[^/]*/##" | xargs git checkout
+}
+
+# Git checkout PR with fzf
+gpr() {
+  if [ -n "$1" ]; then gh pr checkout $1; return; fi
+  gh pr list | fzf | awk '{print $1}' | xargs gh pr checkout
 }
 
 # Git checkout tag with fzf
