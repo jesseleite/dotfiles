@@ -91,3 +91,13 @@ if has('nvim')
     autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
   augroup END
 endif
+
+" Highlight on yank
+augroup highlight_on_yank
+  autocmd!
+  autocmd TextYankPost * lua vim.highlight.on_yank {
+    \ higroup = "IncSearch",
+    \ timeout = 150,
+    \ on_macro = true
+    \ }
+augroup END
