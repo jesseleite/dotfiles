@@ -11,7 +11,10 @@ set confirm
 set encoding=utf-8
 set clipboard=unnamed
 set backspace=indent,eol,start
+set number
 set relativenumber
+set cursorline
+set cursorlineopt=number
 set noshowmode
 set splitbelow
 set splitright
@@ -33,8 +36,6 @@ if has('nvim')
   set shada=!,'250,<50,s10,h
 else
   set ttymouse=xterm2
-  set cursorline
-  set cursorlineopt=number
 endif
 
 " Persistent undo
@@ -73,6 +74,13 @@ augroup neovim_last_position
     \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
     \ |   exe "normal! g`\""
     \ | endif
+augroup END
+
+" Show actual line numbers in command line mode
+augroup actual_line_numbers_in_command_line_mode
+  autocmd!
+  autocmd CmdLineEnter * set norelativenumber | redraw
+  autocmd CmdlineLeave * set relativenumber
 augroup END
 
 " Terminal defaults

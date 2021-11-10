@@ -25,6 +25,7 @@ highlight Sneak ctermbg=blue ctermfg=white
 highlight Visual ctermbg=black
 highlight SneakScope ctermbg=black ctermfg=white
 highlight LineNr ctermbg=none
+highlight CursorLine ctermbg=black ctermfg=none
 highlight CursorLineNR ctermbg=black ctermfg=black
 highlight SignColumn ctermbg=none
 highlight ColorColumn ctermbg=black
@@ -37,7 +38,6 @@ highlight SignifySignDelete ctermbg=none ctermfg=red
 highlight VertSplit ctermbg=none ctermfg=none
 highlight StatusLine ctermfg=none ctermbg=none
 highlight StatusLineNC ctermfg=none ctermbg=none
-highlight CursorLine ctermbg=black ctermfg=none
 highlight QuickFixLine ctermbg=black ctermfg=none
 highlight ALEErrorSign ctermbg=none ctermfg=red
 highlight ALEWarningSign ctermbg=none ctermfg=magenta
