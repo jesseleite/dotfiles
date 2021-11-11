@@ -2,15 +2,14 @@
 # Aliases and functions for Git
 # ------------------------------------------------------------------------------
 
-alias gpom="gl origin master"
 alias nah="grhh && gclean"
 alias gin="git init && gaa && gcmsg 'Initial commit.'"
 alias tower="gittower ."
 alias gdb='git remote show origin | grep "HEAD branch" | cut -d " " -f5'
 alias gcod='gco $(gdb)'
+alias gpom="gl origin master"
 
 # Unalias oh-my-zsh aliases, in favour of following functions
-unalias gst
 unalias gco
 unalias gbd
 unalias gcmsg
@@ -18,7 +17,7 @@ unalias gcam
 unalias gpr
 
 # Git status with fugitive
-gst() {
+gs() {
   if [ -n "$1" ]; then z $1; fi
 
   if git rev-parse --git-dir > /dev/null 2>&1; then
@@ -66,13 +65,13 @@ gbd() {
 }
 
 # Commit with message
-# Note: Oh-my-zsh has this alias already, but this function removes the need to wrap the message in quotes.
+# Note: Oh-my-zsh has this alias already, but this function removes the need to wrap the message in quotes
 gcmsg() {
   git commit -m "$*"
 }
 
 # Add all and commit with message
-# Note: Oh-my-zsh has this alias already, but it doesn't add untracked files.
+# Note: Oh-my-zsh has this alias already, but it doesn't add untracked files
 gcam() {
   git add --all && git commit -m "$*"
 }

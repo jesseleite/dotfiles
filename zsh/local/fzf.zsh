@@ -1,14 +1,21 @@
 # ------------------------------------------------------------------------------
-# Fzf Config
+# Fzf Default Opts
 # ------------------------------------------------------------------------------
 
-export FZF_DEFAULT_COMMAND='ag -u -g ""'
+local fzf_default_opts=(
+  '--preview-window right:50%:noborder:hidden'
+  '--color "preview-bg:234"'
+  '--bind "alt-p:toggle-preview"'
+  '--color "prompt:green,header:grey,spinner:grey,info:grey,hl:blue,hl+:blue,pointer:red"'
+)
+
+export FZF_DEFAULT_OPTS="${fzf_default_opts[*]}"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_DEFAULT_OPTS='--preview-window right:50%:noborder:hidden --color "preview-bg:234" --bind "alt-p:toggle-preview"'
 
 
 # ------------------------------------------------------------------------------
-# Fzf Installer Generated Config
+# Installer generated config completion, keybindings, etc.
 # ------------------------------------------------------------------------------
 
 # Setup fzf

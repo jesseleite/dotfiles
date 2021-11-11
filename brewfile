@@ -69,6 +69,7 @@ cask 'tinkerwell'
 cask 'tableplus'
 cask 'flux'
 cask 'zoom'
+cask 'skype'
 cask 'paw'
 cask 'helo'
 cask 'ray'
@@ -79,9 +80,6 @@ cask 'selfcontrol'
 cask 'cleanshot'
 cask 'phpmon'
 #cask 'adobe-creative-cloud'
-#cask 'vagrant'
-#cask 'virtualbox'
-#cask 'virtualbox-extension-pack'
 
 # Mac App Store
 mas 'SnippetsLab', id: 1006087419
