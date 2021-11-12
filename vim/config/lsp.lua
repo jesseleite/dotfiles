@@ -51,4 +51,4 @@ lspconfig.html.setup({
 })
 
 -- Tailwind
--- lspconfig.tailwindcss.setup { }
+lspconfig.tailwindcss.setup { }
