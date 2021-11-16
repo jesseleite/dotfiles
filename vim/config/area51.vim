@@ -4,6 +4,12 @@
 " # This is where I put stuff that I'm either testing or embarassed
 " # about. No shame; Just aliens, UFOs, and cows, and experiments.
 
+
+" Visual paste without losing what is in register
+" Which isn't working because of vim-pasta?
+" vnoremap <Leader>p "_dP
+
+
 " ------------------------------------------------------------------------------
 " # Debug mappings...
 " ------------------------------------------------------------------------------
