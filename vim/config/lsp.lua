@@ -32,9 +32,6 @@ lspconfig.vimls.setup { }
 
 -- PHP
 lspconfig.intelephense.setup { }
--- lspconfig.phpactor.setup {
---   cmd = {vim.fn.stdpath('config') .. '/plugged/phpactor/bin/phpactor', 'language-server'},
--- }
 
 -- Vue
 lspconfig.vuels.setup { }
