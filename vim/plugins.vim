@@ -60,7 +60,12 @@ Plug 'lambdalisue/fern.vim' , {'on': 'Fern'}
 Plug 'neovim/nvim-lspconfig'
 
 " Auto completion
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 " Tag generation
 " Plug 'ludovicchabant/vim-gutentags'
