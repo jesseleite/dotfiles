@@ -260,3 +260,7 @@ let g:blamer_relative_time = 1
 let g:blamer_prefix = '    ■ '
 let g:blamer_template = '<committer>, <committer-time>: <summary>'
 let g:blamer_show_in_insert_modes = 0
+
+" Config: emmet
+" I actually want to be able to disable this thought... https://github.com/mattn/emmet-vim/issues/528
+let g:user_emmet_leader_key = '<C-Z>'
