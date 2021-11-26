@@ -32,10 +32,10 @@ augroup END
 
 
 " ------------------------------------------------------------------------------
-" # Manually Toggle Test Strategy
+" # Manually Swap Test Strategy
 " ------------------------------------------------------------------------------
 
-function! TestToggleStrategy()
+function! TestSwapStrategy()
   if get(g:, 'test#strategy', 'neovim') == 'neovim'
     let g:test#strategy = "shtuff"
     echo "Test Strategy: shtuff into test"
@@ -45,4 +45,4 @@ function! TestToggleStrategy()
   endif
 endfunction
 
-command! TestToggleStrategy call TestToggleStrategy()
+command! TestSwapStrategy call TestSwapStrategy()

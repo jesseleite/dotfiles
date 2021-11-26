@@ -101,12 +101,12 @@ nnoremap <Leader>gi :lua require("harpoon.term").gotoTerminal(2)<CR>
 
 " Run tests
 " Mappings: test
-nmap <Leader>rt :w<CR>:TestToggleStrategy<CR>
 nmap <Leader>rs :w<CR>:TestSuite<CR>
 nmap <Leader>rf :w<CR>:TestFile<CR>
 nmap <Leader>rl :w<CR>:TestLast<CR>
 nmap <Leader>rn :w<CR>:TestNearest<CR>
 nmap <Leader>rv :w<CR>:TestVisit<CR>
+nmap <Leader>rx :w<CR>:TestSwapStrategy<CR>
 
 " Run terminal command in interactive shell
 " Mappings: run-interactive
@@ -242,6 +242,7 @@ autocmd FileType php nnoremap <buffer> <Leader>pd :call pdv#DocumentWithSnip()<C
 " Mappings: laravel
 autocmd FileType php nnoremap <buffer> <Leader>pr :call LaravelConvertToRealTimeFacade()<CR>
 nnoremap <Leader>gt :edit tinkeray.php<CR>
+nnoremap <Leader>rt :call LaravelRunTinkeray()<CR>
 
 " HTML and CSS abbreviation expansion
 " Mappings: emmet
