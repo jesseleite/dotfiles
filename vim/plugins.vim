@@ -24,6 +24,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope-rg.nvim'
 Plug 'fhill2/telescope-ultisnips.nvim'
 
 " Prime is the greatest harpoonist of all time
@@ -42,7 +43,8 @@ Plug 'tpope/vim-rhubarb'
 Plug 'mhinz/vim-signify'
 
 " Inline git blame
-Plug 'APZelos/blamer.nvim'
+" Plug 'APZelos/blamer.nvim'
+" Plug 'f-person/git-blame.nvim'
 
 " Base16 theming architecture
 Plug 'chriskempson/base16-vim'
@@ -182,6 +184,9 @@ Plug 'code-biscuits/nvim-biscuits'
 " Scrollbars
 Plug 'Xuyuanp/scrollbar.nvim'
 
+" Github Copilot
+" Plug 'github/copilot.vim'
+
 " Explicit annotation bindings for more accurate go to
 let g:sourcery#explicit_plugin_bindings = {
   \ '/usr/local/opt/fzf': 'base-fzf',
@@ -244,7 +249,9 @@ let g:win_mode_horizontal_resize_step = 6
 let g:win_mode_vertical_resize_step = 2
 
 " Config: better-whitespace
+let g:strip_whitespace_on_save = 1
 let g:strip_whitespace_confirm = 0
+let g:current_line_whitespace_disabled_soft = 1
 
 " Config: sneak
 let g:sneak#use_ic_scs = 1
@@ -265,6 +272,10 @@ let g:blamer_relative_time = 1
 let g:blamer_prefix = '    ■ '
 let g:blamer_template = '<committer>, <committer-time>: <summary>'
 let g:blamer_show_in_insert_modes = 0
+
+" Config: git-blame
+let g:gitblame_message_template = '    ■ <summary> • <date> • <author>'
+let g:gitblame_date_format = '%r'
 
 " Config: emmet
 " I actually want to be able to disable this thought... https://github.com/mattn/emmet-vim/issues/528

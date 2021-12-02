@@ -39,6 +39,7 @@ telescope.setup {
 telescope.load_extension('fzf')
 telescope.load_extension('sourcery')
 telescope.load_extension('ultisnips')
+telescope.load_extension('live_grep_raw')
 
 
 --------------------------------------------------------------------------------
