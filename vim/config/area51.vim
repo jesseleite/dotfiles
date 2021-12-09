@@ -9,6 +9,9 @@
 " Which isn't working because of vim-pasta?
 " vnoremap <Leader>p "_dP
 
+" Config: copilot
+" let g:copilot_no_tab_map = v:true
+" imap <silent><script><expr> <C-y> copilot#Accept("\<CR>")
 
 " ------------------------------------------------------------------------------
 " # Debug mappings...
