@@ -56,10 +56,11 @@ augroup check_for_external_changes
 augroup END
 
 " Strip whitespace on save
-augroup strip_whitespace_on_save
-  autocmd!
-  autocmd BufEnter * EnableStripWhitespaceOnSave
-augroup END
+" TODO: What's up with this now?
+" augroup strip_whitespace_on_save
+"   autocmd!
+"   autocmd BufEnter * EnableStripWhitespaceOnSave
+" augroup END
 
 " Automatically resize vim's windows when resizing vim
 augroup equalize_windows_on_resize
