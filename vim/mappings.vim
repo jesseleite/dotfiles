@@ -127,7 +127,7 @@ nmap <Leader>e :FernReveal .<CR>
 function! FernLocalMappings()
   nmap <buffer><nowait> l <Plug>(fern-action-expand)
   nmap <buffer><nowait> h <Plug>(fern-action-collapse)
-  nmap <buffer><nowait> H <Plug>(fern-action-hidden-toggle)
+  nmap <buffer><nowait> H <Plug>(fern-action-hidden)
   nmap <buffer><nowait> b <Plug>(fern-action-leave)
   nmap <buffer><nowait> <CR> <Plug>(fern-action-open)
   nmap <buffer><nowait> v <Plug>(fern-action-open:rightest)<C-w><C-p>
