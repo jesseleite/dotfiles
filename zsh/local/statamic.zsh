@@ -30,9 +30,11 @@ plscomp() { ( cd statamic && comp $* ) }
 
 # Symlink local statamic packages/assets, no matter how they are composer required
 plslink() {
-  if [ "$1" = 'dist' ] || [ "$1" = 'cp' ]; then
+  if [ "$1" = 'public' ]; then
     rm -rf public/vendor/statamic/cp
     ln -s ~/Code/Wilderborn/cms/resources/dist public/vendor/statamic/cp
+    rm -rf public/vendor/statamic/frontend
+    ln -s ~/Code/Wilderborn/cms/resources/dist-frontend public/vendor/statamic/frontend
   elif [ -n "$1" ]; then
     rm -rf vendor/statamic/$1
     ln -s ~/Code/Wilderborn/$1 vendor/statamic/$1
