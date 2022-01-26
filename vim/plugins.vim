@@ -184,6 +184,9 @@ Plug 'code-biscuits/nvim-biscuits'
 " Scrollbars
 Plug 'Xuyuanp/scrollbar.nvim'
 
+" Code formatter
+Plug 'sbdchd/neoformat'
+
 " Github Copilot
 " Plug 'github/copilot.vim'
 
