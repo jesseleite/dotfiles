@@ -33,6 +33,13 @@ telescope.setup {
     oldfiles = {
       prompt_title = 'History',
     },
+    buffers = {
+      mappings = {
+        i = {
+          ["<c-d>"] = "delete_buffer",
+        }
+      }
+    },
   },
 }
 
