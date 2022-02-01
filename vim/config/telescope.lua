@@ -36,7 +36,7 @@ telescope.setup {
     buffers = {
       mappings = {
         i = {
-          ["<c-d>"] = "delete_buffer",
+          ["<C-x>"] = "delete_buffer",
         }
       }
     },
