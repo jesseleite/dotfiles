@@ -28,7 +28,8 @@ phpc() {
   fi
 
   if [ "$1" = 'all' ] || [ "$1" = 'memory' ]; then
-    sed -i "" "s/memory_limit.*=.*/memory_limit\ =\ 2G/" "$confd/php-memory-limits.ini"
-    echo "Updated memory_limit to 2G"
+    [ -f "$confd/php-memory-limits.ini" ] && rm "$confd/php-memory-limits.ini"
+    cp ~/.dotfiles/php/php-memory-limits.ini $confd
+    echo "Copied php-memory-limits.ini"
   fi
 }
