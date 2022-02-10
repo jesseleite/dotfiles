@@ -27,32 +27,32 @@ gs() {
   fi
 }
 
-# Git checkout with fzf
+# Git checkout with fzf fuzzy search
 gco() {
   if [ -n "$1" ]; then git checkout $1; return; fi
   git branch -vv | fzf | awk '{print $1}' | xargs git checkout
 }
 
-# Git checkout remote branch with fzf
+# Git checkout remote branch with fzf fuzzy search
 gcr() {
   git fetch
   if [ -n "$1" ]; then git checkout $1; return; fi
   git branch --all | fzf | sed "s#remotes/[^/]*/##" | xargs git checkout
 }
 
-# Git checkout PR with fzf
+# Git checkout a PR with fzf fuzzy search
 gpr() {
   if [ -n "$1" ]; then gh pr checkout $1; return; fi
   gh pr list | fzf | awk '{print $1}' | xargs gh pr checkout
 }
 
-# Git checkout tag with fzf
+# Git checkout tag with fzf fuzzy search
 gct() {
   if [ -n "$1" ]; then git checkout $1; return; fi
   git tag | fzf | xargs git checkout
 }
 
-# Git delete branch with fzf
+# Git delete branch with fzf fuzzy search
 gbd() {
   if [ -n "$1" ]; then git branch -d $1; return; fi
   local selected=$(git branch -vv | fzf | awk '{print $1}' | sed "s/.* //")
