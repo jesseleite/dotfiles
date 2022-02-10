@@ -27,3 +27,7 @@ app/.env
 
 # VSCode
 .vscode
+
+# For swaplaravel zsh function
+vendor-alt
+composer.lock.alt
