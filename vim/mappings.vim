@@ -77,7 +77,7 @@ nnoremap <Leader>: <Cmd>Telescope command_history<CR>
 nnoremap <Leader><Leader>v <Cmd>Telescope sourcery<CR>
 nnoremap <Leader><Leader>d <Cmd>Telescope dotfiles<CR>
 nnoremap <Leader><Leader>h <Cmd>Telescope help_tags<CR>
-nnoremap <Leader><Leader>s <Cmd>Telescope filetypes<CR>
+nnoremap <Leader><Leader>f <Cmd>Telescope filetypes<CR>
 nnoremap <Leader><Leader>S <Cmd>Telescope ultisnips<CR>
 nnoremap <Leader><Leader>t <Cmd>Telescope<CR>
 
