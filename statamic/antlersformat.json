@@ -1,0 +1,13 @@
+{
+    "htmlOptions": {
+        "wrapLineLength": 1000,
+        "endWithNewline": true
+    },
+    "formatFrontMatter": true,
+    "insertSpaces": true,
+    "maxStatementsPerLine": 3,
+    "tabSize": 4,
+    "formatExtensions": [
+        ".antlers.html"
+    ]
+}
