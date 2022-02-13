@@ -21,11 +21,11 @@ hs.hotkey.bind(hyper, '`', hs.toggleConsole)
 hs.hotkey.bind({'cmd'}, 'escape', function() summon('kitty') end)
 
 local summonModalBindings = {
-  k = 'kitty',
+  t = 'kitty',
   b = 'Brave Browser',
   s = 'Slack',
   d = 'Discord',
-  t = 'Tower',
+  g = 'Tower',
   r = 'Ray',
   n = 'Bear',
   m = 'Music',
