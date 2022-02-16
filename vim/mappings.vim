@@ -113,6 +113,9 @@ nmap <Leader>rx :w<CR>:TestSwapStrategy<CR>
 nmap <Leader><Leader>r :Run!<Space>
 nmap <Leader><Leader>i :Run! in<Space>
 
+" Mappings: neoformat
+nmap <Leader><Leader>n :call ToggleNeoformat()<CR>
+
 " Git
 " Mappings: fugitive
 nmap <Leader>gs :Gedit :<CR>
