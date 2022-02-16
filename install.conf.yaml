@@ -24,6 +24,7 @@
     ~/.hammerspoon: hammerspoon
     ~/.composer/composer.json: composer/composer.json
     ~/.composer/config.json: composer/config.json
+    ~/.qmk_firmware/keyboards/lily58/keymaps/jesseleite: qmk/lily58
 - create:
     - ~/Code
     - ~/.config/nvim/undo

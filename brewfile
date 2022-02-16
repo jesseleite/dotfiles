@@ -7,7 +7,8 @@ tap 'teamookla/speedtest'              # For `speedtest`
 tap 'saadparwaiz1/personal'            # For `lua-language-server`
 tap 'nicoverbruggen/homebrew-cask'     # For `phpmon`
 tap 'koekeishiya/formulae'             # For `yabai`
-tap 'yqrashawn/goku'                   # For `goku
+tap 'yqrashawn/goku'                   # For `goku`
+tap 'qmk/qmk'                          # For `qmk`
 
 # Brew
 brew 'bash'
@@ -44,6 +45,7 @@ brew 'lua-language-server'
 brew 'httpie'
 brew 'yabai'
 brew 'goku'
+brew 'qmk'
 # brew 'docker' # installed M1 preview manually for now
 
 # Cask

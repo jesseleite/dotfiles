@@ -18,3 +18,5 @@ function swaplaravel() {
 
   compv laravel/framework
 }
+
+alias qmkf="qmk flash -kb lily58 -km jesseleite"
