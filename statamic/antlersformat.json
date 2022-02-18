@@ -1,6 +1,6 @@
 {
     "htmlOptions": {
-        "wrapLineLength": 1000,
+        "wrapLineLength": 0,
         "endWithNewline": true
     },
     "formatFrontMatter": true,

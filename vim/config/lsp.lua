@@ -43,9 +43,9 @@ lspconfig.yamlls.setup { }
 lspconfig.jsonls.setup { }
 
 -- Html
-lspconfig.html.setup({
+lspconfig.html.setup {
   filetypes = {'html', 'blade', 'antlers'}
-})
+}
 
 -- Tailwind
 lspconfig.tailwindcss.setup { }
