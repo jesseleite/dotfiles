@@ -26,6 +26,14 @@ snippet prop "Define property."
 ${1:public} $${2:property} = $3;
 endsnippet
 
+snippet tp "Call `$this->property`."
+$this->$0
+endsnippet
+
+snippet tm "Call `$this->method()`."
+$this->${1:method}($2)$0
+endsnippet
+
 snippet test "Define test method."
 /** @test */
 public function ${2:it_can_do_something}()
