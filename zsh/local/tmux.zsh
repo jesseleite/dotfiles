@@ -1,5 +1,14 @@
 # ------------------------------------------------------------------------------
-# Aliases and functions for Tmux
+# Ensure tmux is running
+# ------------------------------------------------------------------------------
+
+if [ -z "$TMUX" ]; then
+  tmux ls && read tmux_session && tmux attach -t ${tmux_session:-werk} || tmux new -s ${tmux_session:-werk}
+fi
+
+
+# ------------------------------------------------------------------------------
+# Experimenting with tmuxinator
 # ------------------------------------------------------------------------------
 
 alias tx="tmuxinator"
