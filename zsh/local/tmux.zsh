@@ -1,9 +1,23 @@
 # ------------------------------------------------------------------------------
-# Ensure tmux is running
+# Aliases and functions for tmux
 # ------------------------------------------------------------------------------
 
-if [ -z "$TMUX" ]; then
+# Unalias omz's ta
+unalias ta
+
+# Attach to session
+ta() {
+  if [ -n "$1" ]; then
+    tmux attach -t $1
+    return
+  fi
+
   tmux ls && read tmux_session && tmux attach -t ${tmux_session:-werk} || tmux new -s ${tmux_session:-werk}
+}
+
+# Ensure attached to session when opening new terminal windows
+if [ -z "$TMUX" ]; then
+  ta
 fi
 
 
