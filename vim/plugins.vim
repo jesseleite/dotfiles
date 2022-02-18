@@ -178,9 +178,6 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'jesseleite/vim-agriculture'
 
-" Closing tag annotations
-Plug 'code-biscuits/nvim-biscuits'
-
 " Scrollbars
 Plug 'Xuyuanp/scrollbar.nvim'
 

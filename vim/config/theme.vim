@@ -96,9 +96,6 @@ sign define DiagnosticSignWarning text=❱❱ texthl=DiagnosticSignWarning lineh
 sign define DiagnosticSignInformation text=❱❱ texthl=DiagnosticSignInformation linehl= numhl=
 sign define DiagnosticSignHint text=❱❱ texthl=DiagnosticSignHint linehl= numhl=
 
-" Highlights: biscuits
-highlight BiscuitColor ctermfg=235 cterm=italic
-
 " Highlights: blamer
 highlight Blamer ctermfg=235 cterm=italic
 

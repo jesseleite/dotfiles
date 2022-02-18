@@ -112,14 +112,18 @@ const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC
 
 // Register global key overrides
 const key_override_t **key_overrides = (const key_override_t *[]){
-    &delete_key_override,
-    NULL
+  &delete_key_override,
+  NULL
 };
 
 // Custom keycode handling
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
-    // set_timelog();
+    // switch (keycode) {
+    //   case CUSTOM_KEYCODE:
+    //     // do something
+    //     break;
+    // }
   }
   return true;
 }

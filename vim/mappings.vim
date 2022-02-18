@@ -25,6 +25,11 @@ nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
 imap jw <Esc>:w<CR>
 
+" Disable ctrl-f/b scrolling in favour of ctrl-d/u (ctrl-b is also used by
+" tmux)
+nmap <C-f> <Nop>
+nmap <C-b> <Nop>
+
 " Write and reload current tab in chrome
 nmap <silent> <Leader>R :w<CR>:call system('chrome-cli reload')<CR>
 
@@ -34,8 +39,8 @@ nmap <silent> <Leader><Leader>o :!open $PWD<CR><CR>
 " Browse with valet open
 nmap <silent> <Leader><Leader>b :!valet open<CR><CR>
 
-" Open in github desktop
-nmap <silent> <Leader><Leader>g :!github<CR><CR>
+" Open in tower
+nmap <silent> <Leader><Leader>g :! gittower $PWD<CR><CR>
 
 " Cycle through windows
 nnoremap <Tab> <C-w>w
