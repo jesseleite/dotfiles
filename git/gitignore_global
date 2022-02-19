@@ -18,6 +18,7 @@ tinkeray.php
 # Statamic
 site/users/jlo.yaml
 users/jesseleite@example.com.yaml
+.antlers.format.json
 
 # Talon
 app/site/addons

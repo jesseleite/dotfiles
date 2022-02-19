@@ -4,7 +4,7 @@
 
 let g:neoformat_html_antlersformat = {
   \ 'exe': 'antlersformat',
-  \ 'args': ['format', '--o', '~/.dotfiles/statamic/antlersformat.json'],
+  \ 'args': ['format'],
   \ 'replace': 1,
   \ }
 
