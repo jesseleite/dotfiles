@@ -7,6 +7,7 @@ Plug 'jesseleite/vim-sourcery'
 
 " Dump debug all the vim things
 Plug 'jesseleite/vim-raymond'
+Plug 'jesseleite/vim-tinkeray'
 
 " Human readable vim startup time profiling
 Plug 'tweekmonster/startuptime.vim', {'on': 'StartupTime'}

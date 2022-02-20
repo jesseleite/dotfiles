@@ -13,7 +13,7 @@ phpstan.neon
 jsconfig.json
 
 # Laravel
-tinkeray.php
+/tinkeray.php
 
 # Statamic
 site/users/jlo.yaml

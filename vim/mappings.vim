@@ -249,8 +249,8 @@ autocmd FileType php nnoremap <buffer> <Leader>pd :call pdv#DocumentWithSnip()<C
 " PHP Laravel specific mappings
 " Mappings: laravel
 autocmd FileType php nnoremap <buffer> <Leader>pr :call LaravelConvertToRealTimeFacade()<CR>
-nnoremap <Leader>gt :edit tinkeray.php<CR>
-nnoremap <Leader>rt :call LaravelRunTinkeray()<CR>
+nmap <Leader>gt <Plug>TinkerayOpen
+nmap <Leader>rt <Plug>TinkerayRun
 
 " HTML and CSS abbreviation expansion
 " Mappings: emmet

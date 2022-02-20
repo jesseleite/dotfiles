@@ -14,36 +14,6 @@ endfunction
 
 
 " ------------------------------------------------------------------------------
-" # Automatically run tinkeray.php on save
-" ------------------------------------------------------------------------------
-
-function! LaravelRunTinkeray()
-  let artisan = filereadable('artisan') > 0
-    \ ? 'artisan'
-    \ : '~/Code/Playground/archon/artisan'
-  redir @r
-  silent exec '!php' artisan 'tinker tinkeray.php'
-  redir END
-  if match(@r, 'error') > -1 || match(@r, 'exception') > -1
-    echo @r
-  endif
-endfunction
-
-function! LaravelEditTinkeray()
-  call LaravelRunTinkeray()
-  if search("'tinkeray ready'") > 0
-    norm f'va'
-  endif
-endfunction
-
-augroup auto_run_tinkeray_on_write
-  autocmd!
-  autocmd BufWritePost tinkeray.php :call LaravelRunTinkeray()
-  autocmd BufEnter tinkeray.php :call LaravelEditTinkeray()
-augroup END
-
-
-" ------------------------------------------------------------------------------
 " # Experimenting...
 " ------------------------------------------------------------------------------
 
