@@ -18,7 +18,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-treesitter/playground'
 
 " Fallback for languages without good treesitter implementations
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " Telescope fuzzy finder
 Plug 'nvim-lua/popup.nvim'

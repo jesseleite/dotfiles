@@ -25,6 +25,7 @@ local summonModalBindings = {
   s = 'Slack',
   d = 'Discord',
   t = 'Telegram',
+  i = 'Messages',
   g = 'Tower',
   r = 'Ray',
   n = 'Bear',
