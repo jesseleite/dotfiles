@@ -4,8 +4,10 @@
 #define MASTER_LEFT
 
 // Mod tap config
-#define TAPPING_FORCE_HOLD
 #define TAPPING_TERM 150
+#define IGNORE_MOD_TAP_INTERRUPT
+#define TAPPING_FORCE_HOLD
+#define PERMISSIVE_HOLD
 
 // Sugar to automatically prefix `KC_` onto every keycode for cleaner keymaps
 #define LAYOUT_KC( \

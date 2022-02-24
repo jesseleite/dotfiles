@@ -116,14 +116,31 @@ const key_override_t **key_overrides = (const key_override_t *[]){
   NULL
 };
 
-// Custom keycode handling
+// Define custom keycodes
+// enum my_keycodes {
+//   FOO = SAFE_RANGE,
+//   BAR,
+// };
+
+// User keycode handling
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    // switch (keycode) {
-    //   case CUSTOM_KEYCODE:
-    //     // do something
-    //     break;
-    // }
+  switch (keycode) {
+
+    // Fix rolling between space cadet shift parens when quickly typing `()`
+    case KC_LSPO:
+      if (! record->event.pressed && get_mods() & MOD_BIT(KC_RSFT)) {
+        tap_code16(KC_LPRN);
+        clear_mods();
+        return false;
+      }
+      break;
+    case KC_RSPC:
+      if (record->event.pressed && get_mods() & MOD_BIT(KC_LSFT)) {
+        clear_mods();
+        return true;
+      }
+      break;
+
   }
   return true;
 }
