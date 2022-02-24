@@ -25,10 +25,13 @@ nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
 imap jw <Esc>:w<CR>
 
-" Disable ctrl-f/b scrolling in favour of ctrl-d/u (ctrl-b is also used by
-" tmux)
+" Disable ctrl-f/b scrolling in favour of ctrl-d/u (ctrl-b is also used by tmux)
 nmap <C-f> <Nop>
 nmap <C-b> <Nop>
+
+" Next/prev change alias, which is more comfy with where I have these mapped on split keeb
+nmap <PageDown> ]c
+nmap <PageUp> [c
 
 " Write and reload current tab in chrome
 nmap <silent> <Leader>R :w<CR>:call system('chrome-cli reload')<CR>
