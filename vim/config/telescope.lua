@@ -60,6 +60,10 @@ builtin.dotfiles = function ()
   builtin.find_files({
     prompt_title = 'Dotfiles',
     cwd = "$HOME/.dotfiles",
+    file_ignore_patterns = {
+      '^.git/',
+      '^git/submodules/',
+    },
   })
 end
 
