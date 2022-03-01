@@ -59,7 +59,6 @@ local yabaiKeyBindings = {
   ['0'] = 'space --balance',
   ['-'] = 'window --resize left:50:0 AND window --resize right:-50:0',
   ['='] = 'window --resize left:-50:0 AND window --resize right:50:0',
-  ['i'] = function() stackline.config:toggle('appearance.showIcons') end,
 }
 
 local yabaiModalBindings = {
@@ -78,7 +77,6 @@ local yabaiModalBindings = {
   ['0'] = 'space --balance',
   ['-'] = 'window --resize left:50:0 AND window --resize right:-50:0',
   ['='] = 'window --resize left:-50:0 AND window --resize right:50:0',
-  ['i'] = function() stackline.config:toggle('appearance.showIcons') end,
   ['c'] = function() hs.window.focusedWindow():application():hide() end,
 }
 
@@ -99,22 +97,6 @@ end
 function yabaiModal:exited()
   hs.window.highlight.stop()
 end
-
-
---------------------------------------------------------------------------------
--- Yabai Stack Icons
---------------------------------------------------------------------------------
-
-stackline = require('stackline')
-
-stackline:init()
-
-stackline.config:set('appearance.size', 23)
-stackline.config:set('appearance.iconPadding', 1)
-stackline.config:set('appearance.offset.x', 5)
-stackline.config:set('appearance.offset.y', 12)
-stackline.config:set('appearance.pillThinness', 4)
-stackline.config:set('appearance.showIcons', false)
 
 
 --------------------------------------------------------------------------------

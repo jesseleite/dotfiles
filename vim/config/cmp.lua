@@ -24,7 +24,6 @@ cmp.setup({
     }),
   },
   sources = cmp.config.sources({
-    -- { name = 'copilot' },
     { name = 'ultisnips' },
     -- { name = 'luasnip' }, -- For luasnip users.
     { name = 'nvim_lsp' },
