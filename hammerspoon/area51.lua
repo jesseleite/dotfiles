@@ -214,3 +214,73 @@ end)
 -- modalBind(layoutModal, 'w', function () setLayout('w', true) end)
 -- modalBind(layoutModal, 's', function () setLayout('w', true) end)
 -- modalBind(layoutModal, 'r', function () resetLayout() end)
+
+
+--------------------------------------------------------------------------------
+-- Grid Layout Ideas
+--------------------------------------------------------------------------------
+
+-- Two column...
+-- |                       |       |
+-- |          1(M)         |  2(S) |
+-- |                       |       |
+
+-- Three column...
+-- |   |                   |       |
+-- | 1 |        2(M)       |  3(S) |
+-- |   |                   |       |
+
+-- Four column...
+-- |   |         |         |       |
+-- | 1 |   2(M)  |    3    |  4(S) |
+-- |   |         |         |       |
+
+-- Streaming setup, with absolutely positioned 1920x1080 friendly cell...
+-- |                               |
+-- |  |  1(M)  |                   |
+-- |                               |
+
+-- Layout rules:
+--     Assign layout to specific mac space only
+--     Set custom grid cell sizes and margins for each layout
+--     Allow for absolutely sized/positioned cells that aren't part of grid
+--     Set `M` main cell alias
+--     Set `S` secondary cell alias
+-- App rules:
+--     Global app rules
+--     Per-layout app rules
+--     Set default space
+--     Set default cell number or alias
+-- Cell snapping:
+--     If app is in layout space, check app rules for cell snapping, otherwise float by default
+--     Automatically snap to cell on window resize/move
+--     Allow dynamic resizing of cells
+-- Functions that can be configured via hotkey/modal:
+--     Select layout (will reset moved apps and cell resizing to default rules)
+--     Disable layout
+--     Float window (detach from cell layout)
+--     Focus north/east/south/west (topmost window if windows are stacked)
+--     Focus next/prev windows in stack (within cell)
+--     Zoom window (toggle between current cell and fullscreen cell)
+--     Attach window to another cell in layout (to cell number or alias)
+--     Move window to another space (to space number)
+--     Show/hide all floated windows
+-- Maybe someday:
+
+
+--------------------------------------------------------------------------------
+-- Normalize Hotkey Bindings
+--------------------------------------------------------------------------------
+
+-- hs.timer.doAfter(0.5, function()
+--   hs.eventtap.keyStroke({'ctrl', 'shift'}, 'left')
+--   print('wat')
+-- end)
+
+-- hs.hotkey.bind({'cmd'}, 'k', function()
+--   if appIs('Brave Browser') then
+--     print('Yep, it is Brave')
+--   elseif appIs('Discord') then
+--     print('Yep, it is Discord')
+--   end
+-- end)

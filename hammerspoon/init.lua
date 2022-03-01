@@ -46,10 +46,10 @@ end), true)
 --------------------------------------------------------------------------------
 
 local yabaiKeyBindings = {
-  ['h'] = 'window --focus west',
-  ['j'] = 'window --focus south',
-  ['k'] = 'window --focus north',
-  ['l'] = 'window --focus east',
+  ['h'] = function() hs.window.focusedWindow():focusWindowWest(nil, true) end,
+  ['j'] = function() hs.window.focusedWindow():focusWindowSouth(nil, true) end,
+  ['k'] = function() hs.window.focusedWindow():focusWindowNorth(nil, true) end,
+  ['l'] = function() hs.window.focusedWindow():focusWindowEast(nil, true) end,
   ['n'] = 'window --focus stack.next OR window --focus stack.first',
   ['p'] = 'window --focus stack.prev OR window --focus stack.last',
   ['o'] = 'window --toggle zoom-parent',
