@@ -22,10 +22,13 @@ enum layer_number {
 #define KC_EMOJ LCMD(LCTL(KC_SPC)) // Emoji picker
 #define KC_RAI0 LT(_RAISE, KC_P0)  // Hold to raise, tap for 0
 #define KC_SRCH LCMD(KC_SPC)       // Spotlight search
-#define KC_BROL LAG(KC_LEFT)       // Browser tab left
-#define KC_BROR LAG(KC_RGHT)       // Browser tab right
 #define KC_SPCL LCTL(KC_LEFT)      // Mission control space left
 #define KC_SPCR LCTL(KC_RGHT)      // Mission control space right
+#define KC_BROL LAG(KC_LEFT)       // Browser tab left
+#define KC_BROR LAG(KC_RGHT)       // Browser tab right
+#define KC_ZMIN LCMD(KC_EQL)       // Zoom in
+#define KC_ZMOT LCMD(KC_MINS)      // Zoom out
+#define KC_ZMRS LCMD(KC_0)         // Zoom reset
 
 // Layer keymaps
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -80,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
               ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        LEFT , DOWN ,  UP  , RGHT ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
-              ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  , BROL ,          BROR , MPRV , VOLD , VOLU , MNXT , MUTE , MPLY ,
+              ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,           xx  , MPRV , VOLD , VOLU , MNXT , MUTE , MPLY ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
                                 ,      ,      ,  SRCH ,                    ,      ,      ,
     //                   +------+------+------+------/              \------+------+------+------+
@@ -90,11 +93,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
          GAME ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        SPCL ,  xx  ,  xx  , SPCR ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-         DFLT ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
+         DFLT ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        BROL ,  xx  ,  xx  , BROR ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
-          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  , SPCL ,          SPCR ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,           xx  , ZMRS , ZMOT , ZMIN ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
                                 ,      ,      ,       ,                    ,      ,      ,
     //                   +------+------+------+------/              \------+------+------+------+
