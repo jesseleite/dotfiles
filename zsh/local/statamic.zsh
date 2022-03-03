@@ -59,6 +59,7 @@ plsnew() {
   cd $1
   gin
   plsuser
+  plspro
   b
 }
 
