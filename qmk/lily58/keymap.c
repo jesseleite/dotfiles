@@ -6,29 +6,37 @@ enum layer_number {
   _GAME,
   _LOWER,
   _RAISE,
-  _ADJUST,
+  _MASH,
+  _SNIPE,
 };
 
 // Aliases
-#define KC_ KC_TRNS                // Blank keys will inherit from previous layer
-#define KC_xx KC_NO                // Completely disable key with `xx`
-#define KC_DFLT DF(_DEFAULT)       // Switch to default layer
-#define KC_GAME DF(_GAME)          // Switch to game layer
-#define KC_LOWR MO(_LOWER)         // Lower layer
-#define KC_RAIS MO(_RAISE)         // Raise layer
-#define KC_CESC LCTL_T(KC_ESC)     // Hold for ctrl, tap for esc
-#define KC_TERM LCMD(KC_ESC)       // Summon terminal from anywhere
-#define KC_LAUN LCAG(KC_SPC)       // App launcher modal
-#define KC_EMOJ LCMD(LCTL(KC_SPC)) // Emoji picker
-#define KC_RAI0 LT(_RAISE, KC_P0)  // Hold to raise, tap for 0
-#define KC_SRCH LCMD(KC_SPC)       // Spotlight search
-#define KC_SPCL LCTL(KC_LEFT)      // Mission control space left
-#define KC_SPCR LCTL(KC_RGHT)      // Mission control space right
-#define KC_BROL LAG(KC_LEFT)       // Browser tab left
-#define KC_BROR LAG(KC_RGHT)       // Browser tab right
-#define KC_ZMIN LCMD(KC_EQL)       // Zoom in
-#define KC_ZMOT LCMD(KC_MINS)      // Zoom out
-#define KC_ZMRS LCMD(KC_0)         // Zoom reset
+#define KC_ KC_TRNS                 // Blank keys will inherit from previous layer
+#define KC_xx KC_NO                 // Completely disable key with `xx`
+#define KC_DFLT DF(_DEFAULT)        // Switch to default layer
+#define KC_GAME DF(_GAME)           // Switch to game layer
+#define KC_LAUN LCAG(KC_SPC)        // App launcher modal
+#define KC_TERM LCMD(KC_ESC)        // Summon terminal from anywhere
+#define KC_LOWR MO(_LOWER)          // Lower layer
+#define KC_RAIS MO(_RAISE)          // Raise layer
+#define KC_RAI0 LT(_RAISE, KC_P0)   // Hold to raise, tap for numpad 0
+#define KC_CESC LCTL_T(KC_ESC)      // Hold for ctrl, tap for esc
+#define KC_SRCH LCMD(KC_SPC)        // Spotlight search
+#define KC_SPCL LCTL(KC_LEFT)       // Mission control space left
+#define KC_SPCR LCTL(KC_RGHT)       // Mission control space right
+#define KC_BROL LAG(KC_LEFT)        // Browser tab left
+#define KC_BROR LAG(KC_RGHT)        // Browser tab right
+#define KC_ZMIN LCMD(KC_EQL)        // Zoom in
+#define KC_ZMOT LCMD(KC_MINS)       // Zoom out
+#define KC_ZMRS LCMD(KC_0)          // Zoom reset
+#define KC_EMOJ LCMD(LCTL(KC_SPC))  // Emoji picker
+#define KC_SCRE LCMD(S(KC_4))       // Screen capture
+
+// Define custom keycodes
+enum my_keycodes {
+  FOO = SAFE_RANGE,
+  KC_SNPE                           // One shot layer to snipe them awkward hotkeys
+};
 
 // Layer keymaps
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -69,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
          TERM , CIRC , AMPR , ASTR , LAUN , LABK ,                        RABK ,  P4  ,  P5  ,  P6  , MINS , UNDS ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
-              ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  , LCBR ,          RCBR , DOT  ,  P1  ,  P2  ,  P3  , SLSH , EMOJ ,
+         LCBR ,  xx  , DOT  , COMM , SNPE , LBRC ,  xx  ,           xx  , RBRC ,  P1  ,  P2  ,  P3  , SLSH , RCBR ,
     // +------+------+------+------+------+------+------/        \------+------+------+------+------+------+------+
                                 ,      ,      ,       ,                    , RAI0 ,      ,
     //                   +------+------+------+------/              \------+------+------+------+
@@ -77,19 +85,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_KC(
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-              ,  F1  ,  F2  ,  F3  ,  F4  ,  F5  ,                         F6  ,  F7  ,  F8  ,  F9  , F10  , F11  ,
+          xx  ,  F1  ,  F2  ,  F3  ,  F4  ,  F5  ,                         F6  ,  F7  ,  F8  ,  F9  , F10  , F11  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-              ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        HOME , PGDN , PGUP , END  ,  xx  , F12  ,
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        HOME , PGDN , PGUP , END  ,  xx  , F12  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-              ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        LEFT , DOWN ,  UP  , RGHT ,  xx  ,  xx  ,
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        LEFT , DOWN ,  UP  , RGHT ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
-              ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,           xx  , MPRV , VOLD , VOLU , MNXT , MUTE , MPLY ,
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,           xx  , MPRV , VOLD , VOLU , MNXT , MUTE , MPLY ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
                                 ,      ,      ,  SRCH ,                    ,      ,      ,
     //                   +------+------+------+------/              \------+------+------+------+
   ),
 
-  [_ADJUST] = LAYOUT_KC(
+  [_MASH] = LAYOUT_KC(
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
          GAME ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
@@ -101,13 +109,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
                                 ,      ,      ,       ,                    ,      ,      ,
     //                   +------+------+------+------/              \------+------+------+------+
+  ),
+
+  [_SNIPE] = LAYOUT_KC(
+    // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
+    // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
+          xx  ,  xx  ,  xx  , EMOJ ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
+    // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
+          xx  ,  xx  , SCRE ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
+    // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,           xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
+    // +------+------+------+------+------+------+------/        \------+------+------+------+------+------+------+
+                                ,      ,      ,       ,                    ,      ,      ,
+    //                   +------+------+------+------/              \------+------+------+------+
   )
 
 };
 
 // Handle layer changes
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+  return update_tri_layer_state(state, _LOWER, _RAISE, _MASH);
 }
 
 // Shift backspace to forward delete
@@ -118,12 +140,6 @@ const key_override_t **key_overrides = (const key_override_t *[]){
   &delete_key_override,
   NULL
 };
-
-// Define custom keycodes
-// enum my_keycodes {
-//   FOO = SAFE_RANGE,
-//   BAR,
-// };
 
 // User keycode handling
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -144,6 +160,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
+    // Fix rolling between MO layer key and OSL keys, when OSL is triggered on MO layer
+    case KC_SNPE:
+      if (! record->event.pressed) {
+        set_oneshot_layer(_SNIPE, ONESHOT_START);
+        clear_oneshot_layer_state(ONESHOT_PRESSED);
+      }
+      break;
+
+    // Clear mods when holding lower layer curly brackets to stop me from shifting shiftable symbols
+    case KC_LCBR:
+      if (record->event.pressed) {
+        clear_mods();
+        tap_code16(KC_LCBR);
+        return false;
+      }
+      break;
+    case KC_RCBR:
+      if (record->event.pressed) {
+        clear_mods();
+        tap_code16(KC_RCBR);
+        return false;
+      }
+      break;
   }
+
   return true;
 }
