@@ -13,7 +13,7 @@ cnoremap jk <C-c>
 tnoremap <Esc> <C-\><C-n>
 
 " Edit the alternate / previously edited file
-nmap <Leader>6 <C-^>
+nmap <Leader>a <C-^>
 
 " Clear search highlighting
 nmap <silent> <Leader>jk :nohlsearch<CR>

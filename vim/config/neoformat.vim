@@ -2,15 +2,25 @@
 " # Neoformat Config
 " ------------------------------------------------------------------------------
 
+let g:neoformat_enabled_php = ['phpcsfixer']
+let g:neoformat_enabled_html = ['antlersformat']
+
+augroup neoformat_on_save
+  autocmd!
+  autocmd BufWritePre *.php call RunNeoformat()
+  autocmd BufWritePre *.antlers.html call RunNeoformat()
+augroup END
+
+
+" ------------------------------------------------------------------------------
+" # Custom Formatters
+" ------------------------------------------------------------------------------
+
 let g:neoformat_html_antlersformat = {
   \ 'exe': 'antlersformat',
   \ 'args': ['format'],
   \ 'replace': 1,
   \ }
-
-let g:neoformat_enabled_php = ['phpcsfixer']
-
-let g:neoformat_enabled_html = ['antlersformat']
 
 
 " ------------------------------------------------------------------------------
@@ -34,14 +44,3 @@ function! ToggleNeoformat()
     echo 'Neoformat enabled'
   endif
 endfunction
-
-
-" ------------------------------------------------------------------------------
-" # Register Neoformat On Save
-" ------------------------------------------------------------------------------
-
-augroup neoformat_on_save
-  autocmd!
-  autocmd BufWritePre *.php call RunNeoformat()
-  autocmd BufWritePre *.antlers.html call RunNeoformat()
-augroup END

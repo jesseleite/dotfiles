@@ -7,12 +7,14 @@ alias pls="php please"
 
 # V3
 alias plsi="arti && plsuser"
+alias plsv="art --version && pls --version"
 alias cmsd="in docs npm run docs:dev"
 alias cmst="in cms shtuff as test"
 alias cmsw="in cms npm run watch"
 alias plsuser="cp ~/.dotfiles/statamic/jesseleite@example.com.yaml users/jesseleite@example.com.yaml && echo 'User created.'"
 alias plspro="sed -i \"\" \"s/'pro'\ =>\ false/'pro'\ =>\ true/\" config/statamic/editions.php && echo 'Pro enabled.'"
 alias plsant="cp ~/.dotfiles/statamic/antlers.format.json .antlers.format.json && echo 'Antlers formatting rules copied.'"
+alias lstatamic="~/Code/Wilderborn/cli/bin/statamic"
 
 # V2
 alias plsc="pls clear:cache && pls clear:stache && pls clear:static && pls clear:glide"
@@ -60,6 +62,7 @@ plsnew() {
   gin
   plsuser
   plspro
+  plsant
   b
 }
 

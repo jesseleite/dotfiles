@@ -13,6 +13,23 @@
 " let g:copilot_no_tab_map = v:true
 " imap <silent><script><expr> <C-y> copilot#Accept("\<CR>")
 
+" Mess with artisan make from Timmy Mac...
+function! ArtisanMake(input)
+  let l:before = system('php -r "echo hrtime(true);"')
+  let l:output = system('php artisan make:'.a:input)
+  let l:after = system('php -r "echo hrtime(true);"')
+
+  if v:shell_error != 0
+    return v:shell_error
+  endif
+
+  let l:within = l:after - l:before
+  let l:path = trim(system('fd --changed-within="'.l:within.' ns" --type f'))
+
+  execute('e '.l:path)
+endfunction
+
+
 " ------------------------------------------------------------------------------
 " # Debug mappings...
 " ------------------------------------------------------------------------------

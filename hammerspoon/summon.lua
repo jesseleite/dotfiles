@@ -14,6 +14,7 @@ end)
 
 hs.window.filter.default:subscribe(hs.window.filter.windowUnfocused, function(window, appName)
   lastFocusedWindow = window
+  print('-- Last Focused Window: "' .. window:title() .. '"')
 end)
 
 function summon(appName, hideOnClose)

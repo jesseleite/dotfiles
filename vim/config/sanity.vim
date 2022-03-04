@@ -3,6 +3,7 @@
 " ------------------------------------------------------------------------------
 
 set exrc
+set secure
 set hidden
 set nobackup
 set noswapfile
