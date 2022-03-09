@@ -6,8 +6,9 @@
 
 
 " Visual paste without losing what is in register
-" Which isn't working because of vim-pasta?
-" vnoremap <Leader>p "_dP
+" This mapping doesn't work because vim-pasta hijacks it
+" Keep an eye on this... https://github.com/sickill/vim-pasta/pull/18
+" vnoremap p "0p
 
 " Config: copilot
 " let g:copilot_no_tab_map = v:true
