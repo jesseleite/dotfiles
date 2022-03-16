@@ -21,6 +21,7 @@ enum layer_number {
 #define KC_RAIS MO(_RAISE)          // Raise layer
 #define KC_RAI0 LT(_RAISE, KC_P0)   // Hold to raise, tap for numpad 0
 #define KC_CESC LCTL_T(KC_ESC)      // Hold for ctrl, tap for esc
+#define KC_OTAB LOPT_T(KC_TAB)      // Hold for option, tap for tab
 #define KC_SRCH LCMD(KC_SPC)        // Spotlight search
 #define KC_SPCL LCTL(KC_LEFT)       // Mission control space left
 #define KC_SPCR LCTL(KC_RGHT)       // Mission control space right
@@ -46,13 +47,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
           xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-         TAB  ,  Q   ,  W   ,  E   ,  R   ,  T   ,                         Y   ,  U   ,  I   ,  O   ,  P   , BSLS ,
+         OTAB ,  Q   ,  W   ,  E   ,  R   ,  T   ,                         Y   ,  U   ,  I   ,  O   ,  P   , BSLS ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
          CESC ,  A   ,  S   ,  D   ,  F   ,  G   ,                         H   ,  J   ,  K   ,  L   , SCLN , QUOT ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
          LSPO ,  Z   ,  X   ,  C   ,  V   ,  B   , LBRC ,          RBRC ,  N   ,  M   , COMM , DOT  , SLSH , RSPC ,
     // +------+------+------+------+------+------+------/        \------+------+------+------+------+------+------+
-                           LCTL , LCMD , LOWR ,  SPC  ,              ENT   , RAIS , BSPC , LOPT
+                            xx  , LCMD , LOWR ,  SPC  ,              ENT   , RAIS , BSPC ,  xx
     //                   +------+------+------+------/              \------+------+------+------+
   ),
 
