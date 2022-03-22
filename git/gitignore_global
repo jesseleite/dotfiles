@@ -8,7 +8,7 @@ tags.temp
 !tags/
 
 # Linters and fixers
-.php_cs.cache
+.php-cs-fixer.cache
 phpstan.neon
 jsconfig.json
 
