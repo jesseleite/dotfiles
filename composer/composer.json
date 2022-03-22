@@ -7,7 +7,8 @@
         "laravel/installer": "^4.0",
         "tightenco/takeout": "^1.8",
         "permafrost-dev/ray-cli": "^1.12",
-        "statamic/cli": "^2.1"
+        "statamic/cli": "^2.1",
+        "spatie/global-ray": "^1.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
