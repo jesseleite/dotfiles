@@ -11,6 +11,10 @@ alias sizes='du -sh -c *'
 # Copy pwd to clipboard
 alias cwd="pwd && pwd | pbcopy && echo 'Copied to clipboard 📁'"
 
+# Make kitty work with ssh, because I have xterm-kitty as my TERM
+# Backspace doesn't work properly without this
+alias ssh='env TERM=xterm-256color ssh'
+
 # Run any command from anywhere, without leaving current working directory.
 #
 # Usage: `in [target] [command]`
