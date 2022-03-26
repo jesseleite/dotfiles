@@ -44,7 +44,7 @@ command! -bang -nargs=1 Maps call Maps(<q-args>, <bang>0)
 
 
 " ------------------------------------------------------------------------------
-" # Recursively missing directories when saving new file...
+" # Recursively create missing directories when saving new file...
 " ------------------------------------------------------------------------------
 
 function s:create_missing_directories(file, buf)
