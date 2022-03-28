@@ -7,7 +7,7 @@ let mapleader = ' '
 
 " Esc / Ctrl-c
 inoremap jk <Esc>
-cnoremap jk <C-c>
+cnoremap jk <C-f>
 
 " Exit terminal mode
 tnoremap <Esc> <C-\><C-n>

@@ -89,7 +89,7 @@ augroup END
 if has('nvim')
   augroup neovim_terminal
     autocmd!
-    autocmd TermOpen * :set nonumber norelativenumber
+    autocmd TermOpen * setlocal nonumber norelativenumber
     autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
   augroup END
 endif
@@ -102,4 +102,11 @@ augroup highlight_on_yank
     \ timeout = 150,
     \ on_macro = true
     \ }
+augroup END
+
+" Ex mode cmd win defaults
+augroup ex_mode_cmd_win
+  autocmd!
+  autocmd CmdwinEnter * setlocal nonumber
+  autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
 augroup END
