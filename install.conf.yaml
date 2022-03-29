@@ -22,7 +22,6 @@
     ~/.ctags.d: ctags
     ~/.hammerspoon: hammerspoon
     ~/.composer/composer.json: composer/composer.json
-    ~/.composer/config.json: composer/config.json
     ~/.qmk_firmware/keyboards/lily58/keymaps/jesseleite: qmk/lily58
 - create:
     - ~/Code
@@ -68,6 +67,8 @@
     command: "[ -f ~/.vim/autoload/plug.vim ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   - description: Installing vim plugins
     command: "vim +PlugInstall +qa"
+  - description: Stub out global composer config.json
+    command: "[ -f ~/.composer/config.json ] || cp composer/config.json ~/.composer/config.json"
   - description: Installing/updating global composer dependencies
     command: "sh composer/global_update"
   - description: Initializing valet

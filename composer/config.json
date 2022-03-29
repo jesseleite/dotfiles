@@ -4,5 +4,11 @@
             "type": "path",
             "url": "/Users/jesseleite/Code/Wilderborn/migrator"
         }
+    ],
+    "disabled": [
+        {
+            "type": "path",
+            "url": "/Users/jesseleite/Code/Wilderborn/cms"
+        }
     ]
 }
