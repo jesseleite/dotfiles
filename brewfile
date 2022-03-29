@@ -1,7 +1,6 @@
 # Taps
 tap 'homebrew/cask'
 tap 'homebrew/bundle'
-tap 'universal-ctags/universal-ctags'
 tap 'exolnet/homebrew-deprecated'
 tap 'teamookla/speedtest'              # For `speedtest`
 tap 'saadparwaiz1/personal'            # For `lua-language-server`
@@ -25,7 +24,6 @@ brew 'bat'
 brew 'awk'
 brew 'diff-so-fancy'
 brew 'tmux'
-brew 'tmuxinator'
 brew 'the_silver_searcher'
 brew 'ripgrep'
 brew 'mas'
@@ -36,8 +34,6 @@ brew 'redis'
 brew 'antibody'
 brew 'composer'
 brew 'node'
-brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
-brew 'chrome-cli'
 brew 'shyaml'
 brew 'trash'
 brew 'speedtest'
@@ -46,7 +42,6 @@ brew 'httpie'
 brew 'yabai'
 brew 'goku'
 brew 'qmk'
-# brew 'docker' # installed M1 preview manually for now
 
 # Cask
 cask 'kitty'
@@ -66,7 +61,6 @@ cask 'vlc'
 cask 'imageoptim'
 cask '1password'
 cask 'the-unarchiver'
-cask 'gifox'
 cask 'tinkerwell'
 cask 'tableplus'
 cask 'flux'
@@ -81,9 +75,7 @@ cask 'loopback'
 cask 'selfcontrol'
 cask 'cleanshot'
 cask 'phpmon'
-#cask 'adobe-creative-cloud'
 
 # Mac App Store
 mas 'SnippetsLab', id: 1006087419
-#mas 'Harvest', id: 506189836
 mas 'Bear Notes', id: 1091189122
