@@ -175,7 +175,7 @@ Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-cheat.sh'
 
 " Delete the hell outta this if/when my `:Telescope live_grep_raw` PR gets merged!
-Plug '/usr/local/opt/fzf'
+Plug '/opt/homebrew/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'jesseleite/vim-agriculture'
 
@@ -190,7 +190,7 @@ Plug 'sbdchd/neoformat'
 
 " Explicit annotation bindings for more accurate go to
 let g:sourcery#explicit_plugin_bindings = {
-  \ '/usr/local/opt/fzf': 'base-fzf',
+  \ '/opt/homebrew/opt/fzf': 'base-fzf',
   \ 'bkad/CamelCaseMotion': 'camel-case-motion',
   \ }
 

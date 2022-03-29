@@ -49,7 +49,7 @@ end
 --------------------------------------------------------------------------------
 
 function yabaiCmd(cmd, fallbackCmd)
-  hs.task.new('/usr/local/bin/yabai', function(exitCode)
+  hs.task.new('/opt/homebrew/bin/yabai', function(exitCode)
     if exitCode == 1 then
       yabaiCmd(fallbackCmd)
     end

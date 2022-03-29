@@ -19,7 +19,6 @@
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.config/yabai/yabairc: yabai/yabairc
     ~/.tmux.conf: tmux/tmux.conf
-    ~/.config/tmuxinator: tmux/tmuxinator
     ~/.ctags.d: ctags
     ~/.hammerspoon: hammerspoon
     ~/.composer/composer.json: composer/composer.json
@@ -35,32 +34,26 @@
     command: "sudo pwpolicy -clearaccountpolicies"
   - description: Telling gatekeeper to allow unidentified developers
     command: "sudo spctl --master-disable"
-  - description: Install Rosetta 2
-    command: "softwareupdate --install-rosetta --agree-to-license || true"
   - description: Installing brew
-    command: "[ -x \"$(which brew)\" ] || arch -x86_64 /usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
+    command: "[ -x \"$(which brew)\" ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
   - description: Updating brew
-    command: "arch -x86_64 brew update"
+    command: "brew update"
   - description: Installing brew bundler
-    command: "arch -x86_64 brew tap homebrew/bundle"
+    command: "brew tap homebrew/bundle"
   - description: Installing brewfile bundle
-    command: "arch -x86_64 brew bundle"
+    command: "brew bundle"
     stdout: true
     stderr: true
   - description: Linking mysql 5.7
-    command: "arch -x86_64 brew link --force mysql@5.7"
+    command: "brew link --force mysql@5.7"
   - description: Starting mysql service whenever mac boots
-    command: "arch -x86_64 brew services start mysql@5.7"
+    command: "brew services start mysql@5.7"
   - description: Removing old brew files
-    command: "arch -x86_64 brew cleanup"
-  - description: Unlinking php 8.0
-    command: "arch -x86_64 brew unlink php"
-  - description: Linking php 7.4
-    command: "arch -x86_64 brew link --force php@7.4"
+    command: "brew cleanup"
   - description: Starting yabai service whenever mac boots
-    command: "arch -x86_64 brew services start yabai"
+    command: "brew services start yabai"
   - description: Starting goku service whenever mac boots
-    command: "arch -x86_64 brew services start goku"
+    command: "brew services start goku"
   - description: Adding zsh to list of acceptable shells
     command: "[[ \"$(ag $(which zsh) /etc/shells)\" ]] || sudo sh -c \"echo $(which zsh) >> /etc/shells\""
   - description: Making zsh the default shell

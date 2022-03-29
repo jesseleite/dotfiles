@@ -1,7 +1,6 @@
 # Taps
 tap 'homebrew/cask'
 tap 'homebrew/bundle'
-tap 'exolnet/homebrew-deprecated'
 tap 'teamookla/speedtest'              # For `speedtest`
 tap 'saadparwaiz1/personal'            # For `lua-language-server`
 tap 'nicoverbruggen/homebrew-cask'     # For `phpmon`

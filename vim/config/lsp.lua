@@ -6,7 +6,6 @@ local lspconfig = require('lspconfig')
 
 -- Lua
 lspconfig.sumneko_lua.setup {
-  cmd = {'lua-langserver', '-E', '/usr/local/Cellar/lua-language-server/1.19.0/main.lua'},
   settings = {
     Lua = {
       runtime = {

@@ -6,7 +6,7 @@
 export EDITOR='nvim'
 
 alias vim='nvim'
-alias bramvim='/usr/local/bin/vim'
+alias bramvim='/opt/homebrew/bin/vim'
 
 # Open vim with z argument
 v() {

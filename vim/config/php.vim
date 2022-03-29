@@ -3,5 +3,5 @@
 " ------------------------------------------------------------------------------
 
 " Stop arrow matching on indent
-" See: /usr/local/share/vim/vim81/indent/php.vim
+" See :help PHP_noArrowMatching
 let g:PHP_noArrowMatching = 1
