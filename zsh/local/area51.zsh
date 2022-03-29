@@ -20,3 +20,6 @@ function swaplaravel() {
 }
 
 alias qmkf="qmk flash -kb lily58 -km jesseleite"
+
+# Spam requests
+# repeat 100 curl -s GET http://wat.test > /dev/null && echo "Requested at" $(date)
