@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Installing global npm packages..."
+
+npm i -g $(cat npm/packages)
