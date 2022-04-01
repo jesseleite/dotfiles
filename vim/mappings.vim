@@ -104,8 +104,8 @@ nnoremap <Leader>gj :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <Leader>gk :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <Leader>gl :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <Leader>g; :lua require("harpoon.ui").nav_file(4)<CR>
-nnoremap <Leader>gu :lua require("harpoon.term").gotoTerminal(1)<CR>
-nnoremap <Leader>gi :lua require("harpoon.term").gotoTerminal(2)<CR>
+nnoremap <Leader>gu :lua require("harpoon.tmux").gotoTerminal(1)<CR>
+nnoremap <Leader>gi :lua require("harpoon.tmux").gotoTerminal(2)<CR>
 
 " Run tests
 " Mappings: test
