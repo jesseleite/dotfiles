@@ -28,3 +28,10 @@ fi
 
 # Key bindings
 source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+
+
+# ------------------------------------------------------------------------------
+# Custom keybindings
+# ------------------------------------------------------------------------------
+
+bindkey '^F' fzf-file-widget
