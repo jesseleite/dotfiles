@@ -1,6 +1,7 @@
 @tailwindcss/language-server
 fixjson
 intelephense
+tree-sitter-phpdoc
 vim-language-server
 vls
 vscode-langservers-extracted
