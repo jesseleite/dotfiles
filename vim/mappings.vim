@@ -252,6 +252,8 @@ autocmd FileType php nnoremap <buffer> <Leader>pd :call pdv#DocumentWithSnip()<C
 " PHP Laravel specific mappings
 " Mappings: laravel
 autocmd FileType php nnoremap <buffer> <Leader>pr :call LaravelConvertToRealTimeFacade()<CR>
+
+" Mappings: tinkeray
 nmap <Leader>gt <Plug>TinkerayOpen
 nmap <Leader>rt <Plug>TinkerayRun
 
