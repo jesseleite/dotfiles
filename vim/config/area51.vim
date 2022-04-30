@@ -32,7 +32,7 @@ endfunction
 
 " Run on selection of lines to prepare Statamic changelog...
 function! Changelog()
-  norm ^dwi- jkf(f#hr[Ajkr]a(jkhhviwyAjkhlihttps://github.com/statamic/cms/issues/jkpA by @
+  norm ^dwi- f(f#hhi.llr[llyiwf)r]a(http://github.com/statamic/cms/issues/pA by @
 endfunction
 
 
