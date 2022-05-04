@@ -17,6 +17,7 @@
     ~/.config/nvim/ultisnips: vim/snippets
     ~/.config/nvim/after/queries: vim/queries
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
+    ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yaml
     ~/.config/yabai/yabairc: yabai/yabairc
     ~/.tmux.conf: tmux/tmux.conf
     ~/.ctags.d: ctags
