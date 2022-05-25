@@ -2,7 +2,7 @@
 # General theme config
 # ------------------------------------------------------------------------------
 
-export TERM=xterm-kitty
+# export TERM=xterm-kitty
 
 ZSH_THEME_TERM_TITLE_IDLE="%~"
 
