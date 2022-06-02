@@ -10,6 +10,7 @@ tap 'qmk/qmk'                          # For `qmk`
 
 # Brew
 brew 'antibody'
+brew 'avr-gcc' # For `qmk`
 brew 'awk'
 brew 'bash'
 brew 'bat'
