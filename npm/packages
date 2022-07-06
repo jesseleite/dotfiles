@@ -1,4 +1,5 @@
 @tailwindcss/language-server
+antlers-formatter
 fixjson
 intelephense
 tree-sitter-phpdoc
