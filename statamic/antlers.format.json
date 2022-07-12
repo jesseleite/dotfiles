@@ -1,7 +1,9 @@
 {
     "htmlOptions": {
         "wrapLineLength": 0,
-        "endWithNewline": true
+        "endWithNewline": true,
+        "wrapAttributes": "preserve",
+        "wrapAttributesIndentSize": 4
     },
     "formatFrontMatter": true,
     "insertSpaces": true,
