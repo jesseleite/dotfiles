@@ -2,7 +2,9 @@
 " # Neoformat Config
 " ------------------------------------------------------------------------------
 
-let g:neoformat_enabled_php = ['phpcsfixer']
+" let g:neoformat_verbose = 1
+
+let g:neoformat_enabled_php = ['laravelpint']
 let g:neoformat_enabled_json = ['fixjson']
 let g:neoformat_enabled_html = ['antlersformat']
 
