@@ -253,6 +253,9 @@ autocmd FileType php nnoremap <buffer> <Leader>pd :call pdv#DocumentWithSnip()<C
 " Mappings: laravel
 autocmd FileType php nnoremap <buffer> <Leader>pr :call LaravelConvertToRealTimeFacade()<CR>
 
+" Statamic Antlers specific mappings
+autocmd BufRead,BufNewFile *.antlers.html nmap <Leader>p :call CloseAntlersPair()<CR>
+
 " Mappings: tinkeray
 nmap <Leader>gt <Plug>TinkerayOpen
 nmap <Leader>rt <Plug>TinkerayRun

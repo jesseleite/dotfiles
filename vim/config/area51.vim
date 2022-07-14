@@ -35,6 +35,15 @@ function! Changelog()
   norm ^dwi- f(f#hhi.llr[llyiwf)r]a(http://github.com/statamic/cms/issues/pA by @
 endfunction
 
+" Close current antlers tag pair...
+function! CloseAntlersPair()
+  silent! s/\([^ ]\)}}/\1 }}/
+  norm $F{w"ayt A
+  let @a = '{{ /' . @a . ' }}'
+  exec 'norm $"ap==kA    '
+  startinsert!
+endfunction
+
 
 " ------------------------------------------------------------------------------
 " # Debug mappings...
