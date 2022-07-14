@@ -46,5 +46,8 @@ lspconfig.html.setup {
   filetypes = {'html', 'blade', 'antlers'}
 }
 
+-- Antlers
+lspconfig.antlersls.setup { }
+
 -- Tailwind
 lspconfig.tailwindcss.setup { }
