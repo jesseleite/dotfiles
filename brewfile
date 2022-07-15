@@ -64,6 +64,7 @@ cask 'kitty'
 cask 'loopback'
 cask 'macmediakeyforwarder'
 cask 'obs'
+cask 'obsidian'
 cask 'openemu'
 cask 'paw'
 cask 'phpmon'
@@ -88,5 +89,4 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Keynote", id: 409183694
 mas "iMovie", id: 408981434
-mas 'Bear Notes', id: 1091189122
 mas 'SnippetsLab', id: 1006087419
