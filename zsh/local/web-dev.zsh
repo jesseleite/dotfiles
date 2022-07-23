@@ -22,6 +22,7 @@ alias deps="comp install && npm ci && npm run dev"
 # Run tests
 alias tp="phpunit"
 alias pegs="phpunit --exclude-group slow"
+alias pegsf="pegs --stop-on-failure"
 
 # Open shtuff receiving shell for tests with z argument
 st() {
