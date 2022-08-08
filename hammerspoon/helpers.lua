@@ -1,106 +1,64 @@
---------------------------------------------------------------------------------
--- Application Helpers
---------------------------------------------------------------------------------
+function map(f, t)
+  n = {}
 
-function appIs(name)
-    return hs.application.frontmostApplication():name() == name
+  for k,v in pairs(t) do
+    n[k] = f(v);
+  end
+
+  return n;
 end
 
+-- Get the number of items in a table
+function size(table)
+  local count = 0
+  for k,v in pairs(table) do
+    count = count + 1
+  end
+  return count
+end
 
---------------------------------------------------------------------------------
--- Modal Helpers
---------------------------------------------------------------------------------
+function printi(...)
+  return print(hs.inspect(...))
+end
 
-function activateModal(mods, key, timeout)
-  timeout = timeout or false
-  local modal = hs.hotkey.modal.new(mods, key)
-  local timer
-  modal:bind('', 'escape', nil, function() modal:exit() end)
-  modal:bind('', 'q', nil, function() modal:exit() end)
-  modal:bind('ctrl', 'c', nil, function() modal:exit() end)
-  function modal:entered()
-    if timeout then
-      timer = hs.timer.doAfter(3, function() modal:exit() end)
+function getPositions(sizes, leftOrRight, topOrBottom)
+  local applyLeftOrRight = function (size)
+    if type(positions[size]) == 'string' then
+      return positions[size]
     end
-    print('modal entered')
+    return positions[size][leftOrRight]
   end
-  function modal:exited()
-    if timer then
-      timer:stop()
+
+  local applyTopOrBottom = function (position)
+    local h = math.floor(string.match(position, 'x([0-9]+)') / 2)
+    position = string.gsub(position, 'x[0-9]+', 'x'..h)
+    if topOrBottom == 'bottom' then
+      local y = math.floor(string.match(position, ',([0-9]+)') + h)
+      position = string.gsub(position, ',[0-9]+', ','..y)
     end
-    print('modal exited')
+    return position
   end
-  return modal
-end
 
-function modalBind(modal, key, fn, exitAfter)
-  exitAfter = exitAfter or false
-  modal:bind('', key, nil, function()
-    fn()
-    if exitAfter then
-      modal:exit()
-    end
-  end)
-end
-
-
---------------------------------------------------------------------------------
--- Yabai Helpers
---------------------------------------------------------------------------------
-
-function yabaiCmd(cmd, fallbackCmd)
-  hs.task.new('/opt/homebrew/bin/yabai', function(exitCode)
-    if exitCode == 1 then
-      yabaiCmd(fallbackCmd)
-    end
-  end, hs.fnutils.concat({'-m'}, cmd)):start()
-end
-
-function yabai(binding, fallbackCmd)
-  if type(binding) == 'string' then
-    return yabaiRunFromString(binding)
-  elseif type(binding) == 'table' then
-    return yabaiCmd(binding, fallbackCmd)
-  elseif type(binding) == 'function' then
-    return binding()
-  else
-    print('incompatible binding type')
+  if (topOrBottom) then
+    return map(applyTopOrBottom, map(applyLeftOrRight, sizes))
   end
+
+  return map(applyLeftOrRight, sizes)
 end
 
-function yabaiRunFromString(binding)
-  if string.match(binding, 'OR') then
-    local cmds = hs.fnutils.map(hs.fnutils.split(binding, ' OR '), function(cmd)
-      return hs.fnutils.split(cmd, ' ');
-    end)
-    yabaiCmd(cmds[1], cmds[2])
-  elseif string.match(binding, 'AND') then
-    hs.fnutils.each(hs.fnutils.split(binding, ' AND '), function(cmd)
-      yabaiCmd(hs.fnutils.split(cmd, ' '))
-      print(hs.inspect(hs.fnutils.split(cmd, ' ')))
-    end)
-  else
-    yabaiCmd(hs.fnutils.split(binding, ' '))
-  end
+function getApp(appName)
+  return hs.application.get(apps[appName].id)
 end
 
-
---------------------------------------------------------------------------------
--- Binding Helpers
---------------------------------------------------------------------------------
-
-function registerKeyBindings(mods, bindings)
-  for key,binding in pairs(bindings) do
-    hs.hotkey.bind(mods, key, binding)
-  end
+function isAppVisible(appName)
+  local app = getApp(appName)
+  return app and not app:isHidden()
 end
 
-function registerModalBindings(mods, key, bindings, exitAfter)
-  exitAfter = exitAfter or false
-  local timeout = exitAfter == true
-  local modal = activateModal(mods, key, timeout)
-  for modalKey,binding in pairs(bindings) do
-    modalBind(modal, modalKey, binding, exitAfter)
-  end
-  return modal
+function isAppOpen(appName)
+  return getApp(appName) ~= nil
+end
+
+function isAppClosed(appName)
+  return not isAppOpen(appName)
 end

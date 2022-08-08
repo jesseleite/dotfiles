@@ -1,109 +1,79 @@
---------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- Setup
---------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 
-hyper = {"cmd", "alt", "ctrl"} -- or D+F 🤘
+hs.loadSpoon('ReloadConfiguration'):start()
+local notification = hs.notify.new({title = 'Hammerspoon', informativeText = 'Config loading...'}):send()
 
-require('summon')
+hs.alert.defaultStyle.textSize = 16
+hs.alert.defaultStyle.radius = 6
+
 require('helpers')
-require('area51')
+require('modals')
+require('windows')
+positions = require('positions')
+layouts = require('layouts')
+apps = require('apps')
+hyper = require('hyper'):setHyperKey('F19')
 
-hs.loadSpoon("ReloadConfiguration"):start()
+----------------------------------------------------------------------------------------------------
+-- Window Management
+----------------------------------------------------------------------------------------------------
 
-hs.hotkey.bind(hyper, 'r', hs.reload)
-hs.hotkey.bind(hyper, '`', hs.toggleConsole)
+hs.window.animationDuration = 0.2
+hs.grid.setGrid('30x20')
+hs.grid.setMargins('30x30')
+
+-- Grid Movements
+local chain = require('chain')
+local chainX = { 'thirds', 'halves', 'twoThirds', 'fiveSixths', 'sixths', }
+local chainY = { 'thirds', 'full' }
+local centers = positions.center
+bindHyper('up', chain({positions.full, centers.large, centers.medium, centers.small, centers.tiny}))
+bindHyper('left', chain(getPositions(chainX, 'left')))
+bindHyper('right', chain(getPositions(chainX, 'right')))
+bindHyper('down', chain(getPositions(chainY, 'center')))
+
+-- Multi-window layouts
+bindLayoutSelector('l')
+bindPositionSelector('return')
+bindHyper('r', resetLayout)
+bindHyper('h', hideFloatingWindows)
+bindHyper('s', function ()
+    saveLayoutSnapshot()
+    hs.alert.show('Layout snapshotted')
+end)
+bindHyper('delete', function ()
+    removeWindowFromLayout(hs.window.focusedWindow())
+    hs.alert.show("Window removed from layout")
+end)
+bindHyper('m', toggleMaximized)
+bindHyper('d', setToDefaultPosition)
+bindHyper('t', toggleLayout)
+bindHyper('c', cycleLayouts)
+bindWarp('w')
+bindHyper('n', focusNextCellWindow)
+bindHyper('p', focusPreviousCellWindow)
+bindHyper('f', toggleFocusMode)
 
 
---------------------------------------------------------------------------------
--- Summon Specific Apps
---------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+-- Keybindings
+----------------------------------------------------------------------------------------------------
 
-hs.hotkey.bind({'cmd'}, 'escape', function() summon('kitty') end)
+-- Summon apps using hyper+o then key defined in apps.lua
+require('summon').via('o')
 
-local summonModalBindings = {
-  b = 'Brave Browser',
-  s = 'Slack',
-  d = 'Discord',
-  t = 'Telegram',
-  i = 'Messages',
-  g = 'Tower',
-  r = 'Ray',
-  n = 'Obsidian',
-  m = 'Music',
-  e = 'Mimestream',
-  f = 'Finder',
-  q = 'TablePlus',
-  p = 'Paw',
-}
+bindHyper('`', hs.toggleConsole)
+hyper:bind('cmd', '`', function() hs.console.clearConsole() end)
+bindHyper('f1', function() hs.osascript.applescript('tell app "System Events" to tell appearance preferences to set dark mode to not dark mode') end)
 
-registerModalBindings(hyper, 'space', hs.fnutils.map(summonModalBindings, function(app)
-  return function() summon(app) end
-end), true)
-
-
---------------------------------------------------------------------------------
--- Yabai Window Management
---------------------------------------------------------------------------------
-
-local yabaiKeyBindings = {
-  ['h'] = function() hs.window.focusedWindow():focusWindowWest(nil, true) end,
-  ['j'] = function() hs.window.focusedWindow():focusWindowSouth(nil, true) end,
-  ['k'] = function() hs.window.focusedWindow():focusWindowNorth(nil, true) end,
-  ['l'] = function() hs.window.focusedWindow():focusWindowEast(nil, true) end,
-  ['n'] = 'window --focus stack.next OR window --focus stack.first',
-  ['p'] = 'window --focus stack.prev OR window --focus stack.last',
-  ['o'] = 'window --toggle zoom-parent',
-  ['m'] = 'window --toggle zoom-fullscreen',
-  [']'] = 'space --focus next',
-  ['['] = 'space --focus prev',
-  ['0'] = 'space --balance',
-  ['-'] = 'window --resize left:50:0 AND window --resize right:-50:0',
-  ['='] = 'window --resize left:-50:0 AND window --resize right:50:0',
-}
-
-local yabaiModalBindings = {
-  ['h'] = 'window --warp west',
-  ['j'] = 'window --warp south',
-  ['k'] = 'window --warp north',
-  ['l'] = 'window --warp east',
-  ['n'] = 'window --stack next',
-  ['p'] = 'window --stack prev',
-  ['f'] = 'window --toggle float',
-  ['s'] = 'window --toggle split',
-  ['o'] = 'window --toggle zoom-parent',
-  ['m'] = 'window --toggle zoom-fullscreen',
-  [']'] = 'space --focus next',
-  ['['] = 'space --focus prev',
-  ['0'] = 'space --balance',
-  ['-'] = 'window --resize left:50:0 AND window --resize right:-50:0',
-  ['='] = 'window --resize left:-50:0 AND window --resize right:50:0',
-  ['c'] = function() hs.window.focusedWindow():application():hide() end,
-}
-
-registerKeyBindings(hyper, hs.fnutils.map(yabaiKeyBindings, function(cmd)
-  return function() yabai(cmd) end
-end))
-
-local yabaiModal = registerModalBindings(hyper, 'y', hs.fnutils.map(yabaiModalBindings, function(cmd)
-  return function() yabai(cmd) end
-end))
-
-function yabaiModal:entered()
-  hs.window.highlight.ui.overlay = true
-  hs.window.highlight.ui.overlayColor = {0.5,0.25,0.75,0.25}
-  hs.window.highlight.start()
-end
-
-function yabaiModal:exited()
-  hs.window.highlight.stop()
-end
-
+-- Quick entry in Things.app
+hyper:bind('cmd', '=', function() hs.eventtap.keyStroke({'cmd', 'alt', 'shift', 'ctrl'}, '=') end)
 
 --------------------------------------------------------------------------------
--- The End
+-- Done!
 --------------------------------------------------------------------------------
 
-hs.notify.show('Hammerspoon loaded', '', '...more like hammerspork')
-
--- Special thank you to Jose for all the rad Hammerspoon and Yabai ideas!
--- https://github.com/josecanhelp/dotfiles
+notification:withdraw()
+hs.notify.new({title = 'Hammerspoon', informativeText = 'Config loaded', withdrawAfter = 1}):send()
