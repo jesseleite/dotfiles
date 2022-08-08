@@ -19,6 +19,7 @@ augroup filetype_settings
   autocmd FileType snippets setlocal ts=4 sw=4 sts=4 expandtab
   autocmd FileType markdown setlocal ts=4 sw=4 sts=4 expandtab wrap
   autocmd FileType c setlocal ts=2 sw=2 sts=2 expandtab commentstring=//\ %s iskeyword+=$
+  autocmd FileType go setlocal ts=4 sw=4 sts=4 expandtab
 augroup END
 
 augroup framework_filetype_settings
