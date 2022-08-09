@@ -89,8 +89,8 @@ function applyPresetLayout(layout)
         positionAppUsingGrid(app, cells[1])
     end
     currentLayout.preset = layout
-    printi(layout.apps)
-    hideWindowsExcept(layout.apps)
+    printi(tableKeys(layout.apps))
+    hideWindowsExcept(tableKeys(layout.apps))
     saveLayoutSnapshot()
 end
 
