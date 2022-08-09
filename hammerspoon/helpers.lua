@@ -11,11 +11,21 @@ end
 -- Lua Helpers
 --------------------------------------------------------------------------------
 
-function flipTable(t)
+function tableFlip(t)
   n = {}
 
   for k,v in pairs(t) do
-    n[v] = k;
+    n[v] = k
+  end
+
+  return n;
+end
+
+function tableKeys(t)
+  n = {}
+
+  for k,_ in pairs(t) do
+    table.insert(n, k)
   end
 
   return n;
