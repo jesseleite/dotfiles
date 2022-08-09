@@ -13,14 +13,18 @@ function getOrOpenApp(application)
 end
 
 function hideWindowsExcept(allowed)
-    local windows = hs.window.visibleWindows()
-        for _,window in pairs(windows) do
-        local app = window:application()
-        local appName = app:name()
-        if not allowed[appName] then
-            app:hide()
-        end
+  local allowedIds = hs.fnutils.map(allowed, function(appName)
+    return apps[appName].id
+  end)
+  for _,window in pairs(hs.window.visibleWindows()) do
+    local app = window:application()
+    local found = hs.fnutils.find(allowedIds, function(allowedId)
+      return allowedId == app:bundleID()
+    end)
+    if not found then
+      app:hide()
     end
+  end
 end
 
 function positionWindowUsingRect(window, rect)
