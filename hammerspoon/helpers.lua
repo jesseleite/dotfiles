@@ -1,25 +1,133 @@
-function map(f, t)
+--------------------------------------------------------------------------------
+-- Debug Helpers
+--------------------------------------------------------------------------------
+
+function printi(...)
+  return print(hs.inspect(...))
+end
+
+
+--------------------------------------------------------------------------------
+-- Lua Helpers
+--------------------------------------------------------------------------------
+
+-- Just use hs.fnutils.map?
+-- function map(t, f)
+--   n = {}
+
+--   for k,v in pairs(t) do
+--     n[k] = f(v);
+--   end
+
+--   return n;
+-- end
+
+function flip(t)
   n = {}
 
   for k,v in pairs(t) do
-    n[k] = f(v);
+    n[v] = k;
   end
 
   return n;
 end
 
--- Get the number of items in a table
-function size(table)
-  local count = 0
-  for k,v in pairs(table) do
-    count = count + 1
-  end
-  return count
+-- -- Get the number of items in a table
+-- function size(table)
+--   local count = 0
+--   for k,v in pairs(table) do
+--     count = count + 1
+--   end
+--   return count
+-- end
+
+--------------------------------------------------------------------------------
+-- Application Helpers
+--------------------------------------------------------------------------------
+
+function getApp(appName)
+  return hs.application.get(apps[appName].id)
 end
 
-function printi(...)
-  return print(hs.inspect(...))
+function isAppVisible(appName)
+  local app = getApp(appName)
+  return app and not app:isHidden()
 end
+
+function isAppOpen(appName)
+  return getApp(appName) ~= nil
+end
+
+function isAppClosed(appName)
+  return not isAppOpen(appName)
+end
+
+-- function appIs(appName)
+--     return hs.application.frontmostApplication():name() == appName
+-- end
+
+
+--------------------------------------------------------------------------------
+-- Modal Helpers
+--------------------------------------------------------------------------------
+
+function activateModal(mods, key, timeout)
+  timeout = timeout or false
+  local modal = hs.hotkey.modal.new(mods, key)
+  local timer
+  modal:bind('', 'escape', nil, function() modal:exit() end)
+  modal:bind('', 'q', nil, function() modal:exit() end)
+  modal:bind('ctrl', 'c', nil, function() modal:exit() end)
+  function modal:entered()
+    if timeout then
+      timer = hs.timer.doAfter(3, function() modal:exit() end)
+    end
+    print('modal entered')
+  end
+  function modal:exited()
+    if timer then
+      timer:stop()
+    end
+    print('modal exited')
+  end
+  return modal
+end
+
+function modalBind(modal, key, fn, exitAfter)
+  exitAfter = exitAfter or false
+  modal:bind('', key, nil, function()
+    fn()
+    if exitAfter then
+      modal:exit()
+    end
+  end)
+end
+
+
+--------------------------------------------------------------------------------
+-- Binding Helpers
+--------------------------------------------------------------------------------
+
+function registerKeyBindings(mods, bindings)
+  for key,binding in pairs(bindings) do
+    hs.hotkey.bind(mods, key, binding)
+  end
+end
+
+function registerModalBindings(mods, key, bindings, exitAfter)
+  exitAfter = exitAfter or false
+  local timeout = exitAfter == true
+  local modal = activateModal(mods, key, timeout)
+  for modalKey,binding in pairs(bindings) do
+    modalBind(modal, modalKey, binding, exitAfter)
+  end
+  return modal
+end
+
+
+--------------------------------------------------------------------------------
+-- Position Helpers
+--------------------------------------------------------------------------------
 
 function getPositions(sizes, leftOrRight, topOrBottom)
   local applyLeftOrRight = function (size)
@@ -40,25 +148,8 @@ function getPositions(sizes, leftOrRight, topOrBottom)
   end
 
   if (topOrBottom) then
-    return map(applyTopOrBottom, map(applyLeftOrRight, sizes))
+    return hs.fnutils.map(hs.fnutils.map(sizes, applyLeftOrRight), applyTopOrBottom)
   end
 
-  return map(applyLeftOrRight, sizes)
-end
-
-function getApp(appName)
-  return hs.application.get(apps[appName].id)
-end
-
-function isAppVisible(appName)
-  local app = getApp(appName)
-  return app and not app:isHidden()
-end
-
-function isAppOpen(appName)
-  return getApp(appName) ~= nil
-end
-
-function isAppClosed(appName)
-  return not isAppOpen(appName)
+  return hs.fnutils.map(sizes, applyLeftOrRight)
 end
