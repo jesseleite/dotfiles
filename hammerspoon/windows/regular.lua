@@ -1,5 +1,6 @@
 currentLayout = nil
 previousLayout = nil
+currentLayoutConfiguration = nil
 
 function startRegularMode()
     if (previousLayout == nil) then

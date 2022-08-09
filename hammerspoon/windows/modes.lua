@@ -1,13 +1,6 @@
 initialMode = 'regular'
 currentMode = nil
 previousMode = initialMode
-lastCycledLayoutIndex = nil
-currentLayoutConfiguration = nil
-
-require('windows.regular')
-require('windows.focus')
-require('windows.common')
-require('windows.subscriptions')
 
 function setWindowMode(mode)
     if (mode == currentMode) then
