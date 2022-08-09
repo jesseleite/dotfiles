@@ -3,6 +3,7 @@
 --------------------------------------------------------------------------------
 
 hyper = {"cmd", "alt", "ctrl"} -- or D+F 🤘
+bigHyper = {"shift", "cmd", "alt", "ctrl"} -- or S+D+F 😅
 
 hs.loadSpoon("ReloadConfiguration"):start()
 
