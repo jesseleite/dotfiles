@@ -9,13 +9,13 @@ hs.loadSpoon("ReloadConfiguration"):start()
 
 require('helpers')
 require('area51')
-require('windows')
 
 positions = require('positions')
 apps = require('apps')
 layouts = require('layouts')
 summon = require('summon')
 chain = require('chain')
+require('window')
 
 
 --------------------------------------------------------------------------------
@@ -100,15 +100,14 @@ local layoutModalBindings = {
   ['l'] = openLayoutSelector,
   ['r'] = resetLayout,
   ['k'] = hideFloatingWindows,
-  ['m'] = toggleMaximized,
   ['o'] = toggleFocusMode,
+  ['m'] = toggleMaximized,
   ['t'] = toggleAlternateLayout,
-  ['f'] = toggleFocusMode,
   ['n'] = focusNextCellWindow,
   ['p'] = focusPreviousCellWindow,
-  ['x'] = removeWindowFromLayout,
   ['d'] = warpToDefaultPosition,
   ['w'] = warpToExistingCellPosition,
+  ['x'] = removeWindowFromLayout,
   ['s'] = saveLayoutSnapshot,
 }
 
