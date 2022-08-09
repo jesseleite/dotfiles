@@ -12,7 +12,7 @@ hs.window.filter.default:subscribe(hs.window.filter.windowUnfocused, function(wi
   lastFocusedWindow = window
 end)
 
-function summon(appName)
+return function (appName)
   local id
   if apps and apps[appName] then
     id = apps[appName].id
