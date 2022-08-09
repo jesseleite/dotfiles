@@ -11,18 +11,7 @@ end
 -- Lua Helpers
 --------------------------------------------------------------------------------
 
--- Just use hs.fnutils.map?
--- function map(t, f)
---   n = {}
-
---   for k,v in pairs(t) do
---     n[k] = f(v);
---   end
-
---   return n;
--- end
-
-function flip(t)
+function flipTable(t)
   n = {}
 
   for k,v in pairs(t) do
@@ -32,14 +21,6 @@ function flip(t)
   return n;
 end
 
--- -- Get the number of items in a table
--- function size(table)
---   local count = 0
---   for k,v in pairs(table) do
---     count = count + 1
---   end
---   return count
--- end
 
 --------------------------------------------------------------------------------
 -- Application Helpers
