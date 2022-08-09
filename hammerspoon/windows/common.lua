@@ -94,7 +94,7 @@ function toggleMaximized()
 end
 
 -- Moves a window to its default position as defined in apps.lua
-function setToDefaultPosition()
+function warpToDefaultPosition()
     local win = hs.window.focusedWindow()
     local app = win:application()
     local config = hs.fnutils.find(apps, function(config) return config.id == app:bundleID() end)
