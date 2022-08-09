@@ -105,34 +105,27 @@ function warpToDefaultPosition()
     end
 end
 
+function warpToExistingCellPosition()
+  local chooser = hs.chooser.new(function(choice)
+    if not choice then return end
+    positionWindowUsingRect(hs.window.focusedWindow(), choice.window:frame())
+  end)
 
-
-
-function bindWarp(key)
-    local chooser = hs.chooser.new(function(choice)
-        if not choice then return end
-        positionWindowUsingRect(hs.window.focusedWindow(), choice.window:frame())
-    end)
-
-    hyper:bind({}, key, function()
-    local windows = hs.fnutils.filter(hs.window.visibleWindows(), function(win)
-        local focusedWin = hs.window.focusedWindow()
-        return win:id() ~= focusedWin:id() and win:frame() ~= focusedWin:frame()
-    end)
-    local choices = map(function(window)
-        local app = window:application()
-            return {
-                text = app:name(),
-                subText = window:title() or '--',
-                window = window,
-                image = hs.image.imageFromAppBundle(window:application():bundleID()),
-            }
-        end, windows)
-        chooser:searchSubText(true):choices(choices):query(''):show()
-    end)
+  local windows = hs.fnutils.filter(hs.window.visibleWindows(), function(win)
+    local focusedWin = hs.window.focusedWindow()
+    return win:id() ~= focusedWin:id() and win:frame() ~= focusedWin:frame()
+  end)
+  local choices = hs.fnutils.map(windows, function(window)
+    local app = window:application()
+    return {
+      text = app:name(),
+      subText = window:title() or '--',
+      window = window,
+      image = hs.image.imageFromAppBundle(window:application():bundleID()),
+    }
+  end)
+  chooser:searchSubText(true):choices(choices):query(''):show()
 end
-
-
 
 -- Puts a window on top of the last window of the same app and
 -- adds it to the layout if that window is already in the layout.
