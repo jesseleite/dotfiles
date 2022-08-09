@@ -57,10 +57,11 @@ function positionWindows(windows)
     end
 end
 
-function removeWindowFromLayout(win)
-    if currentLayout.windows[win:id()] then
-        currentLayout.windows[win:id()] = nil
-    end
+function removeWindowFromLayout()
+  local win = hs.window.focusedWindow()
+  if currentLayout.windows[win:id()] then
+      currentLayout.windows[win:id()] = nil
+  end
 end
 
 
