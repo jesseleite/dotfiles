@@ -107,26 +107,6 @@ end
 
 
 
-function openPositionSelector()
-    local chooser = hs.chooser.new(function(choice)
-        positionWindowUsingGrid(hs.window.frontmostWindow(), choice.position)
-    end)
-
-    chooser:choices({
-        { text = "L", position = positions.center.large },
-        { text = "M", position = positions.center.medium },
-        { text = "S", position = positions.center.small },
-        { text = "XS", position = positions.center.tiny },
-        { text = "XXS", position = positions.center.mini },
-    }):query(''):show()
-end
-
-function bindPositionSelector(key)
-    hyper:bind({}, key, function()
-        openPositionSelector()
-    end)
-end
-
 
 function bindWarp(key)
     local chooser = hs.chooser.new(function(choice)
