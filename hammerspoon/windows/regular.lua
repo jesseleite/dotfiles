@@ -105,17 +105,3 @@ function toggleLayout()
     end
     saveLayoutSnapshot()
 end
-
-function cycleLayouts()
-    local nextLayoutIndex = getNextLayoutIndex()
-    local nextLayout = layouts[nextLayoutIndex]
-    applyPresetLayout(nextLayout)
-    lastCycledLayoutIndex = nextLayoutIndex
-end
-
-function getNextLayoutIndex()
-    if lastCycledLayoutIndex == nil then return 1 end
-    local nextIndex = lastCycledLayoutIndex + 1
-    if nextIndex > #layouts then nextIndex = 1 end
-    return nextIndex
-end
