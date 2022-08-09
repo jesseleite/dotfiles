@@ -94,7 +94,7 @@ function applyPresetLayout(layout)
     saveLayoutSnapshot()
 end
 
-function toggleLayout()
+function toggleAlternateLayout()
     if currentLayout == nil then return end
     currentLayoutConfiguration = currentLayoutConfiguration + 1
     printi(currentLayout)
