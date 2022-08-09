@@ -65,22 +65,21 @@ function removeWindowFromLayout()
 end
 
 
-function bindLayoutSelector(key)
-    local chooser = hs.chooser.new(function(choice)
-        setWindowMode('regular')
-        applyPresetLayout(choice.layout)
-    end)
+function openLayoutSelector()
+  local choices = hs.fnutils.map(layouts, function(layout)
+    return {
+      ["text"] = layout.name,
+      ["subText"] = layout.description,
+      ["layout"] = layout
+    }
+  end)
 
-    hyper:bind({}, key, function()
-        local choices = map(function(layout)
-        return {
-            ["text"] = layout.name,
-            ["subText"] = layout.description,
-            ["layout"] = layout
-        }
-        end, layouts)
-        chooser:searchSubText(true):choices(choices):query(''):show()
-    end)
+  local chooser = hs.chooser.new(function(choice)
+      setWindowMode('regular')
+      applyPresetLayout(choice.layout)
+  end)
+
+  chooser:searchSubText(true):choices(choices):query(''):show()
 end
 
 function applyPresetLayout(layout)
