@@ -4,10 +4,6 @@
 
 local lastFocusedWindow
 
-hs.window.filter.default:subscribe(hs.window.filter.windowFocused, function(window)
-  print('-- Focused: (App: "' .. window:application():name() .. '", Bundle ID: "' .. window:application():bundleID() .. '", Window: "' .. window:title() .. '", Window ID: "' .. window:id() .. '")')
-end)
-
 hs.window.filter.default:subscribe(hs.window.filter.windowUnfocused, function(window)
   lastFocusedWindow = window
 end)
