@@ -1,11 +1,13 @@
 return {
   Kitty = {
     id = 'net.kovidgoyal.kitty',
-    summon = {'cmd', 'escape'}
+    summon = {'cmd', 'escape'},
+    focus = positions.center.large,
   },
   Brave = {
     id = 'com.brave.Browser',
     summonModal = 'b', -- browser
+    focus = positions.center.large,
   },
   Slack = {
     id = 'com.tinyspeck.slackmacgap',

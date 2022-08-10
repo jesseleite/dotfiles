@@ -47,30 +47,14 @@ hs.grid.setMargins('40x40')
 
 
 --------------------------------------------------------------------------------
--- Window Focus Movements
---------------------------------------------------------------------------------
-
-local windowFocusBindings = {
-  ['h'] = function() hs.window.focusedWindow():focusWindowWest(nil, true) end,
-  ['j'] = function() hs.window.focusedWindow():focusWindowSouth(nil, true) end,
-  ['k'] = function() hs.window.focusedWindow():focusWindowNorth(nil, true) end,
-  ['l'] = function() hs.window.focusedWindow():focusWindowEast(nil, true) end,
-}
-
-registerKeyBindings(hyper, hs.fnutils.map(windowFocusBindings, function(fn)
-  return function() fn() end
-end))
-
-
---------------------------------------------------------------------------------
 -- Single Window Movements
 --------------------------------------------------------------------------------
--- hl:   side column movements
--- k:    fullscreen and middle column movements
--- j:    centered window movements
--- yu:   top corner movements
--- nm:   bottom corner movements
--- i:    insert/snap to nearest grid region
+-- hl    side column movements
+-- k     fullscreen and middle column movements
+-- j     centered window movements
+-- yu    top corner movements
+-- nm    bottom corner movements
+-- i     insert/snap to nearest grid region
 
 local chainX = { 'thirds', 'halves', 'twoThirds', 'fiveSixths', 'sixths' }
 local chainY = { 'full', 'thirds' }
@@ -84,7 +68,7 @@ local singleWindowMovements = {
   ['u'] = chain(getPositions(chainX, 'right', 'top')),
   ['n'] = chain(getPositions(chainX, 'left', 'bottom')),
   ['m'] = chain(getPositions(chainX, 'right', 'bottom')),
-  -- ['m'] = snap
+  -- ['i'] = function() hs.grid.snap(hs.window.focusedWindow()) end, -- seems buggy?
 }
 
 registerKeyBindings(bigHyper, hs.fnutils.map(singleWindowMovements, function(fn)
@@ -93,27 +77,39 @@ end))
 
 
 --------------------------------------------------------------------------------
--- Multi Window Layouts
+-- Multi Window Management
 --------------------------------------------------------------------------------
+-- hjkl  focus window west/south/north/east
+-- p     [p]ick layout
+-- y     [y]eet window from layout
+-- o     [o]nly window, like `o` in vim
+-- m     [m]aximize window
+-- n     [n]ext window in current cell, like `n/p` in vim
+-- u     warp [u]nder another window cell
+-- .     [.] to save this layout
+-- /     [/] to slash changes / reset current layout
 
-local layoutModalBindings = {
-  ['l'] = openLayoutSelector,
-  ['r'] = resetLayout,
-  ['k'] = hideFloatingWindows,
+local windowManagementBindings = {
+  ['h'] = function() hs.window.focusedWindow():focusWindowWest(nil, true) end,
+  ['j'] = function() hs.window.focusedWindow():focusWindowSouth(nil, true) end,
+  ['k'] = function() hs.window.focusedWindow():focusWindowNorth(nil, true) end,
+  ['l'] = function() hs.window.focusedWindow():focusWindowEast(nil, true) end,
+  ['p'] = openLayoutSelector,
+  ['y'] = removeWindowFromLayout,
   ['o'] = toggleFocusMode,
   ['m'] = toggleMaximized,
-  ['t'] = toggleAlternateLayout,
   ['n'] = focusNextCellWindow,
-  ['p'] = focusPreviousCellWindow,
-  ['d'] = warpToDefaultPosition,
-  ['w'] = warpToExistingCellPosition,
-  ['x'] = removeWindowFromLayout,
-  ['s'] = saveLayoutSnapshot,
+  ['u'] = warpToExistingCellPosition,
+  ['.'] = saveLayoutSnapshot,
+  [';'] = toggleAlternateLayout,
+  ['/'] = resetLayout,
+  -- [?] = warpToDefaultPosition, -- Do I want this?
+  -- [?] = hideFloatingWindows, -- Do I want this?
 }
 
-registerModalBindings(hyper, 'l', hs.fnutils.map(layoutModalBindings, function(fn)
+registerKeyBindings(hyper, hs.fnutils.map(windowManagementBindings, function(fn)
   return function() fn() end
-end), true)
+end))
 
 
 --------------------------------------------------------------------------------

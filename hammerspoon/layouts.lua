@@ -2,24 +2,30 @@ return {
   {
     name = 'Standard Dev',
     apps = {
-      Ray = { '0,0 4x20', '0,8 10x12' },
-      Brave = { '4,0 11x20',  '0,0 10x8' },
-      Kitty = { '15,0 15x20', positions.twoThirds.right },
-    }
+      Ray = { '0,0 4x20', '0,0 5x20' },
+      Brave = { '4,0 9x20', '5,0 12x20' },
+      Kitty = { '13,0 17x20', '17,0 14x20' },
+      Tower = { '13,0 17x20', '17,0 14x20' },
+    },
+    -- optional = {
+    --   Tower,
+    -- },
   },
   {
-    name = 'Browser Dev',
+    name = 'No Ray',
     apps = {
-      Brave = { positions.halves.left,  '0,0 12x20',  positions.thirds.left,     '0,0 6x20' },
-      Kitty = { positions.halves.right, '12,0 18x20', positions.twoThirds.right, '6,0 24x20' }
+      Brave = { '0,0 10x20' },
+      Kitty = { '10,0 20x20' },
+      Tower = { '10,0 20x20' },
     },
   },
   {
-    name = 'Larger Code Window',
+    name = 'Code Focused',
     apps = {
-      Ray = { positions.sixths.left, positions.thirds.left },
-      Brave = { positions.fiveSixths.right, positions.twoThirds.right },
-      Kitty = { positions.fiveSixths.right, positions.twoThirds.right },
+      Ray = { positions.sixths.left },
+      Brave = { positions.fiveSixths.right },
+      Kitty = { positions.fiveSixths.right },
+      Tower = { positions.fiveSixths.right },
     }
   },
 }
