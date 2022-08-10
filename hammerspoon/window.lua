@@ -1,3 +1,4 @@
+require('windows.resizer')
 require('windows.regular')
 require('windows.focus')
 require('windows.common')

@@ -31,6 +31,17 @@ function tableKeys(t)
   return n;
 end
 
+function tableMapWithKeys(t, fn)
+  n = {}
+
+  for _,v in pairs(t) do
+    local keyPair = fn(v)
+    n[keyPair[1]] = keyPair[2]
+  end
+
+  return n;
+end
+
 
 --------------------------------------------------------------------------------
 -- Application Helpers
