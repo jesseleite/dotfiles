@@ -81,11 +81,35 @@ function resizeWindowsToRight(win)
 end
 
 function resizeWindowsAbove(win)
-  -- TODO
+  local id = win:id()
+  local oldRect = currentWindowRects[id]
+  local newRect = win:frame()
+  for adjacentId,rect in pairs(currentWindowRects) do
+    if (rect._y + rect._h) == (oldRect._y - yMargin) then
+      hs.window.get(adjacentId):setFrame(hs.geometry.new({
+        x = rect._x,
+        y = rect._y,
+        w = rect._w,
+        h = newRect._y - (yMargin * 2),
+      }))
+    end
+  end
 end
 
 function resizeWindowsBelow(win)
-  -- TODO
+  local id = win:id()
+  local oldRect = currentWindowRects[id]
+  local newRect = win:frame()
+  for adjacentId,rect in pairs(currentWindowRects) do
+    if (oldRect._y + oldRect._h) == (rect._y - yMargin) then
+      hs.window.get(adjacentId):setFrame(hs.geometry.new({
+        x = rect._x,
+        y = rect._y - (oldRect._h - newRect._h),
+        w = rect._w,
+        h = rect._h + (oldRect._h - newRect._h),
+      }))
+    end
+  end
 end
 
 -- Setup watcher to determine if mouse is being used
