@@ -18,7 +18,6 @@
     ~/.config/nvim/after/queries: vim/queries
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yaml
-    ~/.config/yabai/yabairc: yabai/yabairc
     ~/.tmux.conf: tmux/tmux.conf
     ~/.ctags.d: ctags
     ~/.hammerspoon: hammerspoon
@@ -50,8 +49,6 @@
     command: "brew services start mysql@5.7"
   - description: Removing old brew files
     command: "brew cleanup"
-  - description: Starting yabai service whenever mac boots
-    command: "brew services start yabai"
   - description: Starting goku service whenever mac boots
     command: "brew services start goku"
   - description: Adding zsh to list of acceptable shells

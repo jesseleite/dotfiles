@@ -28,12 +28,3 @@ alias qmkf="qmk flash -kb lily58 -km jesseleite"
 alias glt='git describe --tags --abbrev=0' # git latest tag
 alias gcslt='git --no-pager log $(glt)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
 alias changelog='gcslt && gcslt | pbcopy'
-
-# Use small yabai padding when laptop'ing
-function laptop() {
-  yabai -m config top_padding     10
-  yabai -m config bottom_padding  10
-  yabai -m config left_padding    10
-  yabai -m config right_padding   10
-  yabai -m config window_gap      10
-}
