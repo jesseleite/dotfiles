@@ -64,7 +64,7 @@ plsnew() {
   gin
   plsuser
   plspro
-  plsant
+  cpant
   b
 }
 
