@@ -125,10 +125,29 @@ function resizeWindowsBelow(win)
   end
 end
 
--- Setup watcher for when switching spaces
+-- Reset resizer when switching spaces
 hs.spaces.watcher.new(function ()
   resetResizer()
 end):start()
+
+-- Reset resizer when removing a window
+hs.window.filter.new():subscribe({
+  hs.window.filter.windowDestroyed,
+  hs.window.filter.windowNotVisible,
+  hs.window.filter.windowHidden,
+  hs.window.filter.windowMinimized,
+  hs.window.filter.windowNotInCurrentSpace,
+  hs.window.filter.windowNotOnScreen,
+}, function()
+  resetResizer()
+end)
+
+-- Ensure new windows are tracked
+hs.window.filter.new():subscribe(hs.window.filter.windowCreated, function(win)
+  hs.timer.doAfter(1, function()
+    currentWindowRects[win:id()] = win:frame()
+  end)
+end)
 
 -- Setup timer to reset `wasManuallyResizing` state, that can be cancelled as needed
 wasManuallyResizingTimer = hs.timer.doAfter(2, function()
