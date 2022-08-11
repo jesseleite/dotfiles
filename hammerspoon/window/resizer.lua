@@ -73,7 +73,7 @@ function resizeWindowsToLeft(win)
       hs.window.get(adjacentId):setFrame(hs.geometry.new({
         x = adjacentRect._x,
         y = adjacentRect._y,
-        w = newRect._x - (xMargin * 2),
+        w = adjacentRect._w - (oldRect._x - newRect._x),
         h = adjacentRect._h,
       }))
     end
@@ -100,7 +100,7 @@ function resizeWindowsAbove(win)
         x = adjacentRect._x,
         y = adjacentRect._y,
         w = adjacentRect._w,
-        h = newRect._y - (yMargin * 2),
+        h = adjacentRect._h - (oldRect._y - newRect._y),
       }))
     end
   end)
