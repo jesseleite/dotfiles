@@ -1,11 +1,12 @@
 local currentWindowRects
-local mouseRecentlyUsed = false
-local locked = true
+local resetLocked = false
+local lockedWinIds = {}
+local wasManuallyResizing = false
 local xMargin = 40 -- TODO: get this from grid config in below functions somehow?
 local yMargin = 40 -- TODO: get this from grid config in below functions somehow?
 
 function resetResizer()
-  if locked then
+  if resetLocked then
     return
   end
   currentWindowRects = tableMapWithKeys(hs.window.visibleWindows(), function (win)
@@ -14,10 +15,10 @@ function resetResizer()
 end
 
 function resizeAdjacentWindows(win)
-  if locked then
+  if hs.fnutils.contains(lockedWinIds, win:id()) then
     return
   end
-  locked = true
+  resetLocked = true
   local id = win:id()
   local currentRect = win:frame()
   local w = false
@@ -42,10 +43,10 @@ function resizeAdjacentWindows(win)
     resizeWindowsToRight(win)
   elseif h and y and not (w or x) then
     resizeWindowsAbove(win)
-  elseif y and not (w or x) then
+  elseif h and not (w or x) then
     resizeWindowsBelow(win)
   end
-  locked = false
+  resetLocked = false
 end
 
 function resizeWindowsToLeft(win)
@@ -60,6 +61,9 @@ function resizeWindowsToLeft(win)
         w = newRect._x - (xMargin * 2),
         h = rect._h,
       }))
+      lockedWinIdsTimer:stop()
+      lockedWinIdsTimer:start()
+      table.insert(lockedWinIds, adjacentId)
     end
   end
 end
@@ -76,6 +80,9 @@ function resizeWindowsToRight(win)
         w = rect._w + (oldRect._w - newRect._w),
         h = rect._h,
       }))
+      lockedWinIdsTimer:stop()
+      lockedWinIdsTimer:start()
+      table.insert(lockedWinIds, adjacentId)
     end
   end
 end
@@ -92,6 +99,9 @@ function resizeWindowsAbove(win)
         w = rect._w,
         h = newRect._y - (yMargin * 2),
       }))
+      lockedWinIdsTimer:stop()
+      lockedWinIdsTimer:start()
+      table.insert(lockedWinIds, adjacentId)
     end
   end
 end
@@ -108,40 +118,59 @@ function resizeWindowsBelow(win)
         w = rect._w,
         h = rect._h + (oldRect._h - newRect._h),
       }))
+      lockedWinIdsTimer:stop()
+      lockedWinIdsTimer:start()
+      table.insert(lockedWinIds, adjacentId)
     end
   end
 end
-
--- Setup watcher to determine if mouse is being used
--- Note: For some reason, this doesn't work unless setting to `mouseWatcher` variable 🤷
-mouseWatcher = hs.eventtap.new({hs.eventtap.event.types.leftMouseDown}, function(e)
-  mouseRecentlyUsed = true
-  hs.timer.doAfter(1, function()
-    mouseRecentlyUsed = false
-  end)
-end):start()
 
 -- Setup watcher for when switching spaces
 hs.spaces.watcher.new(function ()
   resetResizer()
 end):start()
 
--- Setup watcher for resizing of windows
+-- Setup timer to reset `wasManuallyResizing` state, that can be cancelled as needed
+wasManuallyResizingTimer = hs.timer.doAfter(2, function()
+  wasManuallyResizing = false
+end)
+
+-- Setup timer to reset `lockedWinIds` state, that can be cancelled as needed
+lockedWinIdsTimer = hs.timer.doAfter(1, function ()
+  lockedWinIds = {}
+end)
+
+-- Setup watcher to determine if user was potentially manually resizing a window with `cmd` mod + mouse
+-- Note: For some reason, this doesn't work unless setting to `wasManuallyResizingWatcher` variable 🤷
+wasManuallyResizingWatcher = hs.eventtap.new({
+  hs.eventtap.event.types.leftMouseDown,
+  hs.eventtap.event.types.leftMouseUp,
+}, function(e)
+  if e:getType() == 1 and hs.eventtap.checkKeyboardModifiers().cmd == true then
+    wasManuallyResizingTimer:stop()
+    wasManuallyResizing = true
+    wasManuallyResizingTimer:start()
+  end
+end):start()
+
+-- Setup watcher for resizing of adjacent windows
 hs.window.filter.new():subscribe(hs.window.filter.windowMoved, function(win)
 
-  -- Do not resize adjacent windows if user doesn't explicitly hold cmd and use mouse
-  if not mouseRecentlyUsed or not hs.eventtap.checkKeyboardModifiers().cmd then
-    locked = false
-    resetResizer()
+  -- Do not resize adjacent windows if user was not manually resizing
+  if not wasManuallyResizing then
+    return resetResizer()
+  end
+
+  -- Do not resize adjacent windows if this window is locked
+  if hs.fnutils.contains(lockedWinIds, win:id()) then
     return
   end
 
-  -- If user is still dragging mouse, wait for final `windowMoved` event after they let go of mouse button
-  if hs.mouse.getButtons().left then
-    return
-  end
+  -- Reset the timer in case user wants to resize twice quickly in a row
+  wasManuallyResizingTimer:stop()
+  wasManuallyResizingTimer:start()
 
-  locked = false
+  -- Okay, resize 'em!
   resizeAdjacentWindows(win)
   resetResizer()
 end)
