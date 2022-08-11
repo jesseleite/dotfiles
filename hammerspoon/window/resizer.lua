@@ -49,80 +49,70 @@ function resizeAdjacentWindows(win)
   resetLocked = false
 end
 
-function resizeWindowsToLeft(win)
+function operateOnWindows(win, callback)
   local id = win:id()
   local oldRect = currentWindowRects[id]
   local newRect = win:frame()
-  for adjacentId,rect in pairs(currentWindowRects) do
-    if (rect._x + rect._w) == (oldRect._x - xMargin) then
-      hs.window.get(adjacentId):setFrame(hs.geometry.new({
-        x = rect._x,
-        y = rect._y,
-        w = newRect._x - (xMargin * 2),
-        h = rect._h,
-      }))
+  for specificId,specificRect in pairs(currentWindowRects) do
+    callback(specificId, specificRect, oldRect, newRect)
+    if specificId ~= win:id() then
       lockedWinIdsTimer:stop()
       lockedWinIdsTimer:start()
-      table.insert(lockedWinIds, adjacentId)
+      table.insert(lockedWinIds, specificId)
     end
   end
+end
+
+function resizeWindowsToLeft(win)
+  operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
+    if (adjacentRect._x + adjacentRect._w) == (oldRect._x - xMargin) then
+      hs.window.get(adjacentId):setFrame(hs.geometry.new({
+        x = adjacentRect._x,
+        y = adjacentRect._y,
+        w = newRect._x - (xMargin * 2),
+        h = adjacentRect._h,
+      }))
+    end
+  end)
 end
 
 function resizeWindowsToRight(win)
-  local id = win:id()
-  local oldRect = currentWindowRects[id]
-  local newRect = win:frame()
-  for adjacentId,rect in pairs(currentWindowRects) do
-    if (oldRect._x + oldRect._w) == (rect._x - xMargin) then
+  operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
+    if (oldRect._x + oldRect._w) == (adjacentRect._x - xMargin) then
       hs.window.get(adjacentId):setFrame(hs.geometry.new({
-        x = rect._x - (oldRect._w - newRect._w),
-        y = rect._y,
-        w = rect._w + (oldRect._w - newRect._w),
-        h = rect._h,
+        x = adjacentRect._x - (oldRect._w - newRect._w),
+        y = adjacentRect._y,
+        w = adjacentRect._w + (oldRect._w - newRect._w),
+        h = adjacentRect._h,
       }))
-      lockedWinIdsTimer:stop()
-      lockedWinIdsTimer:start()
-      table.insert(lockedWinIds, adjacentId)
     end
-  end
+  end)
 end
 
 function resizeWindowsAbove(win)
-  local id = win:id()
-  local oldRect = currentWindowRects[id]
-  local newRect = win:frame()
-  for adjacentId,rect in pairs(currentWindowRects) do
-    if (rect._y + rect._h) == (oldRect._y - yMargin) then
+  operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
+    if (adjacentRect._y + adjacentRect._h) == (oldRect._y - yMargin) then
       hs.window.get(adjacentId):setFrame(hs.geometry.new({
-        x = rect._x,
-        y = rect._y,
-        w = rect._w,
+        x = adjacentRect._x,
+        y = adjacentRect._y,
+        w = adjacentRect._w,
         h = newRect._y - (yMargin * 2),
       }))
-      lockedWinIdsTimer:stop()
-      lockedWinIdsTimer:start()
-      table.insert(lockedWinIds, adjacentId)
     end
-  end
+  end)
 end
 
 function resizeWindowsBelow(win)
-  local id = win:id()
-  local oldRect = currentWindowRects[id]
-  local newRect = win:frame()
-  for adjacentId,rect in pairs(currentWindowRects) do
-    if (oldRect._y + oldRect._h) == (rect._y - yMargin) then
+  operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
+    if (oldRect._y + oldRect._h) == (adjacentRect._y - yMargin) then
       hs.window.get(adjacentId):setFrame(hs.geometry.new({
-        x = rect._x,
-        y = rect._y - (oldRect._h - newRect._h),
-        w = rect._w,
-        h = rect._h + (oldRect._h - newRect._h),
+        x = adjacentRect._x,
+        y = adjacentRect._y - (oldRect._h - newRect._h),
+        w = adjacentRect._w,
+        h = adjacentRect._h + (oldRect._h - newRect._h),
       }))
-      lockedWinIdsTimer:stop()
-      lockedWinIdsTimer:start()
-      table.insert(lockedWinIds, adjacentId)
     end
-  end
+  end)
 end
 
 -- Reset resizer when switching spaces
