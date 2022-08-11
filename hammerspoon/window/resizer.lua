@@ -39,12 +39,16 @@ function resizeAdjacentWindows(win)
   end
   if w and x and not (h or y) then
     resizeWindowsToLeft(win)
+    resizeWindowsInSameColumn(win)
   elseif w and not (h or y) then
     resizeWindowsToRight(win)
+    resizeWindowsInSameColumn(win)
   elseif h and y and not (w or x) then
     resizeWindowsAbove(win)
+    resizeWindowsInSameRow(win)
   elseif h and not (w or x) then
     resizeWindowsBelow(win)
+    resizeWindowsInSameRow(win)
   end
   resetLocked = false
 end
@@ -110,6 +114,32 @@ function resizeWindowsBelow(win)
         y = adjacentRect._y - (oldRect._h - newRect._h),
         w = adjacentRect._w,
         h = adjacentRect._h + (oldRect._h - newRect._h),
+      }))
+    end
+  end)
+end
+
+function resizeWindowsInSameColumn(win)
+  operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
+    if (adjacentRect._x == oldRect._x) and (adjacentRect._w == oldRect._w) then
+      hs.window.get(adjacentId):setFrame(hs.geometry.new({
+        x = newRect._x,
+        y = adjacentRect._y,
+        w = newRect._w,
+        h = adjacentRect._h,
+      }))
+    end
+  end)
+end
+
+function resizeWindowsInSameRow(win)
+  operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
+    if (adjacentRect._y == oldRect._y) and (adjacentRect._h == oldRect._h) then
+      hs.window.get(adjacentId):setFrame(hs.geometry.new({
+        x = adjacentRect._x,
+        y = newRect._y,
+        w = adjacentRect._w,
+        h = newRect._h,
       }))
     end
   end)
