@@ -11,7 +11,9 @@ end)
 
 -- Subscribe to windows being created in order to automatically place them in the correct layout.
 hs.window.filter.new():subscribe(hs.window.filter.windowCreated, function(win)
-    if win:isStandard() then -- Avoid moving dialogs, etc.
+    -- Avoid moving dialogs, etc.
+    -- Also avoid when dragging a tab out of the browser into a new window, etc.
+    if win:isStandard() and not hs.mouse.getButtons().left then
         addWindowToLayoutCell(win)
     end
 end)
