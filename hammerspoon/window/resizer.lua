@@ -4,6 +4,7 @@ local lockedWinIds = {}
 local wasManuallyResizing = false
 local xMargin = 40 -- TODO: get this from grid config in below functions somehow?
 local yMargin = 40 -- TODO: get this from grid config in below functions somehow?
+local acceptableResizeRange = 2 -- account for rounding of grid cells after rect conversion
 
 function resetResizer()
   if resetLocked then
@@ -69,7 +70,9 @@ end
 
 function resizeWindowsToLeft(win)
   operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
-    if (adjacentRect._x + adjacentRect._w) == (oldRect._x - xMargin) then
+    local adjacentEdge = adjacentRect._x + adjacentRect._w
+    local oldRectEdge = oldRect._x - xMargin
+    if isWithinResizeRange(adjacentEdge, oldRectEdge) then
       hs.window.get(adjacentId):setFrame(hs.geometry.new({
         x = adjacentRect._x,
         y = adjacentRect._y,
@@ -82,7 +85,9 @@ end
 
 function resizeWindowsToRight(win)
   operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
-    if (oldRect._x + oldRect._w) == (adjacentRect._x - xMargin) then
+    local adjacentEdge = adjacentRect._x - xMargin
+    local oldRectEdge = oldRect._x + oldRect._w
+    if isWithinResizeRange(adjacentEdge, oldRectEdge) then
       hs.window.get(adjacentId):setFrame(hs.geometry.new({
         x = adjacentRect._x - (oldRect._w - newRect._w),
         y = adjacentRect._y,
@@ -95,7 +100,9 @@ end
 
 function resizeWindowsAbove(win)
   operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
-    if (adjacentRect._y + adjacentRect._h) == (oldRect._y - yMargin) then
+    local adjacentEdge = adjacentRect._y + adjacentRect._h
+    local oldRectEdge = oldRect._y - yMargin
+    if isWithinResizeRange(adjacentEdge, oldRectEdge) then
       hs.window.get(adjacentId):setFrame(hs.geometry.new({
         x = adjacentRect._x,
         y = adjacentRect._y,
@@ -108,7 +115,9 @@ end
 
 function resizeWindowsBelow(win)
   operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
-    if (oldRect._y + oldRect._h) == (adjacentRect._y - yMargin) then
+    local adjacentEdge = adjacentRect._y - yMargin
+    local oldRectEdge = oldRect._y + oldRect._h
+    if isWithinResizeRange(adjacentEdge, oldRectEdge) then
       hs.window.get(adjacentId):setFrame(hs.geometry.new({
         x = adjacentRect._x,
         y = adjacentRect._y - (oldRect._h - newRect._h),
@@ -121,7 +130,7 @@ end
 
 function resizeWindowsInSameColumn(win)
   operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
-    if (adjacentRect._x == oldRect._x) and (adjacentRect._w == oldRect._w) then
+    if isWithinResizeRange(adjacentRect._x, oldRect._x) and isWithinResizeRange(adjacentRect._w, oldRect._w) then
       hs.window.get(adjacentId):setFrame(hs.geometry.new({
         x = newRect._x,
         y = adjacentRect._y,
@@ -134,7 +143,7 @@ end
 
 function resizeWindowsInSameRow(win)
   operateOnWindows(win, function(adjacentId, adjacentRect, oldRect, newRect)
-    if (adjacentRect._y == oldRect._y) and (adjacentRect._h == oldRect._h) then
+    if isWithinResizeRange(adjacentRect._y, oldRect._y) and isWithinResizeRange(adjacentRect._h, oldRect._h) then
       hs.window.get(adjacentId):setFrame(hs.geometry.new({
         x = adjacentRect._x,
         y = newRect._y,
@@ -143,6 +152,11 @@ function resizeWindowsInSameRow(win)
       }))
     end
   end)
+end
+
+function isWithinResizeRange(compareOne, compareTwo)
+  local difference = math.abs(compareOne - compareTwo)
+  return difference >= 0 and difference < acceptableResizeRange
 end
 
 -- Reset resizer when switching spaces
