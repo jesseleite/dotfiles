@@ -28,9 +28,6 @@ plsweekly() {
   open -g "bear://x-callback-url/create?title=Weekly%20Todo&tags=statamic%2Fweekly&timestamp=yes&text=%0A%0A-%20%5B%20%5D%20Create%20knowledge%20base%20article%0A-%20%5B%20%5D%20Create%20short%20video%20tutorial%0A%0A%23%23%20Goals%0A%0A-%20"
 }
 
-# Talons
-plscomp() { ( cd statamic && comp $* ) }
-
 # Symlink local statamic packages/assets, no matter how they are composer required
 plslink() {
   if [ "$1" = 'cms' ]; then
