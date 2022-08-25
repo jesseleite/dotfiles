@@ -1,31 +1,42 @@
 return {
   {
     name = 'Standard Dev',
-    apps = {
-      Ray = { '0,0 4x20', '0,0 5x20' },
-      Brave = { '4,0 9x20', '5,0 12x20' },
-      Kitty = { '13,0 17x20', '17,0 14x20' },
-      Tower = { '13,0 17x20', '17,0 14x20' },
+    cells = {
+      { '0,0 4x20', '0,0 5x20' },
+      { '4,0 9x20', '5,0 13x20' },
+      { '13,0 17x20', '18,0 12x20' },
+      { '13,0 17x20', '18,0 12x20' },
     },
-    -- optional = {
-    --   Tower,
-    -- },
+    apps = {
+      Ray = { cell = 1, open = true },
+      Brave = { cell = 2, open = true },
+      Kitty = { cell = 3, open = true },
+      Tower = { cell = 3 },
+    },
   },
   {
     name = 'No Ray',
+    cells = {
+      { '0,0 10x20' },
+      { '10,0 20x20' },
+    },
     apps = {
-      Brave = { '0,0 10x20' },
-      Kitty = { '10,0 20x20' },
-      Tower = { '10,0 20x20' },
+      Brave = { cell = 1, open = true },
+      Kitty = { cell = 2, open = true },
+      Tower = { cell = 2 },
     },
   },
   {
     name = 'Code Focused',
+    cells = {
+      { positions.sixths.left },
+      { positions.fiveSixths.right },
+    },
     apps = {
-      Ray = { positions.sixths.left },
-      Brave = { positions.fiveSixths.right },
-      Kitty = { positions.fiveSixths.right },
-      Tower = { positions.fiveSixths.right },
-    }
+      Ray = { cell = 1, open = true },
+      Brave = { cell = 2, open = true },
+      Kitty = { cell = 2, open = true },
+      Tower = { cell = 2 },
+    },
   },
 }

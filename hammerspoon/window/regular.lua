@@ -86,11 +86,10 @@ end
 function applyPresetLayout(layout)
     currentLayout = { windows = {} }
     currentLayoutConfiguration = 1
-    for app,cells in pairs(layout.apps) do
-        positionAppUsingGrid(app, cells[1])
+    for app,options in pairs(layout.apps) do
+        positionAppUsingGrid(app, layout.cells[options.cell][1], options.open)
     end
     currentLayout.preset = layout
-    printi(tableKeys(layout.apps))
     hideWindowsExcept(tableKeys(layout.apps))
     saveLayoutSnapshot()
 end
@@ -98,8 +97,8 @@ end
 function toggleAlternateLayout()
     if currentLayout == nil then return end
     currentLayoutConfiguration = currentLayoutConfiguration + 1
-    printi(currentLayout)
-    for app,cells in pairs(currentLayout.preset.apps) do
+    for app,options in pairs(currentLayout.preset.apps) do
+        local cells = currentLayout.preset.cells[options.cell]
         if cells[currentLayoutConfiguration] == nil then currentLayoutConfiguration = 1 end
         positionAppUsingGrid(app, cells[currentLayoutConfiguration])
     end

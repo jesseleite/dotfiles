@@ -1,7 +1,13 @@
 maximizedWindows = {}
 
-function positionAppUsingGrid(application, cell)
-    local app = getOrOpenApp(application)
+function positionAppUsingGrid(application, cell, shouldOpen)
+    local app
+    if shouldOpen then
+        app = getOrOpenApp(application)
+    else
+        app = getApp(application)
+    end
+    if app == nil then return end
     app:unhide()
     for _, window in pairs(app:allWindows()) do
         positionWindowUsingGrid(window, cell)
