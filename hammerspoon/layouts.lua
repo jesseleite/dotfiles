@@ -5,13 +5,14 @@ return {
       { '0,0 4x20', '0,0 5x20' },
       { '4,0 9x20', '5,0 13x20' },
       { '13,0 17x20', '18,0 12x20' },
-      { '13,0 17x20', '18,0 12x20' },
+      { '21,2 8x16', '21,2 8x16' },
     },
     apps = {
       Ray = { cell = 1, open = true },
       Brave = { cell = 2, open = true },
       Kitty = { cell = 3, open = true },
       Tower = { cell = 3 },
+      Slack = { cell = 4 },
     },
   },
   {
