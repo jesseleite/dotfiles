@@ -80,6 +80,7 @@ end))
 -- Multi Window Management
 --------------------------------------------------------------------------------
 -- hjkl  focus window west/south/north/east
+-- a     unide [a]ll application windows
 -- p     [p]ick layout
 -- y     [y]eet window from layout
 -- o     [o]nly window, like `o` in vim
@@ -94,6 +95,7 @@ local windowManagementBindings = {
   ['j'] = function() hs.window.focusedWindow():focusWindowSouth(nil, true) end,
   ['k'] = function() hs.window.focusedWindow():focusWindowNorth(nil, true) end,
   ['l'] = function() hs.window.focusedWindow():focusWindowEast(nil, true) end,
+  ['a'] = function() hs.application.frontmostApplication():unhide() end,
   ['p'] = openLayoutSelector,
   ['y'] = removeWindowFromLayout,
   ['o'] = toggleFocusMode,
