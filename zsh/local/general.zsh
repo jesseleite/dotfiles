@@ -22,10 +22,10 @@ alias ssh='env TERM=xterm-256color ssh'
 # Example: `in sand art make:model -a SomeModel`
 
 function in() {(
-  if [[ $(shtuff has $1 2>&1) =~ 'was found' ]]; then
-    eval shtuff into $1 \"${@:2}\"
-  else
+  # if [[ $(shtuff has $1 2>&1) =~ 'was found' ]]; then
+  #   eval shtuff into $1 \"${@:2}\"
+  # else
     z $1
     eval ${@:2}
-  fi
+  # fi
 )}
