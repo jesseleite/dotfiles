@@ -8,8 +8,6 @@ let test#php#patterns = {
 
 let test#php#phpunit#executable = 'vendor/bin/phpunit'
 
-let g:shtuff_receiver = 'test'
-
 
 " ------------------------------------------------------------------------------
 " # Detect Default Test Strategy
@@ -18,8 +16,8 @@ let g:shtuff_receiver = 'test'
 function! DetectDefaultTestStrategy()
   if exists("g:test#strategy")
     return
-  elseif match(system('shtuff has test'), 'was found') > 0
-    let g:test#strategy = "shtuff"
+  elseif match(system('tmux ls | grep attached'), 'runner:') > 0
+    let g:test#strategy = "tslime"
   else
     let g:test#strategy = "neovim"
   endif
@@ -37,8 +35,8 @@ augroup END
 
 function! TestSwapStrategy()
   if get(g:, 'test#strategy', 'neovim') == 'neovim'
-    let g:test#strategy = "shtuff"
-    echo "Test Strategy: shtuff into test"
+    let g:test#strategy = "tslime"
+    echo "Test Strategy: tslime into 'runner' session"
   else
     let g:test#strategy = "neovim"
     echo "Test Strategy: neovim"

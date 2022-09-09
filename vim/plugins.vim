@@ -85,6 +85,9 @@ Plug 'ap/vim-css-color'
 " Test runner
 Plug 'vim-test/vim-test'
 
+" Send/run things in another Tmux session/window/pane
+Plug 'jgdavey/tslime.vim'
+
 " Peek into registers
 Plug 'junegunn/vim-peekaboo'
 
@@ -214,6 +217,9 @@ let g:signify_sign_add = '▍'
 let g:signify_sign_change = '▍'
 let g:signify_sign_delete_first_line = '▔'
 let g:signify_sign_delete = '▁'
+
+" Config: tslime
+let g:tslime = { 'session': 'runner', 'window': '1', 'pane': '1' }
 
 " Config: togglelist
 let g:toggle_list_no_mappings = 1
