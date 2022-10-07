@@ -21,8 +21,8 @@ alias deps="comp install && npm ci && npm run dev"
 
 # Run tests
 alias tp="phpunit"
-alias pegs="phpunit --exclude-group slow"
-alias pegsf="pegs --stop-on-failure"
+alias tps="phpunit --exclude-group slow"
+alias tpf="phpunit --stop-on-failure"
 
 # Browse valet site
 alias b="valet open"
