@@ -3,38 +3,34 @@
 --------------------------------------------------------------------------------
 
 hyper = {"cmd", "alt", "ctrl"} -- or D+F 🤘
-
-require('summon')
-require('helpers')
-require('area51')
+bigHyper = {"shift", "cmd", "alt", "ctrl"} -- or S+D+F 😅
 
 hs.loadSpoon("ReloadConfiguration"):start()
 
-hs.hotkey.bind(hyper, 'r', hs.reload)
-hs.hotkey.bind(hyper, '`', hs.toggleConsole)
+require('helpers')
+require('area51')
+
+positions = require('positions')
+apps = require('apps')
+layouts = require('layouts')
+summon = require('summon')
+chain = require('chain')
+require('window')
 
 
 --------------------------------------------------------------------------------
 -- Summon Specific Apps
 --------------------------------------------------------------------------------
 
-hs.hotkey.bind({'cmd'}, 'escape', function() summon('kitty') end)
+hs.fnutils.each(apps, function(app)
+  if app.summon then
+    hs.hotkey.bind(app.summon[1], app.summon[2], function() summon(app.id) end)
+  end
+end)
 
-local summonModalBindings = {
-  b = 'Brave Browser',
-  s = 'Slack',
-  d = 'Discord',
-  t = 'Telegram',
-  i = 'Messages',
-  g = 'Tower',
-  r = 'Ray',
-  n = 'Obsidian',
-  m = 'Music',
-  e = 'Mimestream',
-  f = 'Finder',
-  q = 'TablePlus',
-  p = 'Paw',
-}
+local summonModalBindings = tableFlip(hs.fnutils.map(apps, function(app)
+  return app.summonModal
+end))
 
 registerModalBindings(hyper, 'space', hs.fnutils.map(summonModalBindings, function(app)
   return function() summon(app) end
@@ -42,61 +38,80 @@ end), true)
 
 
 --------------------------------------------------------------------------------
--- Yabai Window Management
+-- Window Management Setup
 --------------------------------------------------------------------------------
 
-local yabaiKeyBindings = {
+hs.window.animationDuration = 0
+hs.grid.setGrid('30x20')
+hs.grid.setMargins('40x40')
+
+
+--------------------------------------------------------------------------------
+-- Single Window Movements
+--------------------------------------------------------------------------------
+-- hl    side column movements
+-- k     fullscreen and middle column movements
+-- j     centered window movements
+-- yu    top corner movements
+-- nm    bottom corner movements
+-- i     insert/snap to nearest grid region
+
+local chainX = { 'thirds', 'halves', 'twoThirds', 'fiveSixths', 'sixths' }
+local chainY = { 'full', 'thirds' }
+
+local singleWindowMovements = {
+  ['h'] = chain(getPositions(chainX, 'left')),
+  ['k'] = chain(getPositions(chainY, 'center')),
+  ['j'] = chain({ positions.center.large, positions.center.medium, positions.center.small, positions.center.tiny, positions.center.mini }),
+  ['l'] = chain(getPositions(chainX, 'right')),
+  ['y'] = chain(getPositions(chainX, 'left', 'top')),
+  ['u'] = chain(getPositions(chainX, 'right', 'top')),
+  ['n'] = chain(getPositions(chainX, 'left', 'bottom')),
+  ['m'] = chain(getPositions(chainX, 'right', 'bottom')),
+  -- ['i'] = function() hs.grid.snap(hs.window.focusedWindow()) end, -- seems buggy?
+}
+
+registerKeyBindings(bigHyper, hs.fnutils.map(singleWindowMovements, function(fn)
+  return function() fn() end
+end))
+
+
+--------------------------------------------------------------------------------
+-- Multi Window Management
+--------------------------------------------------------------------------------
+-- hjkl  focus window west/south/north/east
+-- a     unide [a]ll application windows
+-- p     [p]ick layout
+-- y     [y]eet window from layout
+-- o     [o]nly window, like `o` in vim
+-- m     [m]aximize window
+-- n     [n]ext window in current cell, like `n/p` in vim
+-- u     warp [u]nder another window cell
+-- .     [.] to save this layout
+-- /     [/] to slash changes / reset current layout
+
+local windowManagementBindings = {
   ['h'] = function() hs.window.focusedWindow():focusWindowWest(nil, true) end,
   ['j'] = function() hs.window.focusedWindow():focusWindowSouth(nil, true) end,
   ['k'] = function() hs.window.focusedWindow():focusWindowNorth(nil, true) end,
   ['l'] = function() hs.window.focusedWindow():focusWindowEast(nil, true) end,
-  ['n'] = 'window --focus stack.next OR window --focus stack.first',
-  ['p'] = 'window --focus stack.prev OR window --focus stack.last',
-  ['o'] = 'window --toggle zoom-parent',
-  ['m'] = 'window --toggle zoom-fullscreen',
-  [']'] = 'space --focus next',
-  ['['] = 'space --focus prev',
-  ['0'] = 'space --balance',
-  ['-'] = 'window --resize left:50:0 AND window --resize right:-50:0',
-  ['='] = 'window --resize left:-50:0 AND window --resize right:50:0',
+  ['a'] = function() hs.application.frontmostApplication():unhide() end,
+  ['p'] = openLayoutSelector,
+  ['y'] = removeWindowFromLayout,
+  ['o'] = toggleFocusMode,
+  ['m'] = toggleMaximized,
+  ['n'] = focusNextCellWindow,
+  ['u'] = warpToExistingCellPosition,
+  ['.'] = saveLayoutSnapshot,
+  [';'] = toggleAlternateLayout,
+  ['/'] = resetLayout,
+  -- [?] = warpToDefaultPosition, -- Do I want this?
+  -- [?] = hideFloatingWindows, -- Do I want this?
 }
 
-local yabaiModalBindings = {
-  ['h'] = 'window --warp west',
-  ['j'] = 'window --warp south',
-  ['k'] = 'window --warp north',
-  ['l'] = 'window --warp east',
-  ['n'] = 'window --stack next',
-  ['p'] = 'window --stack prev',
-  ['f'] = 'window --toggle float',
-  ['s'] = 'window --toggle split',
-  ['o'] = 'window --toggle zoom-parent',
-  ['m'] = 'window --toggle zoom-fullscreen',
-  [']'] = 'space --focus next',
-  ['['] = 'space --focus prev',
-  ['0'] = 'space --balance',
-  ['-'] = 'window --resize left:50:0 AND window --resize right:-50:0',
-  ['='] = 'window --resize left:-50:0 AND window --resize right:50:0',
-  ['c'] = function() hs.window.focusedWindow():application():hide() end,
-}
-
-registerKeyBindings(hyper, hs.fnutils.map(yabaiKeyBindings, function(cmd)
-  return function() yabai(cmd) end
+registerKeyBindings(hyper, hs.fnutils.map(windowManagementBindings, function(fn)
+  return function() fn() end
 end))
-
-local yabaiModal = registerModalBindings(hyper, 'y', hs.fnutils.map(yabaiModalBindings, function(cmd)
-  return function() yabai(cmd) end
-end))
-
-function yabaiModal:entered()
-  hs.window.highlight.ui.overlay = true
-  hs.window.highlight.ui.overlayColor = {0.5,0.25,0.75,0.25}
-  hs.window.highlight.start()
-end
-
-function yabaiModal:exited()
-  hs.window.highlight.stop()
-end
 
 
 --------------------------------------------------------------------------------
@@ -104,6 +119,3 @@ end
 --------------------------------------------------------------------------------
 
 hs.notify.show('Hammerspoon loaded', '', '...more like hammerspork')
-
--- Special thank you to Jose for all the rad Hammerspoon and Yabai ideas!
--- https://github.com/josecanhelp/dotfiles

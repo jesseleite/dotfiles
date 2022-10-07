@@ -1,10 +1,72 @@
 --------------------------------------------------------------------------------
+-- Debug Helpers
+--------------------------------------------------------------------------------
+
+function printi(...)
+  return print(hs.inspect(...))
+end
+
+
+--------------------------------------------------------------------------------
+-- Lua Helpers
+--------------------------------------------------------------------------------
+
+function tableFlip(t)
+  n = {}
+
+  for k,v in pairs(t) do
+    n[v] = k
+  end
+
+  return n;
+end
+
+function tableKeys(t)
+  n = {}
+
+  for k,_ in pairs(t) do
+    table.insert(n, k)
+  end
+
+  return n;
+end
+
+function tableMapWithKeys(t, fn)
+  n = {}
+
+  for _,v in pairs(t) do
+    local keyPair = fn(v)
+    n[keyPair[1]] = keyPair[2]
+  end
+
+  return n;
+end
+
+
+--------------------------------------------------------------------------------
 -- Application Helpers
 --------------------------------------------------------------------------------
 
-function appIs(name)
-    return hs.application.frontmostApplication():name() == name
+function getApp(appName)
+  return hs.application.get(apps[appName].id)
 end
+
+function isAppVisible(appName)
+  local app = getApp(appName)
+  return app and not app:isHidden()
+end
+
+function isAppOpen(appName)
+  return getApp(appName) ~= nil
+end
+
+function isAppClosed(appName)
+  return not isAppOpen(appName)
+end
+
+-- function appIs(appName)
+--     return hs.application.frontmostApplication():name() == appName
+-- end
 
 
 --------------------------------------------------------------------------------
@@ -45,47 +107,6 @@ end
 
 
 --------------------------------------------------------------------------------
--- Yabai Helpers
---------------------------------------------------------------------------------
-
-function yabaiCmd(cmd, fallbackCmd)
-  hs.task.new('/opt/homebrew/bin/yabai', function(exitCode)
-    if exitCode == 1 then
-      yabaiCmd(fallbackCmd)
-    end
-  end, hs.fnutils.concat({'-m'}, cmd)):start()
-end
-
-function yabai(binding, fallbackCmd)
-  if type(binding) == 'string' then
-    return yabaiRunFromString(binding)
-  elseif type(binding) == 'table' then
-    return yabaiCmd(binding, fallbackCmd)
-  elseif type(binding) == 'function' then
-    return binding()
-  else
-    print('incompatible binding type')
-  end
-end
-
-function yabaiRunFromString(binding)
-  if string.match(binding, 'OR') then
-    local cmds = hs.fnutils.map(hs.fnutils.split(binding, ' OR '), function(cmd)
-      return hs.fnutils.split(cmd, ' ');
-    end)
-    yabaiCmd(cmds[1], cmds[2])
-  elseif string.match(binding, 'AND') then
-    hs.fnutils.each(hs.fnutils.split(binding, ' AND '), function(cmd)
-      yabaiCmd(hs.fnutils.split(cmd, ' '))
-      print(hs.inspect(hs.fnutils.split(cmd, ' ')))
-    end)
-  else
-    yabaiCmd(hs.fnutils.split(binding, ' '))
-  end
-end
-
-
---------------------------------------------------------------------------------
 -- Binding Helpers
 --------------------------------------------------------------------------------
 
@@ -103,4 +124,34 @@ function registerModalBindings(mods, key, bindings, exitAfter)
     modalBind(modal, modalKey, binding, exitAfter)
   end
   return modal
+end
+
+
+--------------------------------------------------------------------------------
+-- Position Helpers
+--------------------------------------------------------------------------------
+
+function getPositions(sizes, leftOrRight, topOrBottom)
+  local applyLeftOrRight = function (size)
+    if type(positions[size]) == 'string' then
+      return positions[size]
+    end
+    return positions[size][leftOrRight]
+  end
+
+  local applyTopOrBottom = function (position)
+    local h = math.floor(string.match(position, 'x([0-9]+)') / 2)
+    position = string.gsub(position, 'x[0-9]+', 'x'..h)
+    if topOrBottom == 'bottom' then
+      local y = math.floor(string.match(position, ',([0-9]+)') + h)
+      position = string.gsub(position, ',[0-9]+', ','..y)
+    end
+    return position
+  end
+
+  if (topOrBottom) then
+    return hs.fnutils.map(hs.fnutils.map(sizes, applyLeftOrRight), applyTopOrBottom)
+  end
+
+  return hs.fnutils.map(sizes, applyLeftOrRight)
 end

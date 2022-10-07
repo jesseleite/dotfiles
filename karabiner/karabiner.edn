@@ -12,5 +12,8 @@
     {:des "D+F as Hyper (CMD+OPT+CTRL)" :rules [
       [[:d :f] :!COleft_control]
     ]}
+    {:des "S+D+F as Big Hyper (CMD+OPT+CTRL)" :rules [
+      [[:s :d :f] :!SCOleft_control]
+    ]}
   ]
 }
