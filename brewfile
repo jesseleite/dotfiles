@@ -15,6 +15,7 @@ brew 'bash'
 brew 'bat'
 brew 'composer'
 brew 'diff-so-fancy'
+brew 'ffmpeg' # For `youtube-dl`
 brew 'fzf', args: ['HEAD']
 brew 'gh'
 brew 'git'
@@ -42,6 +43,7 @@ brew 'trash'
 brew 'tree'
 brew 'vim'
 brew 'wget'
+brew 'youtube-dl'
 brew 'zsh'
 
 # Cask
