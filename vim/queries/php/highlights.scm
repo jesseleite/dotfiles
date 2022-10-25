@@ -1,2 +1,4 @@
+;; extends
+
 "self" @keyword
 "$" @operator
