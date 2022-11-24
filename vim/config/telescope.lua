@@ -42,6 +42,16 @@ telescope.setup {
       }
     },
   },
+  extensions = {
+    live_grep_args = {
+      prompt_title = 'Live Ripgrep',
+      mappings = {
+        i = {
+          ["<C-k>"] = require('telescope-live-grep-args.actions').quote_prompt(),
+        }
+      }
+    }
+  },
 }
 
 telescope.load_extension('fzf')
