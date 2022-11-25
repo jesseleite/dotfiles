@@ -9,7 +9,7 @@
         "permafrost-dev/ray-cli": "^1.12",
         "statamic/cli": "^2.1",
         "spatie/global-ray": "^1.0",
-        "laravel/pint": "^0.2.3"
+        "laravel/pint": "^1.2"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

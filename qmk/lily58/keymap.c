@@ -33,6 +33,8 @@ enum layer_number {
 #define KC_NAPW LCMD(KC_GRV)        // Focus next application window
 #define KC_EMOJ LCMD(LCTL(KC_SPC))  // Emoji picker
 #define KC_SCRE LCMD(S(KC_4))       // Screen capture
+#define KC_COLR LCMD(LCTL(KC_C))    // Color picker app
+#define KC_COLP LCMD(LCTL(KC_X))    // Color picker
 
 // Define custom keycodes
 enum my_keycodes {
@@ -121,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
           xx  , NAPW , SCRE ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
-          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,           xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
+          xx  ,  xx  , COLP , COLR ,  xx  ,  xx  ,  xx  ,           xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+------/        \------+------+------+------+------+------+------+
                                 ,      ,      ,       ,                    ,      ,      ,
     //                   +------+------+------+------/              \------+------+------+------+

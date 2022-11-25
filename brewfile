@@ -48,6 +48,7 @@ brew 'zsh'
 
 # Cask
 cask '1password'
+cask 'alacritty'
 cask 'cleanshot'
 cask 'discord'
 cask 'firefox'
@@ -85,8 +86,9 @@ cask 'vlc'
 cask 'zoom'
 
 # Mac App Store
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Keynote", id: 409183694
-mas "iMovie", id: 408981434
+mas 'Numbers', id: 409203825
+mas 'Pages', id: 409201541
+mas 'Keynote', id: 409183694
+mas 'iMovie', id: 408981434
 mas 'SnippetsLab', id: 1006087419
+mas 'ColorSlurp', id: 1287239339

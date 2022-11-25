@@ -31,6 +31,7 @@ set completeopt=menu,menuone,noinsert,noselect
 set nowrap
 set autoindent
 set smartindent
+" set ch=0 " see :help cmdheight, but this is experimental and still has some issues
 
 " Neovim and/or Vim specific settings
 if has('nvim')

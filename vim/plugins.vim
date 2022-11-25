@@ -188,6 +188,9 @@ Plug 'Xuyuanp/scrollbar.nvim'
 " Code formatter
 Plug 'sbdchd/neoformat'
 
+" Colorize hex colors
+Plug 'lilydjwg/colorizer'
+
 " Github Copilot
 " Plug 'github/copilot.vim'
 
