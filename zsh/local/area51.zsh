@@ -28,3 +28,13 @@ alias qmkf="qmk flash -kb lily58 -km jesseleite"
 alias glt='git describe --tags --abbrev=0' # git latest tag
 alias gcslt='git --no-pager log $(glt)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
 alias changelog='gcslt && gcslt | pbcopy'
+
+# See longest files by filetype (ie. `filelengths php`)
+function filelengths() {
+  if [ -z "$1" ]; then
+    echo 'Please specify filetype to search as first arg!'
+    return
+  fi
+
+  rg -l '.*' -g '*.'$1 | xargs wc -l | sort
+}
