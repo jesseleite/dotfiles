@@ -1,4 +1,3 @@
 ;; extends
 
 "self" @keyword
-"$" @operator
