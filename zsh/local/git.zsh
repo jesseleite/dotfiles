@@ -40,6 +40,15 @@ gcr() {
   git branch --all | fzf | sed "s#remotes/[^/]*/##" | xargs git checkout
 }
 
+# Git checkout history with fzf fuzzy search
+gch() {
+    local branches branch
+    branches=$(git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep checkout | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 11 | tail -n 10 | awk -F' ~ HEAD@{' '{printf("%s: %s\n", substr($2, 1, length($2)-1), $1)}')
+    selection=$(echo "$branches" | fzf +m)
+    branch=$(echo "$selection" | awk '{print $NF}')
+    git checkout $branch
+}
+
 # Git checkout a PR with fzf fuzzy search
 gpr() {
   if [ -n "$1" ]; then gh pr checkout $1; return; fi
