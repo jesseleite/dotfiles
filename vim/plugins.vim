@@ -5,6 +5,10 @@
 " Source all the vim configs
 Plug 'jesseleite/vim-sourcery'
 
+" Colorscheme
+Plug 'tjdevries/colorbuddy.nvim', { 'branch': 'dev' }
+Plug 'jesseleite/nvim-noirbuddy'
+
 " Dump debug all the vim things
 Plug 'jesseleite/vim-raymond'
 Plug 'jesseleite/vim-tinkeray'
@@ -43,18 +47,8 @@ Plug 'tpope/vim-rhubarb'
 " Git gutters
 Plug 'mhinz/vim-signify'
 
-" Inline git blame
-" Plug 'APZelos/blamer.nvim'
-" Plug 'f-person/git-blame.nvim'
-
-" Base16 theming architecture
-Plug 'chriskempson/base16-vim'
-
 " Status line
-Plug 'vim-airline/vim-airline'
-
-" Status line themes
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
 
 " File system explorer
 Plug 'lambdalisue/fern.vim' , {'on': 'Fern'}
@@ -69,9 +63,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-
-" Tag generation
-" Plug 'ludovicchabant/vim-gutentags'
 
 " Undo tree
 Plug 'mbbill/undotree'

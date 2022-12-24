@@ -16,4 +16,5 @@ call plug#begin()
 call plug#end()
 
 " Initialize sourcery
+call sourcery#source_defer('config/lualine.lua')
 call sourcery#init()
