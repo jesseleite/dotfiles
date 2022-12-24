@@ -6,6 +6,7 @@ tap 'saadparwaiz1/personal'            # For `lua-language-server`
 tap 'nicoverbruggen/homebrew-cask'     # For `phpmon`
 tap 'yqrashawn/goku'                   # For `goku`
 tap 'qmk/qmk'                          # For `qmk`
+tap 'shivammathur/php'                 # For older versions of php
 
 # Brew
 brew 'antibody'
