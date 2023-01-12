@@ -280,6 +280,9 @@ nnoremap <Leader><Leader>l :call ToggleLocationList()<CR>
 " Mappings: treesitter
 nnoremap <Leader><Leader>s :TSHighlightCapturesUnderCursor<CR>
 
+" Mappings: cellular-automaton
+nnoremap <Leader><Leader>m :CellularAutomaton make_it_rain<CR>
+
 " Mappings: quickfix
 function! QuickfixLocalMappings()
   nnoremap <buffer> <CR> <CR>

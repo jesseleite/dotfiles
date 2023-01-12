@@ -182,6 +182,9 @@ Plug 'sbdchd/neoformat'
 " Colorize hex colors
 Plug 'lilydjwg/colorizer'
 
+" The most extremely useful plugin
+Plug 'Eandrju/cellular-automaton.nvim'
+
 " Github Copilot
 " Plug 'github/copilot.vim'
 
