@@ -8,6 +8,8 @@ alias pls="php please"
 # V3
 alias plsi="arti && plsuser"
 alias plsv="art --version && pls --version"
+alias plsr="art route:list"
+alias plsrf="art route:list --except-path=cp"
 alias cmsd="in docs npm run docs:dev"
 alias cmsw="in cms npm run watch"
 alias plsuser="cp ~/.dotfiles/statamic/jesseleite@example.com.yaml users/jesseleite@example.com.yaml && echo 'User created.'"
