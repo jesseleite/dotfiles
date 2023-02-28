@@ -80,6 +80,7 @@ nnoremap <Leader>s <Cmd>Telescope lsp_document_symbols<CR>
 nnoremap <Leader>S <Cmd>Telescope lsp_workspace_symbols<CR>
 " nnoremap <Leader>r <Cmd>Telescope lsp_references<CR>
 nnoremap <Leader>l <Cmd>Telescope current_buffer_fuzzy_find<CR>
+nnoremap <Leader>L <Cmd>Telescope resume<CR>
 nnoremap <Leader>C <Cmd>Telescope commands<CR>
 nnoremap <Leader>: <Cmd>Telescope command_history<CR>
 nnoremap <Leader><Leader>v <Cmd>Telescope sourcery<CR>
