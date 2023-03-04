@@ -8,8 +8,9 @@
         "tightenco/takeout": "^1.8",
         "permafrost-dev/ray-cli": "^1.12",
         "statamic/cli": "^2.1",
-        "spatie/global-ray": "^1.0",
-        "laravel/pint": "^1.2"
+        "laravel/pint": "^1.2",
+        "phpactor/phpactor": "^2023.01",
+        "spatie/global-ray": "^1.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
