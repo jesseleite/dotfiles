@@ -173,7 +173,7 @@ map T <Plug>Sneak_T
 nmap <silent> <Leader><Leader>c :ToggleCamelCaseMotions<CR>
 
 " Delete text on line
-nmap <Leader>d 0D
+nmap <Leader>d ddO<Esc>
 
 " Open lines, but stay in normal mode
 nmap <S-CR> O<Esc>
