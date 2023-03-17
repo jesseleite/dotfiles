@@ -2,7 +2,6 @@
 # Aliases and functions for Git
 # ------------------------------------------------------------------------------
 
-alias nah="grhh && gclean"
 alias gin="git init && gaa && gcmsg 'Initial commit.'"
 alias tower="gittower ."
 alias gdb='git remote show origin | grep "HEAD branch" | cut -d " " -f5'
@@ -100,4 +99,16 @@ gundo() {
   fi
   echo "\nRecent commits:"
   glog -n 5
+}
+
+# Discard all unstaged changes & untracked files to trash bin
+# Note: This requires `trash` util so that the files can be restored if needed later
+nah() {
+  echo "Are you sure you would like to discard/delete all unstaged changes & untracked files? (Type 'y' to confirm)"
+  read confirmation
+  if [[ "$confirmation" == "y" ]]; then
+    git ls-files --modified --other --exclude-standard | xargs trash -rf
+    git reset --hard
+    git clean -qf
+  fi
 }
