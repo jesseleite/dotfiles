@@ -11,13 +11,13 @@
 # Paths
 # ------------------------------------------------------------------------------
 
-export PATH=${PATH}:/bin
-export PATH=${PATH}:/sbin
-export PATH=${PATH}:/usr/bin
-export PATH=${PATH}:/usr/sbin
-export PATH=${PATH}:vendor/bin
-export PATH=${PATH}:~/.composer/vendor/bin
-export PATH=${PATH}:~/.dotfiles/bin
+PATH=${PATH}:/bin
+PATH=${PATH}:/sbin
+PATH=${PATH}:/usr/bin
+PATH=${PATH}:/usr/sbin
+PATH=${PATH}:vendor/bin
+PATH=${PATH}:~/.composer/vendor/bin
+PATH=${PATH}:~/.dotfiles/bin
 
 
 # ------------------------------------------------------------------------------
