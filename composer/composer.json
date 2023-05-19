@@ -3,7 +3,7 @@
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd": "^2.6",
         "friendsofphp/php-cs-fixer": "^3.0",
-        "laravel/valet": "^3.0",
+        "laravel/valet": "^4.0",
         "laravel/installer": "^4.0",
         "tightenco/takeout": "^1.8",
         "permafrost-dev/ray-cli": "^1.12",
