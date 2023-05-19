@@ -1,5 +1,5 @@
 return {
-  full     = '0,0 30x20',
+  full     = '0,0 40x20',
 
   center = {
     large  = '4,1 22x18',

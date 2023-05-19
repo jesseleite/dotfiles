@@ -2,8 +2,8 @@ local currentWindowRects
 local resetLocked = false
 local lockedWinIds = {}
 local wasManuallyResizing = false
-local xMargin = 40 -- TODO: get this from grid config in below functions somehow?
-local yMargin = 40 -- TODO: get this from grid config in below functions somehow?
+local xMargin = 30 -- TODO: get this from grid config in below functions somehow?
+local yMargin = 30 -- TODO: get this from grid config in below functions somehow?
 local acceptableResizeRange = 2 -- account for rounding of grid cells after rect conversion
 
 function resetResizer()
