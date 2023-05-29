@@ -44,6 +44,13 @@ function! CloseAntlersPair()
   startinsert!
 endfunction
 
+" Good advice from Malko
+function! Honey()
+  echo "Stay hydrated. Eat local honey. Use vim."
+endfunction
+
+command! Honey call Honey()
+
 
 " ------------------------------------------------------------------------------
 " # Debug mappings...
