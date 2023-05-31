@@ -7,4 +7,17 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true,
   },
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+      },
+      selection_modes = {
+        ['@function.outer'] = 'V',
+        ['@function.inner'] = 'V',
+      },
+    }
+  }
 }
