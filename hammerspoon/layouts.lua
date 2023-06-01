@@ -6,6 +6,7 @@ return {
       { '7,0 21x20', '7,0 30x20' },
       { '28,0 32x20', '37,0 23x20' },
       { '42,2 16x16', '42,2 16x16' },
+      { '30,3 20x14', '39,3 16x14' },
     },
     apps = {
       Ray = { cell = 1, open = true },
@@ -13,6 +14,7 @@ return {
       Kitty = { cell = 3, open = true },
       Tower = { cell = 3 },
       Slack = { cell = 4 },
+      Discord = { cell = 5 },
     },
   },
   {
