@@ -14,6 +14,10 @@
 " let g:copilot_no_tab_map = v:true
 " imap <silent><script><expr> <C-y> copilot#Accept("\<CR>")
 
+" Yank and delete {} objects (can I just do this with custom treesitter text objects though?)
+nmap YO va{Vy
+nmap DO va{Vd
+
 " Mess with artisan make from Timmy Mac...
 function! ArtisanMake(input)
   let l:before = system('php -r "echo hrtime(true);"')
