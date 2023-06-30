@@ -41,8 +41,8 @@ return {
     id = 'com.apple.Music',
     summonModal = 'm',
   },
-  Mimestream = {
-    id = 'com.mimestream.Mimestream',
+  Spark = {
+    id = 'com.readdle.SparkDesktop',
     summonModal = 'e', -- email
   },
   Finder = {
