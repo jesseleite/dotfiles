@@ -10,7 +10,7 @@ return {
   },
 
   sixths = {
-    left  = '0,0 5x20',
+    left  = '0,0 10x20',
     right  = '50,0 10x20',
   },
 
