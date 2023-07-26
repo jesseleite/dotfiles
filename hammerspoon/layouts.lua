@@ -32,8 +32,8 @@ return {
   {
     name = 'Code Focused',
     cells = {
-      { positions.sixths.left },
-      { positions.fiveSixths.right },
+      { '0,0 7x20', positions.sixths.left },
+      { '7,0 53x20', positions.fiveSixths.right },
     },
     apps = {
       Ray = { cell = 1, open = true },
