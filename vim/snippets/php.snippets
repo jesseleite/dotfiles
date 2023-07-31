@@ -42,6 +42,24 @@ public function ${2:it_can_do_something}()
 }
 endsnippet
 
+snippet setup "Define test setUp() method."
+public function setUp(): void
+{
+    parent::setUp();
+
+    ${0://}
+}
+endsnippet
+
+snippet teardown "Define test tearDown() method."
+public function tearDown(): void
+{
+    ${0://}
+
+    parent::tearDown();
+}
+endsnippet
+
 snippet weh "Without exception handling."
 $this->withoutExceptionHandling();
 endsnippet
