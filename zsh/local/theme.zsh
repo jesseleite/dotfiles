@@ -26,7 +26,7 @@ function precmd() {
     print -rP '${NEWLINE}$fg[blue]$(get_pwd) $(git_prompt_info)'
 }
 
-PROMPT='${vim_prompt_color}❯ $reset_color'
+PROMPT='${vim_prompt_color}❱ $reset_color'
 RPROMPT=''
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
