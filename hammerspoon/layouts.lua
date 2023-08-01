@@ -11,7 +11,7 @@ return {
     apps = {
       Ray = { cell = 1, open = true },
       Brave = { cell = 2, open = true },
-      Kitty = { cell = 3, open = true },
+      WezTerm = { cell = 3, open = true },
       Tower = { cell = 3 },
       Slack = { cell = 4 },
       Discord = { cell = 5 },
@@ -25,7 +25,7 @@ return {
     },
     apps = {
       Brave = { cell = 1, open = true },
-      Kitty = { cell = 2, open = true },
+      WezTerm = { cell = 2, open = true },
       Tower = { cell = 2 },
     },
   },
@@ -37,8 +37,8 @@ return {
     },
     apps = {
       Ray = { cell = 1, open = true },
+      WezTerm = { cell = 2, open = true },
       Brave = { cell = 2, open = true },
-      Kitty = { cell = 2, open = true },
       Tower = { cell = 2 },
     },
   },

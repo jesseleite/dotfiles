@@ -1,6 +1,6 @@
 return {
-  Kitty = {
-    id = 'net.kovidgoyal.kitty',
+  WezTerm = {
+    id = 'com.github.wez.wezterm',
     summon = {'cmd', 'escape'},
     focus = positions.center.large,
   },

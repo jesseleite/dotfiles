@@ -8,6 +8,7 @@ require('noirbuddy').setup {
   preset = 'miami-nights',
   styles = {
     italic = true,
+    undercurl = true,
   },
 }
 

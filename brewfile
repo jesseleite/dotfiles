@@ -84,6 +84,7 @@ cask 'tinkerwell'
 cask 'tower'
 cask 'transmit'
 cask 'vlc'
+cask 'wezterm'
 cask 'zoom'
 
 # Mac App Store

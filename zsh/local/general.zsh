@@ -11,7 +11,7 @@ alias sizes='du -sh -c *'
 # Copy pwd to clipboard
 alias cwd="pwd && pwd | pbcopy && echo 'Copied to clipboard 📁'"
 
-# Make kitty work with ssh, because I have xterm-kitty as my TERM
+# Ensure xterm-256color when ssh'ing, for terminal environments like xterm-kitty
 # Backspace doesn't work properly without this
 alias ssh='env TERM=xterm-256color ssh'
 
