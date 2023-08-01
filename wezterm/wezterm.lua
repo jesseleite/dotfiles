@@ -21,9 +21,9 @@ return {
   line_height = 1.6,
   underline_position = -7,
   window_padding = {
-    left = 15,
-    right = 15,
-    top = 15,
-    bottom = 15,
+    left = '1.5cell',
+    right = '1.5cell',
+    top = '0.5cell',
+    bottom = '0.5cell',
   },
 }
