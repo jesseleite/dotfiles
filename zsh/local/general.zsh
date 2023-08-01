@@ -1,6 +1,19 @@
 # ------------------------------------------------------------------------------
+# General config
+# ------------------------------------------------------------------------------
+
+# Allow special wezterm features with wezterm (ie. undercurls)
+# https://wezfurlong.org/wezterm/faq.html#how-do-i-enable-undercurl-curly-underlines
+export TERM=wezterm
+
+
+# ------------------------------------------------------------------------------
 # General aliases and functions
 # ------------------------------------------------------------------------------
+
+# Ensure xterm-256color when ssh'ing, for terminal environments like `wezterm` and `xterm-kitty`
+# Backspace doesn't work properly without this
+alias ssh='env TERM=xterm-256color ssh'
 
 alias c="clear"
 alias o="open ."
@@ -10,10 +23,6 @@ alias sizes='du -sh -c *'
 
 # Copy pwd to clipboard
 alias cwd="pwd && pwd | pbcopy && echo 'Copied to clipboard 📁'"
-
-# Ensure xterm-256color when ssh'ing, for terminal environments like xterm-kitty
-# Backspace doesn't work properly without this
-alias ssh='env TERM=xterm-256color ssh'
 
 # Run any command from anywhere, without leaving current working directory.
 #
