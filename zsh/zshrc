@@ -60,3 +60,11 @@ sz() {
 
 # Run dotfiles installer
 alias dotinstall="~/.dotfiles/install"
+
+
+# ------------------------------------------------------------------------------
+# Post Boot
+# ------------------------------------------------------------------------------
+
+# Ensure attached to tmux session
+tmux_ensure_session

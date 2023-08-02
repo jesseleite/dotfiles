@@ -16,9 +16,13 @@ ta() {
 }
 
 # Ensure attached to session when opening new terminal windows
-if [ -z "$TMUX" ]; then
-  ta
-fi
+# Note: This is defined as a function and should be run at the end of user's zshrc script to
+# ensure the rest of the user's config is loaded if they ctrl-c out of the session picker
+tmux_ensure_session() {
+  if [ -z "$TMUX" ]; then
+    ta
+  fi
+}
 
 # Open or create tmux session with z argument
 t() {
