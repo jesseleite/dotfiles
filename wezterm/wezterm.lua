@@ -11,6 +11,7 @@ local color_schemes = {
 }
 
 return {
+  term = "wezterm",
   color_schemes = color_schemes,
   color_scheme = 'Miami Nights',
   window_decorations = 'RESIZE',

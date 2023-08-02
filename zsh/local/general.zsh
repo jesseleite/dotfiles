@@ -1,13 +1,4 @@
 # ------------------------------------------------------------------------------
-# General config
-# ------------------------------------------------------------------------------
-
-# Allow special wezterm features with wezterm (ie. undercurls)
-# https://wezfurlong.org/wezterm/faq.html#how-do-i-enable-undercurl-curly-underlines
-export TERM=wezterm
-
-
-# ------------------------------------------------------------------------------
 # General aliases and functions
 # ------------------------------------------------------------------------------
 
