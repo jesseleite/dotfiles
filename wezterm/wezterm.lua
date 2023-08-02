@@ -14,9 +14,6 @@ return {
   term = "wezterm",
   color_schemes = color_schemes,
   color_scheme = 'Miami Nights',
-  window_decorations = 'RESIZE',
-  enable_tab_bar = false,
-  adjust_window_size_when_changing_font_size = false,
   font = wezterm.font('JetBrains Mono SemiBold'),
   font_size = 16.5,
   line_height = 1.6,
@@ -26,5 +23,12 @@ return {
     right = '1.5cell',
     top = '0.5cell',
     bottom = '0.5cell',
+  },
+  window_decorations = 'RESIZE',
+  window_close_confirmation = 'NeverPrompt',
+  enable_tab_bar = false,
+  adjust_window_size_when_changing_font_size = false,
+  keys = {
+    { key = 't', mods = 'SUPER', action = wezterm.action.Nop }
   },
 }
