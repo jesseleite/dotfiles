@@ -43,7 +43,15 @@ end), true)
 
 hs.window.animationDuration = 0
 hs.grid.setGrid('60x20')
-hs.grid.setMargins('30x30')
+hs.grid.setMargins('25x25')
+
+if (hs.screen.primaryScreen():name() == 'LG HDR WQHD') then
+  hs.grid.setMargins('30x30')
+end
+
+hs.screen.watcher.new(function ()
+  hs.reload()
+end):start()
 
 
 --------------------------------------------------------------------------------
