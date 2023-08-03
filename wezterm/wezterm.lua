@@ -14,7 +14,7 @@ return {
   term = "wezterm",
   color_schemes = color_schemes,
   color_scheme = 'Miami Nights',
-  font = wezterm.font('JetBrains Mono SemiBold'),
+  font = wezterm.font('JetBrains Mono'),
   font_size = 16.5,
   line_height = 1.6,
   underline_position = -7,
@@ -31,4 +31,5 @@ return {
   keys = {
     { key = 't', mods = 'SUPER', action = wezterm.action.Nop }
   },
+  front_end = 'WebGpu', -- Temp: This is new default in nightly, can remove later!
 }
