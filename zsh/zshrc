@@ -8,19 +8,6 @@
 
 
 # ------------------------------------------------------------------------------
-# Paths
-# ------------------------------------------------------------------------------
-
-PATH=${PATH}:/bin
-PATH=${PATH}:/sbin
-PATH=${PATH}:/usr/bin
-PATH=${PATH}:/usr/sbin
-PATH=${PATH}:vendor/bin
-PATH=${PATH}:~/.composer/vendor/bin
-PATH=${PATH}:~/.dotfiles/bin
-
-
-# ------------------------------------------------------------------------------
 # Homebrew
 # ------------------------------------------------------------------------------
 
@@ -45,6 +32,16 @@ ZSH=$(antibody path robbyrussell/oh-my-zsh)
 
 # Source compiled antibody bundles and configs
 [ -f ~/.dotfiles/zsh/bundles.sh ] && source ~/.dotfiles/zsh/bundles.sh
+
+
+# ------------------------------------------------------------------------------
+# Paths
+# ------------------------------------------------------------------------------
+
+PATH=~/.dotfiles/bin:$PATH
+PATH=./node_modules/.bin:$PATH
+PATH=~/.composer/vendor/bin:$PATH
+PATH=./vendor/bin:$PATH
 
 
 # ------------------------------------------------------------------------------
