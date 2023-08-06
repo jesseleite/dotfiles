@@ -21,8 +21,8 @@ return {
   window_padding = {
     left = '1.5cell',
     right = '1.5cell',
-    top = '0.5cell',
-    bottom = '0.5cell',
+    top = '0.4cell',
+    bottom = '0.4cell',
   },
   window_decorations = 'RESIZE',
   window_close_confirmation = 'NeverPrompt',
