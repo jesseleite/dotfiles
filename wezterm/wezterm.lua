@@ -10,7 +10,7 @@ local color_schemes = {
   }
 }
 
-return {
+local config = {
   term = "wezterm",
   color_schemes = color_schemes,
   color_scheme = 'Miami Nights',
@@ -33,3 +33,14 @@ return {
   },
   front_end = 'WebGpu', -- Temp: This is new default in nightly, can remove later!
 }
+
+wezterm.on('window-config-reloaded', function(window)
+  if wezterm.gui.screens().active.name == 'LG HDR WQHD' then
+    window:set_config_overrides({
+      dpi = 109,
+      font_size = 11,
+    })
+  end
+end)
+
+return config
