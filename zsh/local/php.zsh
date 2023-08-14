@@ -2,9 +2,6 @@
 # Aliases and functions for PHP
 # ------------------------------------------------------------------------------
 
-alias psr1="php-cs-fixer fix --level=psr1"
-alias psr2="php-cs-fixer fix --level=psr2"
-
 # Configure php settings and extensions for current version
 phpc() {
   local confd
