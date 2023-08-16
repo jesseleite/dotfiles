@@ -15,9 +15,9 @@ telescope.setup {
     },
     mappings = {
       i = {
-        ["<Esc>"] = actions.close,
-        ["<C-a>"] = actions.toggle_all,
-        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+        ['<Esc>'] = actions.close,
+        ['<C-a>'] = actions.toggle_all,
+        ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
       },
     },
     file_ignore_patterns = { 'node_modules', '.DS_Store', 'resources/dist' },
@@ -81,6 +81,14 @@ builtin.project_history = function ()
   builtin.oldfiles({
     prompt_title = 'Project History',
     cwd_only = true,
+  })
+end
+
+builtin.lsp_document_methods = function ()
+  builtin.lsp_document_symbols({
+    prompt_title = 'LSP Document Methods',
+    symbols = { 'method' },
+    symbol_width = 80,
   })
 end
 
