@@ -35,6 +35,9 @@ local config = {
   front_end = 'WebGpu', -- Temp: This is new default in nightly, can remove later!
 }
 
+-- This doesn't work well on a dual screen setup, and is hopefully a temporary solution to the font rendering oddities
+-- shown in https://github.com/wez/wezterm/issues/4096. Ideally I'll switch to using `dpi_by_screen` at some point,
+-- but for now 11pt @ 109dpi seems to be the most stable for font rendering on my 38" ultrawide LG monitor here.
 wezterm.on('window-config-reloaded', function(window)
   if wezterm.gui.screens().active.name == 'LG HDR WQHD' then
     window:set_config_overrides({
