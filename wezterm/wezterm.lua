@@ -5,6 +5,7 @@ local color_schemes = {
     background = '#18181A',
     foreground = '#ffffff',
     cursor_bg = '#ffffff',
+    cursor_border = '#00EC6E',
     ansi = { '#212121', '#ff0038', '#00EC6E', '#FFE981', '#47BAC0', '#E4609B', '#47BAC0', '#ffffff' },
     brights = { '#424242', '#ff0038', '#00EC6E', '#FFE981', '#47BAC0', '#E4609B', '#47BAC0', '#ffffff' },
   }
