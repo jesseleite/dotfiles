@@ -252,6 +252,10 @@ autocmd FileType php nnoremap <buffer> <Leader>pt :call phpactor#Transform()<CR>
 " Mappings: pdv
 autocmd FileType php nnoremap <buffer> <Leader>pd :call pdv#DocumentWithSnip()<CR>
 
+" PHP helper mappings
+" Mappings: php
+autocmd FileType php nnoremap <buffer> <Leader>pa :call ConvertToArrowFunctionInPipeline()<CR>
+
 " PHP Laravel specific mappings
 " Mappings: laravel
 autocmd FileType php nnoremap <buffer> <Leader>pr :call LaravelConvertToRealTimeFacade()<CR>
