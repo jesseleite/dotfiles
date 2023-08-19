@@ -2,18 +2,21 @@
 # Aliases and functions for Git
 # ------------------------------------------------------------------------------
 
-alias gin="git init && gaa && gcmsg 'Initial commit.'"
-alias tower="gittower ."
-alias gdb='git remote show origin | grep "HEAD branch" | cut -d " " -f5'
-alias gcod='gco $(gdb)'
-alias gpom="gl origin master"
-
-# Unalias oh-my-zsh aliases, in favour of following functions
+# Unalias oh-my-zsh aliases, in favour of my own custom config
 unalias gco
 unalias gbd
 unalias gcmsg
 unalias gcam
 unalias gpr
+unalias gp
+
+# Aliases
+alias gin="git init && gaa && gcmsg 'Initial commit.'"
+alias tower="gittower ."
+alias gdb='git remote show origin | grep "HEAD branch" | cut -d " " -f5'
+alias gcod='gco $(gdb)'
+alias gpush="git push"
+alias gpom="gl origin master"
 
 # Git status with fugitive
 gs() {
