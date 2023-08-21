@@ -15,3 +15,7 @@ function! ConvertToArrowFunctionInPipeline()
   endwhile
   exec s:starting_line
 endfunction
+
+function! DuplicateMethod()
+  silent! norm Vafo{jomay'aopf(zz
+endfunction

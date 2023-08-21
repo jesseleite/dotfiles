@@ -255,6 +255,7 @@ autocmd FileType php nnoremap <buffer> <Leader>pd :call pdv#DocumentWithSnip()<C
 " PHP helper mappings
 " Mappings: php
 autocmd FileType php nnoremap <buffer> <Leader>pa :call ConvertToArrowFunctionInPipeline()<CR>
+autocmd FileType php nnoremap <buffer> <Leader>pd :call DuplicateMethod()<CR>
 
 " PHP Laravel specific mappings
 " Mappings: laravel
