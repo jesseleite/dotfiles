@@ -43,7 +43,7 @@ end), true)
 
 hs.window.animationDuration = 0
 hs.grid.setGrid('60x20')
-hs.grid.setMargins('25x25')
+hs.grid.setMargins('15x15')
 
 if (hs.screen.primaryScreen():name() == 'LG HDR WQHD') then
   hs.grid.setMargins('30x30')
