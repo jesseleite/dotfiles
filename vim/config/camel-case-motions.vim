@@ -3,6 +3,7 @@
 " ------------------------------------------------------------------------------
 
 let s:camel_case_motions = 0
+let s:starting_line = 0
 
 function! ToggleCamelCaseMotions()
   if s:camel_case_motions
@@ -17,6 +18,7 @@ function! ToggleCamelCaseMotions()
     ounmap <silent> ie
     xunmap <silent> ie
     let s:camel_case_motions = 0
+    let s:starting_line = 0
     echo 'Camel case motions disabled'
   else
     map <silent> w <Plug>CamelCaseMotion_w
@@ -30,8 +32,21 @@ function! ToggleCamelCaseMotions()
     omap <silent> ie <Plug>CamelCaseMotion_ie
     xmap <silent> ie <Plug>CamelCaseMotion_ie
     let s:camel_case_motions = 1
+    let s:starting_line = line('.')
     echo 'Camel case motions enabled'
   end
 endfunction
 
+function! ResetCamelCaseMotions()
+  if s:camel_case_motions && s:starting_line != line('.')
+    call ToggleCamelCaseMotions()
+  end
+endfunction
+
 command! ToggleCamelCaseMotions call ToggleCamelCaseMotions()
+command! ResetCamelCaseMotions call ResetCamelCaseMotions()
+
+augroup toggle_camel_case_motions
+  autocmd!
+  autocmd CursorHold,CursorHoldI * ResetCamelCaseMotions
+augroup end
