@@ -7,6 +7,7 @@
 let g:PHP_noArrowMatching = 1
 
 function! ConvertToArrowFunctionInPipeline()
+  silent! norm $vaf2k
   let s:starting_line = line('.')
   silent! norm $?->if(lciwfnf)ld$a =>Jdt f;xJxxf-ik
   while line('.') >= s:starting_line
