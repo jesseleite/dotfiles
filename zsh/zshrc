@@ -39,6 +39,7 @@ ZSH=$(antibody path robbyrussell/oh-my-zsh)
 # ------------------------------------------------------------------------------
 
 PATH=~/.dotfiles/bin:$PATH
+PATH=~/.config/phpmon/bin:$PATH
 PATH=./node_modules/.bin:$PATH
 PATH=~/.composer/vendor/bin:$PATH
 PATH=./vendor/bin:$PATH
