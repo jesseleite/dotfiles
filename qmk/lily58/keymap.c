@@ -171,22 +171,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         clear_oneshot_layer_state(ONESHOT_PRESSED);
       }
       break;
-
-    // Clear mods when holding lower layer curly brackets to stop me from shifting shiftable symbols
-    case KC_LCBR:
-      if (record->event.pressed) {
-        clear_mods();
-        tap_code16(KC_LCBR);
-        return false;
-      }
-      break;
-    case KC_RCBR:
-      if (record->event.pressed) {
-        clear_mods();
-        tap_code16(KC_RCBR);
-        return false;
-      }
-      break;
   }
 
   return true;
