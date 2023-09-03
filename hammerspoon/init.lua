@@ -21,6 +21,8 @@ require('window')
 --------------------------------------------------------------------------------
 -- Summon Specific Apps
 --------------------------------------------------------------------------------
+-- F13 to open summon modal
+-- See `apps.lua` for `summon` hotkeys and `summonModal` bindings
 
 hs.fnutils.each(apps, function(app)
   if app.summon then
@@ -32,9 +34,25 @@ local summonModalBindings = tableFlip(hs.fnutils.map(apps, function(app)
   return app.summonModal
 end))
 
-registerModalBindings(hyper, 'space', hs.fnutils.map(summonModalBindings, function(app)
+registerModalBindings(nil, 'f13', hs.fnutils.map(summonModalBindings, function(app)
   return function() summon(app) end
 end), true)
+
+
+--------------------------------------------------------------------------------
+-- Misc Macros
+--------------------------------------------------------------------------------
+-- F14 to open macros modal
+
+local macros = {
+  s = function() hs.eventtap.keyStroke({'cmd', 'shift'}, '4') end, -- screenshot
+  e = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'space') end, -- emoji picker
+  a = function() hs.eventtap.keyStroke({'cmd'}, '`') end, -- next window of focused app
+  c = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'c') end, -- color picker app
+  x = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'x') end, -- color picker eye dropper
+}
+
+registerModalBindings(nil, 'f14', macros, true)
 
 
 --------------------------------------------------------------------------------
