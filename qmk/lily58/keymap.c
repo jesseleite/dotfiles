@@ -3,17 +3,17 @@
 // Layers definitions
 enum layer_number {
   _DEFAULT = 0,
-  _GAME,
+  _WINDOWS,
   _LOWER,
   _RAISE,
   _MASH,
 };
 
 // Aliases
-#define KC_ KC_TRNS                 // Blank keys will inherit from previous layer
-#define KC_xx KC_NO                 // Completely disable key with `xx`
+#define KC_     KC_TRNS             // Blank keys will inherit from previous layer
+#define KC_xx   KC_NO               // Completely disable key with `xx`
 #define KC_DFLT DF(_DEFAULT)        // Switch to default layer
-#define KC_GAME DF(_GAME)           // Switch to game layer
+#define KC_WIN  DF(_WINDOWS)        // Switch to game layer
 #define KC_OAPP KC_F13              // App launcher modal
 #define KC_MACR KC_F14              // Misc macros modal
 #define KC_TERM LCMD(KC_ESC)        // Summon terminal from anywhere
@@ -30,12 +30,6 @@ enum layer_number {
 #define KC_ZMIN LCMD(KC_EQL)        // Zoom in
 #define KC_ZMOT LCMD(KC_MINS)       // Zoom out
 #define KC_ZMRS LCMD(KC_0)          // Zoom reset
-
-// Define custom keycodes
-enum my_keycodes {
-  FOO = SAFE_RANGE,
-  KC_SNPE                           // One shot layer to snipe them awkward hotkeys
-};
 
 // Layer keymaps
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -54,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //                   +------+------+------+------/              \------+------+------+------+
   ),
 
-  [_GAME] = LAYOUT_KC(
+  [_WINDOWS] = LAYOUT_KC(
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
          ESC  ,  1   ,  2   ,  3   ,  4   ,  5   ,                         6   ,  7   ,  8   ,  9   ,  0   , DEL  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
@@ -70,13 +64,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_KC(
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-          xx  ,  F1  ,  F2  ,  F3  ,  F4  ,  F5  ,                         F6  ,  F7  ,  F8  ,  F9  , F10  , F11  ,
+              ,  F1  ,  F2  ,  F3  ,  F4  ,  F5  ,                         F6  ,  F7  ,  F8  ,  F9  , F10  ,      ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
          GRV  , EXLM ,  AT  , HASH , DLR  , PERC ,                        TILD ,  P7  ,  P8  ,  P9  , EQL  , PLUS ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
          TERM , CIRC , AMPR , ASTR , OAPP , LABK ,                        RABK ,  P4  ,  P5  ,  P6  , MINS , UNDS ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
-         LCBR , BSLS , DOT  , COMM , MACR , LBRC ,  xx  ,           xx  , RBRC ,  P1  ,  P2  ,  P3  , SLSH , RCBR ,
+         LCBR , BSLS , DOT  , COMM , MACR , LBRC ,      ,               , RBRC ,  P1  ,  P2  ,  P3  , SLSH , RCBR ,
     // +------+------+------+------+------+------+------/        \------+------+------+------+------+------+------+
                                 ,      ,      ,       ,                    , RAI0 ,      ,
     //                   +------+------+------+------/              \------+------+------+------+
@@ -84,13 +78,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_KC(
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-              ,  F1  ,  F2  ,  F3  ,  F4  ,  F5  ,                         F6  ,  F7  ,  F8  ,  F9  , F10  , F11  ,
+              ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-              ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        HOME , PGDN , PGUP , END  ,  xx  , F12  ,
+              ,  F1  ,  F2  ,  F3  ,  F4  ,  F5  ,                        HOME , PGDN , PGUP , END  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-              ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        LEFT , DOWN ,  UP  , RGHT ,  xx  ,  xx  ,
+              ,  F6  ,  F7  ,  F8  ,  F9  ,  F10 ,                        LEFT , DOWN ,  UP  , RGHT ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
-              ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,           xx  , MPRV , VOLD , VOLU , MNXT , MUTE , MPLY ,
+              ,  F11 ,  F12 ,  xx  ,  xx  ,  xx  ,  xx  ,           xx  , MPRV , VOLD , VOLU , MNXT , MUTE , MPLY ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
                                 ,      ,      ,  SPOT ,                    ,      ,      ,
     //                   +------+------+------+------/              \------+------+------+------+
@@ -98,11 +92,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_MASH] = LAYOUT_KC(
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-         GAME ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,
+         DFLT ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                         xx  ,  xx  ,  xx  ,  xx  ,  xx  , WIN  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
           xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        SPCL ,  xx  ,  xx  , SPCR ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+                      +------+------+------+------+------+------+
-         DFLT ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        BROL ,  xx  ,  xx  , BROR ,  xx  ,  xx  ,
+          xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,                        BROL ,  xx  ,  xx  , BROR ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
           xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,  xx  ,           xx  , ZMRS , ZMOT , ZMIN ,  xx  ,  xx  ,  xx  ,
     // +------+------+------+------+------+------+------+        +------+------+------+------+------+------+------+
