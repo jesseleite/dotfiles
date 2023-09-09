@@ -51,7 +51,13 @@ Plug 'mhinz/vim-signify'
 Plug 'nvim-lualine/lualine.nvim'
 
 " File system explorer
-Plug 'lambdalisue/fern.vim' , {'on': 'Fern'}
+Plug 'stevearc/oil.nvim'
+
+" File tree explorer
+" Not sure I want to keep this around, but oil.nvim is more a simplistic / netrw style explorer,
+" so I'll keep this around for a bit to see how much I really use it.
+Plug 'nvim-neo-tree/neo-tree.nvim'
+Plug 'MunifTanjim/nui.nvim'
 
 " Neovim LSP
 Plug 'neovim/nvim-lspconfig'

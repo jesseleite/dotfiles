@@ -135,28 +135,12 @@ nmap <Leader>gs :Gedit :<CR>
 nmap <Leader><Leader>go :Gbrowse<CR>
 
 " File system explorer
-" Mappings: fern
-nmap <Leader>e :FernReveal .<CR>
-function! FernLocalMappings()
-  nmap <buffer><nowait> l <Plug>(fern-action-expand)
-  nmap <buffer><nowait> h <Plug>(fern-action-collapse)
-  nmap <buffer><nowait> H <Plug>(fern-action-hidden)
-  nmap <buffer><nowait> b <Plug>(fern-action-leave)
-  nmap <buffer><nowait> <CR> <Plug>(fern-action-open)
-  nmap <buffer><nowait> v <Plug>(fern-action-open:rightest)<C-w><C-p>
-  nmap <buffer><nowait> o <Plug>(fern-action-open:system)
-  nmap <buffer><nowait> f <Plug>(fern-action-new-file)
-  nmap <buffer><nowait> d <Plug>(fern-action-new-dir)
-  nmap <buffer><nowait> <Tab> <Plug>(fern-action-mark:toggle)
-  nmap <buffer><nowait> r <Plug>(fern-action-rename)
-  nmap <buffer><nowait> c <Plug>(fern-action-copy)
-  nmap <buffer><nowait> m <Plug>(fern-action-move)
-  nmap <buffer><nowait> y <Plug>(fern-action-clipboard-copy)
-  nmap <buffer><nowait> x <Plug>(fern-action-clipboard-move)
-  nmap <buffer><nowait> p <Plug>(fern-action-clipboard-paste)
-  nmap <buffer><nowait> D <Plug>(fern-action-trash)
-  nmap <buffer><nowait> g? <Plug>(fern-action-help:all)
-endfunction
+" Mappings: oil
+nmap <Leader>e :Oil<CR>
+
+" File tree explorer
+" Mappings: neo-tree
+nmap <Leader>E :Neotree current reveal<CR>
 
 " Undo history
 " Mappings: undotree
