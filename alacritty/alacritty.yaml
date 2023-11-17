@@ -5,24 +5,23 @@ window:
     columns: 130
     lines: 34
   padding:
-    x: 18
-    y: 5
+    x: 10
+    y: 8
   dynamic_padding: true
   decorations: buttonless
 font:
   normal:
-    family: Menlo
+    family: JetBrains Mono
   bold:
     style: Regular
-  size: 17.0
+  size: 17
   offset:
-    y: 18
+    y: 14
   glyph_offset:
-    y: 9
-  use_thin_strokes: false
+    y: 7
 colors:
   primary:
-    background: '#000000'
+    background: '#18181A'
     foreground: '#ffffff'
   cursor:
     text:    '#000000'
@@ -32,21 +31,21 @@ colors:
     foreground: '#ffffff'
   normal:
     black:   '#212121'
-    red:     '#FF3F61'
-    green:   '#86E86A'
-    yellow:  '#FFE35F'
-    blue:    '#3EB4E8'
-    magenta: '#FF7B34'
-    cyan:    '#3EB4E8'
+    red:     '#ff0038'
+    green:   '#00EC6E'
+    yellow:  '#FFE981'
+    blue:    '#47BAC0'
+    magenta: '#E4609B'
+    cyan:    '#47BAC0'
     white:   '#FFFFFF'
   bright:
     black:   '#424242'
-    red:     '#FF3F61'
-    green:   '#86E86A'
-    yellow:  '#FFE35F'
-    blue:    '#3EB4E8'
-    magenta: '#FF7B34'
-    cyan:    '#3EB4E8'
+    red:     '#ff0038'
+    green:   '#00EC6E'
+    yellow:  '#FFE981'
+    blue:    '#47BAC0'
+    magenta: '#E4609B'
+    cyan:    '#47BAC0'
     white:   '#FFFFFF'
 mousetrue:
   hide_when_typing: true

@@ -30,7 +30,8 @@ local config = {
   enable_tab_bar = false,
   adjust_window_size_when_changing_font_size = false,
   keys = {
-    { key = 't', mods = 'SUPER', action = wezterm.action.Nop }
+    { key = 't', mods = 'SUPER', action = wezterm.action.Nop },
+    { key = '\\', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
   },
   front_end = 'WebGpu', -- Temp: This is new default in nightly, can remove later!
 }
@@ -43,6 +44,16 @@ wezterm.on('window-config-reloaded', function(window)
     window:set_config_overrides({
       dpi = 109,
       font_size = 11,
+    })
+  end
+  if wezterm.gui.screens().active.name == '24GL600F' then
+    window:set_config_overrides({
+      dpi = 92,
+      font_size = 13,
+      window_padding = {
+        top = '0.6cell',
+        bottom = '0.6cell',
+      },
     })
   end
 end)
