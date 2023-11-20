@@ -67,6 +67,11 @@ if (hs.screen.primaryScreen():name() == 'LG HDR WQHD') then
   hs.grid.setMargins('30x30')
 end
 
+-- Important for 1280x720 HiDPI screencasting...
+if (hs.screen.primaryScreen():name() == '24GL600F') then
+  hs.grid.setMargins('12x12')
+end
+
 hs.screen.watcher.new(function ()
   hs.reload()
 end):start()

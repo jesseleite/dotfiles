@@ -46,13 +46,28 @@ wezterm.on('window-config-reloaded', function(window)
       font_size = 11,
     })
   end
+end)
+
+-- Important for screencasting...
+wezterm.on('window-config-reloaded', function(window)
   if wezterm.gui.screens().active.name == '24GL600F' then
+    local dpi = 92
+    local font_size = 16.5
+
+    -- For 1280x720 HiDPI specifically, which will have height of 1440
+    if wezterm.gui.screens().active.height == 1440 then
+      dpi = 144
+      font_size = 13.5
+    end
+
     window:set_config_overrides({
-      dpi = 92,
-      font_size = 13,
+      dpi = dpi,
+      font_size = font_size,
+      line_height = 1.6,
+      underline_position = -12,
       window_padding = {
-        top = '0.6cell',
-        bottom = '0.6cell',
+        top = '0.7cell',
+        bottom = '0.3cell',
       },
     })
   end
