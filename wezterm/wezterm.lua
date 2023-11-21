@@ -57,7 +57,7 @@ wezterm.on('window-config-reloaded', function(window)
     -- For 1280x720 HiDPI specifically, which will have height of 1440
     if wezterm.gui.screens().active.height == 1440 then
       dpi = 144
-      font_size = 14
+      font_size = 15.5
     end
 
     window:set_config_overrides({
