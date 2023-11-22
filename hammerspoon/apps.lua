@@ -57,4 +57,12 @@ return {
     id = 'com.luckymarmot.Paw',
     summonModal = 'h', -- http client
   },
+  ElgatoCameraHub = {
+    id = 'com.elgato.CameraHub',
+    summonModal = 'c' -- camera
+  },
+  ScreenFlow = {
+    id = 'net.telestream.screenflow10',
+    summonModal = 'v' -- video
+  },
 }
