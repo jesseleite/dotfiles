@@ -52,7 +52,7 @@ end)
 wezterm.on('window-config-reloaded', function(window)
   if wezterm.gui.screens().active.name == '24GL600F' then
     local dpi = 92
-    local font_size = 16.5
+    local font_size = 13
 
     -- For 1280x720 HiDPI specifically, which will have height of 1440
     if wezterm.gui.screens().active.height == 1440 then
