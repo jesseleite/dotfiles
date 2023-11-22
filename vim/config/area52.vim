@@ -4,11 +4,24 @@
 " # This is where I put stuff that I'm either testing or embarassed
 " # about. No shame; Just aliens, UFOs, and cows, and experiments.
 
+function! ClearRegisters()
+  let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
+  let i=0
+  while (i<strlen(regs))
+      exec 'let @'.regs[i].'=""'
+      let i=i+1
+  endwhile
+endfunction
+
+nnoremap <silent> <Leader><Leader>p :args *<CR>
+nnoremap <silent> <Leader><Leader>j :bnext<CR>
+nnoremap <silent> <Leader><Leader>k :bprev<CR>
 
 " Visual paste without losing what is in register
 " This mapping doesn't work because vim-pasta hijacks it
 " Keep an eye on this... https://github.com/sickill/vim-pasta/pull/18
 " vnoremap p "0p
+vnoremap <leader>p "0p
 
 " Config: copilot
 " let g:copilot_no_tab_map = v:true
@@ -22,7 +35,7 @@ nmap DO va{Vd
 function! ArtisanMake(input)
   let l:before = system('php -r "echo hrtime(true);"')
   let l:output = system('php artisan make:'.a:input)
-  let l:after = system('php -r "echo hrtime(true);"')
+
 
   if v:shell_error != 0
     return v:shell_error
