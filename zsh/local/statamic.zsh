@@ -59,10 +59,10 @@ plsnew() {
   cd ~/Code/Playground
   statamic new -n $1 statamic/starter-kit-cool-writings
   cd $1
-  gin
   plsuser
   plspro
   cpant
+  gin
   b
 }
 
