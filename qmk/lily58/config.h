@@ -5,7 +5,6 @@
 
 // Mod tap config
 #define TAPPING_TERM 150
-#define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
 #define PERMISSIVE_HOLD
 
