@@ -12,3 +12,4 @@ SWAP_HANDS_ENABLE = no      # Enable one-hand typing
 OLED_ENABLE = no            # OLED display
 KEY_OVERRIDE_ENABLE = yes   # Enable key overrides feature
 EXTRAKEY_ENABLE = yes       # Enable media keys, etc.
+COMBO_ENABLE = yes          # Enable combos
