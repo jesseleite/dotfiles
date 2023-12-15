@@ -1,3 +1,0 @@
-;; extends
-
-"self" @keyword
