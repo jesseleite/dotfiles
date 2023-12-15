@@ -2,9 +2,11 @@ local noirbuddy = require('noirbuddy.plugins.lualine')
 local colors = require('noirbuddy.colors').all()
 
 -- Screencasting settings
-local screencasting = true
-vim.g.video_title = '"That One Micro Talk on Macros" by Jesse Leite 😎'
-vim.g.video_series = '@ NeovimConf.Live'
+local screencasting = false
+-- vim.g.video_title = '"That One Micro Talk on Macros" by Jesse Leite 😎'
+-- vim.g.video_series = '@ NeovimConf.Live'
+vim.g.video_title = '😎'
+vim.g.video_series = 'Vim for Normal People'
 
 -- Customize theme for screencasting
 if screencasting then

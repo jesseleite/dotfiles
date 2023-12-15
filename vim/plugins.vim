@@ -13,6 +13,9 @@ Plug 'jesseleite/nvim-noirbuddy'
 Plug 'jesseleite/vim-raymond'
 Plug 'jesseleite/vim-tinkeray'
 
+" Macro helpers
+Plug 'jesseleite/nvim-macroni'
+
 " Human readable vim startup time profiling
 Plug 'tweekmonster/startuptime.vim', {'on': 'StartupTime'}
 

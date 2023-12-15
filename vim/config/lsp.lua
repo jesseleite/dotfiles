@@ -5,7 +5,8 @@
 local lspconfig = require('lspconfig')
 
 -- Lua
-lspconfig.sumneko_lua.setup {
+-- Does lua_ls use same options as sumneko?
+lspconfig.lua_ls.setup {
   settings = {
     Lua = {
       runtime = {

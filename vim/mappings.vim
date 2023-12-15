@@ -16,7 +16,7 @@ tnoremap <Esc> <C-\><C-n>
 nmap <Leader>a <C-^>
 
 " Clear search highlighting
-nmap <silent> <Leader>jk :nohlsearch<CR>
+nmap <silent> <Leader>. :nohlsearch<CR>
 
 " Quit
 nmap <Leader>q :q<CR>
@@ -102,10 +102,10 @@ nnoremap <Leader>gh :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <Leader>ga :lua require("harpoon.mark").add_file()<CR>
 nnoremap <Leader>gr :lua require("harpoon.mark").rm_file()<CR>
 nnoremap <leader>gx :lua require("harpoon.mark").clear_all()<CR>
-nnoremap <Leader>gj :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <Leader>gk :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <Leader>gl :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <Leader>g; :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <silent> <Leader>gj :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <silent> <Leader>gk :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <silent> <Leader>gl :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <silent> <Leader>g; :lua require("harpoon.ui").nav_file(4)<CR>
 nnoremap <Leader>gu :lua require("harpoon.tmux").gotoTerminal(1)<CR>
 nnoremap <Leader>gi :lua require("harpoon.tmux").gotoTerminal(2)<CR>
 
@@ -136,7 +136,7 @@ nmap <Leader><Leader>go :Gbrowse<CR>
 
 " File system explorer
 " Mappings: oil
-nmap <Leader>e :Oil<CR>
+nmap <silent> <Leader>e :Oil<CR>
 
 " File tree explorer
 " Mappings: neo-tree
