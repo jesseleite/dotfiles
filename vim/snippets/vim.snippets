@@ -1,0 +1,32 @@
+snippet header "Define comment header."
+" ------------------------------------------------------------------------------
+" # ${0:Installed Plugins}
+" ------------------------------------------------------------------------------
+endsnippet
+
+snippet fn "Define function."
+function! ${1:name}($2)
+  ${0:"}
+endfunction
+endsnippet
+
+snippet for "Define for loop."
+for ${1:item} in ${2:list}
+  ${0:"}
+endfor
+endsnippet
+
+snippet cmd "Define simple command."
+command! ${1:Name} ${0:call SomeFunction()}
+endsnippet
+
+snippet aug "Define autocmd group."
+augroup ${1:group_name}
+  autocmd! *
+  autocmd ${2:BufEnter *.php call SomeFunction()}
+augroup END
+endsnippet
+
+snippet ray "Dump to Ray."
+call Ray($0)
+endsnippet

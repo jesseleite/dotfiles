@@ -13,9 +13,8 @@
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
     ~/.zshrc: zsh/zshrc
-    ~/.config/nvim/init.vim: vim/init.vim
+    ~/.config/nvim: nvim
     ~/.config/nvim/ultisnips: vim/snippets
-    ~/.config/nvim/after/queries: vim/queries
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yaml
     ~/.wezterm.lua: wezterm/wezterm.lua

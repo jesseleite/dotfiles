@@ -1,0 +1,118 @@
+snippet php "Open php."
+<?php
+
+$0
+endsnippet
+
+snippet class "Define class."
+<?php
+
+namespace $1;
+
+class ${2:Name}
+{
+    ${0://}
+}
+endsnippet
+
+snippet method "Define method."
+${1:public} function ${2:name}($3)
+{
+    ${0://}
+}
+endsnippet
+
+snippet prop "Define property."
+${1:public} $${2:property} = $3;
+endsnippet
+
+snippet tp "Call `$this->property`."
+$this->$0
+endsnippet
+
+snippet tm "Call `$this->method()`."
+$this->${1:method}($2)$0
+endsnippet
+
+snippet test "Define test method."
+/** @test */
+public function ${2:it_can_do_something}()
+{
+    ${0://}
+}
+endsnippet
+
+snippet setup "Define test setUp() method."
+public function setUp(): void
+{
+    parent::setUp();
+
+    ${0://}
+}
+endsnippet
+
+snippet teardown "Define test tearDown() method."
+public function tearDown(): void
+{
+    ${0://}
+
+    parent::tearDown();
+}
+endsnippet
+
+snippet weh "Without exception handling."
+$this->withoutExceptionHandling();
+endsnippet
+
+snippet skip "Mark test skipped."
+$this->markTestSkipped();
+endsnippet
+
+snippet named "Named constructor."
+/**
+ * ${1:Instantiate some service.}
+ *
+ * @param ${3:ParamType} ${4:$param}
+ */
+public function __construct($3 $4)
+{
+    ${0://}
+}
+
+/**
+ * $1
+ *
+ * @param $3 $4
+ * @return static
+ */
+public static function ${2:namedConstructor}($3 $4)
+{
+    return new static($4);
+}
+endsnippet
+
+snippet route "Laravel route."
+Route::${1:get}('${2:route}', '${3:Controller}@${4:method}');
+endsnippet
+
+snippet routeclosure "Laravel route with closure."
+Route::${1:get}('${2:route}', function ($3) {
+    ${0://}
+});
+endsnippet
+
+snippet measure "Laravel debugbar measuring."
+\Debugbar::startMeasure('${1}', '$1');
+
+${VISUAL}
+
+\Debugbar::stopMeasure('$1');
+endsnippet
+
+snippet raysp "Ray service provider for orchestra test case."
+\Spatie\LaravelRay\RayServiceProvider::class,
+endsnippet
+
+snippet raypass "Surround with ray()->pass()."
+ray()->pass(${VISUAL})
+endsnippet

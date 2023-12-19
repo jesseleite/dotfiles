@@ -3,3 +3,5 @@ tags
 *.swp
 zsh/bundles.sh
 brewfile.lock.json
+nvim/undo
+nvim/ultisnips
