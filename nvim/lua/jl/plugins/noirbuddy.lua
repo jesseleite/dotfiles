@@ -7,6 +7,8 @@ return {
   dependencies = {
     { 'tjdevries/colorbuddy.nvim', branch = 'dev' }
   },
+  lazy = true,
+  priority = 1000,
   dev = true,
   opts = {
     preset = 'miami-nights',
