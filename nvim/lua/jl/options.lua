@@ -31,7 +31,6 @@ vim.opt.scrolloff = 5
 vim.opt.updatetime = 1000
 vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'noselect' }
 vim.opt.wrap = false
-vim.opt.wrapscan = false
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.undofile = true
