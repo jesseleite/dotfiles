@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Mason: Package manager for LSP servers, DAP servers, linters, formatters
+--------------------------------------------------------------------------------
+
 return {
   'williamboman/mason.nvim',
   dependencies = {

@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Pasta: Paste with indentation adjusted to match destination context
+--------------------------------------------------------------------------------
+
 return {
   'ku1ik/vim-pasta',
   config = function()

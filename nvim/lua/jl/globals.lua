@@ -12,12 +12,14 @@ if ok then
   reloader = plenary_reload.reload_module
 end
 
+-- Print tables and objects
 P = function (v)
   print(vim.inspect(v))
 
   return v
 end
 
+-- Clear module cache
 RELOAD = function (...)
   local ok, plenary_reload = pcall(require, "plenary.reload")
 
@@ -28,12 +30,14 @@ RELOAD = function (...)
   return reloader(...)
 end
 
+-- Clear module cache and require
 R = function (name)
   RELOAD(name)
 
   return require(name)
 end
 
+-- Defer require until exported function is called
 require_on_exported_call = function (require_path)
   return setmetatable({}, {
     __index = function(_, k)

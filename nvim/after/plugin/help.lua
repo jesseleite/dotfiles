@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
--- Vim Help Buffer Tweaks
+-- Vim Help Window Tweaks
 --------------------------------------------------------------------------------
+-- Can probably use `after/ftplugin/help.lua` for this?
+-- But `wincmd('o')` still requires a `BufWinEnter` event, so maybe it's better off here.
 
 vim.api.nvim_create_autocmd('BufWinEnter', {
   group = vim.api.nvim_create_augroup('help_local', { clear = true }),

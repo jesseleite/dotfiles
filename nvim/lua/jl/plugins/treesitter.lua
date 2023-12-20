@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Treesitter: Syntax parsing, syntax highlighting, custom text objects, etc.
+--------------------------------------------------------------------------------
+
 return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = {

@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Vim Test: Run your tests at the speed of thought
+--------------------------------------------------------------------------------
+
 local swap_strategy = function ()
   if vim.g['test#strategy'] == 'neovim' then
     vim.g['test#strategy'] = 'tslime'

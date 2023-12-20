@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Noirbuddy: A highly customizable minimalist monochromatic colorscheme
+--------------------------------------------------------------------------------
+
 return {
   'jesseleite/nvim-noirbuddy',
   dependencies = {

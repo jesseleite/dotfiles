@@ -1,8 +1,12 @@
-local harpoon -- Ensure we only interact with local harpoon object 🦈
+--------------------------------------------------------------------------------
+-- Harpoon: Get to where you want with the fewest keystrokes
+--------------------------------------------------------------------------------
+
+local harpoon
 
 return {
   'ThePrimeagen/harpoon',
-  branch = 'harpoon2', -- Temp; Will be merged soonish 🔥
+  branch = 'harpoon2',
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
@@ -15,6 +19,6 @@ return {
     { '<Leader>g;', function () harpoon:list():select(4) end, desc = 'Harpoon Select File 4' },
   },
   config = function ()
-    harpoon = require("harpoon"):setup() -- Notice we're storing to parent context 👆
+    harpoon = require('harpoon'):setup()
   end,
 }

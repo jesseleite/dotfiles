@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Luasnip: A snippet engine plugin
+--------------------------------------------------------------------------------
+
 return {
   'SirVer/ultisnips', -- GOTEEEEEEM! ...TODO: I need to switch over to LuaSnip furreal though
   init = function ()

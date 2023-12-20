@@ -1,5 +1,9 @@
-local servers = require('jl.lspconfig.servers')
-local keymaps = require('jl.lspconfig.keymaps')
+--------------------------------------------------------------------------------
+-- Wiring Up Lsps
+--------------------------------------------------------------------------------
+
+local servers = require('jl.lspconfig.servers') -- Check this out for individual server configs
+local keymaps = require('jl.lspconfig.keymaps') -- Check this out for lsp related keymaps
 
 local on_attach = function ()
   keymaps.setup()

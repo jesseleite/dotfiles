@@ -18,7 +18,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrwSettings = 1
 
--- These ones seem kinda useful, but maybe they're unecessary with treesitter?
+-- These ones seem kinda useful, but they're probably unecessary with treesitter?
 -- TODO: Explore this more, and maybe I can disable these too
 -- vim.g.loaded_matchit = 1
 -- vim.g.loaded_matchparen = 1

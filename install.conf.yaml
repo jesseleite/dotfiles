@@ -19,7 +19,6 @@
     ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yaml
     ~/.wezterm.lua: wezterm/wezterm.lua
     ~/.tmux.conf: tmux/tmux.conf
-    ~/.ctags.d: ctags
     ~/.hammerspoon: hammerspoon
     ~/.composer/composer.json: composer/composer.json
     ~/.qmk_firmware/keyboards/lily58/keymaps/jesseleite: qmk/lily58

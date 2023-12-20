@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- QF Helper: Quickfix list improvements
+--------------------------------------------------------------------------------
+
 local telescope_quickfix = function ()
   vim.cmd.cclose()
   require('telescope.builtin').quickfix()

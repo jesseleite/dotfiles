@@ -1,5 +1,9 @@
-local formatters_by_ft = require('jl.conform.formatters')
-local custom_formatters = require('jl.conform.custom')
+--------------------------------------------------------------------------------
+-- Wiring Up Formatters
+--------------------------------------------------------------------------------
+
+local formatters_by_ft = require('jl.conform.formatters') -- Check this out for individual formatter configs
+local custom_formatters = require('jl.conform.custom') -- Check this out for custom formatters not auto-handled by conform
 
 local formatters_flattened = {}
 

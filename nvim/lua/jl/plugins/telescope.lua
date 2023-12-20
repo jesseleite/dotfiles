@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Telescope: Highly extendable fuzzy finders
+--------------------------------------------------------------------------------
+
 local builtin = require_on_exported_call('telescope.builtin')
 local custom = require_on_exported_call('jl.telescope.pickers')
 

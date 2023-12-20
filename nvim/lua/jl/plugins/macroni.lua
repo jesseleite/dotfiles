@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Macroni: Save your macros for future use, playback from keymap or Telescope
+--------------------------------------------------------------------------------
+
 return {
   'jesseleite/nvim-macroni',
   dev = true,

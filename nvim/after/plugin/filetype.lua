@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 -- Force Filetypes
 --------------------------------------------------------------------------------
--- For file extensions that don't have proper treesitter parsers yet
+-- For file extensions that don't have proper treesitter parsers yet.
 -- Maybe there's a better way to do this?
 
 local force_filetype = vim.api.nvim_create_augroup('force_filetype', { clear = true })

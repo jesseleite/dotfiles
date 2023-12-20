@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Gitsigns: Git gutter, hunk navigation, blaming, etc.
+--------------------------------------------------------------------------------
+
 local gitsigns = require_on_exported_call('gitsigns')
 
 return {

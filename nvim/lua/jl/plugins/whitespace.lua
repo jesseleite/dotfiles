@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Better Whitespace: Highlight and trim trailing whitespace
+--------------------------------------------------------------------------------
+
 return {
   'ntpeters/vim-better-whitespace',
   init = function ()

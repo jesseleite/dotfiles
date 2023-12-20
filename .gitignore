@@ -1,7 +1,6 @@
 .DS_Store
-tags
 *.swp
 zsh/bundles.sh
 brewfile.lock.json
-nvim/undo
+nvim/.undo
 nvim/ultisnips
