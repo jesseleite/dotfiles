@@ -43,7 +43,7 @@ vim.keymap.set('i', '!', '!<C-g>u')
 vim.keymap.set('i', '?', '?<C-g>u')
 
 -- Quicker macro playback
-vim.keymap.set('n', 'Q', '@q<CR>')
+vim.keymap.set('n', 'Q', '@qj')
 vim.keymap.set('x', 'Q', ':norm @q<CR>')
 
 -- Delete text on line
