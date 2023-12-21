@@ -37,4 +37,5 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup('jl.plugins', {
   ui = { border = 'rounded' },
   dev = { path = '~/Code/Packages' },
+  change_detection = { notify = false },
 })
