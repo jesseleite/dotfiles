@@ -42,3 +42,37 @@
 -- Plug 'junegunn/vim-peekaboo'
 -- let g:peekaboo_window = 'vertical botright 60new'
 
+
+--------------------------------------------------------------------------------
+-- Adrian made me do this...
+-- Roll with it for a while to see how well it works?
+-- Requires tpope/vim-surround
+--------------------------------------------------------------------------------
+
+local toggle_surrounding_quote_style = function ()
+  local current_line = vim.fn.line('.')
+  local next_single_quote = vim.fn.searchpos("'", 'cn')
+  local next_double_quote = vim.fn.searchpos('"', 'cn')
+
+  if next_single_quote[1] ~= current_line then
+    next_single_quote = false
+  end
+
+  if next_double_quote[1] ~= current_line then
+    next_double_quote = false
+  end
+
+  if next_single_quote == false and next_double_quote == false then
+    print('Could not find quotes on current line!')
+  elseif next_single_quote == false and next_double_quote ~= false then
+    vim.cmd.normal([[macs"'`a]])
+  elseif next_single_quote ~= false and next_double_quote == false then
+    vim.cmd.normal([[macs'"`a]])
+  elseif next_single_quote[2] > next_double_quote[2] then
+    vim.cmd.normal([[macs"'`a]])
+  else
+    vim.cmd.normal([[macs'"`a]])
+  end
+end
+
+vim.keymap.set('n', "<Leader>'", toggle_surrounding_quote_style)
