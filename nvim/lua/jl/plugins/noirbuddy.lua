@@ -7,7 +7,7 @@ return {
   dependencies = {
     { 'tjdevries/colorbuddy.nvim', branch = 'dev' }
   },
-  lazy = true,
+  lazy = false,
   priority = 1000,
   dev = true,
   opts = {
