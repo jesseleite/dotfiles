@@ -6,7 +6,7 @@ return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
-    { 'nvim-treesitter/playground', cmd = 'TSPlaygroundToggle' },
+    { 'nvim-treesitter/playground', cmd = { 'TSPlaygroundToggle', 'TSHighlightCapturesUnderCursor' } },
   },
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
