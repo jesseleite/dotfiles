@@ -19,7 +19,6 @@ return {
   keys = {
     { '<Leader>f', builtin.git_files, desc = 'Telescope Git Files' },
     { '<Leader>F', builtin.find_files, desc = 'Telesscope All Files' },
-    { '<Leader>E', builtin.file_browser, desc = 'Telescope File Browser' },
     { '<Leader>b', custom.buffers, desc = 'Telescope Buffers' },
     { '<Leader>m', builtin.git_status, desc = 'Telescope Git Status' },
     { '<Leader>h', custom.project_history, desc = 'Telescope Project History' },
@@ -27,9 +26,9 @@ return {
     { '<Leader>s', custom.lsp_document_methods, desc = 'Telescope LSP Methods' },
     { '<Leader>S', builtin.lsp_document_symbols, desc = 'Telescope LSP Symbols' },
     { '<Leader>l', builtin.current_buffer_fuzzy_find, desc = 'Telescope Current Buffer Lines' },
-    { '<Leader>L', builtin.pickers, desc = 'Telescope Resume' },
     { '<Leader>C', builtin.commands, desc = 'Telescope Commands' },
     { '<Leader>:', builtin.command_history, desc = 'Telescope Command History' },
+    { '<Leader>R', builtin.pickers, desc = 'Telescope Resume' },
     { '<Leader><Leader>d', custom.dotfiles, desc = 'Telescope Dotfiles' },
     { '<Leader><Leader>v', custom.nvim_dotfiles, desc = 'Telescope Nvim Dotfiles' },
     { '<Leader><Leader>h', builtin.help_tags, desc = 'Telescope Help Search' },
@@ -45,7 +44,6 @@ return {
       defaults = {
         prompt_prefix = '  ',
         sorting_strategy = "ascending",
-        -- layout_strategy = "telescopic_jersey",
         layout_config = {
           prompt_position = "top",
         },
@@ -56,12 +54,19 @@ return {
             ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
-        file_ignore_patterns = { 'node_modules', '.DS_Store', 'resources/dist' },
+        file_ignore_patterns = {
+          'node_modules',
+          '.DS_Store',
+          '.git',
+          'resources/dist',
+          'storage/framework',
+        },
       },
       pickers = {
         find_files = {
           prompt_title = 'All Files',
-          find_command = {'rg', '--files', '--no-ignore', '--hidden'},
+          no_ignore = true,
+          hidden = true,
         },
         current_buffer_fuzzy_find = {
           prompt_title = 'Current Buffer Lines',
