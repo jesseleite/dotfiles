@@ -26,6 +26,7 @@ return {
     { '<Leader>s', custom.lsp_document_methods, desc = 'Telescope LSP Methods' },
     { '<Leader>S', builtin.lsp_document_symbols, desc = 'Telescope LSP Symbols' },
     { '<Leader>l', builtin.current_buffer_fuzzy_find, desc = 'Telescope Current Buffer Lines' },
+    { '<Leader>L', custom.laravel_vendor_files, desc = 'Telescope Laravel Vendor Files' },
     { '<Leader>C', builtin.commands, desc = 'Telescope Commands' },
     { '<Leader>:', builtin.command_history, desc = 'Telescope Command History' },
     { '<Leader>R', builtin.pickers, desc = 'Telescope Resume' },

@@ -49,4 +49,13 @@ M.lsp_document_methods = function ()
   })
 end
 
+M.laravel_vendor_files = function ()
+  builtin.find_files({
+    prompt_title = 'Laravel Vendor Files',
+    no_ignore = true,
+    hidden = true,
+    search_dirs = { 'vendor/laravel' },
+  })
+end
+
 return M
