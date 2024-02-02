@@ -21,4 +21,10 @@ M.select_one_or_multi = function(prompt_bufnr)
   end
 end
 
+-- Add `@` style file + method selection action
+M.select_file_and_accept_method = function (prompt_bufnr)
+  require('telescope.actions').select_default(prompt_bufnr)
+  require('jl.telescope.pickers').lsp_document_methods()
+end
+
 return M

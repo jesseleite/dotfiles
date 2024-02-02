@@ -66,6 +66,13 @@ return {
         },
       },
       pickers = {
+        git_files = {
+          mappings = {
+            i = {
+              ["@"] = custom_actions.select_file_and_accept_method,
+            }
+          }
+        },
         find_files = {
           prompt_title = 'All Files',
           no_ignore = true,
