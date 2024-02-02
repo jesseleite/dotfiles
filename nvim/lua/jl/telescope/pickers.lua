@@ -54,7 +54,7 @@ M.laravel_vendor_files = function ()
     prompt_title = 'Laravel Vendor Files',
     no_ignore = true,
     hidden = true,
-    search_dirs = { 'vendor/laravel' },
+    search_dirs = { 'vendor/laravel', 'vendor/spatie' },
   })
 end
 
