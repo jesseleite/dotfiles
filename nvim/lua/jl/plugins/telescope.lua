@@ -40,6 +40,7 @@ return {
   config = function ()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
+    local custom_actions = require('jl.telescope.actions')
 
     telescope.setup {
       defaults = {
@@ -53,6 +54,7 @@ return {
             ['<Esc>'] = actions.close,
             ['<C-a>'] = actions.toggle_all,
             ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
+            ['<CR>'] = custom_actions.select_one_or_multi,
           },
         },
         file_ignore_patterns = {
