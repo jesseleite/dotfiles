@@ -32,6 +32,8 @@
     command: "sudo pwpolicy -clearaccountpolicies"
   - description: Telling gatekeeper to allow unidentified developers
     command: "sudo spctl --master-disable"
+  - description: Copying applescript services
+    command: "cp -R applescript/services/* ~/Library/Services"
   - description: Installing brew
     command: "[ -x \"$(which brew)\" ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
   - description: Updating brew
