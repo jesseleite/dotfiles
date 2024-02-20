@@ -69,6 +69,8 @@ return {
         git_files = {
           mappings = {
             i = {
+              ["<C-k>"] = actions.move_selection_previous,
+              ["<C-j>"] = actions.move_selection_next,
               ["@"] = custom_actions.select_file_and_accept_method,
             }
           }

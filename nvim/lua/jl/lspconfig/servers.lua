@@ -4,6 +4,7 @@
 
 return {
   intelephense = true,
+  -- phpactor = true,
   html = {
     filetypes = { 'html', 'blade', 'antlers' },
   },
