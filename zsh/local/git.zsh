@@ -92,6 +92,11 @@ gstam() {
   git add --all && git stash push -m "$*"
 }
 
+# Add all and backup to stash with message
+gstab() {
+  git add --all && git stash push -m "$*" && git stash apply
+}
+
 # Undo last commit and tip of branch
 # Optionally pass param to specify number of commits to undo (ie. `gundo 3`)
 gundo() {
