@@ -135,15 +135,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
 
     // Fix rolling between space cadet shift parens when quickly typing `()`
-    case KC_LSPO:
-      if (! record->event.pressed && get_mods() & MOD_BIT(KC_RSFT)) {
-        tap_code16(KC_LPRN);
-        clear_mods();
-        return false;
-      }
-      break;
     case KC_RSPC:
       if (record->event.pressed && get_mods() & MOD_BIT(KC_LSFT)) {
+        tap_code16(KC_LPRN);
         clear_mods();
         return true;
       }
