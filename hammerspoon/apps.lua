@@ -1,68 +1,68 @@
 return {
   WezTerm = {
     id = 'com.github.wez.wezterm',
-    summon = {'cmd', 'escape'},
+    summon = 'escape',
     focus = positions.center.large,
   },
   Brave = {
     id = 'com.brave.Browser',
-    summonModal = 'b', -- browser
+    summon = 'b', -- browser
     focus = positions.center.large,
   },
   Slack = {
     id = 'com.tinyspeck.slackmacgap',
-    summonModal = 's',
+    summon = 's',
   },
   Discord = {
     id = 'com.hnc.Discord',
-    summonModal = 'd',
+    summon = 'd',
   },
   Telegram = {
     id = 'ru.keepcoder.Telegram',
-    summonModal = 't',
+    summon = 't',
   },
   Messages = {
     id = 'com.apple.MobileSMS',
-    summonModal = 'i', -- imessage
+    summon = 'i', -- imessage
   },
   Tower = {
     id = 'com.fournova.Tower3',
-    summonModal = 'g', -- git
+    summon = 'g', -- git
   },
   Ray = {
     id = 'be.spatie.ray',
-    summonModal = 'r',
+    summon = 'r',
   },
   Obsidian = {
     id = 'md.obsidian',
-    summonModal = 'n', -- notes
+    summon = 'n', -- notes
   },
   Music = {
     id = 'com.apple.Music',
-    summonModal = 'm',
+    summon = 'm',
   },
   Spark = {
     id = 'com.readdle.SparkDesktop',
-    summonModal = 'e', -- email
+    summon = 'e', -- email
   },
   Finder = {
     id = 'com.apple.finder',
-    summonModal = 'f',
+    summon = 'f',
   },
   TablePlus = {
     id = 'com.tinyapp.TablePlus',
-    summonModal = 'q', -- query
+    summon = 'q', -- query
   },
   Paw = {
     id = 'com.luckymarmot.Paw',
-    summonModal = 'h', -- http client
+    summon = 'h', -- http client
   },
   ElgatoCameraHub = {
     id = 'com.elgato.CameraHub',
-    summonModal = 'c' -- camera
+    summon = 'c' -- camera
   },
   ScreenFlow = {
     id = 'net.telestream.screenflow10',
-    summonModal = 'v' -- video
+    summon = 'v' -- video
   },
 }

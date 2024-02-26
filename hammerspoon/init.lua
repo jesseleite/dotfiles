@@ -22,16 +22,10 @@ require('window')
 -- Summon Specific Apps
 --------------------------------------------------------------------------------
 -- F13 to open summon modal
--- See `apps.lua` for `summon` hotkeys and `summonModal` bindings
-
-hs.fnutils.each(apps, function(app)
-  if app.summon then
-    hs.hotkey.bind(app.summon[1], app.summon[2], function() summon(app.id) end)
-  end
-end)
+-- See `apps.lua` for `summon` modal bindings
 
 local summonModalBindings = tableFlip(hs.fnutils.map(apps, function(app)
-  return app.summonModal
+  return app.summon
 end))
 
 registerModalBindings(nil, 'f13', hs.fnutils.map(summonModalBindings, function(app)

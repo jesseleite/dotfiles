@@ -5,8 +5,10 @@
 
 // Mod tap config
 #define TAPPING_TERM 150
+// #define TAPPING_TERM_PER_KEY
 #define TAPPING_FORCE_HOLD
-#define PERMISSIVE_HOLD
+// #define PERMISSIVE_HOLD
+#define HOLD_ON_OTHER_KEY_PRESS
 
 // Sugar to automatically prefix `KC_` onto every keycode for cleaner keymaps
 #define LAYOUT_KC( \
