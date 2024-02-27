@@ -76,7 +76,7 @@ end
 function activateModal(mods, key, timeout)
   timeout = timeout or false
   local modal = hs.hotkey.modal.new(mods, key)
-  local timer = hs.timer.new(3, function() modal:exit() end)
+  local timer = hs.timer.new(1, function() modal:exit() end)
   modal:bind('', 'escape', nil, function() modal:exit() end)
   modal:bind('ctrl', 'c', nil, function() modal:exit() end)
   function modal:entered()
