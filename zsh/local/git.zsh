@@ -17,6 +17,7 @@ alias gdb='git remote show origin | grep "HEAD branch" | cut -d " " -f5'
 alias gcod='gco $(gdb)'
 alias gpush="git push"
 alias gpom="gl origin master"
+alias glogs="git log -S"
 
 # Git status with fugitive
 gs() {
