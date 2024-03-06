@@ -37,10 +37,6 @@ function saveLayoutSnapshot()
 end
 
 function resetLayout()
-    if (currentMode == 'focus') then
-        setWindowMode('regular')
-    end
-
     if not currentLayout.windows then
         return
     end
@@ -57,14 +53,6 @@ function positionWindows(windows)
         end
     end
 end
-
-function removeWindowFromLayout()
-  local win = hs.window.focusedWindow()
-  if currentLayout.windows[win:id()] then
-      currentLayout.windows[win:id()] = nil
-  end
-end
-
 
 function openLayoutSelector()
   local choices = hs.fnutils.map(layouts, function(layout)

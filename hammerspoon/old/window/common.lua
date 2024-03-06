@@ -42,9 +42,7 @@ function positionWindowUsingGrid(window, cell)
 end
 
 function saveWindowToLayout(window)
-    if (currentMode == "regular") then
-        currentLayout.windows[window:id()] = window:frame()
-    end
+    currentLayout.windows[window:id()] = window:frame()
 end
 
 function focusNextCellWindow()
@@ -147,20 +145,12 @@ function addWindowToLayoutCell(win)
 
     local prevTopWin = windows[2]
 
-    if currentMode == 'regular' then
-        -- Add it to the layout if the previous window was in the layout.
-        if currentLayout.windows[prevTopWin:id()] then
-            currentLayout.windows[win:id()] = prevTopWin:frame()
-        end
-
-        -- Position the window over the last window. Do this even if the window was
-        -- not in the layout. Some apps (e.g. Safari) offset newly created windows.
-        positionWindowUsingRect(win, prevTopWin:frame())
+    -- Add it to the layout if the previous window was in the layout.
+    if currentLayout.windows[prevTopWin:id()] then
+        currentLayout.windows[win:id()] = prevTopWin:frame()
     end
 
-    -- In focus mode, put the window in the previous layout.
-    -- Once regular mode is entered, the newly created window will be positioned.
-    if currentMode == 'focus' and previousLayout.windows[prevTopWin:id()] then
-        previousLayout.windows[win:id()] = previousLayout.windows[prevTopWin:id()]
-    end
+    -- Position the window over the last window. Do this even if the window was
+    -- not in the layout. Some apps (e.g. Safari) offset newly created windows.
+    positionWindowUsingRect(win, prevTopWin:frame())
 end

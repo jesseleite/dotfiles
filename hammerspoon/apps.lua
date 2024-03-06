@@ -2,12 +2,10 @@ return {
   WezTerm = {
     id = 'com.github.wez.wezterm',
     summon = 'escape',
-    focus = positions.center.large,
   },
   Brave = {
     id = 'com.brave.Browser',
     summon = 'b', -- browser
-    focus = positions.center.large,
   },
   Slack = {
     id = 'com.tinyspeck.slackmacgap',

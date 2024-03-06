@@ -2,10 +2,10 @@
 -- Setup
 --------------------------------------------------------------------------------
 
-hyper = {"cmd", "alt", "ctrl"} -- or D+F 🤘
-bigHyper = {"shift", "cmd", "alt", "ctrl"} -- or S+D+F 😅
+hyper = {'cmd', 'alt', 'ctrl'} -- or D+F 🤘
+bigHyper = {'shift', 'cmd', 'alt', 'ctrl'} -- or S+D+F 😅
 
-hs.loadSpoon("ReloadConfiguration"):start()
+hs.loadSpoon('ReloadConfiguration'):start()
 
 require('helpers')
 require('area51')
@@ -15,7 +15,6 @@ apps = require('apps')
 layouts = require('layouts')
 summon = require('summon')
 chain = require('chain')
-require('window')
 
 
 --------------------------------------------------------------------------------
@@ -50,25 +49,55 @@ registerModalBindings(nil, 'f14', macros, true)
 
 
 --------------------------------------------------------------------------------
--- Window Management Setup
+-- Multi Window Management
 --------------------------------------------------------------------------------
+-- hjkl  focus window west/south/north/east
+-- a     unide [a]ll application windows
+-- p     [p]ick layout
+-- m     [m]aximize window
+-- n     [n]ext window in current cell, like `n/p` in vim
+-- u     warp [u]nder another window cell
+-- ;     toggle alternate layout
 
 hs.window.animationDuration = 0
-hs.grid.setGrid('60x20')
-hs.grid.setMargins('15x15')
+
+local layout = hs.loadSpoon('GridLayout')
+  :start()
+  :setLayouts(layouts)
+  :setApps(apps)
+  :setGrid('60x20')
+  :setMargins('15x15')
 
 if (hs.screen.primaryScreen():name() == 'LG HDR WQHD') then
-  hs.grid.setMargins('30x30')
+  layout:setMargins('30x30')
 end
 
--- Important for 1280x720 HiDPI screencasting...
+local windowManagementBindings = {
+  ['h'] = function() hs.window.focusedWindow():focusWindowWest(nil, true) end,
+  ['j'] = function() hs.window.focusedWindow():focusWindowSouth(nil, true) end,
+  ['k'] = function() hs.window.focusedWindow():focusWindowNorth(nil, true) end,
+  ['l'] = function() hs.window.focusedWindow():focusWindowEast(nil, true) end,
+  ['a'] = function() hs.application.frontmostApplication():unhide() end,
+  ['p'] = layout.selectLayout,
+  ['u'] = layout.bindToCell,
+  [';'] = layout.selectNextVariant,
+  ["'"] = layout.resetLayout,
+  -- ['m'] = toggleMaximized, -- Re-implement in GridLayout?
+  -- ['n'] = focusNextCellWindow, -- Re-implement in GridLayout?
+}
+
+registerKeyBindings(hyper, hs.fnutils.map(windowManagementBindings, function(fn)
+  return function() fn() end
+end))
+
+
+--------------------------------------------------------------------------------
+-- Screencasting Customizations for 1280x720 HiDPI
+--------------------------------------------------------------------------------
+
 if (hs.screen.primaryScreen():name() == '24GL600F') then
-  hs.grid.setMargins('12x12')
+  layout:setMargins('12x12')
 end
-
-hs.screen.watcher.new(function ()
-  hs.reload()
-end):start()
 
 
 --------------------------------------------------------------------------------
@@ -97,35 +126,6 @@ local singleWindowMovements = {
 }
 
 registerKeyBindings(bigHyper, hs.fnutils.map(singleWindowMovements, function(fn)
-  return function() fn() end
-end))
-
-
---------------------------------------------------------------------------------
--- Multi Window Management
---------------------------------------------------------------------------------
--- hjkl  focus window west/south/north/east
--- a     unide [a]ll application windows
--- p     [p]ick layout
--- m     [m]aximize window
--- n     [n]ext window in current cell, like `n/p` in vim
--- u     warp [u]nder another window cell
--- ;     toggle alternate layout
-
-local windowManagementBindings = {
-  ['h'] = function() hs.window.focusedWindow():focusWindowWest(nil, true) end,
-  ['j'] = function() hs.window.focusedWindow():focusWindowSouth(nil, true) end,
-  ['k'] = function() hs.window.focusedWindow():focusWindowNorth(nil, true) end,
-  ['l'] = function() hs.window.focusedWindow():focusWindowEast(nil, true) end,
-  ['a'] = function() hs.application.frontmostApplication():unhide() end,
-  ['p'] = openLayoutSelector,
-  ['m'] = toggleMaximized,
-  ['n'] = focusNextCellWindow,
-  ['u'] = warpToExistingCellPosition,
-  [';'] = toggleAlternateLayout,
-}
-
-registerKeyBindings(hyper, hs.fnutils.map(windowManagementBindings, function(fn)
   return function() fn() end
 end))
 

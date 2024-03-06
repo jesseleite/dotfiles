@@ -20,8 +20,6 @@ return (function(movements)
   local sequenceNumber = 1
 
   return function()
-    if (currentMode == 'focus') then return end
-
     local win = hs.window.frontmostWindow()
     local id = win:id()
     local now = hs.timer.secondsSinceEpoch()
@@ -41,7 +39,7 @@ return (function(movements)
     lastSeenAt = now
     lastSeenWindow = id
 
-    positionWindowUsingGrid(win, movements[sequenceNumber])
+    hs.grid.set(win, movements[sequenceNumber])
     sequenceNumber = sequenceNumber % cycleLength + 1
   end
 end)

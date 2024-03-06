@@ -2,6 +2,21 @@
 -- Experimental Stuff
 --------------------------------------------------------------------------------
 
+-- -- This needs to be assigned to global var to work!?
+-- play_key_watcher = hs.eventtap.new({hs.eventtap.event.types.systemDefined}, function(e)
+--   if e:systemKey().key == 'PLAY' and e:systemKey().down then
+--     print('playing')
+--     -- Not sure we can disable the default behaviour here though,
+--     -- But if we could, we can use either one of these to control itunes directly...
+--     hs.itunes.playpause()
+--     -- osascript -e "tell app \"Music\" to playpause"
+--   end
+-- end):start()
+
+-- hs.screen.watcher.new(function ()
+--   hs.reload()
+-- end):start()
+
 -- Specifically for recording vim gifs on retina
 hs.hotkey.bind(hyper, 'g', function()
   local win = hs.window.focusedWindow()
@@ -17,6 +32,20 @@ end)
 hs.hotkey.bind(hyper, 'q', function()
   hs.window.focusedWindow():setFrame({x = 62, y = 220, w = 1920, h = 1080})
 end)
+
+--------------------------------------------------------------------------------
+-- Cal Newport Mode
+--------------------------------------------------------------------------------
+
+hs.hotkey.bind(bigHyper, '\\', function()
+  print('hoteked')
+  local nop = 'F24'
+  apps.Telegram.summon = nop
+  apps.Discord.summon = nop
+end)
+
+
+
 
 
 ----------------------------------------------------------------------------------
