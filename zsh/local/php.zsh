@@ -19,7 +19,6 @@ phpc() {
   if [ "$1" = 'all' ] || [ "$1" = 'xdebug' ]; then
     sudo pecl install xdebug
     [ -f "$confd/ext-xdebug.ini" ] && rm "$confd/ext-xdebug.ini"
-    [ -f "$confd/ext-xdebug.ini.disabled" ] && rm "$confd/ext-xdebug.ini.disabled"
     cp ~/.dotfiles/php/ext-xdebug.ini $confd
     echo "Copied ext-xdebug.ini"
   fi
