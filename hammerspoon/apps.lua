@@ -7,6 +7,10 @@ return {
     id = 'com.brave.Browser',
     summon = 'b', -- browser
   },
+  Fantastical = {
+    id = 'com.flexibits.fantastical2.mac',
+    summon = 'c', -- calendar
+  },
   Slack = {
     id = 'com.tinyspeck.slackmacgap',
     summon = 's',
@@ -57,10 +61,10 @@ return {
   },
   ElgatoCameraHub = {
     id = 'com.elgato.CameraHub',
-    summon = 'c' -- camera
+    -- summon = 'v' -- video?
   },
   ScreenFlow = {
     id = 'net.telestream.screenflow10',
-    summon = 'v' -- video
+    -- summon = 'v' -- video?
   },
 }
