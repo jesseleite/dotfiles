@@ -18,6 +18,9 @@ alias gcod='gco $(gdb)'
 alias gpush="git push"
 alias gpom="gl origin master"
 alias glogs="git log -S"
+alias glt='git describe --tags --abbrev=0' # git latest tag
+alias gcslt='git --no-pager log $(glt)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
+alias changelog='gcslt && gcslt | pbcopy' # copy commits since latest tag for changelog
 
 # Git status with fugitive
 gs() {

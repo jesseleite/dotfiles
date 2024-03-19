@@ -20,20 +20,16 @@ alias cwd="pwd && pwd | pbcopy && echo 'Copied to clipboard 📁'"
 # Usage: `in [target] [command]`
 # Target: `shtuff` target (if available), else `z` argument
 # Example: `in sand art make:model -a SomeModel`
-
 function in() {(
-  # if [[ $(shtuff has $1 2>&1) =~ 'was found' ]]; then
-  #   eval shtuff into $1 \"${@:2}\"
-  # else
-    z $1
-    eval ${@:2}
-  # fi
+  z $1
+  eval ${@:2}
 )}
 
 # Download youtube video.
 # Offers better results than `-f best`, by combining the best available video with the best available audio (requires ffmpeg).
 alias ytdl="youtube-dl -f bestvideo+bestaudio"
 
+# Ping until internet is connected/re-connected
 internet() {
     disconnected=false
 
