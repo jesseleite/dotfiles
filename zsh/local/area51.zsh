@@ -20,3 +20,14 @@ function filelengths() {
 
   rg -l '.*' -g '*.'$1 | xargs wc -l | sort
 }
+
+alias selfcontrol="/Applications/SelfControl.app/Contents/MacOS/selfcontrol-cli"
+
+function selfcontrolblock() {
+  if [ -z "$1" ]; then
+    echo 'Please specify how many minutes you would like to block!'
+    return
+  fi
+
+  selfcontrol start --blocklist ~/.dotfiles/bin/blocklist.selfcontrol --enddate $(date -v+${1}M -u +"%Y-%m-%dT%H:%M:%SZ")
+}
