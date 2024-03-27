@@ -9,6 +9,7 @@ unalias gcmsg
 unalias gcam
 unalias gpr
 unalias gp
+unalias gstp
 
 # Aliases
 alias gin="git init && gaa && gcmsg 'Initial commit.'"
