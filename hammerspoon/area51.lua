@@ -2,6 +2,13 @@
 -- Experimental Stuff
 --------------------------------------------------------------------------------
 
+-- Sometimes 1password lock screen opens behind other windows
+hs.window.filter.new():subscribe(hs.window.filter.windowCreated, function(window)
+  if window:title() == 'Lock Screen — 1Password' then
+    window:focus()
+  end
+end)
+
 -- -- This needs to be assigned to global var to work!?
 -- play_key_watcher = hs.eventtap.new({hs.eventtap.event.types.systemDefined}, function(e)
 --   if e:systemKey().key == 'PLAY' and e:systemKey().down then
