@@ -12,12 +12,14 @@ return {
     { '<Leader>gs', ":Gedit :<CR>" },
     { '<Leader>gb', ":GBrowse<CR>" },
     { '<Leader>gb', ":'<,'>GBrowse<CR>", mode = 'v' },
-  }
+  },
+  config = function ()
+    vim.api.nvim_create_autocmd('Filetype', {
+      pattern = 'fugitive',
+      group = vim.api.nvim_create_augroup('fugitive_open', { clear = true }),
+      callback = function ()
+        vim.cmd.normal('gg]]')
+      end,
+    })
+  end,
 }
-
--- TODO: Do I still want these?
--- augroup disable_plugins_in_fugitive
---  autocmd!
---  autocmd Filetype fugitive DisableWhitespace
---  autocmd Filetype fugitive normal gg]]
--- augroup END
