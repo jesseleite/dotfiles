@@ -13,7 +13,7 @@ alias plsrf="art route:list --except-path=cp"
 alias cmsd="in docs npm run docs:dev"
 alias cmsw="in cms npm run watch"
 alias plsuser="cp ~/.dotfiles/statamic/jesseleite@example.com.yaml users/jesseleite@example.com.yaml && echo 'User created.'"
-alias plspro="sed -i \"\" \"s/'pro'\ =>\ false/'pro'\ =>\ true/\" config/statamic/editions.php && echo 'Pro enabled.'"
+alias plspro="pls pro:enable"
 alias cpant="cp ~/.dotfiles/statamic/antlers.format.json .antlers.format.json && echo 'Antlers formatting rules copied.'"
 alias lstatamic="~/Code/Wilderborn/cli/bin/statamic"
 
