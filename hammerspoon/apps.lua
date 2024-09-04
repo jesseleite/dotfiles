@@ -11,6 +11,10 @@ return {
     id = 'com.flexibits.fantastical2.mac',
     summon = 'c', -- calendar
   },
+  Linear = {
+    id = 'com.linear',
+    summon = 'l',
+  },
   Slack = {
     id = 'com.tinyspeck.slackmacgap',
     summon = 's',

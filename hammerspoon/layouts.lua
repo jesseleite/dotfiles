@@ -11,6 +11,7 @@ return {
     apps = {
       Ray = { cell = 1, open = true },
       Brave = { cell = 2, open = true },
+      Linear = { cell = 2 },
       Obsidian = { cell = 2 },
       WezTerm = { cell = 3, open = true },
       Tower = { cell = 3 },
