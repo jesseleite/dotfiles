@@ -35,7 +35,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Init lazy.nvim and let it handle everything in my plugins module
 require('lazy').setup('jl.plugins', {
-  ui = { border = 'rounded' },
+  ui = {border = 'rounded', backdrop = 100 },
   dev = { path = '~/Code/Packages' },
   change_detection = { notify = false },
 })
