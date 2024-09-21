@@ -26,7 +26,7 @@ return {
     if screencasting then
       custom_sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'filename' },
+        lualine_b = { { 'filename', path = 1 } },
         lualine_c = {},
         lualine_x = {},
         lualine_y = { 'g:video_title' },
