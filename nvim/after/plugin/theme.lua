@@ -6,7 +6,7 @@ local Group = require('colorbuddy').Group
 local colors = require('colorbuddy').colors
 
 Group.new('CursorLineNr', colors.noir_9, colors.noir_9)
-Group.new('VertSplit', nil, nil)
+Group.new('WinSeparator', nil, nil)
 Group.new('StatusLine', nil, nil)
 Group.new('StatusLineNC', nil, colors.background)
 
