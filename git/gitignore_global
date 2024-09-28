@@ -7,9 +7,6 @@ tags.lock
 tags.temp
 !tags/
 
-# Zsh-valet
-.valetphprc
-
 # Linters and fixers
 .php-cs-fixer.cache
 phpstan.neon

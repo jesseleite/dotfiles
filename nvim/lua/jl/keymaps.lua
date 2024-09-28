@@ -89,8 +89,8 @@ vim.keymap.set('v', '_', '<C-x>')
 -- Open in finder
 vim.keymap.set('n', '<Leader><Leader>o', ':!open $PWD<CR><CR>', { silent = true })
 
--- Browse with valet open
-vim.keymap.set('n', '<Leader><Leader>b', ':!valet open<CR><CR>', { silent = true })
+-- Browse with herd open
+vim.keymap.set('n', '<Leader><Leader>b', ':!herd open<CR><CR>', { silent = true })
 
 -- Open in tower
 vim.keymap.set('n', '<Leader><Leader>g', ':!gittower $PWD<CR><CR>', { silent = true })

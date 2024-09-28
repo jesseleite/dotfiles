@@ -78,11 +78,7 @@
     command: "[ -f ~/.composer/config.json ] || cp composer/config.json ~/.composer/config.json"
   - description: Installing/updating global composer dependencies
     command: "sh composer/global_update"
-  - description: Initializing valet
-    command: "sudo valet install"
-  - description: Trust valet
-    command: "sudo valet trust"
-  - description: Parking valet on code directory
-    command: "valet park ~/Code"
+  # - description: Install herd
+  #   command: ""
   - description: Clearing sudo credential cache
     command: "sudo --reset-timestamp"

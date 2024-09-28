@@ -2,10 +2,6 @@
 # Aliases and functions for web development
 # ------------------------------------------------------------------------------
 
-# Zsh-valet settings
-export VALETPHPRC_DEFAULT_PHP=php@8.1
-export VALETPHPRC_DO_NOT_SHOW_PHP_VERSION=1
-
 # Package managers
 alias comp="composer"
 alias ci="composer install"
@@ -23,9 +19,6 @@ alias deps="comp install && npm ci && npm run dev"
 alias tp="phpunit"
 alias tps="phpunit --exclude-group slow"
 alias tpf="phpunit --stop-on-failure"
-
-# Browse valet site
-alias b="valet open"
 
 # Edit global composer config.
 alias compc="nvim ~/.composer/config.json"

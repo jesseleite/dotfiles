@@ -2,6 +2,7 @@
 # Aliases and functions for Laravel
 # ------------------------------------------------------------------------------
 
+alias b="herd open"
 alias art="php artisan"
 alias arte="[ -f .env ] || cp .env.example .env"
 alias arti="comp install && arte && art key:generate"

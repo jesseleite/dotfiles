@@ -6,7 +6,6 @@ robbyrussell/oh-my-zsh path:plugins/tmuxinator
 zsh-users/zsh-syntax-highlighting
 rupa/z
 molovo/tipz
-NasirNobin/zsh-valet
 
 # Source Local Configs
 ~/.dotfiles/zsh/local
