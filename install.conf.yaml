@@ -55,7 +55,7 @@
   - description: Adding zsh to list of acceptable shells
     command: "[[ \"$(ag $(which zsh) /etc/shells)\" ]] || sudo sh -c \"echo $(which zsh) >> /etc/shells\""
   - description: Making zsh the default shell
-    command: "sudo chsh -s $(which zsh)"
+    command: "chsh -s $(which zsh)"
   - description: Installing wezterm terminfo file
     command: "sh wezterm/install"
     stdout: true
