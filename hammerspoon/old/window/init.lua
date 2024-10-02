@@ -1,5 +1,0 @@
-require('window.layout')
-require('window.resizer')
-require('window.common')
-require('window.subscriptions')
-require('window.console')
