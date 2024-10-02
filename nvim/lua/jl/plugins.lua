@@ -9,7 +9,6 @@ end
 
 -- If not a simple one-liner, maybe extract to plugins folder; Otherwise just throw in here 💥
 return {
-  'tpope/vim-commentary', -- Code commenting
   'tpope/vim-surround', -- Surround commands
   'tpope/vim-repeat', -- Better `.` repeat
   'PeterRincker/vim-searchlight', -- Improved search match highlighting
