@@ -6,7 +6,7 @@ ZSH_THEME_TERM_TITLE_IDLE="%~"
 
 
 # ------------------------------------------------------------------------------
-# Prompt theme config (inspired by sindresorhus/pure)
+# Prompt theme config (inspired by sindresorhus/pure, starship, etc.)
 # ------------------------------------------------------------------------------
 
 NEWLINE=$'\n'
@@ -24,7 +24,7 @@ function precmd() {
     print -rP '${NEWLINE}$fg[blue]$(get_pwd) $(git_prompt_info)'
 }
 
-PROMPT='${vim_prompt_color}❱ $reset_color'
+PROMPT='${vi_prompt_color}❱ $reset_color'
 RPROMPT=''
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""

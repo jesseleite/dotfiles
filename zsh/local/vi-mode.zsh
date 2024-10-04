@@ -1,43 +1,50 @@
 # ------------------------------------------------------------------------------
-# My custom vi-mode config
+# Vi mode config
 # ------------------------------------------------------------------------------
 
-# Vi Mode Enable
+# Enable zsh's built-in vi mode
 bindkey -v
 
-# Rebind command mode to jk instead of ESC
+# Bind `jk` to exit insert mode (esc will still work though)
 bindkey -M viins 'jk' vi-cmd-mode
 
-# Set timeout suitable for above binding
-export KEYTIMEOUT=300
+# Set timeout as low as possible for the least amount of delay when pressing `esc`,
+# but not so fast that it negatively affects the above `jk` mapping.
+export KEYTIMEOUT=10
 
-# Bring back some defaults
+# Bring back some non-vi defaults
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-# Export prompt color for my custom theme
-vim_ins_color="$fg[magenta]"
-vim_cmd_color="$fg[yellow]"
-vim_prompt_color=$vim_ins_color
 
-function zle-keymap-select {
-  vim_prompt_color="${${KEYMAP/vicmd/${vim_cmd_color}}/(main|viins)/${vim_ins_color}}"
+# ------------------------------------------------------------------------------
+# Dynamically set `vi_prompt_color` var (for use in theme.zsh)
+# ------------------------------------------------------------------------------
+
+# Export prompt color for my custom theme
+local vi_ins_color="$fg[magenta]"
+local vi_cmd_color="$fg[yellow]"
+
+# Reset prompt color on line init
+function zle-line-init() {
+  vi_prompt_color=$vi_ins_color
   zle reset-prompt
 }
+zle -N zle-line-init
 
+# Update prompt color when keymap / vi mode changes
+function zle-keymap-select() {
+  vi_prompt_color="${${KEYMAP/vicmd/${vi_cmd_color}}/(main|viins)/${vi_ins_color}}"
+  zle reset-prompt
+}
 zle -N zle-keymap-select
-  function zle-line-finish {
-  vim_prompt_color=$vim_ins_color
-}
 
+# Reset prompt color on line finish
+function zle-line-finish() {
+  vi_prompt_color=$vi_ins_color
+  zle reset-prompt
+}
 zle -N zle-line-finish
-
-# Fixing a bug
-# Something to do with showing wrong mode
-function TRAPINT() {
-  vim_prompt_color=$vim_ins_color
-  return $(( 128 + $1 ))
-}
