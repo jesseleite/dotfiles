@@ -2,7 +2,7 @@
 -- Gitsigns: Git gutter, hunk navigation, blaming, etc.
 --------------------------------------------------------------------------------
 
-local gitsigns = require_on_exported_call('gitsigns')
+local gitsigns = lazy_require('gitsigns')
 
 return {
   'lewis6991/gitsigns.nvim',

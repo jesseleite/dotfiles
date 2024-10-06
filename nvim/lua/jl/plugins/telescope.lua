@@ -2,8 +2,8 @@
 -- Telescope: Highly extendable fuzzy finders
 --------------------------------------------------------------------------------
 
-local builtin = require_on_exported_call('telescope.builtin')
-local custom = require_on_exported_call('jl.telescope.pickers')
+local builtin = lazy_require('telescope.builtin')
+local custom = lazy_require('jl.telescope.pickers')
 
 return {
   'nvim-telescope/telescope.nvim',

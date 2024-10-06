@@ -38,7 +38,7 @@ R = function (name)
 end
 
 -- Defer require until exported function is called
-require_on_exported_call = function (require_path)
+lazy_require = function (require_path)
   return setmetatable({}, {
     __index = function(_, k)
       return function(...)
