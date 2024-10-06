@@ -6,16 +6,10 @@ return {
   'echasnovski/mini.splitjoin',
   config = function ()
     local splitjoin = require('mini.splitjoin')
+    local hooks = require('jl.mini.splitjoin.hooks')
 
-    local curly = { brackets = { '%b{}' } }
-
-    local add_comma_curly = splitjoin.gen_hook.add_trailing_separator(curly)
-    local del_comma_curly = splitjoin.gen_hook.del_trailing_separator(curly)
-    local pad_curly = splitjoin.gen_hook.pad_brackets(curly)
-
-    require('mini.splitjoin').setup {
-      split = { hooks_post = { add_comma_curly } },
-      join  = { hooks_post = { del_comma_curly, pad_curly } },
+    splitjoin.setup {
+      join = { hooks_post = { hooks.pad_curly } },
     }
   end,
 }
