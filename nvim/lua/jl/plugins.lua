@@ -14,7 +14,6 @@ return {
   'PeterRincker/vim-searchlight', -- Improved search match highlighting
   'jesseleite/vim-noh', -- Auto-clear search highlighting
   'markonm/traces.vim', -- Improved substitute highlighting and previewing
-  s('windwp/nvim-autopairs'), -- Auto-pair closing brackets, quotes, etc.
   s('nmac427/guess-indent.nvim'), -- Smart indentation width detection
   s('JoosepAlviste/nvim-ts-context-commentstring'), -- Commentstring detection for embedded languages
 }
