@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- Bbye: Close buffer without closing window or split
+-- Bufremove: Close buffer without closing window or split
 --------------------------------------------------------------------------------
 
 local bufremove = lazy_require('mini.bufremove')
