@@ -13,7 +13,8 @@ return {
     buffer     = { suffix = 'b', options = {} },
 
     -- Already works in current Neovim version!
-    diagnostic = { suffix = '', options = {} },
+    -- But we'll leave enabled because ]D and [D (for first/last) also hasn't been tagged yet.
+    diagnostic = { suffix = 'd', options = {} },
 
     -- Not interested in these, just disable them!
     comment    = { suffix = '', options = {} },
