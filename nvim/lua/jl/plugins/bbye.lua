@@ -2,9 +2,11 @@
 -- Bbye: Close buffer without closing window or split
 --------------------------------------------------------------------------------
 
+local bufremove = lazy_require('mini.bufremove')
+
 return {
-  'moll/vim-bbye',
+  'echasnovski/mini.bufremove',
   keys = {
-    { '<Leader>c', vim.cmd.Bdelete, silent = true }
+    { '<Leader>c', bufremove.delete, silent = true }
   }
 }
