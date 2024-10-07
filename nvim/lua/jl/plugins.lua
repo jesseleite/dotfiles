@@ -12,6 +12,5 @@ return {
   'tpope/vim-surround', -- Surround commands
   'jesseleite/vim-noh', -- Auto-clear search highlighting
   'markonm/traces.vim', -- Improved substitute highlighting and previewing
-  s('nmac427/guess-indent.nvim'), -- Smart indentation width detection
   s('JoosepAlviste/nvim-ts-context-commentstring'), -- Commentstring detection for embedded languages
 }
