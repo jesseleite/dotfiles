@@ -10,8 +10,6 @@ end
 -- If not a simple one-liner, maybe extract to plugins folder; Otherwise just throw in here 💥
 return {
   'tpope/vim-surround', -- Surround commands
-  'tpope/vim-repeat', -- Better `.` repeat
-  'PeterRincker/vim-searchlight', -- Improved search match highlighting
   'jesseleite/vim-noh', -- Auto-clear search highlighting
   'markonm/traces.vim', -- Improved substitute highlighting and previewing
   s('nmac427/guess-indent.nvim'), -- Smart indentation width detection
