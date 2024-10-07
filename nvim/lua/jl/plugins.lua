@@ -10,6 +10,5 @@ end
 -- If not a simple one-liner, maybe extract to plugins folder; Otherwise just throw in here 💥
 return {
   'tpope/vim-surround', -- Surround commands
-  'markonm/traces.vim', -- Improved substitute highlighting and previewing
   s('JoosepAlviste/nvim-ts-context-commentstring'), -- Commentstring detection for embedded languages
 }
