@@ -84,7 +84,7 @@ return {
           prompt_title = 'Current Buffer Lines',
         },
         oldfiles = {
-          prompt_title = 'History',
+          prompt_title = 'All History',
         },
         buffers = {
           mappings = {
