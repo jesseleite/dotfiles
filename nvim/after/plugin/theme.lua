@@ -31,8 +31,10 @@ end
 -- Other Cosmetic Tweaks
 --------------------------------------------------------------------------------
 
--- Highlight 121st character on lines that exceed 120
-vim.fn.matchadd('ColorColumn', '\\%121v')
+-- Highlight 121st character on lines that exceed 120, but only after alpha start screen is closed!
+vim.cmd[[
+  autocmd User AlphaClosed lua vim.fn.matchadd('ColorColumn', '\\%121v')
+]]
 
 -- Highlight briefly on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
