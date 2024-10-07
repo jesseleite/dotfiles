@@ -1,3 +1,5 @@
+vim.bo.commentstring = '// %s'
+
 local hooks = require('jl.mini.splitjoin.hooks')
 
 vim.b.minisplitjoin_config = {

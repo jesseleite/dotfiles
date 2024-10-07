@@ -7,6 +7,7 @@ return {
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
     { 'nvim-treesitter/playground', cmd = { 'TSPlaygroundToggle', 'TSHighlightCapturesUnderCursor' } },
+    'JoosepAlviste/nvim-ts-context-commentstring',
   },
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
