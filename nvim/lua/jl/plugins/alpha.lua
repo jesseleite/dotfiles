@@ -7,6 +7,16 @@ return {
   dependencies = {
     'echasnovski/mini.icons',
   },
+  lazy = false,
+  keys = {
+    { 'i', ':enew<CR>i', ft = 'alpha', silent = true },
+    { 'a', ':enew<CR>a', ft = 'alpha', silent = true },
+    { '<Esc>', ':bd<CR>', ft = 'alpha', silent = true },
+    { 'q', ':bd<CR>', ft = 'alpha', silent = true },
+    { '<Leader>c', ':bd<CR>', ft = 'alpha', silent = true },
+    { '<Leader>v', ':bd<CR>:vsplit<CR>', ft = 'alpha', silent = true },
+    { ':', ':bd<CR>:', ft = 'alpha' },
+  },
   config = function ()
     local alpha = require('alpha')
     local theme = require('alpha.themes.dashboard')
