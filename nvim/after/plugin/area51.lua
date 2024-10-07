@@ -4,6 +4,9 @@
 -- This is where I put stuff that I'm either testing or embarassed about.
 -- No shame; Just aliens, UFOs, cows, and crazy vimscript shenanigans.
 
+-- Helix mode concept
+-- vim.keymap.set({'n', 'x'}, 'w', '<Esc>vw')
+
 -- function! LaravelConvertToRealTimeFacade()
 --   let classUnderCursor = expand("<cword>")
 --   call search('use .*\\'.classUnderCursor, 'sb')
