@@ -9,6 +9,5 @@ end
 
 -- If not a simple one-liner, maybe extract to plugins folder; Otherwise just throw in here 💥
 return {
-  'tpope/vim-surround', -- Surround commands
   s('JoosepAlviste/nvim-ts-context-commentstring'), -- Commentstring detection for embedded languages
 }
