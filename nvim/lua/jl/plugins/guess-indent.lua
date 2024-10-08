@@ -3,6 +3,6 @@
 --------------------------------------------------------------------------------
 
 return {
-  'nmac428/guess-indent.nvim',
+  'NMAC427/guess-indent.nvim',
   config = true,
 }
