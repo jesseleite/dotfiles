@@ -13,6 +13,7 @@ return {
     { 'a', ':enew<CR>a', ft = 'alpha', silent = true },
     { '<Esc>', ':bd<CR>', ft = 'alpha', silent = true },
     { 'q', ':bd<CR>', ft = 'alpha', silent = true },
+    { '<C-c>', ':bd<CR>', ft = 'alpha', silent = true },
     { '<Leader>c', ':bd<CR>', ft = 'alpha', silent = true },
     { '<Leader>v', ':bd<CR>:vsplit<CR>', ft = 'alpha', silent = true },
     { ':', ':bd<CR>:', ft = 'alpha' },
