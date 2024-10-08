@@ -9,7 +9,7 @@ return {
   },
   lazy = false,
   keys = {
-    { '<Leader>gs', ":Gedit :<CR>" },
+    { '<Leader>gs', ":Gedit :<CR>", silent = true },
     { '<Leader>gb', ":GBrowse<CR>" },
     { '<Leader>gb', ":'<,'>GBrowse<CR>", mode = 'v' },
   },
