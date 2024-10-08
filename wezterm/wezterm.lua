@@ -1,20 +1,28 @@
 local wezterm = require('wezterm')
 
 local color_schemes = {
-  ['Miami Nights'] = {
+  miami_nights = {
     background = '#18181A',
     foreground = '#ffffff',
     cursor_bg = '#ffffff',
     cursor_border = '#00EC6E',
-    ansi = { '#212121', '#ff0038', '#00EC6E', '#FFE981', '#47BAC0', '#E4609B', '#47BAC0', '#ffffff' },
-    brights = { '#424242', '#ff0038', '#00EC6E', '#FFE981', '#47BAC0', '#E4609B', '#47BAC0', '#ffffff' },
+    ansi = { '#212121', '#FA2E62', '#00EC6E', '#FFE981', '#47BAC0', '#E4609B', '#47BAC0', '#ffffff' },
+    brights = { '#424242', '#FA2E62', '#00EC6E', '#FFE981', '#47BAC0', '#E4609B', '#47BAC0', '#ffffff' },
+  },
+  oxide = {
+    background = '#070e11',
+    foreground = '#ffffff',
+    cursor_bg = '#ffffff',
+    cursor_border = '#00d992',
+    ansi = { '#1D2526', '#FA2E62', '#00d992', '#ffb717', '#00C1D9', '#fa5e86', '#90a7f8', '#ffffff' },
+    brights = { '#3A4649', '#FA2E62', '#00d992', '#ffb717', '#00C1D9', '#fa5e86', '#90a7f8', '#ffffff' },
   }
 }
 
 local config = {
   term = "wezterm",
   color_schemes = color_schemes,
-  color_scheme = 'Miami Nights',
+  color_scheme = 'miami_nights',
   font = wezterm.font('JetBrains Mono'),
   font_size = 16.5,
   line_height = 1.6,
