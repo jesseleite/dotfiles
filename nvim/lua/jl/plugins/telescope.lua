@@ -41,11 +41,15 @@ return {
     local telescope = require('telescope')
     local actions = require('telescope.actions')
     local custom_actions = require('jl.telescope.actions')
+    local custom_layouts = require('jl.telescope.layouts')
+
+    require('telescope.pickers.layout_strategies').helix = custom_layouts.helix
 
     telescope.setup {
       defaults = {
         prompt_prefix = '  ',
         sorting_strategy = "ascending",
+        layout_strategy = 'helix',
         layout_config = {
           prompt_position = "top",
         },
