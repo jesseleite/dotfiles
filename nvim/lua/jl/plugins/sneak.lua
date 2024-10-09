@@ -15,8 +15,8 @@ return {
   end,
   config = function ()
     local Group = require('colorbuddy').Group
-    local colors = require('colorbuddy').colors
+    local groups = require('colorbuddy').groups
 
-    Group.new('Sneak', colors.noir_0, colors.primary)
+    Group.link('Sneak', groups.IncSearch)
   end,
 }
