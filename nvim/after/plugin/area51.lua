@@ -4,6 +4,15 @@
 -- This is where I put stuff that I'm either testing or embarassed about.
 -- No shame; Just aliens, UFOs, cows, and crazy vimscript shenanigans.
 
+-- Go to plugin on github
+local plugin_goto_github = function ()
+  require('macroni').run("m'magg/^return<Space>{<CR>f/<M-o>\"qy<Esc>")
+  local url = 'https://github.com/'..vim.fn.getreg("q")
+  vim.ui.open(url)
+  vim.cmd("'a")
+end
+vim.keymap.set('n', '<Leader>gg', plugin_goto_github, { silent = true })
+
 -- Helix mode concept
 -- vim.keymap.set({'n', 'x'}, 'w', '<Esc>vw')
 
