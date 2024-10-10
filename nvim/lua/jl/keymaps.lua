@@ -17,7 +17,8 @@ vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 -- Edit current command in normal mode using command line window
-vim.keymap.set('c', 'jk', '<C-f>')
+-- vim.keymap.set('c', 'jk', '<C-f>')
+-- TODO: This messes with flash.nvim's label if `j` is pressed. Remap to `<C-something>` else?
 
 -- Edit the alternate / previously edited file
 vim.keymap.set('n', '<Leader>a', '<C-^>')
