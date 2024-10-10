@@ -4,6 +4,9 @@
 
 return {
   'folke/flash.nvim',
+  dependencies = {
+    'jesseleite/vim-noh',
+  },
   event = 'VeryLazy',
   keys = {
     { '<Leader>j', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end, desc = 'Flash Jump' },
