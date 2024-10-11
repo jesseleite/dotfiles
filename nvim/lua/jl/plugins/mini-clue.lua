@@ -42,6 +42,10 @@ return {
         -- Unimpaired style keymaps
         { mode = 'n', keys = '[' },
         { mode = 'n', keys = ']' },
+
+        -- Surround
+        { mode = 'n', keys = 's' },
+        { mode = 'x', keys = 's' },
       },
       clues = {
         miniclue.gen_clues.builtin_completion(),
@@ -50,6 +54,11 @@ return {
         miniclue.gen_clues.registers(),
         miniclue.gen_clues.windows(),
         miniclue.gen_clues.z(),
+      },
+      window = {
+        config = {
+          width = 40,
+        },
       },
     })
   end,
