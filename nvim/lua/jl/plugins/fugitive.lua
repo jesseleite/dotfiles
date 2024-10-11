@@ -19,6 +19,7 @@ return {
       group = vim.api.nvim_create_augroup('fugitive_open', { clear = true }),
       callback = function ()
         vim.cmd.normal('gg]]')
+        vim.b.miniclue_disable = true
       end,
     })
   end,
