@@ -68,6 +68,9 @@ return {
           'resources/dist',
           'storage/framework',
         },
+        cache_picker = {
+          num_pickers = -1,
+        },
       },
       pickers = {
         git_files = {
