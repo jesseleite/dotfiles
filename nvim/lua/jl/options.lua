@@ -40,3 +40,4 @@ vim.opt.shortmess:append('S')
 vim.opt.titlestring = 'vim (' .. vim.fn.substitute(vim.fn.getcwd(), '^.*/', '', '') .. ')'
 vim.opt.exrc = true
 vim.opt.secure = true
+vim.opt.formatoptions:remove('o')
