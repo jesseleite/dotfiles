@@ -23,7 +23,11 @@ return {
         --   path = vim.split(package.path, ';'),
         -- },
         diagnostics = {
-          globals = {'vim', 'Ray', 'hs', 'spoon'},
+          globals = {
+            'hs', 'spoon', -- hammerspoon
+            'vim', 'Ray', -- generic vim
+            's', 'fmt', 'i', 'c', 't', -- luasnip
+          },
           disable = {"lowercase-global"},
         },
         -- workspace = {

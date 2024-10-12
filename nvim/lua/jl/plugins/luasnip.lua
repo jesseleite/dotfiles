@@ -1,12 +1,20 @@
 --------------------------------------------------------------------------------
--- Luasnip: A snippet engine plugin
+-- LuaSnip: A snippet engine plugin
 --------------------------------------------------------------------------------
 
+local snippet = lazy_require('jl.luasnip')
+
 return {
-  'SirVer/ultisnips', -- GOTEEEEEEM! ...TODO: I need to switch over to LuaSnip furreal though
-  init = function ()
-    vim.g.UltiSnipsExpandTrigger = "<tab>"
-    vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
-    vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
+  'L3MON4D3/LuaSnip',
+  build = "make install_jsregexp",
+  keys = {
+    { '<Tab>', snippet.expand_jump_or_tab, mode = { 'i', 's' }, expr = true },
+    { '<S-Tab>', snippet.jump_back, mode = 'i' },
+    { '<C-;>', snippet.change_choice, mode = 'i' },
+  },
+  config = function ()
+    require('luasnip.loaders.from_lua').load {
+      paths = vim.fn.stdpath('config') .. '/lua/jl/luasnip/snippets'
+    }
   end,
 }
