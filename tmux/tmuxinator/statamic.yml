@@ -1,6 +1,0 @@
-name: statamic
-startup_window: site
-windows:
-  - npm: z cms && n watch
-  - cms: v cms
-  - site: z <%= @args[0] %> && tmux rename-session $(basename $PWD) && v
