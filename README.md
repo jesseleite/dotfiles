@@ -22,6 +22,6 @@ Jesse 💅
 .<br>
 .<br>
 
-P.S. I use Neovim BTW™️
+P.S. I use Neovim BTW™
 
 ![Neovim BTW](screenshot.png)
