@@ -4,7 +4,7 @@
 
 -- Map leader keys
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = '\\'
 
 -- Write and quit like a monster
 vim.keymap.set('n', '<Leader>w', ':w<CR>')
