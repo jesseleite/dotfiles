@@ -10,6 +10,7 @@ end
 return {
   'stevearc/qf_helper.nvim',
   main = 'qf_helper',
+  lazy = false,
   opts = {
     quickfix = {
       min_height = 5,
