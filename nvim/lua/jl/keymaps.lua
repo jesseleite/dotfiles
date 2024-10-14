@@ -23,6 +23,9 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 -- Edit the alternate / previously edited file
 vim.keymap.set('n', '<Leader>a', '<C-^>')
 
+-- Vertical split
+vim.keymap.set('n', '<Leader>v', vim.cmd.vsplit, { silent = true })
+
 -- Cycle through windows
 vim.keymap.set('n', '<Tab>', '<C-w>w')
 vim.keymap.set('n', '<S-Tab>', '<C-w>W')
@@ -33,9 +36,6 @@ vim.keymap.set('n', '<Leader>O', '<C-w>o')
 -- Disable ctrl-f/b scrolling (ctrl-d/u all the way 🤘)
 vim.keymap.set('n', '<C-f>', '<Nop>')
 vim.keymap.set('n', '<C-b>', '<Nop>')
-
--- Vertical split
-vim.keymap.set('n', '<Leader>v', vim.cmd.vsplit, { silent = true })
 
 -- Break undo sequence on specific characters
 vim.keymap.set('i', ',', ',<C-g>u')
