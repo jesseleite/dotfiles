@@ -72,6 +72,9 @@ vim.keymap.set('i', ',,', '<Esc>A,<Esc>')
 vim.keymap.set('x', '>', '>gv')
 vim.keymap.set('x', '<', '<gv')
 
+-- Auto-indent whole file
+vim.keymap.set('n', '<Leader>=', 'ggVG=')
+
 -- Visual paste without losing what is in register
 -- This first mapping doesn't work because vim-pasta hijacks it
 -- Keep an eye on this... https://github.com/sickill/vim-pasta/pull/18
