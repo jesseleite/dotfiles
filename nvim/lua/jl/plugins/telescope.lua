@@ -35,7 +35,7 @@ return {
     { '<Leader><Leader>h', builtin.help_tags, desc = 'Telescope Help Search' },
     { '<Leader><Leader>f', builtin.filetypes, desc = 'Telescope Filetypes' },
     { '<Leader><Leader>t', builtin.builtin, desc = 'Telescope Builtin Pickers' },
-    { '<Leader>/', function () require('telescope').extensions.live_grep_args.live_grep_args() end, desc = 'Telescope Live Grep Args' }
+    { '<Leader>/', function () require('telescope').extensions.live_grep_args.live_grep_args() end, desc = 'Telescope Live Grep Args' },
   },
   config = function ()
     local telescope = require('telescope')
@@ -55,6 +55,8 @@ return {
         },
         mappings = {
           i = {
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
             ['<Esc>'] = actions.close,
             ['<C-a>'] = actions.toggle_all,
             ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
@@ -76,8 +78,6 @@ return {
         git_files = {
           mappings = {
             i = {
-              ["<C-k>"] = actions.move_selection_previous,
-              ["<C-j>"] = actions.move_selection_next,
               ["@"] = custom_actions.select_file_and_accept_method,
             }
           }
@@ -96,7 +96,7 @@ return {
         buffers = {
           mappings = {
             i = {
-              ["<C-x>"] = "delete_buffer",
+              ["<C-x>"] = actions.delete_buffer,
             }
           }
         },
@@ -106,10 +106,10 @@ return {
           prompt_title = 'Live Ripgrep',
           mappings = {
             i = {
-              ["<C-k>"] = require('telescope-live-grep-args.actions').quote_prompt(),
+              ["<C-'>"] = require('telescope-live-grep-args.actions').quote_prompt(),
             }
           }
-        }
+        },
       },
     }
 
