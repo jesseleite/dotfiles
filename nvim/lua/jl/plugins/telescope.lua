@@ -36,6 +36,8 @@ return {
     { '<Leader><Leader>f', builtin.filetypes, desc = 'Telescope Filetypes' },
     { '<Leader><Leader>t', builtin.builtin, desc = 'Telescope Builtin Pickers' },
     { '<Leader>/', function () require('telescope').extensions.live_grep_args.live_grep_args() end, desc = 'Telescope Live Grep Args' },
+    { '<Leader>/', function () require('telescope-live-grep-args.shortcuts').grep_visual_selection() end, mode = 'x', desc = 'Telescope Live Grep Selection' },
+    { '<Leader>*', function () require('telescope-live-grep-args.shortcuts').grep_word_under_cursor() end, desc = 'Telescope Live Grep Word' },
   },
   config = function ()
     local telescope = require('telescope')
