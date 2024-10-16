@@ -50,7 +50,6 @@ brew 'zsh'
 
 # Cask
 cask '1password'
-cask 'alacritty'
 cask 'cleanshot'
 cask 'discord'
 cask 'firefox'

@@ -14,9 +14,7 @@
     ~/.gitignore_global: git/gitignore_global
     ~/.zshrc: zsh/zshrc
     ~/.config/nvim: nvim
-    ~/.config/nvim/ultisnips: vim/snippets
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
-    ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yaml
     ~/.wezterm.lua: wezterm/wezterm.lua
     ~/.tmux.conf: tmux/tmux.conf
     ~/.hammerspoon: hammerspoon
@@ -24,7 +22,6 @@
     ~/.qmk_firmware/keyboards/lily58/keymaps/jesseleite: qmk/lily58
 - create:
     - ~/Code
-    - ~/.config/nvim/undo
 - shell:
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
