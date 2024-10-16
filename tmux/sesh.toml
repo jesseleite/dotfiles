@@ -1,0 +1,24 @@
+[[session]]
+name = "misc"
+path = "~"
+
+[[session]]
+name = "cms"
+path = "~/Code/Wilderborn/cms"
+
+[[session]]
+name = "seo-pro"
+path = "~/Code/Wilderborn/seo-pro"
+
+[[session]]
+name = "1337keyboards"
+path = "~/Code/Personal/1337keyboards"
+
+[[session]]
+name = "vimfornormalpeople"
+path = "~/Code/Personal/vimfornormalpeople"
+
+[[session]]
+name = "dotfiles"
+path = "~/.dotfiles"
+startup_command = "nvim -c ':Telescope git_files'"

@@ -17,6 +17,7 @@
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.wezterm.lua: wezterm/wezterm.lua
     ~/.tmux.conf: tmux/tmux.conf
+    ~/.config/sesh/sesh.toml: tmux/sesh.toml
     ~/.hammerspoon: hammerspoon
     ~/.composer/composer.json: composer/composer.json
     ~/.qmk_firmware/keyboards/lily58/keymaps/jesseleite: qmk/lily58
