@@ -87,8 +87,8 @@ vim.keymap.set('n', '<Leader>.', vim.cmd.nohlsearch, { silent = true })
 -- Increment/decrement numbers holding shift-`+/-` keys instead of ctrl-`a/x`
 vim.keymap.set('n', '+', '<C-a>')
 vim.keymap.set('n', '_', '<C-x>')
-vim.keymap.set('v', '+', '<C-a>')
-vim.keymap.set('v', '_', '<C-x>')
+vim.keymap.set('v', '+', '<C-a>gv')
+vim.keymap.set('v', '_', '<C-x>gv')
 
 -- Open in finder
 vim.keymap.set('n', '<Leader><Leader>o', ':!open $PWD<CR><CR>', { silent = true })
