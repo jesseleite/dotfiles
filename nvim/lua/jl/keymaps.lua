@@ -7,7 +7,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
 -- Write and quit like a monster
-vim.keymap.set('n', '<Leader>w', ':w<CR>')
+vim.keymap.set('n', '<Leader>w', ':w<CR>', { silent = true })
 vim.keymap.set('n', '<Leader>q', ':q<CR>')
 
 -- Exit insert mode
@@ -57,12 +57,12 @@ vim.keymap.set('n', '<Leader><CR>', 'o<Esc>')
 vim.keymap.set('n', '<Leader><Leader><CR>', 'o<C-o>O')
 
 -- Move line(s) up and down
-vim.keymap.set('n', '<C-j>', ':m .+1<CR>==')
-vim.keymap.set('n', '<C-k>', ':m .-2<CR>==')
-vim.keymap.set('i', '<C-j>', '<Esc>:m .+1<CR>==gi')
-vim.keymap.set('i', '<C-k>', '<Esc>:m .-2<CR>==gi')
-vim.keymap.set('v', '<C-j>', ':m \'>+1<CR>gv=gv')
-vim.keymap.set('v', '<C-k>', ':m \'<-2<CR>gv=gv')
+vim.keymap.set('n', '<C-j>', ':m .+1<CR>==', { silent = true })
+vim.keymap.set('n', '<C-k>', ':m .-2<CR>==', { silent = true })
+vim.keymap.set('i', '<C-j>', '<Esc>:m .+1<CR>==gi', { silent = true })
+vim.keymap.set('i', '<C-k>', '<Esc>:m .-2<CR>==gi', { silent = true })
+vim.keymap.set('v', '<C-j>', ':m \'>+1<CR>gv=gv', { silent = true })
+vim.keymap.set('v', '<C-k>', ':m \'<-2<CR>gv=gv', { silent = true })
 
 -- Quickly append semicolon or comma
 vim.keymap.set('i', ';;', '<Esc>A;<Esc>')
