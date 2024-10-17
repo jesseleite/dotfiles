@@ -2,8 +2,6 @@
 -- Gitsigns: Git gutter, hunk navigation, blaming, etc.
 --------------------------------------------------------------------------------
 
-local gitsigns = lazy_require('gitsigns')
-
 return {
   'lewis6991/gitsigns.nvim',
   lazy = false,
@@ -15,7 +13,7 @@ return {
     }
   },
   keys = {
-    { '<PageDown>', gitsigns.next_hunk },
-    { '<PageUp>', gitsigns.prev_hunk },
+    { '<PageDown>', function () require('gitsigns').next_hunk() end },
+    { '<PageUp>', function () require('gitsigns').prev_hunk() end },
   },
 }

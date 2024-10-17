@@ -2,8 +2,6 @@
 -- Flash: Jump mode, with `/` search integration, and enhanced f/F/t/T
 --------------------------------------------------------------------------------
 
-local flash = lazy_require('flash')
-
 return {
   'folke/flash.nvim',
   dependencies = {
@@ -11,8 +9,8 @@ return {
   },
   event = 'VeryLazy',
   keys = {
-    { '<Leader>j', mode = { 'n', 'x', 'o' }, flash.jump, desc = 'Flash Jump' },
-    { '<C-j>', mode = { 'c' }, flash.toggle, desc = 'Toggle Flash Search' },
+    { '<Leader>j', function () require('flash').jump() end, mode = { 'n', 'x', 'o' }, desc = 'Flash Jump' },
+    { '<C-j>', function () require('flash').toggle() end, mode = { 'c' }, desc = 'Toggle Flash Search' },
   },
   opts = {
     modes = {

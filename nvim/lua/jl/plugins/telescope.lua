@@ -2,8 +2,8 @@
 -- Telescope: Highly extendable fuzzy finders
 --------------------------------------------------------------------------------
 
-local builtin = lazy_require('telescope.builtin')
-local custom = lazy_require('jl.telescope.pickers')
+local t -- Telescope builtin pickers
+local c -- Custom pickers
 
 return {
   'nvim-telescope/telescope.nvim',
@@ -17,24 +17,24 @@ return {
     'Telescope',
   },
   keys = {
-    { '<Leader>f', builtin.git_files, desc = 'Telescope Git Files' },
-    { '<Leader>F', builtin.find_files, desc = 'Telesscope All Files' },
-    { '<Leader>b', custom.buffers, desc = 'Telescope Buffers' },
-    { '<Leader>m', builtin.git_status, desc = 'Telescope Git Status' },
-    { '<Leader>h', custom.project_history, desc = 'Telescope Project History' },
-    { '<Leader>H', builtin.oldfiles, desc = 'Telescope History' },
-    { '<Leader>s', builtin.lsp_document_symbols, desc = 'Telescope LSP Symbols' },
-    { '<Leader>S', custom.lsp_document_methods, desc = 'Telescope LSP Methods' },
-    { '<Leader>l', builtin.current_buffer_fuzzy_find, desc = 'Telescope Current Buffer Lines' },
-    { '<Leader>L', custom.laravel_vendor_files, desc = 'Telescope Laravel Vendor Files' },
-    { '<Leader>C', builtin.commands, desc = 'Telescope Commands' },
-    { '<Leader>:', builtin.command_history, desc = 'Telescope Command History' },
-    { '<Leader>R', builtin.pickers, desc = 'Telescope Resume' },
-    { '<Leader><Leader>d', custom.dotfiles, desc = 'Telescope Dotfiles' },
-    { '<Leader><Leader>v', custom.nvim_dotfiles, desc = 'Telescope Nvim Dotfiles' },
-    { '<Leader><Leader>h', builtin.help_tags, desc = 'Telescope Help Search' },
-    { '<Leader><Leader>f', builtin.filetypes, desc = 'Telescope Filetypes' },
-    { '<Leader><Leader>t', builtin.builtin, desc = 'Telescope Builtin Pickers' },
+    { '<Leader>f', function () t.git_files() end, desc = 'Telescope Git Files' },
+    { '<Leader>F', function () t.find_files() end, desc = 'Telesscope All Files' },
+    { '<Leader>b', function () c.buffers() end, desc = 'Telescope Buffers' },
+    { '<Leader>m', function () t.git_status() end, desc = 'Telescope Git Status' },
+    { '<Leader>h', function () c.project_history() end, desc = 'Telescope Project History' },
+    { '<Leader>H', function () t.oldfiles() end, desc = 'Telescope History' },
+    { '<Leader>s', function () t.lsp_document_symbols() end, desc = 'Telescope LSP Symbols' },
+    { '<Leader>S', function () c.lsp_document_methods() end, desc = 'Telescope LSP Methods' },
+    { '<Leader>l', function () t.current_buffer_fuzzy_find() end, desc = 'Telescope Current Buffer Lines' },
+    { '<Leader>L', function () c.laravel_vendor_files() end, desc = 'Telescope Laravel Vendor Files' },
+    { '<Leader>C', function () t.commands() end, desc = 'Telescope Commands' },
+    { '<Leader>:', function () t.command_history() end, desc = 'Telescope Command History' },
+    { '<Leader>R', function () t.pickers() end, desc = 'Telescope Resume' },
+    { '<Leader><Leader>d', function () c.dotfiles() end, desc = 'Telescope Dotfiles' },
+    { '<Leader><Leader>v', function () c.nvim_dotfiles() end, desc = 'Telescope Nvim Dotfiles' },
+    { '<Leader><Leader>h', function () t.help_tags() end, desc = 'Telescope Help Search' },
+    { '<Leader><Leader>f', function () t.filetypes() end, desc = 'Telescope Filetypes' },
+    { '<Leader><Leader>t', function () t.builtin() end, desc = 'Telescope Builtin Pickers' },
     { '<Leader>/', function () require('telescope').extensions.live_grep_args.live_grep_args() end, desc = 'Telescope Live Grep Args' },
     { '<Leader>/', function () require('telescope-live-grep-args.shortcuts').grep_visual_selection() end, mode = 'x', desc = 'Telescope Live Grep Selection' },
     { '<Leader>*', function () require('telescope-live-grep-args.shortcuts').grep_word_under_cursor() end, desc = 'Telescope Live Grep Word' },
@@ -118,5 +118,8 @@ return {
     telescope.load_extension('fzf')
     telescope.load_extension('live_grep_args')
     telescope.load_extension('ui-select')
+
+    t = require('telescope.builtin')
+    c = require('jl.telescope.pickers')
   end
 }

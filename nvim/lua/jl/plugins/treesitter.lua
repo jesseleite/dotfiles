@@ -2,6 +2,8 @@
 -- Treesitter: Syntax parsing, syntax highlighting, custom text objects, etc.
 --------------------------------------------------------------------------------
 
+local t
+
 return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
@@ -11,6 +13,11 @@ return {
   },
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
+  lazy = false,
+  keys = {
+    { '<M-p>', function () t.goto_node(t.get_previous_node(t.get_node_at_cursor(), true, true) ) end },
+    { '<M-n>', function () t.goto_node(t.get_next_node(t.get_node_at_cursor(), true, true) ) end },
+  },
   opts = {
     ensure_installed = 'all',
     ignore_install = {'phpdoc'},
@@ -61,5 +68,10 @@ return {
         },
       }
     }
-  }
+  },
+  config = function (_, opts)
+    require('nvim-treesitter.configs').setup(opts)
+
+    t = require('nvim-treesitter.ts_utils')
+  end
 }

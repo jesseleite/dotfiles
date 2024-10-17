@@ -2,11 +2,9 @@
 -- Mini.bufremove: Close buffer without closing window or split
 --------------------------------------------------------------------------------
 
-local bufremove = lazy_require('mini.bufremove')
-
 return {
   'echasnovski/mini.bufremove',
   keys = {
-    { '<Leader>c', bufremove.delete, silent = true }
-  }
+    { '<Leader>c', function () require('mini.bufremove').delete() end, silent = true },
+  },
 }
