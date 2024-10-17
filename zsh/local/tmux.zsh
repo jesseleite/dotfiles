@@ -5,7 +5,7 @@
 # Open or create new session
 t() {
   if [ -n "$1" ]; then
-    sesh connect $1
+    sesh connect $(sesh list -c | rg $1 || echo $1)
     return
   fi
 
