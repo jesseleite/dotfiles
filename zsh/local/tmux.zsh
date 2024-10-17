@@ -2,7 +2,14 @@
 # Aliases and functions for tmux
 # ------------------------------------------------------------------------------
 
-# Open or create new session
+# Aliases
+alias tl="tmux list-sessions"
+alias ts="tmux new-session -s"
+alias ta="tmux attach -t"
+alias tksv="tmux kill-server"
+alias tc="sesh connect"
+
+# Open or create new session via fuzzy finder, or pass z style arg
 t() {
   if [ -n "$1" ]; then
     sesh connect $(sesh list -c | rg $1 || echo $1)
@@ -13,10 +20,20 @@ t() {
 }
 
 # Ensure attached to session when opening new terminal windows
-# Note: This is defined as a function and should be run at the end of user's zshrc script to
-# ensure the rest of the user's config is loaded if they ctrl-c out of the session picker
+# Note: This function should be run at the end of our zshrc script to ensure
+# the rest of our config is loaded if we ctrl-c out of the session picker
 tmux_ensure_session() {
   if [ -z "$TMUX" ]; then
     t
   fi
+}
+
+# Kill session with z style argument, or kill current session if no argument
+tks() {
+  if [ -n "$1" ]; then
+    tmux kill-session -t $(sesh list -c | rg $1 || echo $1)
+    return
+  fi
+
+  tmux kill-session -t .
 }
