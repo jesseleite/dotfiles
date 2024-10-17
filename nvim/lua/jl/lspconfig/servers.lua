@@ -15,6 +15,7 @@ return {
   },
   jsonls = true,
   yamlls = true,
+  -- emmet_ls = true, -- TODO: Can this replace `mattn/emmet-vim`?
   lua_ls = {
     settings = {
       Lua = {
