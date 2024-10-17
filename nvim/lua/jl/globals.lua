@@ -1,16 +1,6 @@
 --------------------------------------------------------------------------------
--- Rad Global Helpers (stolen from TJ Devries)
+-- Global Helper Functions
 --------------------------------------------------------------------------------
--- https://github.com/tjdevries/config_manager/blob/master/xdg_config/nvim/lua/tj/globals.lua
--- https://github.com/tjdevries/lazy-require.nvim
-
-local require = require
-local ok, plenary_reload = pcall(require, "plenary.reload")
-local reloader = require
-
-if ok then
-  reloader = plenary_reload.reload_module
-end
 
 -- Print tables and objects
 P = function (v)
@@ -19,20 +9,9 @@ P = function (v)
   return v
 end
 
--- Clear module cache
-RELOAD = function (...)
-  local ok, plenary_reload = pcall(require, "plenary.reload")
+-- Clear module cache using plenary (aka pleniarie to @theprimeagen) and re-require
+R = function (module)
+  require('plenary.reload').reload_module(module)
 
-  if ok then
-    reloader = plenary_reload.reload_module
-  end
-
-  return reloader(...)
-end
-
--- Clear module cache and require
-R = function (name)
-  RELOAD(name)
-
-  return require(name)
+  return require(module)
 end
