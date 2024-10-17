@@ -7,8 +7,8 @@ name = "cms"
 path = "~/Code/Wilderborn/cms"
 
 [[session]]
-name = "seo-pro"
-path = "~/Code/Wilderborn/seo-pro"
+name = "runner"
+path = "~/Code/Wilderborn/cms"
 
 [[session]]
 name = "1337keyboards"
@@ -19,6 +19,10 @@ name = "vimfornormalpeople"
 path = "~/Code/Personal/vimfornormalpeople"
 
 [[session]]
+name = "the-shire"
+path = "~/Code/Personal/the-shire"
+
+[[session]]
 name = "dotfiles"
 path = "~/.dotfiles"
-startup_command = "nvim -c ':Telescope git_files'"
+# startup_command = "nvim -c ':Telescope git_files'"
