@@ -17,7 +17,7 @@ return {
         macro = "^dwi-<Space><Esc>f(f#hhi.<Esc>llr[llyiwf)r]a(http://github.com/statamic/cms/issues/<Esc>pA<Space>by<Space>@<Esc>",
       },
       convert_to_blade_class_directive = {
-        macro = "ciw@class<Esc>lxlva\"sa?([<CR>])<CR>lci<Esc>sr\"'vi':s/\\%V\\s/',<Space>'/g<CR>:noh<CR>/class<CR>",
+        macro = "^/class<CR>ciw@class<Esc>lxlva\"sa?([<CR>])<CR>lci<Esc>sr\"'vi':s/\\%V\\s/',<Space>'/g<CR>:noh<CR>/class<CR>",
         keymap = '<Leader><Leader><Leader>c', -- TODO: think of better mapping for this?
       },
       -- to_php_shorthand_arrow_function = {},
