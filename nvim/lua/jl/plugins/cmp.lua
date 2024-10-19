@@ -20,6 +20,7 @@ return {
           require('luasnip').lsp_expand(args.body)
         end,
       },
+      window = require('noirbuddy.plugins.cmp').window,
       mapping = cmp.mapping.preset.insert({
         ['<Down>'] = cmp.mapping.select_next_item(),
         ['<Up>'] = cmp.mapping.select_prev_item(),
