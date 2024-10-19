@@ -2,12 +2,23 @@
 -- Mini.surround: Act on surrounding parentheses, quotes, tags, etc.
 --------------------------------------------------------------------------------
 
--- Note: Trying this for a while as a replacement to tpope/vim-surround.
--- Still wish it had better support to preserve html attributes when
--- replacing html tag. His help doc mentions that tag handling
--- is regex-only for now. Maybe it's something we can PR?
+-- Custom `T` surrounding so that we can `srTT` and preserve html attributes like tpope did!
+-- Avoid replacing default `t` though, as we don't want this behaviour with `sa` or `sd`.
+-- See: https://github.com/echasnovski/mini.nvim/issues/1293#issuecomment-2423827325
+local tag_name_only = {
+  input = { '<(%w-)%f[^<%w][^<>]->.-</%1>', '^<()%w+().*</()%w+()>$' },
+  output = function()
+    local tag_name = require('mini.surround').user_input('Tag name')
+    if tag_name == nil then return nil end
+    return { left = tag_name, right = tag_name }
+  end,
+}
 
 return {
   'echasnovski/mini.surround',
-  config = true,
+  opts = {
+    custom_surroundings = {
+      T = tag_name_only,
+    },
+  },
 }
