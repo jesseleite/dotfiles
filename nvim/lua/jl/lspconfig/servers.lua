@@ -27,7 +27,7 @@ return {
           globals = {
             -- 'hs', 'spoon', -- hammerspoon
             -- 'vim', 'Ray', -- generic vim
-            's', 'fmt', 'i', 'c', 't', -- luasnip
+            's', 'sn', 'fmt', 'i', 'c', 't', 'f', 'd', 'extras', -- luasnip
           },
           -- disable = {"lowercase-global"}, -- Do I still need this?
         },
