@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+-- Shortcuts for cleaner `hooks` config in `ftplugin` for various langs, etc.
+--------------------------------------------------------------------------------
+
 local splitjoin = require('mini.splitjoin')
 
 local all = { brackets = { '%b()', '%b{}', '%b[]' } }
