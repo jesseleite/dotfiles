@@ -8,35 +8,34 @@ return {
   html = {
     filetypes = { 'html', 'blade', 'antlers' },
   },
+  -- emmet_ls = {
+  --   filetypes = { 'html', 'blade', 'antlers' },
+  -- },
+  tailwindcss = {
+    filetypes = { 'html', 'blade', 'antlers', 'css' },
+  },
   antlersls = true,
-  tailwindcss = true,
   volar = {
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
   },
   jsonls = true,
   yamlls = true,
-  -- emmet_ls = true, -- TODO: Can this replace `mattn/emmet-vim`?
   lua_ls = {
     settings = {
       Lua = {
-        -- runtime = {
-        --   version = 'LuaJIT',
-        --   path = vim.split(package.path, ';'),
-        -- },
         diagnostics = {
           globals = {
-            'hs', 'spoon', -- hammerspoon
-            'vim', 'Ray', -- generic vim
+            -- 'hs', 'spoon', -- hammerspoon
+            -- 'vim', 'Ray', -- generic vim
             's', 'fmt', 'i', 'c', 't', -- luasnip
           },
-          disable = {"lowercase-global"},
+          -- disable = {"lowercase-global"}, -- Do I still need this?
         },
-        -- workspace = {
-        --   library = {
-        --     [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-        --     [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        --   },
-        -- },
+        workspace = {
+          library = {
+            -- ["~/.dotfiles/hammerspoon/spoons/EmmyLua.spoon/annotations"] = true,
+          },
+        },
       },
     },
   },
