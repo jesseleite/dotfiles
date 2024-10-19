@@ -8,9 +8,9 @@ return {
   html = {
     filetypes = { 'html', 'blade', 'antlers' },
   },
-  -- emmet_ls = {
-  --   filetypes = { 'html', 'blade', 'antlers' },
-  -- },
+  emmet_ls = {
+    filetypes = { 'html', 'blade', 'antlers' },
+  },
   tailwindcss = {
     filetypes = { 'html', 'blade', 'antlers', 'css' },
   },
