@@ -15,6 +15,8 @@ M.setup = function ()
 
     config.on_attach = keymaps.setup
 
+    config.capabilities = require('cmp_nvim_lsp').default_capabilities()
+
     require('lspconfig')[server].setup(config)
   end
 end
