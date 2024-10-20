@@ -8,7 +8,7 @@
 local M = {}
 
 M.expand_jump_or_tab = function ()
-  if require('luasnip').expand_or_jumpable() then
+  if require('luasnip').expand_or_locally_jumpable() then
     return '<Cmd>lua require("luasnip").expand_or_jump()<CR>'
   else
     return '<Tab>'
