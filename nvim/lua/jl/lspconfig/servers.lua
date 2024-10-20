@@ -8,7 +8,7 @@ return {
   html = {
     filetypes = { 'html', 'blade', 'antlers' },
   },
-  emmet_ls = {
+  emmet_language_server = {
     filetypes = { 'html', 'blade', 'antlers' },
   },
   tailwindcss = {
