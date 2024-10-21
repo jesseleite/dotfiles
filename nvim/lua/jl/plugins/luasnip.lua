@@ -13,6 +13,10 @@ return {
     { '<C-a>', s.change_choice, mode = 'i' },
   },
   config = function ()
+    require('luasnip').setup {
+      update_events = { 'TextChanged', 'TextChangedI' },
+    }
+
     require('luasnip.loaders.from_lua').load {
       paths = vim.fn.stdpath('config') .. '/lua/jl/luasnip/snippets'
     }
