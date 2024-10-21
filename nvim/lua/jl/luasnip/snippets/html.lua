@@ -10,14 +10,17 @@ local aliasable_tag_pair_contents = function (params)
   }))
 end
 
+local closing_tag_without_params = function (tag)
+  return string.match(tag[1][1], '(.-)%s')
+end
+
 return {
 
   -- collection tag
-  s('col', fmt('{{{{ collection:{}{} }}}}\n    {}\n{{{{ /collection:{} }}}}', {
+  s('col', fmt('{{{{ collection:{} }}}}\n    {}\n{{{{ /collection:{} }}}}', {
     i(1),
-    i(2),
-    d(3, aliasable_tag_pair_contents, { 2 }),
-    extras.rep(1),
+    d(2, aliasable_tag_pair_contents, { 1 }),
+    f(closing_tag_without_params, { 1 })
   })),
 
 }
