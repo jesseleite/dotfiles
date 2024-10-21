@@ -15,6 +15,7 @@ return {
   config = function ()
     require('luasnip').setup {
       update_events = { 'TextChanged', 'TextChangedI' },
+      ft_func = require('luasnip.extras.filetype_functions').from_cursor_pos,
     }
 
     require('luasnip.loaders.from_lua').load {

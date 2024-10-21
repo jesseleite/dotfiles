@@ -16,7 +16,7 @@ end
 
 return {
 
-  -- collection tag
+  -- Collection tag
   s('col', fmt('{{{{ collection:{} }}}}\n    {}\n{{{{ /collection:{} }}}}', {
     i(1),
     d(2, aliasable_tag_pair_contents, { 1 }),
