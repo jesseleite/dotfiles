@@ -29,7 +29,10 @@ return {
             -- 'vim', 'Ray', -- generic vim
             's', 'sn', 'fmt', 'i', 'c', 't', 'f', 'd', 'extras', -- luasnip
           },
-          -- disable = {"lowercase-global"}, -- Do I still need this?
+          disable = {
+            'missing-fields',
+            -- 'lowercase-global', -- do I still want this?
+          },
         },
         workspace = {
           library = {
