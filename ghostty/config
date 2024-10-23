@@ -1,0 +1,82 @@
+# ------------------------------------------------------------------------------
+# Ghostty Config! 👻
+# ------------------------------------------------------------------------------
+
+# Background & Foreground Colors
+background = #18181A
+foreground = #FFFFFF
+
+# Selection Colors
+selection-background = #323232
+selection-foreground = #FFFFFF
+
+# Cursor Colors
+cursor-color = #FFFFFF
+cursor-text = #000000
+
+# Black
+palette = 0=#212121
+palette = 8=#424242
+
+# Red
+palette = 1=#FA2E62
+palette = 9=#FA2E62
+
+# Green
+palette = 2=#00EC6E
+palette = 10=#00EC6E
+
+# Yellow
+palette = 3=#FFE981
+palette = 11=#FFE981
+
+# Blue
+palette = 4=#47BAC0
+palette = 12=#47BAC0
+
+# Magenta
+palette = 5=#E4609B
+palette = 13=#E4609B
+
+# Cyan
+palette = 6=#47BAC0
+palette = 14=#47BAC0
+
+# White
+palette = 7=#ffffff
+palette = 15=#ffffff
+
+# Font Family
+font-family = JetBrains Mono
+
+# Font Size
+font-size = 17
+
+# Window Config
+macos-titlebar-style = hidden
+window-width = 140
+window-height = 30
+window-padding-y = 11
+window-padding-x = 16
+# window-colorspace = display-p3 # TODO: shaded colors aren't quite as vibrant as wezterm, not sure why?
+
+# Line height
+adjust-cell-height = 60%
+adjust-underline-position = 15%
+# TODO: fix cursor height? right now there's no `adjust-cursor-height` to match cell height 😭
+
+# Cursor style
+cursor-style = block
+cursor-style-blink = false
+
+# Clipboard settings
+clipboard-read = allow
+clipboard-write = allow
+
+# Allow option to work as alt on macos
+macos-option-as-alt = true
+
+# Keybinds
+keybind = cmd+k=text:\x02s
+keybind = cmd+shift+k=text:\x02r # TODO: Why won't cmd+shift+k work? 🤔
+keybind = cmd+r=text:\x02r
