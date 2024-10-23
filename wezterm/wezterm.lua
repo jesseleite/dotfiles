@@ -19,6 +19,13 @@ local color_schemes = {
   }
 }
 
+local to_tmux_prefix = function (key)
+  return wezterm.action.Multiple({
+    wezterm.action.SendKey({ mods = 'CTRL', key = 'b' }),
+    wezterm.action.SendKey({ key = key }),
+  })
+end
+
 local config = {
   term = "wezterm",
   color_schemes = color_schemes,
@@ -38,8 +45,10 @@ local config = {
   enable_tab_bar = false,
   adjust_window_size_when_changing_font_size = false,
   keys = {
-    { key = 't', mods = 'SUPER', action = wezterm.action.Nop },
-    { key = '\\', mods = 'CTRL', action = wezterm.action.ShowDebugOverlay },
+    { mods = 'CTRL', key = '\\', action = wezterm.action.ShowDebugOverlay },
+    { mods = 'CMD', key = 't', action = to_tmux_prefix('c') },
+    { mods = 'CMD', key = 'k', action = to_tmux_prefix('s') },
+    { mods = 'CMD', key = 'r', action = to_tmux_prefix('r') },
   },
   front_end = 'WebGpu', -- Temp: This is new default in nightly, can remove later!
 }

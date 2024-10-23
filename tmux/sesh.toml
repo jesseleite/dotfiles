@@ -3,26 +3,6 @@ name = "misc"
 path = "~"
 
 [[session]]
-name = "cms"
-path = "~/Code/Wilderborn/cms"
-
-[[session]]
 name = "runner"
 path = "~/Code/Wilderborn/cms"
-
-[[session]]
-name = "1337keyboards"
-path = "~/Code/Personal/1337keyboards"
-
-[[session]]
-name = "vimfornormalpeople"
-path = "~/Code/Personal/vimfornormalpeople"
-
-[[session]]
-name = "the-shire"
-path = "~/Code/Personal/the-shire"
-
-[[session]]
-name = "dotfiles"
-path = "~/.dotfiles"
 # startup_command = "nvim -c ':Telescope git_files'"

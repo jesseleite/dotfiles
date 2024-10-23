@@ -16,7 +16,7 @@ t() {
     return
   fi
 
-  sesh connect $(sesh list -i | gum filter --limit 1 --placeholder 'Pick a sesh!' --height 50 --prompt='  ')
+  sesh connect $(sesh list -i | gum filter --no-sort --limit 1 --placeholder 'Pick a sesh!' --height 50 --prompt='  ')
 }
 
 # Ensure attached to session when opening new terminal windows
