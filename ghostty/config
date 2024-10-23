@@ -50,13 +50,13 @@ palette = 15=#ffffff
 font-family = JetBrains Mono
 
 # Font Size
-font-size = 17
+font-size = 16
 
 # Window Config
 macos-titlebar-style = hidden
 window-width = 140
 window-height = 30
-window-padding-y = 11
+window-padding-y = 18,15
 window-padding-x = 16
 # window-colorspace = display-p3 # TODO: shaded colors aren't quite as vibrant as wezterm, not sure why?
 
