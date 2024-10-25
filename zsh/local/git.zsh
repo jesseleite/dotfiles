@@ -3,24 +3,29 @@
 # ------------------------------------------------------------------------------
 
 # Aliases
+alias grt='cd "$(git rev-parse --show-toplevel || echo .)"'
 alias gin='git init && gaa && gcmsg "Initial commit."'
-alias tower='gittower .'
+alias gcb='git checkout -b'
 alias gdb='git remote show origin | grep "HEAD branch" | cut -d " " -f5'
 alias gcod='gco $(gdb)'
 alias gaa='git add --all'
+alias gcp='git cherry-pick'
 alias gc='git commit --verbose'
-alias gl='git pull'
+alias gca='git commit --verbose --amend'
+alias gl='git log --oneline --decorate --graph'
+alias gsh='git show'
+alias gp='git pull'
 alias gpom='git pull origin master'
 alias gpush='git push'
 alias gpsup="git push --set-upstream origin $(git branch --show-current 2> /dev/null)"
 alias gpusht='git push --tags'
-alias glog='git log --oneline --decorate --graph'
 alias gsta='git stash push'
 alias gstaa='git stash apply'
 alias glt='git describe --tags --abbrev=0' # git latest tag
 alias gcslt='git --no-pager log $(glt)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
 alias changelog='gcslt && gcslt | pbcopy' # copy commits since latest tag for changelog
 alias kicktests='git commit --allow-empty -m "Kick test suite."'
+alias tower='gittower .'
 
 # Git status with fugitive
 gs() {
@@ -33,44 +38,51 @@ gs() {
   fi
 }
 
-# Git checkout with fzf fuzzy search
+# Git checkout with gum fuzzy search
 gco() {
   if [ -n "$1" ]; then git checkout $1; return; fi
-  git branch -vv | fzf | awk '{print $1}' | xargs git checkout
+  local branches
+  branches=$(git branch | awk '{print $1}' | rg -v '\*')
+  echo $branches | gum filter --placeholder 'Checkout branch...' | xargs git checkout
 }
 
-# Git checkout remote branch with fzf fuzzy search
+# Git checkout remote branch with gum fuzzy search
 gcr() {
   git fetch
   if [ -n "$1" ]; then git checkout $1; return; fi
-  git branch --all | fzf | sed "s#remotes/[^/]*/##" | xargs git checkout
+  local branches
+  branches=$(git branch --all | awk '{print $1}' | rg -v '\*')
+  echo $branches | gum filter --placeholder 'Checkout remote branch...' | sed "s#remotes/[^/]*/##" | xargs git checkout
 }
 
-# Git checkout history with fzf fuzzy search
+# Git checkout history with gum fuzzy search
 gch() {
-    local branches branch
-    branches=$(git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep checkout | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 11 | tail -n 10 | awk -F' ~ HEAD@{' '{printf("%s: %s\n", substr($2, 1, length($2)-1), $1)}')
-    selection=$(echo "$branches" | fzf +m)
-    branch=$(echo "$selection" | awk '{print $NF}')
-    git checkout $branch
+    local history
+    history=$(git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep checkout | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 11 | tail -n 10 | awk -F' ~ HEAD@{' '{printf("%s: %s\n", substr($2, 1, length($2)-1), $1)}')
+    echo "$history" | gum filter --placeholder 'Checkout history...' | awk '{print $NF}' | xargs git checkout
 }
 
-# Git checkout a PR with fzf fuzzy search
+# Git checkout a PR with gum fuzzy search
 gpr() {
   if [ -n "$1" ]; then gh pr checkout $1; return; fi
-  gh pr list | fzf | awk '{print $1}' | xargs gh pr checkout
+  local prs=$(gh pr list \
+    --json number,title,headRefName,updatedAt \
+    --template '{{range .}}{{tablerow (printf "#%v" .number | autocolor "green") (truncate 60 .title) (truncate 40 .headRefName) (timeago .updatedAt)}}{{end}}')
+  echo $prs | gum filter --placeholder 'Checkout PR...' | awk '{print $1}' | xargs gh pr checkout
 }
 
-# Git checkout tag with fzf fuzzy search
+# Git checkout tag with gum fuzzy search
 gct() {
   if [ -n "$1" ]; then git checkout $1; return; fi
-  git tag | fzf | xargs git checkout
+  git tag | gum filter --placeholder 'Checkout tag...' | xargs git checkout
 }
 
-# Git delete branch with fzf fuzzy search
+# Git delete branch with gum fuzzy search
 gbd() {
   if [ -n "$1" ]; then git branch -d $1; return; fi
-  local selected=$(git branch -vv | fzf | awk '{print $1}' | sed "s/.* //")
+  local branches
+  branches=$(git branch | awk '{print $1}' | rg -v '\*')
+  local selected=$(echo $branches | gum filter --placeholder 'Delete branch...')
   if [ -z "$selected" ]; then return; fi
   echo "Are you sure you would like to delete branch [\e[0;31m$selected\e[0m]? (Type 'delete' to confirm)"
   read confirmation
@@ -122,3 +134,7 @@ nah() {
     git clean -qf
   fi
 }
+
+# TODO: Maybe I want a few of these aliases more back since ditching oh-my-zsh...
+# Maybe git submodule and/or worktree stuff?
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
