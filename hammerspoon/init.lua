@@ -67,6 +67,7 @@ local layout = hs.loadSpoon('GridLayout')
   :setApps(apps)
   :setGrid('60x20')
   :setMargins('15x15')
+  -- :setMargins('12x12') -- If I switch to Ghostty
 
 if (hs.screen.primaryScreen():name() == 'LG HDR WQHD') then
   layout:setMargins('30x30')

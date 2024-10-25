@@ -57,15 +57,14 @@ font-size = 16
 macos-titlebar-style = hidden
 window-width = 140
 window-height = 30
-window-padding-y = 18,15
+window-padding-y = 16,12
 window-padding-x = 16
-window-colorspace = display-p3
 # TODO: shaded colors aren't quite as vibrant as wezterm, not sure why?
 
 # Line height
-adjust-cell-height = 60%
+adjust-cell-height = 65%
 adjust-underline-position = 15%
-adjust-font-baseline = 10%
+adjust-font-baseline = 9%
 # TODO: fix cursor height? right now there's no `adjust-cursor-height` to match cell height 😭
 
 # Cursor style
