@@ -13,7 +13,7 @@ alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
 alias -- -='cd -'
-alias l='ls -lah'
+alias l='ls -lhA'
 # ???
 # function d () {
 #   if [[ -n $1 ]]; then
@@ -23,6 +23,13 @@ alias l='ls -lah'
 #   fi
 # }
 # compdef _dirs d
+
+# Always show colors for `ls`, etc.
+export CLICOLOR=1
+
+# Tweak `ls` colors
+# See: https://geoff.greer.fm/lscolors/
+export LSCOLORS=exfxcxdxcxegedabagacad
 
 # Extra tab-completions goodness
 autoload -Uz compinit && compinit -C
