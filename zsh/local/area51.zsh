@@ -14,7 +14,6 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 alias -- -='cd -'
 alias l='ls -lah'
-alias la="ls -lAFh"
 # ???
 # function d () {
 #   if [[ -n $1 ]]; then
