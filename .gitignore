@@ -1,5 +1,5 @@
 .DS_Store
 *.swp
-zsh/bundles.sh
+zsh/bundles.zsh
 brewfile.lock.json
 nvim/.undo

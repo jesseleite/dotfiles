@@ -9,7 +9,7 @@ tap 'qmk/qmk'                          # For `qmk`
 tap 'shivammathur/php'                 # For older versions of php
 
 # Brew
-brew 'antibody'
+brew 'antidote'
 brew 'avr-gcc' # For `qmk`
 brew 'awk'
 brew 'bash'

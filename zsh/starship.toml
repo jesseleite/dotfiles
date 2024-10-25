@@ -1,0 +1,22 @@
+[directory]
+truncation_length = 25
+truncate_to_repo = false
+style = '006'
+
+[git_branch]
+style = '005'
+
+[git_status]
+stashed = ''
+style = '242'
+
+[php]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[cmd_duration]
+format = '[$duration]($style) '
+min_time = 1_000
+style = '008'

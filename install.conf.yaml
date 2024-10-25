@@ -14,6 +14,7 @@
     ~/.gitignore_global: git/gitignore_global
     ~/.zshrc: zsh/zshrc
     ~/.config/nvim: nvim
+    ~/.config/starship.toml: zsh/starship.toml
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.config/ghostty/config: ghostty/config
     ~/.wezterm.lua: wezterm/wezterm.lua
@@ -59,7 +60,7 @@
     command: "sh wezterm/install"
     stdout: true
     stderr: true
-  - description: Compiling antibody bundles
+  - description: Compiling antidote bundles
     command: "sh zsh/bundles_compile"
   - description: Installing python bundle
     command: "pip3 install -r pipfile"

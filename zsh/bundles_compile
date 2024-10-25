@@ -1,4 +1,0 @@
-#!/bin/bash
-
-antibody bundle < ~/.dotfiles/zsh/bundles > ~/.dotfiles/zsh/bundles.sh
-echo "Compiled antibody bundles file"

@@ -1,4 +1,59 @@
 # ------------------------------------------------------------------------------
+# Find better places for this stuff...
+# ------------------------------------------------------------------------------
+
+# Stuff from oh-my-zsh
+# Changing/making/removing directory
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+alias -- -='cd -'
+alias l='ls -lah'
+alias la="ls -lAFh"
+# ???
+# function d () {
+#   if [[ -n $1 ]]; then
+#     dirs "$@"
+#   else
+#     dirs -v | head -n 10
+#   fi
+# }
+# compdef _dirs d
+
+# Extra tab-completions goodness
+autoload -Uz compinit && compinit -C
+
+# Window title stuff
+# TODO: why the flicker? is there a better way?
+case "$TERM" in
+    xterm*|rxvt*|wezterm)
+        function xtitle () {
+            builtin print -n -- "\e]0;$@\a"
+        }
+        ;;
+    screen)
+        function xtitle () {
+            builtin print -n -- "\ek$@\e\\"
+        }
+        ;;
+    *)
+        function xtitle () {
+        }
+esac
+function precmd () {
+    xtitle "$(print -P '%~')"
+}
+function preexec () {
+    xtitle "$1"
+}
+
+
+# ------------------------------------------------------------------------------
 # Experimental Stuff
 # ------------------------------------------------------------------------------
 

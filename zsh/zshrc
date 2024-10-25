@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 # This file sets up my basic zsh environment.  Here I set a few defaults,
 # paths, and source the rest of the config files as necessary.  Most
-# plugins are installed and sourced via brew or antibody, with
+# plugins are installed and sourced via brew or antidote, with
 # more elaborate configuration in the /local directory.
 
 
@@ -21,17 +21,18 @@ INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 
 
 # ------------------------------------------------------------------------------
-# Sourcing
+# Antidote
 # ------------------------------------------------------------------------------
 
-# Disable completion directory permission verification
-ZSH_DISABLE_COMPFIX=true
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+antidote load ~/.dotfiles/zsh/bundles
 
-# Set oh-my-zsh path
-ZSH=$(antibody path robbyrussell/oh-my-zsh)
 
-# Source compiled antibody bundles and configs
-[ -f ~/.dotfiles/zsh/bundles.sh ] && source ~/.dotfiles/zsh/bundles.sh
+# ------------------------------------------------------------------------------
+# Starship
+# ------------------------------------------------------------------------------
+
+eval "$(starship init zsh)"
 
 
 # ------------------------------------------------------------------------------
@@ -49,15 +50,15 @@ PATH=./vendor/bin:$PATH
 # Helpers
 # ------------------------------------------------------------------------------
 
-# Compile bundles and source zshrc
+# Run dotfiles installer
+alias dotinstall="~/.dotfiles/install"
+
+# Source zshrc
 sz() {
-  sh ~/.dotfiles/zsh/bundles_compile
+  rm -rf ~/.dotfiles/zsh/bundles.zsh
   source ~/.zshrc
   echo 'Sourced zshrc'
 }
-
-# Run dotfiles installer
-alias dotinstall="~/.dotfiles/install"
 
 
 # ------------------------------------------------------------------------------

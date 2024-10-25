@@ -2,23 +2,21 @@
 # Aliases and functions for Git
 # ------------------------------------------------------------------------------
 
-# Unalias oh-my-zsh aliases, in favour of my own custom config
-unalias gco
-unalias gbd
-unalias gcmsg
-unalias gcam
-unalias gpr
-unalias gp
-unalias gstp
-
 # Aliases
-alias gin="git init && gaa && gcmsg 'Initial commit.'"
-alias tower="gittower ."
+alias gin='git init && gaa && gcmsg "Initial commit."'
+alias tower='gittower .'
 alias gdb='git remote show origin | grep "HEAD branch" | cut -d " " -f5'
 alias gcod='gco $(gdb)'
-alias gpush="git push"
-alias gpom="gl origin master"
-alias glogs="git log -S"
+alias gaa='git add --all'
+alias gc='git commit --verbose'
+alias gl='git pull'
+alias gpom='git pull origin master'
+alias gpush='git push'
+alias gpsup="git push --set-upstream origin $(git branch --show-current 2> /dev/null)"
+alias gpusht='git push --tags'
+alias glog='git log --oneline --decorate --graph'
+alias gsta='git stash push'
+alias gstaa='git stash apply'
 alias glt='git describe --tags --abbrev=0' # git latest tag
 alias gcslt='git --no-pager log $(glt)..HEAD --oneline --no-decorate --first-parent --no-merges' # git commits since latest tag
 alias changelog='gcslt && gcslt | pbcopy' # copy commits since latest tag for changelog
@@ -82,13 +80,11 @@ gbd() {
 }
 
 # Commit with message
-# Note: Oh-my-zsh has this alias already, but this function removes the need to wrap the message in quotes
 gcmsg() {
   git commit -m "$*"
 }
 
 # Add all and commit with message
-# Note: Oh-my-zsh has this alias already, but it doesn't add untracked files
 gcam() {
   git add --all && git commit -m "$*"
 }
