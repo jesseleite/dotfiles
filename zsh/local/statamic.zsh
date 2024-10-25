@@ -44,9 +44,9 @@ plslink() {
   fi
 
   echo "\nIn vendor/statamic:"
-  la vendor/statamic
+  l vendor/statamic
   echo "\nIn public/vendor/statamic:"
-  la public/vendor/statamic
+  l public/vendor/statamic
 }
 
 # Setup a fresh starter kit with user
