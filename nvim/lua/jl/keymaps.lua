@@ -13,9 +13,6 @@ vim.keymap.set('n', '<Leader>q', ':q<CR>')
 -- Exit insert mode
 vim.keymap.set('i', 'jk', '<Esc>')
 
--- Exit terminal mode
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
-
 -- Edit current command in normal mode using command line window
 -- vim.keymap.set('c', 'jk', '<C-f>')
 -- TODO: This messes with flash.nvim's label if `j` is pressed. Remap to `<C-something>` else?

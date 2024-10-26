@@ -10,6 +10,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
     vim.wo.number = false
     vim.wo.relativenumber = false
     vim.cmd.startinsert()
+    vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { buffer = true, silent = true })
     vim.keymap.set('n', '<Leader>q', ':bd!<CR>', { buffer = true, silent = true })
     vim.keymap.set('n', '<Leader>c', ':bd!<CR>', { buffer = true, silent = true })
     vim.keymap.set('n', '<C-c>', ':bd!<CR>', { buffer = true, silent = true })
