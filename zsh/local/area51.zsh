@@ -34,6 +34,11 @@ export LSCOLORS=exfxcxdxcxegedabagacad
 # Extra tab-completions goodness
 autoload -Uz compinit && compinit -C
 
+# Always read man pages with gum pager
+man() {
+  /usr/bin/man $1 | gum pager
+}
+
 # Window title stuff
 # TODO: why the flicker? is there a better way?
 case "$TERM" in
