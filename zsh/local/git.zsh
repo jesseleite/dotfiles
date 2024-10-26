@@ -3,6 +3,7 @@
 # ------------------------------------------------------------------------------
 
 # Aliases
+alias g='git'
 alias grt='cd "$(git rev-parse --show-toplevel || echo .)"'
 alias gin='git init && gaa && gcmsg "Initial commit."'
 alias gcb='git checkout -b'
