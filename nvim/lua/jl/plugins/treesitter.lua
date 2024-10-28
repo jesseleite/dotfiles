@@ -15,8 +15,8 @@ return {
   main = 'nvim-treesitter.configs',
   lazy = false,
   keys = {
-    { '<M-p>', function () t.goto_node(t.get_previous_node(t.get_node_at_cursor(), true, true) ) end },
-    { '<M-n>', function () t.goto_node(t.get_next_node(t.get_node_at_cursor(), true, true) ) end },
+    { '<A-p>', function () t.goto_node(t.get_previous_node(t.get_node_at_cursor(), true, true) ) end },
+    { '<A-n>', function () t.goto_node(t.get_next_node(t.get_node_at_cursor(), true, true) ) end },
   },
   opts = {
     ensure_installed = 'all',
@@ -30,10 +30,10 @@ return {
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = "<M-o>",
-        scope_incremental = "<M-O>",
-        node_incremental = "<M-o>",
-        node_decremental = "<M-i>",
+        init_selection = "<A-o>",
+        scope_incremental = "<A-O>",
+        node_incremental = "<A-o>",
+        node_decremental = "<A-i>",
       },
     },
     textobjects = {
