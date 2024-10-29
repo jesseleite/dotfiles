@@ -49,4 +49,7 @@ return {
   -- TODO: How to automatically paste visual selection into this?
   s('raypass', fmt('ray()->pass({})', { i(0) })),
 
+  -- Nowdoc / heredoc multiline strings
+  s('eot', fmt('<<<{}\n{}\n{}', { i(1, 'EOT'), i(0), f(function (id) return id[1][1]:gsub('[\'"]', '') or 'EOT' end, { 1 }) })),
+
 }
