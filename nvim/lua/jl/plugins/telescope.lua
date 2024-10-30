@@ -26,11 +26,11 @@ return {
     { '<Leader>s', function () t.lsp_document_symbols() end, desc = 'Telescope LSP Symbols' },
     { '<Leader>S', function () c.lsp_document_methods() end, desc = 'Telescope LSP Methods' },
     { '<Leader>l', function () t.current_buffer_fuzzy_find() end, desc = 'Telescope Current Buffer Lines' },
-    { '<Leader>L', function () c.laravel_vendor_files() end, desc = 'Telescope Laravel Vendor Files' },
     { '<Leader>C', function () t.commands() end, desc = 'Telescope Commands' },
     { '<Leader>:', function () t.command_history() end, desc = 'Telescope Command History' },
     { '<Leader>R', function () t.pickers() end, desc = 'Telescope Resume' },
     { '<Leader>?', function () t.help_tags() end, desc = 'Telescope Help Search' },
+    { '<Leader><Leader>v', function () c.vendor_files() end, desc = 'Telescope Vendor Files' },
     { '<Leader><Leader>d', function () c.dotfiles() end, desc = 'Telescope Dotfiles' },
     { '<Leader><Leader>v', function () c.nvim_dotfiles() end, desc = 'Telescope Nvim Dotfiles' },
     { '<Leader><Leader>f', function () t.filetypes() end, desc = 'Telescope Filetypes' },
@@ -38,6 +38,7 @@ return {
     { '<Leader>/', function () require('telescope').extensions.live_grep_args.live_grep_args() end, desc = 'Telescope Live Grep Args' },
     { '<Leader>/', function () require('telescope-live-grep-args.shortcuts').grep_visual_selection() end, mode = 'x', desc = 'Telescope Live Grep Selection' },
     { '<Leader>*', function () require('telescope-live-grep-args.shortcuts').grep_word_under_cursor() end, desc = 'Telescope Live Grep Word' },
+    { '<Leader>M', function () require('telescope').extensions.macroni.saved_macros() end, desc = 'Telescope Saved Macros', mode = { 'n', 'v' } },
   },
   config = function ()
     local telescope = require('telescope')
@@ -108,7 +109,7 @@ return {
           prompt_title = 'Live Ripgrep',
           mappings = {
             i = {
-              ["<C-'>"] = require('telescope-live-grep-args.actions').quote_prompt(),
+              ["<Tab>"] = require('telescope-live-grep-args.actions').quote_prompt(),
             }
           }
         },
@@ -118,6 +119,7 @@ return {
     telescope.load_extension('fzf')
     telescope.load_extension('live_grep_args')
     telescope.load_extension('ui-select')
+    telescope.load_extension('macroni')
 
     t = require('telescope.builtin')
     c = require('jl.telescope.pickers')
