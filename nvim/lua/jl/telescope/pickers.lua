@@ -34,13 +34,6 @@ M.project_history = function ()
   })
 end
 
-M.buffers = function ()
-  builtin.buffers({
-    prompt_title = 'Buffers',
-    sort_lastused = true,
-  })
-end
-
 M.lsp_document_methods = function ()
   builtin.lsp_document_symbols({
     prompt_title = 'LSP Document Methods',

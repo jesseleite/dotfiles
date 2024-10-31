@@ -19,7 +19,7 @@ return {
   keys = {
     { '<Leader>f', function () t.git_files() end, desc = 'Telescope Git Files' },
     { '<Leader>F', function () t.find_files() end, desc = 'Telesscope All Files' },
-    { '<Leader>b', function () c.buffers() end, desc = 'Telescope Buffers' },
+    { '<Leader>b', function () t.buffers() end, desc = 'Telescope Buffers' },
     { '<Leader>m', function () t.git_status() end, desc = 'Telescope Git Status' },
     { '<Leader>h', function () c.project_history() end, desc = 'Telescope Project History' },
     { '<Leader>H', function () t.oldfiles() end, desc = 'Telescope History' },
@@ -97,6 +97,7 @@ return {
           prompt_title = 'All History',
         },
         buffers = {
+          sort_lastused = true,
           mappings = {
             i = {
               ["<C-x>"] = actions.delete_buffer,
