@@ -7,6 +7,7 @@ Sincerely, 🌹
 Jesse 💅
 
 [X](https://x.com/jesseleite85)<br>
+[bl*esky](https://bsky.app/profile/jesseleite.com)<br>
 [jesseleite.com](https://jesseleite.com)<br>
 [vimfornormalpeople.com](https://vimfornormalpeople.com)<br>
 [campfirecoders.com](https://campfirecoders.com)<br>
