@@ -1,7 +1,6 @@
 # Clone & Source Plugins
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-completions
-zsh-users/zsh-autosuggestions
 molovo/tipz
 
 # Source Local Configs
