@@ -12,7 +12,7 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 alias -g ......='../../../../..'
-alias -- -='cd -'
+alias -- -='cd - > /dev/null 2>&1'
 alias l='ls -lhA'
 # ???
 # function d () {
