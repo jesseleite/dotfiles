@@ -13,7 +13,8 @@ alias comp1="composer self-update --1 && composer --version"
 alias comp2="composer self-update --2 && composer --version"
 
 # Reinstall dependencies
-alias deps="comp install && npm ci && npm run dev"
+alias deps="comp install && npm ci && npm run build"
+alias depsu="comp update && update i && npm run build"
 
 # Run tests
 alias tp="phpunit"
