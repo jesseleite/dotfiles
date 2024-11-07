@@ -194,6 +194,7 @@ git_default_branch() {
 # List github PRs in pretty table format for gum filtering
 gh_pretty_list_prs() {
   gh pr list \
-    --json number,title,headRefName,updatedAt \
-    --template '{{range .}}{{tablerow (printf "#%v" .number | autocolor "green") (truncate 60 .title) (truncate 40 .headRefName) (timeago .updatedAt)}}{{end}}'
+    --limit 500 \
+    --json number,title,author,headRefName,updatedAt \
+    --template '{{range .}}{{tablerow (printf "#%v" .number | autocolor "green") (truncate 60 .title) (truncate 15 .author.login) (truncate 40 .headRefName) (timeago .updatedAt)}}{{end}}'
 }
