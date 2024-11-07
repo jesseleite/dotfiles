@@ -5,3 +5,8 @@
 export _ZO_RESOLVE_SYMLINKS=1
 
 eval "$(zoxide init zsh)"
+
+zadd() {
+  ls -d */ | xargs zoxide add
+  echo 'Successfully added directories at current level to zoxide!'
+}
