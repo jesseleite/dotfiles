@@ -19,6 +19,9 @@ disabled = true
 [lua]
 disabled = true
 
+[golang]
+disabled = true
+
 [cmd_duration]
 format = '[$duration]($style) '
 min_time = 1_000

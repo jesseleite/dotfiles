@@ -20,6 +20,7 @@ return {
   },
   jsonls = true,
   yamlls = true,
+  gopls = true,
   lua_ls = {
     settings = {
       Lua = {
