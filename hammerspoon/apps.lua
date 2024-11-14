@@ -1,15 +1,15 @@
 return {
-  WezTerm = {
-    id = 'com.github.wez.wezterm',
+  Terminal = {
+    id = 'com.mitchellh.ghostty',
     summon = 'escape',
   },
-  Brave = {
-    id = 'com.brave.Browser',
-    summon = 'b', -- browser
+  Browser = {
+    id = 'company.thebrowser.Browser',
+    summon = 'b',
   },
-  Fantastical = {
+  Calendar = {
     id = 'com.flexibits.fantastical2.mac',
-    summon = 'c', -- calendar
+    summon = 'c',
   },
   Linear = {
     id = 'com.linear',
