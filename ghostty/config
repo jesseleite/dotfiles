@@ -63,9 +63,9 @@ window-padding-x = 16
 
 # Line height
 adjust-cell-height = 65%
+adjust-cursor-height = 65%
 adjust-underline-position = 15%
 adjust-font-baseline = 9%
-# TODO: fix cursor height? right now there's no `adjust-cursor-height` to match cell height 😭
 
 # Cursor style
 cursor-style = block
