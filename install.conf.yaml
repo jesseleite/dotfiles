@@ -15,9 +15,7 @@
     ~/.zshrc: zsh/zshrc
     ~/.config/nvim: nvim
     ~/.config/starship.toml: zsh/starship.toml
-    ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.config/ghostty/config: ghostty/config
-    ~/.wezterm.lua: wezterm/wezterm.lua
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/sesh/sesh.toml: tmux/sesh.toml
     ~/.hammerspoon: hammerspoon
@@ -56,10 +54,6 @@
     command: "[[ \"$(ag $(which zsh) /etc/shells)\" ]] || sudo sh -c \"echo $(which zsh) >> /etc/shells\""
   - description: Making zsh the default shell
     command: "chsh -s $(which zsh)"
-  - description: Installing wezterm terminfo file
-    command: "sh wezterm/install"
-    stdout: true
-    stderr: true
   - description: Compiling antidote bundles
     command: "sh zsh/bundles_compile"
   - description: Installing python bundle

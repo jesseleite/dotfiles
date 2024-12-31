@@ -42,7 +42,7 @@ man() {
 # Window title stuff
 # TODO: why the flicker? is there a better way?
 case "$TERM" in
-    xterm*|rxvt*|wezterm)
+    xterm*|rxvt*)
         function xtitle () {
             builtin print -n -- "\e]0;$@\a"
         }

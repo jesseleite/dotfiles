@@ -1,8 +1,0 @@
-#!/bin/bash
-
-echo "Installing `wezterm` terminfo file..."
-
-tempfile=$(mktemp) \
-  && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo \
-  && tic -x -o ~/.terminfo $tempfile \
-  && rm $tempfile

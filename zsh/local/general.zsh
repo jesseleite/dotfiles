@@ -4,6 +4,7 @@
 
 # Ensure xterm-256color when ssh'ing, for terminal environments like `wezterm` and `xterm-kitty`
 # Backspace doesn't work properly without this
+# TODO: Is this still needed for ghostty?
 alias ssh='env TERM=xterm-256color ssh'
 
 alias c="clear"
