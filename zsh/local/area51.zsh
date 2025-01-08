@@ -6,6 +6,7 @@
 # Changing/making/removing directory
 setopt AUTO_CD
 setopt AUTO_PUSHD
+setopt CHASE_LINKS
 setopt PUSHD_IGNORE_DUPS
 setopt PUSHDMINUS
 alias -g ...='../..'
