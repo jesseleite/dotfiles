@@ -223,6 +223,7 @@ gwcl() {
   fi
   git clone --bare $1 $dir/.git
   cd $dir
+  git config --add remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
   gwr $(git_default_branch)
 }
 
@@ -259,6 +260,7 @@ gwr() {
   cd $(git_root)
   local dir=$(echo $selected | sed "s#/#-#")
   gwa $dir $selected
+  git branch --set-upstream-to=origin/$selected $selected
 }
 
 # Add a new worktree from a PR with gum fuzzy search
