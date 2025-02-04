@@ -14,13 +14,26 @@ alias gcl='git clone'
 # Init and create initial commit
 alias gin='git init && gaa && gcmsg "Initial commit."'
 
+# Go to git root, whether in a regular subdir or a worktree subdir
+alias gr='cd $(git_root)'
+
 
 # ------------------------------------------------------------------------------
 # Branch Management
 # ------------------------------------------------------------------------------
 
-# List local branches
-alias gb="git branch"
+# Go to git default branch using z arg
+gz() {
+  if [ -z "$1" ]; then echo 'Please specify `git worktree add` params!'; return; fi
+  z $1
+  gcod
+}
+
+# List local branches / worktrees
+gb() {
+  if $(git_is_using_worktrees); then git worktree list; return; fi
+  git branch
+}
 
 # Push
 alias gpsup='git push --set-upstream origin $(git branch --show-current 2> /dev/null)'
@@ -37,6 +50,7 @@ alias gcod='gco $(git_default_branch)'
 
 # Checkout branch with gum fuzzy search
 gco() {
+  if $(git_is_using_worktrees); then gwo $@; return; fi
   if [ -n "$1" ]; then git checkout $1; return; fi
   local branches
   branches=$(git branch | awk '{print $1}' | rg -v '\*')
@@ -45,11 +59,13 @@ gco() {
 
 # Add and checkout new branch
 gba() {
+  if $(git_is_using_worktrees); then gwa $@; return; fi
   git checkout -b $@
 }
 
 # Checkout remote branch with gum fuzzy search
 gcr() {
+  if $(git_is_using_worktrees); then gwr $@; return; fi
   git fetch
   if [ -n "$1" ]; then git checkout $1; return; fi
   local branches
@@ -59,6 +75,7 @@ gcr() {
 
 # Checkout a PR with gum fuzzy search
 gpr() {
+  if $(git_is_using_worktrees); then gwpr $@; return; fi
   if [ -n "$1" ]; then gh pr checkout $1; return; fi
   gh_pretty_list_prs | gum filter --placeholder 'Checkout PR...' | awk '{print $1}' | sed "s/#//" | xargs gh pr checkout
 }
@@ -78,6 +95,7 @@ gch() {
 
 # Delete local branch with gum fuzzy search, and require extra confirmation to prevent accidents
 gbd() {
+  if $(git_is_using_worktrees); then gwd $@; return; fi
   if [ -n "$1" ]; then git branch -d $1; return; fi
   local branches
   branches=$(git branch | awk '{print $1}' | rg -v '\*')
@@ -183,8 +201,113 @@ gstab() {
 
 
 # ------------------------------------------------------------------------------
+# Worktree Management
+# ------------------------------------------------------------------------------
+
+# Save precious characters
+alias gw='git worktree'
+alias gwl='git worktree list'
+
+# Use this instead of `mv` on the worktree folder directly, so that they remain linked to the repo
+alias gwm='git worktree move'
+# TODO: automatically cd in or add new zoxide result too?
+
+# Clone a bare repository for a worktree, and automatically add worktree for default branch
+# Note: The `*/.git` path just unclutters the root level of the bare repo
+gwcl() {
+  if [ -z "$1" ]; then echo 'Please specify repo or path to clone from!'; return; fi
+  if [ -z "$2" ]; then
+    local dir=$(basename $1 | sed 's#.git##')
+  else
+    local dir=$2
+  fi
+  git clone --bare $1 $dir/.git
+  cd $dir
+  gwr $(git_default_branch)
+}
+
+# Open an existing local worktree
+gwo() {
+  if [ -n "$1" ]; then cd $(git_root); cd $1; return; fi
+  local selected=$(git worktree list | rg -v 'bare' | gum filter --placeholder 'Open local worktree...' | awk '{ print $1 }')
+  if [ -z "$selected" ]; then return; fi
+  cd $selected
+}
+
+# Add a new worktree, ensuring it gets added at git root
+# Note: The cd at the end is important for zoxide/sesh/tmux workflow
+gwa() {
+  if [ -z "$1" ]; then echo 'Please specify `git worktree add` params!'; return; fi
+  cd $(git_root)
+  if [ -z "$2" ]; then
+    git branch $1
+  fi
+  git worktree add $@
+  cd $1
+  # TODO: ask for shorter name?
+  # sesh connect .
+}
+
+# Add a new worktree from a remote branch with gum fuzzy search, and flatten target folder
+gwr() {
+  git fetch
+  if [ -n "$1" ]; then gwa $1; return; fi
+  local branches
+  branches=$(git branch --all | awk '{print $1}' | rg -v '[\*\+]')
+  local selected=$(echo $branches | gum filter --placeholder 'Add worktree from remote branch...' | sed "s#remotes/[^/]*/##")
+  if [ -z "$selected" ]; then return; fi
+  cd $(git_root)
+  local dir=$(echo $selected | sed "s#/#-#")
+  gwa $dir $selected
+}
+
+# Add a new worktree from a PR with gum fuzzy search
+gwpr() {
+  if [ -z "$1" ]; then
+    local pr=$(gh_pretty_list_prs | gum filter --placeholder 'Add worktree from PR...' | awk '{print $1}' | sed "s/#//")
+  else
+    local pr=$1
+  fi
+  if [ -z "$pr" ]; then return; fi
+  cd $(git_root)
+  gwa $pr
+  gh pr checkout $pr
+}
+
+# Delete a local worktree with gum fuzzy search, and require extra confirmation to prevent accidents
+# Note: This requires `trash` util so that the files can be restored if needed later as well
+gwd() {
+  local selected=$(git worktree list | rg -v 'bare' | gum filter --placeholder 'Remove local worktree...' | awk '{ print $1 }' | xargs basename)
+  if [ -z "$selected" ]; then return; fi
+  echo "Are you sure you would like to delete the [\e[0;31m$selected\e[0m] worktree? (Type 'delete' to confirm)"
+  read confirmation
+  if $(git rev-parse --is-inside-work-tree); then
+    local branch=$(git branch --show-current)
+  fi
+  if [[ "$confirmation" == "delete" ]]; then
+    cd $(git_root)
+    trash -rf $selected
+    git worktree prune
+    if [ -n $branch ]; then
+      # git branch -D $branch # TODO: Fix this so it only deletes local branches so I can re-gcr after?
+    fi
+  fi
+}
+
+
+# ------------------------------------------------------------------------------
 # Helper Funcs
 # ------------------------------------------------------------------------------
+
+# Show git root, whether in a regular subdir or a worktree subdir
+git_root() {
+  git worktree list | awk 'NR==1{ print $1 }'
+}
+
+# Check if repo is a bare repo with worktrees
+git_is_using_worktrees() {(
+  cd $(git_root) && git rev-parse --is-bare-repository
+)}
 
 # Show default origin branch
 git_default_branch() {
