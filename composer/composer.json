@@ -1,7 +1,5 @@
 {
     "require": {
-        "squizlabs/php_codesniffer": "*",
-        "laravel/installer": "^4.0",
         "statamic/cli": "^3.1",
         "laravel/pint": "^1.2"
     },
