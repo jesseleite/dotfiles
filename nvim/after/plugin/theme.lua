@@ -12,19 +12,20 @@ Group.new('StatusLineNC', nil, colors.background)
 
 
 --------------------------------------------------------------------------------
--- Diagnostic Signs
+-- Diagnostics
 --------------------------------------------------------------------------------
 
-local signs = {
-  DiagnosticSignError = "❱❱",
-  DiagnosticSignWarn = "❱❱",
-  DiagnosticSignHint = "❱❱",
-  DiagnosticSignInfo = "❱❱",
-}
-
-for name, sign in pairs(signs) do
-  vim.fn.sign_define(name, { texthl = name, text = sign })
-end
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "❱❱",
+      [vim.diagnostic.severity.WARN] = "❱❱",
+      [vim.diagnostic.severity.HINT] = "❱❱",
+      [vim.diagnostic.severity.INFO] = "❱❱",
+    }
+  }
+})
 
 
 --------------------------------------------------------------------------------
