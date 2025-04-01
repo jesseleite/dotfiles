@@ -1,7 +1,7 @@
 return {
 
   -- Function
-  s('func', fmt('function ({})\n  {}\nend', { i(1), i(0) })),
+  s('func', fmt('function ({})\n\t{}\nend', { i(1), i(0) })),
 
   -- Inline function
   s('fn', fmt('function ({}) {} end', { i(1), i(2) })),

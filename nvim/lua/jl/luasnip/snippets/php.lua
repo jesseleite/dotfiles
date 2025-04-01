@@ -5,7 +5,7 @@ return {
 
   -- Class
   -- TODO: Add choice node to toggle between class, trait, and interface
-  s('cl', fmt('<?php\n\nnamespace {};\n\nclass {}\n{{\n    {}\n}}', { i(1, 'App'), i(2, 'Name'), i(0) })),
+  s('cl', fmt('<?php\n\nnamespace {};\n\nclass {}\n{{\n\t{}\n}}', { i(1, 'App'), i(2, 'Name'), i(0) })),
 
   -- Class property
   -- TODO: Add choice node to toggle to static property
@@ -17,14 +17,14 @@ return {
   -- TODO: Constructor / named constructor snippet(s)?
 
   -- Method
-  s('met', fmt('{} function {}({}){}\n{{\n    {}\n}}', { i(1, 'public'), i(2, 'name'), i(3), i(4), i(0, '//') })),
+  s('met', fmt('{} function {}({}){}\n{{\n\t{}\n}}', { i(1, 'public'), i(2, 'name'), i(3), i(4), i(0, '//') })),
 
   -- $this->
   s('t', t('$this->')),
 
   -- Closure function
   -- TODO: Add choice node to toggle between normal and normal+use
-  s('func', fmt('function ({}) {{\n    {}\n}}', { i(1), i(0, '//') })),
+  s('func', fmt('function ({}) {{\n\t{}\n}}', { i(1), i(0, '//') })),
 
   -- Shorthand arrow function
   s('fn', fmt('fn ({}) => {}', { i(1), i(0) })),
@@ -33,13 +33,13 @@ return {
   s('route', fmt("Route::{}('{}', {});", { i(1, 'get'), i(2, 'uri'), i(0, "[SomeClass::class, 'method']") })),
 
   -- Test method
-  s('test', fmt('#[Test]\npublic function {}()\n{{\n    {}\n}}', { i(1, 'it_can_do_something'), i(0, '//') })),
+  s('test', fmt('#[Test]\npublic function {}()\n{{\n\t{}\n}}', { i(1, 'it_can_do_something'), i(0, '//') })),
 
   -- Test set up method
-  s('setup', fmt('public function setUp(): void\n{{\n    parent::setUp();\n\n    {}\n}}', { i(0) })),
+  s('setup', fmt('public function setUp(): void\n{{\n\tparent::setUp();\n\n\t{}\n}}', { i(0) })),
 
   -- Test tear down method
-  s('tear', fmt('public function tearDown(): void\n{{\n    {}\n\n    parent::tearDown();\n}}', { i(0) })),
+  s('tear', fmt('public function tearDown(): void\n{{\n\t{}\n\n\tparent::tearDown();\n}}', { i(0) })),
 
   -- Other misc phpunit test helpers
   s('weh', t('$this->withoutExceptionHandling();')),
