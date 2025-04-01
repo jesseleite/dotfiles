@@ -77,7 +77,7 @@ return {
     local buttons = {
       type = 'group',
       val = {
-        theme.button('n', '  New File', '<cmd>ene <CR>'),
+        theme.button('n', '  New File', '<cmd>enew <CR>'),
         theme.button('<Leader>f', '󰈞  Git Files'),
         theme.button('<Leader>F', '󰈞  All Files'),
         theme.button('<Leader>h', '  Project History'),
