@@ -4,10 +4,10 @@ zsh-users/zsh-completions
 molovo/tipz
 
 # Source Local Configs
-~/.dotfiles/zsh/local
+"$DOTFILES/zsh/local"
 
 # Source Fzf (This needs to happen after vi-mode bindings to give precedence to fzf bindings)
-~/.dotfiles/zsh/local/fzf.zsh
+"$DOTFILES/zsh/local/fzf.zsh"
 
 # Source Statamic stuff (This needs to happen after other aliases are created)
-~/.dotfiles/zsh/local/statamic.zsh
+"$DOTFILES/zsh/local/statamic.zsh"

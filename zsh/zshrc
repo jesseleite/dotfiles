@@ -8,6 +8,13 @@
 
 
 # ------------------------------------------------------------------------------
+# Global
+# ------------------------------------------------------------------------------
+
+DOTFILES="$HOME/.dotfiles"
+
+
+# ------------------------------------------------------------------------------
 # Homebrew
 # ------------------------------------------------------------------------------
 
@@ -25,7 +32,7 @@ INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 # ------------------------------------------------------------------------------
 
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-antidote load ~/.dotfiles/zsh/bundles
+antidote load $DOTFILES/zsh/bundles
 
 
 # ------------------------------------------------------------------------------
@@ -39,7 +46,7 @@ eval "$(starship init zsh)"
 # Paths
 # ------------------------------------------------------------------------------
 
-PATH=~/.dotfiles/bin:$PATH
+PATH=$DOTFILES/bin:$PATH
 PATH=~/.config/phpmon/bin:$PATH
 PATH=./node_modules/.bin:$PATH
 PATH=~/.composer/vendor/bin:$PATH
@@ -51,12 +58,12 @@ PATH=./vendor/bin:$PATH
 # ------------------------------------------------------------------------------
 
 # Run dotfiles installer
-alias dotinstall="~/.dotfiles/install"
+alias dotinstall="$DOTFILES/install"
 
 # Source zshrc
 sz() {
-  rm -rf ~/.dotfiles/zsh/bundles.zsh
-  source ~/.zshrc
+  rm -rf $DOTFILES/zsh/bundles.zsh
+  source $HOME/.zshrc
   echo 'Sourced zshrc'
 }
 

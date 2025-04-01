@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 
 # Configure git user
-alias gituser="bash ~/.dotfiles/git/user.sh"
+alias gituser="bash $DOTFILES/git/user.sh"
 
 # Edit hosts file
 alias hosts="sudo vim /etc/hosts"
