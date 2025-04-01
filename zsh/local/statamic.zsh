@@ -10,7 +10,6 @@ alias plsi="arti && plsuser"
 alias plsv="art --version && pls --version"
 alias plsr="art route:list"
 alias plsrf="art route:list --except-path=cp"
-alias cmsd="in docs npm run docs:dev"
 alias cmsw="in cms npm run watch"
 alias plsuser="cp ~/.dotfiles/statamic/jesseleite@example.com.yaml users/jesseleite@example.com.yaml && echo 'User created.'"
 alias plspro="pls pro:enable"
@@ -32,13 +31,8 @@ plsweekly() {
 # Symlink local statamic packages/assets, no matter how they are composer required
 plslink() {
   if [ "$1" = 'cms' ]; then
-    rm -rf public/vendor/statamic/cp
-    ln -s ~/Code/Wilderborn/cms/resources/dist public/vendor/statamic/cp
-    rm -rf public/vendor/statamic/frontend
-    ln -s ~/Code/Wilderborn/cms/resources/dist-frontend public/vendor/statamic/frontend
-  fi
-
-  if [ -n "$1" ]; then
+    plslinkcms
+  elif [ -n "$1" ]; then
     rm -rf vendor/statamic/$1
     ln -s ~/Code/Wilderborn/$1 vendor/statamic/$1
   fi
@@ -47,6 +41,21 @@ plslink() {
   l vendor/statamic
   echo "\nIn public/vendor/statamic:"
   l public/vendor/statamic
+}
+
+# Symlink local worktree from statamic/cms specifically
+plslinkcms() {
+  local worktree=$(cd ~/Code/Wilderborn/cms && git worktree list | rg -v 'bare' | gum filter --placeholder 'Symlink which worktree...' | awk '{ print $1 }')
+  if [ -z "$worktree" ]; then
+    return
+  fi
+
+  rm -rf vendor/statamic/cms
+  ln -s $worktree vendor/statamic/cms
+  rm -rf public/vendor/statamic/cp
+  ln -s $worktree/resources/dist public/vendor/statamic/cp
+  rm -rf public/vendor/statamic/frontend
+  ln -s $worktree/resources/dist-frontend public/vendor/statamic/frontend
 }
 
 # Setup a fresh starter kit with user
