@@ -12,7 +12,7 @@ alias tower='gittower .'
 alias gcl='git clone'
 
 # Init and create initial commit
-alias gin='git init && gaa && gcmsg "Initial commit."'
+alias gin='git init && git add --all && git commit -m "Initial commit."'
 
 # Go to git root, whether in a regular subdir or a worktree subdir
 alias gr='cd $(git_root)'
@@ -247,6 +247,9 @@ gwa() {
   cd $1
   # TODO: ask for shorter name?
   # sesh connect .
+  #
+  # TODO: add new worktree off existing branch (ie. master...)
+  # git worktree add -b newfeaturetree newfeaturepath master
 }
 
 # Add a new worktree from a remote branch with gum fuzzy search, and flatten target folder

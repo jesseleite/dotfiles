@@ -8,19 +8,32 @@ return {
   lazy = false,
   opts = {
     macros = {
-      to_lua_keymap = {
+      duplicate_function = {
+        desc = 'Duplicate current function',
+        keymap = '<Leader>y',
+        macro = 'vafjygv<Esc>pzz/function<CR>w',
+      },
+      lua_keymap = {
         desc = 'Convert vimscript mapping to lua mapping',
         keymap = '<Leader><Leader>k',
-        macro = "Ivim.keymap.set('<Esc>la',<Space><Esc>ldwi'<Esc>f<Space>i',<Space>'<Esc>lxA')<Esc>"
+        mode = 'v',
+        macro = "Ivim.keymap.set('<Esc>la',<Space><Esc>ldwi'<Esc>f<Space>i',<Space>'<Esc>lxA')"
       },
-      statamic_changelog = {
-        macro = "^dwi-<Space><Esc>f(f#hhi.<Esc>llr[llyiwf)r]a(http://github.com/statamic/cms/issues/<Esc>pA<Space>by<Space>@<Esc>",
+      format_changelog = {
+        desc = 'Format changelog from git log',
+        macro = "^dwi-<Space><Esc>f(f#hhi.<Esc>llr[llyiwf)r]a(http://github.com/statamic/cms/issues/<Esc>pA<Space>by<Space>@",
       },
-      convert_to_blade_class = {
-        macro = "^/class<CR>ciw@class<Esc>lxlva\"sa?([<CR>])<CR>lci<Esc>sr\"'/class<CR>",
+      blade_class = {
+        desc = 'Convert html class to blade class',
+        macro = "^/class<CR>ciw@class<Esc>lxlva\"sa?([<CR>])<CR>lci<Esc>sr\"\'i",
       },
-      convert_to_blade_class_and_split = {
+      blade_class_split = {
+        desc = 'Convert html class to blade classes and split',
         macro = "^/class<CR>ciw@class<Esc>lxlva\"sa?([<CR>])<CR>lci<Esc>sr\"'vi':s/\\%V\\s/',<Space>'/g<CR>:noh<CR>/class<CR>",
+      },
+      remove_bullet_points = {
+        desc = 'Remove bullet points for basecamp, etc.',
+        macro = ':%s/^\\s*-\\s//<CR>ggVGy',
       },
       -- to_php_shorthand_arrow_function = {},
       -- duplicate_php_method = {},
@@ -39,6 +52,7 @@ return {
       end)
     end
 
-    vim.keymap.set('n', '<Leader>k', blade_class, { remap = true, desc = 'Macro: Convert to blade class'})
+    -- local wat = function () require('macroni').run('i--<Space>\"wowzers<Space>how\'s<Space>thisss?<Esc>') end
+    -- vim.keymap.set('n', '<Leader>k', wat, { remap = true, desc = 'Macro: Convert to blade class'})
   end,
 }

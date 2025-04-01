@@ -19,13 +19,15 @@ return {
   },
   keys = {
     { '<Leader>rs', ':w<CR>:TestSuite<CR>' },
-    { '<Leader>rf', ':w<CR>:TestFile<CR>' },
+    { '<Leader>rf', ':TestFile<CR>' },
     { '<Leader>rl', ':w<CR>:TestLast<CR>' },
     { '<Leader>rn', ':w<CR>:TestNearest<CR>' },
     { '<Leader>rv', ':w<CR>:TestVisit<CR>' },
     { '<Leader>rx', swap_strategy },
   },
   init = function ()
+    vim.g['test#preserve_screen'] = 0
+
     vim.g.tslime = {
       session = 'runner',
       window = '1',

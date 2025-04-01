@@ -1,6 +1,8 @@
 --------------------------------------------------------------------------------
 -- Experimental Stuff
 --------------------------------------------------------------------------------
+-- This is where I put stuff that I'm either testing or embarassed about.
+-- No shame; Just aliens, UFOs, cows, and crazy hammerspoon nonsense.
 
 -- Sometimes 1password lock screen opens behind other windows
 hs.window.filter.new():subscribe(hs.window.filter.windowCreated, function(window)
