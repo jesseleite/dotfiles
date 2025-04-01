@@ -40,6 +40,9 @@ return {
   -- Auto-pad blade comments `{{-- ... --}}`
   s({ trig = '{- ', snippetType = 'autosnippet' }, fmt('{{{{-- {} --}}', { i(0) })),
 
+  -- Auto-pad regular html comments `<!-- ... -->`
+  s({ trig = '<! ', snippetType = 'autosnippet' }, fmt('<!-- {} -->', { i(0) })),
+
   -- Collection tag
   s('col', fmt('{{{{ collection:{} }}}}\n\t{}\n{{{{ /collection:{} }}}}', {
     i(1),
