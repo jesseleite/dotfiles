@@ -3,7 +3,23 @@
 --------------------------------------------------------------------------------
 
 return {
-  intelephense = true,
+  intelephense = {
+    settings = {
+      intelephense = {
+        telemetry = {
+          enabled = false,
+        },
+        -- files = {
+        --   exclude = {
+        --     'vendor',
+        --   },
+        -- },
+        -- diagnostics = {
+        --   unusedSymbols = false,
+        -- },
+      },
+    },
+  },
   -- phpactor = true,
   html = {
     filetypes = { 'html', 'blade', 'antlers' },
