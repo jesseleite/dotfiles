@@ -17,14 +17,16 @@ end
 return {
 
   -- Auto-pad `{{ ... }}`
-  s({ trig = '{{', snippetType = 'autosnippet' }, fmt('{{{{ {} ', { i(0) })),
+  s({ trig = '{{ ', snippetType = 'autosnippet' }, fmt('{{{{ {} ', { i(0) })),
 
-  -- Auto-pad more antlers stuff
-  s({ trig = '{#', snippetType = 'autosnippet' }, fmt('{{{{# {} #}}', { i(0) })),
+  -- Auto-pad antlers comments `{{# ... #}}`
+  s({ trig = '{# ', snippetType = 'autosnippet' }, fmt('{{{{# {} #}}', { i(0) })),
 
-  -- Auto-pad more blade stuff
-  s({ trig = '{!', snippetType = 'autosnippet' }, fmt('{{!! {} !!', { i(0) })),
-  s({ trig = '{-', snippetType = 'autosnippet' }, fmt('{{{{-- {} --}}', { i(0) })),
+  -- Auto-pad unescaped blade `{!! ... !!}`
+  s({ trig = '{! ', snippetType = 'autosnippet' }, fmt('{{!! {} !!', { i(0) })),
+
+  -- Auto-pad blade comments `{{-- ... --}}`
+  s({ trig = '{- ', snippetType = 'autosnippet' }, fmt('{{{{-- {} --}}', { i(0) })),
 
   -- Collection tag
   s('col', fmt('{{{{ collection:{} }}}}\n    {}\n{{{{ /collection:{} }}}}', {
