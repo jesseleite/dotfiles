@@ -8,8 +8,6 @@ return {
   'L3MON4D3/LuaSnip',
   build = "make install_jsregexp",
   keys = {
-    { '<Tab>', function () s.jump_forward() end, mode = 'i' },
-    { '<S-Tab>', function () s.jump_back() end, mode = 'i' },
     { '<C-a>', function () s.change_choice() end, mode = 'i' },
   },
   config = function ()
