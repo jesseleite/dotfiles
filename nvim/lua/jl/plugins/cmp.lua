@@ -15,24 +15,17 @@ return {
     local cmp = require('cmp')
 
     cmp.setup {
-      snippet = {
-        expand = function(args)
-          require('luasnip').lsp_expand(args.body)
-        end,
-      },
       window = require('noirbuddy.plugins.cmp').window,
-      mapping = cmp.mapping.preset.insert({
-        ['<Down>'] = cmp.mapping.select_next_item(),
-        ['<Up>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
+      preselect = cmp.PreselectMode.None,
+      mapping = {
+        ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+        ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
-        ['<Tab>'] = cmp.mapping.confirm(),
-        ['<CR>'] = cmp.mapping.confirm(),
         ['<C-c>'] = cmp.mapping.abort(),
         ['<C-e>'] = cmp.mapping.complete(),
-      }),
+      },
       sources = cmp.config.sources({
         { name = 'lazydev', group_index = 0 },
         { name = 'luasnip', group_index = 1 },
