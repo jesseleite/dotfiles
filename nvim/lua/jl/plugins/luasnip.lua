@@ -2,13 +2,13 @@
 -- LuaSnip: A snippet engine plugin
 --------------------------------------------------------------------------------
 
-local s = require('jl.luasnip')
+local s = require('jl.snippets')
 
 return {
   'L3MON4D3/LuaSnip',
   build = "make install_jsregexp",
   keys = {
-    { '<Tab>', s.expand_jump_or_tab, expr = true, mode = { 'i', 's' } },
+    { '<Tab>', s.jump_forward, mode = 'i' },
     { '<S-Tab>', s.jump_back, mode = 'i' },
     { '<C-a>', s.change_choice, mode = 'i' },
   },
@@ -20,7 +20,9 @@ return {
     }
 
     require('luasnip.loaders.from_lua').load {
-      paths = vim.fn.stdpath('config') .. '/lua/jl/luasnip/snippets'
+      paths = {
+        vim.fn.stdpath('config') .. '/lua/jl/snippets/luasnip',
+      },
     }
   end,
 }
