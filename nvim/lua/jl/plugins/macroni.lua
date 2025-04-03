@@ -11,7 +11,7 @@ return {
       duplicate_function = {
         desc = 'Duplicate current function',
         keymap = '<Leader>y',
-        macro = 'vafjygv<Esc>pzz/function<CR>w',
+        macro = 'vafygv<Esc>o<Esc>pzz^',
       },
       lua_keymap = {
         desc = 'Convert vimscript mapping to lua mapping',
