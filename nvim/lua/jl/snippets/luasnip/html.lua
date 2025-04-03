@@ -12,12 +12,17 @@ end
 
 local aliasable_tag_component_contents = function (params)
   local alias = string.match(params[1][1], ' as="(.-)"')
-
   if not alias then
     return sn(nil, i(1, '{{ $title }}'))
   end
 
-  return sn(nil, fmt('@foreach ($'..alias..'s as $'..alias..')\n\t\t{}\n\t@endforeach', {
+  -- TODO: Handle via API for words like `entries`, and fall back to this...
+  local alias_singular = string.match(alias, '(.*)s$')
+  if not alias_singular then
+    alias_singular = alias
+  end
+
+  return sn(nil, fmt('@foreach ($'..alias..' as $'..alias_singular..')\n\t\t{}\n\t@endforeach', {
     i(1, "{{ $title }}")
   }))
 end
