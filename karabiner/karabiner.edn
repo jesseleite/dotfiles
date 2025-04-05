@@ -1,18 +1,35 @@
 ; Compiles to `~/.config/karabiner/karabiner.json with `goku` (or watch with `gokuw`)
 {
   :main [
-    {:des "CAPS+hjkl as arrows (ESC if alone)" :rules [
-      [:##caps_lock ["caps_as_modifier" 1] nil {:afterup ["caps_as_modifier" 0] :alone :escape}]
-      [:##h :left_arrow ["caps_as_modifier" 1]]
-      [:##j :down_arrow ["caps_as_modifier" 1]]
-      [:##k :up_arrow ["caps_as_modifier" 1]]
-      [:##l :right_arrow ["caps_as_modifier" 1]]
-      [:##caps_lock :escape]
+    {:des "CMD app launcher (CMD when held, F13 when tapped)" :rules [
+      [:left_command :left_command nil {:alone :f13}]
+    ]}
+    {:des "CAPS as CTRL (ESC when tapped)" :rules [
+      [:caps_lock :left_control nil {:alone :escape}]
+    ]}
+    {:des "TAB as OPT (TAB when tapped)" :rules [
+      [:tab :left_option nil {:alone :tab}]
+    ]}
+    {:des "Space cadet shifts (parens when tapped)" :rules [
+      [:left_shift :left_shift nil {:alone :!S9}]
+      [:right_shift :right_shift nil {:alone :!S0}]
+    ]}
+    {:des "Space cadet shifts (squirlies when tapped w/ CMD)" :rules [
+      [:!Cleft_shift :!Cleft_shift nil {:alone :!Sopen_bracket}]
+      [:!Cright_shift :!Cright_shift nil {:alone :!Sclose_bracket}]
+    ]}
+    {:des "CMD+hjkl as arrows (right CMD only)" :rules [
+      [:##right_command ["right_command" 1] nil {:afterup ["right_command" 0] :alone :right_command}]
+      [:##h :left_arrow ["right_command" 1]]
+      [:##j :down_arrow ["right_command" 1]]
+      [:##k :up_arrow ["right_command" 1]]
+      [:##l :right_arrow ["right_command" 1]]
+      [:##right_command :right_command]
     ]}
     {:des "D+F as Hyper (CMD+OPT+CTRL)" :rules [
       [[:d :f] :!COleft_control]
     ]}
-    {:des "S+D+F as Big Hyper (CMD+OPT+CTRL)" :rules [
+    {:des "S+D+F as Big Hyper (SHIFT+CMD+OPT+CTRL)" :rules [
       [[:s :d :f] :!SCOleft_control]
     ]}
   ]
