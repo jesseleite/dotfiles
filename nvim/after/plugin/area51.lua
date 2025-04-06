@@ -4,6 +4,22 @@
 -- This is where I put stuff that I'm either testing or embarassed about.
 -- No shame; Just aliens, UFOs, cows, and crazy vimscript shenanigans.
 
+local smart_align_toggle = function ()
+  local ft = vim.bo.filetype
+  local langs = {
+    php = { pair = '[', delimiter = '=' },
+    go = { pair = '{', delimiter = '<Space>' },
+    lua = { pair = '{', delimiter = '<Space>' },
+  }
+  QuickToggleCallbacks(function ()
+    require('macroni').run('vi'..langs[ft].pair..'ga'..langs[ft].delimiter)
+  end, function ()
+    require('macroni').run(":\'<,\'>s/\\(\\S\\)\\s\\{2,}/\\1<Space>/g<Enter>:noh<Enter>")
+  end)
+end
+
+vim.keymap.set('n', '<Leader><Leader>a', smart_align_toggle);
+
 -- Helix mode concept
 -- vim.keymap.set({'n', 'x'}, 'w', '<Esc>vw')
 
