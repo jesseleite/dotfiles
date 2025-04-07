@@ -48,10 +48,7 @@ vim.keymap.set('x', 'Q', ':norm @q<CR>')
 vim.keymap.set('n', '<Leader>d', 'ddO<Esc>')
 
 -- Open line, but stay in normal mode
-vim.keymap.set('n', '<Leader><CR>', 'o<Esc>')
-
--- Open line, with an extra blank line below that one
-vim.keymap.set('n', '<Leader><Leader><CR>', 'o<C-o>O')
+vim.keymap.set('n', '<CR>', 'o<Esc>')
 
 -- Move line(s) up and down
 vim.keymap.set('n', '<C-j>', ':m .+1<CR>==', { silent = true })
