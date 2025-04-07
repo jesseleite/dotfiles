@@ -12,6 +12,9 @@ return {
   -- For range loop
   s('forr', fmt('for {} := range {} {{\n\t{}\n}}', { i(1, 'key, value'), i(2, 'values'), i(0) })),
 
+  -- Handle err
+  s('err', fmt('if err == nil {{\n\treturn {}\n}}{}', { i(1, 'err'), i(0) })),
+
   -- Test function
   s('test', fmt('func Test{}(t *testing.T) {{\n\t{}\n}}', { i(1, 'Name'), i(0) })),
 
