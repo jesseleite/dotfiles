@@ -5,8 +5,6 @@
 # No shame; Just aliens, UFOs, cows, and crazy nonsense shenanigans.
 
 # alias seshh='~/Code/Prs/sesh/sesh'
-# export GOPATH=$HOME/go
-# PATH=~/go/bin:$PATH
 
 # Stuff from oh-my-zsh
 # Changing/making/removing directory
