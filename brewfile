@@ -3,7 +3,6 @@ tap 'homebrew/cask'
 tap 'homebrew/bundle'
 tap 'teamookla/speedtest'              # For `speedtest`
 tap 'saadparwaiz1/personal'            # For `lua-language-server`
-tap 'nicoverbruggen/homebrew-cask'     # For `phpmon`
 tap 'yqrashawn/goku'                   # For `goku`
 tap 'qmk/qmk'                          # For `qmk`
 tap 'shivammathur/php'                 # For older versions of php
@@ -71,7 +70,6 @@ cask 'obs'
 cask 'obsidian'
 cask 'openemu'
 cask 'paw'
-cask 'phpmon'
 cask 'ray'
 cask 'raycast'
 cask 'readdle-spark'

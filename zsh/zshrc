@@ -47,7 +47,6 @@ eval "$(starship init zsh)"
 # ------------------------------------------------------------------------------
 
 PATH=$DOTFILES/bin:$PATH
-PATH=~/.config/phpmon/bin:$PATH
 PATH=./node_modules/.bin:$PATH
 PATH=~/.composer/vendor/bin:$PATH
 PATH=./vendor/bin:$PATH
