@@ -117,7 +117,7 @@ return {
           prompt_title = 'Live Ripgrep',
           mappings = {
             i = {
-              ["<Tab>"] = require('telescope-live-grep-args.actions').quote_prompt(),
+              ["''"] = require('telescope-live-grep-args.actions').quote_prompt(),
             }
           }
         },
