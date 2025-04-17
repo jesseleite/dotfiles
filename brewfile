@@ -5,6 +5,7 @@ tap 'teamookla/speedtest'              # For `speedtest`
 tap 'saadparwaiz1/personal'            # For `lua-language-server`
 tap 'yqrashawn/goku'                   # For `goku`
 tap 'qmk/qmk'                          # For `qmk`
+tap 'tinygo-org/tools'                 # For `tinygo`
 tap 'shivammathur/php'                 # For older versions of php
 
 # Brew
@@ -19,6 +20,7 @@ brew 'ffmpeg' # For `youtube-dl`
 brew 'fzf', args: ['HEAD']
 brew 'gh'
 brew 'git'
+brew 'go'
 brew 'goku'
 brew 'gum'
 brew 'httpie'
@@ -41,6 +43,7 @@ brew 'sesh'
 brew 'shyaml'
 brew 'speedtest'
 brew 'the_silver_searcher'
+brew 'tinygo'
 brew 'tmux'
 brew 'tokei'
 brew 'trash'

@@ -22,4 +22,7 @@ PATH=$HOME/.go/bin:$PATH
 # Aliases and functions for go development
 # ------------------------------------------------------------------------------
 
-# alias gt="go test ./..."
+alias gt="go test"
+alias gtb="go test -bench=."
+alias gob="go build"
+alias gobt="tinygo build -no-debug -panic=trap -scheduler=none -gc=leaking"
