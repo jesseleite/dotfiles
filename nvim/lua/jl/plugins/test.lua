@@ -18,12 +18,12 @@ return {
     'jgdavey/tslime.vim',
   },
   keys = {
-    { '<Leader>rs', ':w<CR>:TestSuite<CR>' },
-    { '<Leader>rf', ':TestFile<CR>' },
-    { '<Leader>rl', ':w<CR>:TestLast<CR>' },
-    { '<Leader>rn', ':w<CR>:TestNearest<CR>' },
-    { '<Leader>rv', ':w<CR>:TestVisit<CR>' },
-    { '<Leader>rx', swap_strategy },
+    { '<Leader>rs', ':w<CR>:TestSuite<CR>', desc = 'Test Suite' },
+    { '<Leader>rf', ':TestFile<CR>', desc = 'Test File' },
+    { '<Leader>rl', ':w<CR>:TestLast<CR>', desc = 'Test Last' },
+    { '<Leader>rn', ':w<CR>:TestNearest<CR>', desc = 'Test Nearest' },
+    { '<Leader>rv', ':w<CR>:TestVisit<CR>', desc = 'Test Visit' },
+    { '<Leader>rx', swap_strategy, desc = 'Swap Test Strategy' },
   },
   init = function ()
     vim.g['test#preserve_screen'] = 0
