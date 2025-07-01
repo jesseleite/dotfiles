@@ -16,6 +16,7 @@
     ~/.config/nvim: nvim
     ~/.config/starship.toml: zsh/starship.toml
     ~/.config/ghostty/config: ghostty/config
+    ~/.config/opencode: opencode
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/sesh/sesh.toml: tmux/sesh.toml
     ~/.hammerspoon: hammerspoon
