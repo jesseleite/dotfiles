@@ -4,6 +4,11 @@
 # This is where I put stuff that I'm either testing or embarassed about.
 # No shame; Just aliens, UFOs, cows, and crazy nonsense shenanigans.
 
+# Robots
+export PATH=/Users/jesseleite/.opencode/bin:$PATH
+alias cc='claude'
+alias oc='opencode'
+
 # alias seshh='~/Code/Prs/sesh/sesh'
 
 # Stuff from oh-my-zsh
