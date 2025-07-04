@@ -142,11 +142,11 @@
       "light": "lightStep4"
     },
     "diffAddedLineNumberBg": {
-      "dark": "#24312b",
+      "dark": "#2B3A33",
       "light": "#d6f0d9"
     },
     "diffRemovedLineNumberBg": {
-      "dark": "#3c2a32",
+      "dark": "#453039",
       "light": "#f6dfe2"
     },
     "markdownText": {
