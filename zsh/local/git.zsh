@@ -286,15 +286,18 @@ gwd() {
   if [ -z "$selected" ]; then return; fi
   echo "Are you sure you would like to delete the [\e[0;31m$selected\e[0m] worktree? (Type 'delete' to confirm)"
   read confirmation
-  if $(git rev-parse --is-inside-work-tree); then
-    local branch=$(git branch --show-current)
-  fi
   if [[ "$confirmation" == "delete" ]]; then
     cd $(git_root)
+    cd $selected
+    local branch=$(git branch --show-current)
+    cd $(git_root)
+    echo "\nWould you like to also delete the [\e[0;31m$branch\e[0m] branch? (y/n)"
+    read confirmation
+    echo
     trash -rf $selected
     git worktree prune
-    if [ -n $branch ]; then
-      # git branch -D $branch # TODO: Fix this so it only deletes local branches so I can re-gcr after?
+    if [[ "$confirmation" == "y" ]]; then
+      git branch -D $branch
     fi
   fi
 }
