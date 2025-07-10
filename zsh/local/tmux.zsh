@@ -16,7 +16,23 @@ t() {
     return
   fi
 
-  sesh connect $(sesh list -i | gum filter --no-sort --no-strip-ansi --no-show-help --limit 1 --placeholder 'Pick a sesh!' --height 50 --prompt='  ')
+  # TODO: Can I dry this up to make it reusable in my tmux.conf as well?
+  # Tmux config seems to have trouble running shell interactively on custom user funcs.
+  # That said, I'm passing --border and --margin differently here though.
+  sesh connect $(
+    sesh list -i -H | fzf --reverse --no-sort --ansi --info 'hidden' --prompt '  > ' \
+      --border \
+      --margin 3,15 \
+      --bind 'ctrl-a:reload(sesh list -i -H)' \
+      --bind 'ctrl-t:reload(sesh list -t -i -H)' \
+      --bind 'ctrl-g:reload(sesh list -c -i -H)' \
+      --bind 'ctrl-z:reload(sesh list -z -i -H)' \
+      --bind 'ctrl-f:reload(fd -H -d 5 -t d . ~/Code)' \
+      --bind 'ctrl-x:execute(tmux kill-session -t {2..})+reload(sesh list -i -H)' \
+      --bind 'ctrl-r:execute(eval echo {2} | xargs zoxide remove)+reload(sesh list -i -H)' \
+      --preview-window 'right:60%:border-left' \
+      --preview 'sesh preview {}' \
+  )
 }
 
 # Ensure attached to session when opening new terminal windows
