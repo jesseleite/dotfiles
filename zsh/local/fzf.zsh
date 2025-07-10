@@ -8,6 +8,7 @@ local fzf_default_opts=(
   '--pointer "•"'
   '--scrollbar "█"'
   '--preview-window right:50%:noborder'
+  '--bind "change:first"'
   '--bind "alt-p:toggle-preview"'
   '--bind "ctrl-d:preview-half-page-down"'
   '--bind "ctrl-u:preview-half-page-up"'
