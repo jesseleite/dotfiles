@@ -30,19 +30,12 @@ return {
     Group.new('AlphaNormal', colors.noir_0)
 
     -- Manually set this total height based on number of rendered lines configured!
-    local total_height = 28
-
-    local button_spacing = 1
-    local version_spacing = 0
+    local total_height = 23
+    local button_spacing = 0
+    local version_spacing = 1
 
     local pad = function (height)
       return math.ceil((vim.fn.winheight(0) - height) / 2)
-    end
-
-    if (pad(total_height) < 3) then
-      total_height = total_height - 5
-      button_spacing = 0
-      version_spacing = 1
     end
 
     local iuse = {
