@@ -54,8 +54,8 @@
       "light": "lightAccent"
     },
     "error": {
-      "dark": "darkRed",
-      "light": "lightRed"
+      "dark": "#d1383d",
+      "light": "#d1383d"
     },
     "warning": {
       "dark": "darkOrange",

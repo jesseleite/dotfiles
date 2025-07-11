@@ -5,9 +5,10 @@
 # No shame; Just aliens, UFOs, cows, and crazy nonsense shenanigans.
 
 # Robots
-export PATH=/Users/jesseleite/.opencode/bin:$PATH
 alias cc='claude'
+export PATH=/Users/jesseleite/.opencode/bin:$PATH
 alias oc='opencode'
+alias ask='opencode run --mode "plan"'
 
 # alias seshh='~/Code/Prs/sesh/sesh'
 
