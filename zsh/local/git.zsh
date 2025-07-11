@@ -66,7 +66,7 @@ gba() {
 # Checkout remote branch with gum fuzzy search
 gcr() {
   if $(git_is_using_worktrees); then gwr $@; return; fi
-  git fetch
+  git fetch > /dev/null 2>&1
   if [ -n "$1" ]; then git checkout $1; return; fi
   local branches
   branches=$(git branch --all | awk '{print $1}' | rg -v '\*')
@@ -240,21 +240,33 @@ gwo() {
 gwa() {
   if [ -z "$1" ]; then echo 'Please specify `git worktree add` params!'; return; fi
   cd $(git_root)
-  if [ -z "$2" ]; then
-    git branch $1
+  git fetch > /dev/null 2>&1
+  local dir=$1
+  local branch=$1
+  local from_branch
+  if [ -n "$2" ]; then
+    from_branch=$2
+  else
+    from_branch=$(git_default_branch)
   fi
-  git worktree add $@
-  cd $1
-  # TODO: ask for shorter name?
-  # sesh connect .
-  #
-  # TODO: add new worktree off existing branch (ie. master...)
-  # git worktree add -b newfeaturetree newfeaturepath master
+  if [ ${#branch} -gt 25 ]; then
+    echo "\nThe [\e[0;31m$dir\e[0m] name is a bit long, would you like to use an abbreviated directory name? (y/n, default:n)"
+    read confirmation
+    if [[ "$confirmation" == "y" ]]; then
+      echo "\nEnter a new directory name:"
+      read dir
+    fi
+  fi
+  echo
+  git worktree add $dir -b $branch $from_branch
+  sesh connect $dir
+  zsync
+  cd -
 }
 
 # Add a new worktree from a remote branch with gum fuzzy search, and flatten target folder
 gwr() {
-  git fetch
+  git fetch > /dev/null 2>&1
   if [ -n "$1" ]; then gwa $1; return; fi
   local branches
   branches=$(git branch --all | awk '{print $1}' | rg -v '[\*\+]')
@@ -299,6 +311,7 @@ gwd() {
     if [[ "$confirmation" == "y" ]]; then
       git branch -D $branch
     fi
+    zsync
   fi
 }
 
