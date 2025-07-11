@@ -2,10 +2,12 @@
 -- Summon App / Toggle App Visibility
 --------------------------------------------------------------------------------
 
-local lastFocusedWindow
+local lastFocusedApp
+local lastFocusedWindowsByApp = {}
 
 hs.window.filter.default:subscribe(hs.window.filter.windowUnfocused, function(window)
-  lastFocusedWindow = window
+  lastFocusedApp = window:application():bundleID()
+  lastFocusedWindowsByApp[lastFocusedApp] = window
 end)
 
 return function (appName)
@@ -23,7 +25,7 @@ return function (appName)
     hs.application.open(id)
   elseif currentId ~= id then
     hs.application.open(id)
-  elseif lastFocusedWindow then
-    lastFocusedWindow:focus()
+  elseif lastFocusedApp and lastFocusedWindowsByApp[lastFocusedApp] then
+    lastFocusedWindowsByApp[lastFocusedApp]:focus()
   end
 end
