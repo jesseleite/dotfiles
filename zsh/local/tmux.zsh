@@ -30,6 +30,7 @@ t() {
       --bind 'ctrl-f:reload(fd -H -d 5 -t d . ~/Code)' \
       --bind 'ctrl-x:execute(tmux kill-session -t {2..})+reload(sesh list -i -H)' \
       --bind 'ctrl-r:execute(eval echo {2} | xargs zoxide remove)+reload(sesh list -i -H)' \
+      --bind 'ctrl-s:execute-silent(tmux new-session -d -s {q})+print-query' \
       --preview-window 'right:60%:border-left' \
       --preview 'sesh preview {}' \
   )
