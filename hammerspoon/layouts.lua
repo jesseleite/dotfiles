@@ -22,8 +22,8 @@ return {
   {
     name = 'No Ray',
     cells = {
-      { '0,0 24x20' },
-      { '24,0 36x20' },
+      '0,0 24x20',
+      '24,0 36x20',
     },
     apps = {
       Browser = { cell = 1, open = true },
