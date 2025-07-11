@@ -21,11 +21,14 @@ return function (appName)
     id = appName
   end
 
+  local app = hs.application.find(id)
   local appIsFocused = hs.application.frontmostApplication():bundleID() == id
-  local appStillHasWindows = next(hs.application.find(id):allWindows())
+  local appStillHasWindows = app and next(app:allWindows())
 
-  if appIsFocused and appStillHasWindows and lastFocusedApp and lastFocusedWindowsByApp[lastFocusedApp] then
+  if app and appIsFocused and appStillHasWindows and lastFocusedApp and lastFocusedWindowsByApp[lastFocusedApp] then
     lastFocusedWindowsByApp[lastFocusedApp]:focus()
+  elseif app and appStillHasWindows then
+    app:activate()
   else
     hs.application.open(id)
   end
