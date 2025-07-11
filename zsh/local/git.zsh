@@ -258,6 +258,7 @@ gwa() {
     fi
   fi
   echo
+  dir=$(echo $dir | sed 's/\//-/g')
   git worktree add $dir -b $branch $from_branch
   sesh connect $dir
   zsync
