@@ -33,7 +33,7 @@ t() {
       --bind 'ctrl-s:execute-silent(tmux new-session -d -s {q})+print-query' \
       --preview-window 'right:60%:border-left' \
       --preview 'sesh preview {}' \
-  )
+  ) > /dev/null 2>&1
 }
 
 # Ensure attached to session when opening new terminal windows
