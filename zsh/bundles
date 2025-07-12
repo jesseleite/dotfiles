@@ -3,11 +3,36 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-completions
 molovo/tipz
 
-# Source Local Configs
-"$DOTFILES/zsh/local"
+# # Source Local Configs
+# $DOTFILES/zsh/local
+#
+# # Source Fzf (This needs to happen after vi-mode bindings to give precedence to fzf bindings)
+# $DOTFILES/zsh/local/fzf.zsh
+#
+# # Source Statamic stuff (This needs to happen after other aliases are created)
+# $DOTFILES/zsh/local/statamic.zsh
 
-# Source Fzf (This needs to happen after vi-mode bindings to give precedence to fzf bindings)
-"$DOTFILES/zsh/local/fzf.zsh"
-
-# Source Statamic stuff (This needs to happen after other aliases are created)
-"$DOTFILES/zsh/local/statamic.zsh"
+# TODO: Not sure why the above lines started failing?
+# For now we'll just include them all manually here.
+$DOTFILES/zsh/local/area51.zsh
+$DOTFILES/zsh/local/bun.zsh
+$DOTFILES/zsh/local/charm.zsh
+$DOTFILES/zsh/local/env.zsh
+$DOTFILES/zsh/local/general.zsh
+$DOTFILES/zsh/local/git.zsh
+$DOTFILES/zsh/local/go.zsh
+$DOTFILES/zsh/local/keyboards.zsh
+$DOTFILES/zsh/local/laravel.zsh
+$DOTFILES/zsh/local/mac.zsh
+$DOTFILES/zsh/local/php.zsh
+$DOTFILES/zsh/local/python.zsh
+$DOTFILES/zsh/local/syntax.zsh
+$DOTFILES/zsh/local/system.zsh
+$DOTFILES/zsh/local/tipz.zsh
+$DOTFILES/zsh/local/tmux.zsh
+$DOTFILES/zsh/local/vi-mode.zsh
+$DOTFILES/zsh/local/vim.zsh
+$DOTFILES/zsh/local/web-dev.zsh
+$DOTFILES/zsh/local/zoxide.zsh
+$DOTFILES/zsh/local/fzf.zsh
+$DOTFILES/zsh/local/statamic.zsh
