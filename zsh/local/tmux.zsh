@@ -31,7 +31,7 @@ t() {
       --bind 'ctrl-x:execute(tmux kill-session -t {2..})+reload(sesh list -i -H)' \
       --bind 'ctrl-r:execute(eval echo {2} | xargs zoxide remove)+reload(sesh list -i -H)' \
       --bind 'ctrl-s:execute-silent(tmux new-session -d -s {q})+print-query' \
-      --preview-window 'right:60%:border-left' \
+      --preview-window 'right:60%:border-left:<80(40%)' \
       --preview 'sesh preview {}' \
   ) > /dev/null 2>&1
 }

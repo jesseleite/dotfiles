@@ -8,10 +8,10 @@ local fzf_default_opts=(
   '--pointer "•"'
   '--scrollbar "█"'
   '--preview-window right:50%:noborder'
-  '--bind "change:first"'
   '--bind "alt-p:toggle-preview"'
   '--bind "ctrl-d:preview-half-page-down"'
   '--bind "ctrl-u:preview-half-page-up"'
+  '--bind "change:first"'
   '--color "prompt:green,header:grey,spinner:grey,info:grey,bg+:-1,hl:green,hl+:green,pointer:magenta,preview-bg:-1"'
 )
 
