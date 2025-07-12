@@ -9,8 +9,7 @@ alias ssh='env TERM=xterm-256color ssh'
 
 alias c="clear"
 alias o="open ."
-alias rm="trash"
-alias rf="trash -rf"
+alias rf="trash"
 alias sizes='du -sh -c *'
 
 # Copy pwd to clipboard

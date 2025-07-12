@@ -165,7 +165,7 @@ nah() {
   echo "Are you sure you would like to discard/delete all unstaged changes & untracked files? (Type 'y' to confirm)"
   read confirmation
   if [[ "$confirmation" == "y" ]]; then
-    git ls-files --modified --other --exclude-standard | xargs trash -rf
+    git ls-files --modified --other --exclude-standard | xargs trash
     git reset --hard
     git clean -qf
   fi
@@ -307,7 +307,7 @@ gwd() {
     echo "\nWould you like to also delete the [\e[0;31m$branch\e[0m] branch? (y/n)"
     read confirmation
     echo
-    trash -rf $selected
+    trash $selected
     git worktree prune
     if [[ "$confirmation" == "y" ]]; then
       git branch -D $branch
