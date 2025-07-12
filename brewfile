@@ -1,6 +1,5 @@
 # Taps
 tap 'teamookla/speedtest'   # For `speedtest`
-tap 'saadparwaiz1/personal' # For `lua-language-server`
 tap 'qmk/qmk'               # For `qmk`
 tap 'tinygo-org/tools'      # For `tinygo`
 
