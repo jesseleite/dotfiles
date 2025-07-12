@@ -1,12 +1,8 @@
 # Taps
-tap 'homebrew/cask'
-tap 'homebrew/bundle'
-tap 'teamookla/speedtest'              # For `speedtest`
-tap 'saadparwaiz1/personal'            # For `lua-language-server`
-tap 'yqrashawn/goku'                   # For `goku`
-tap 'qmk/qmk'                          # For `qmk`
-tap 'tinygo-org/tools'                 # For `tinygo`
-tap 'shivammathur/php'                 # For older versions of php
+tap 'teamookla/speedtest'   # For `speedtest`
+tap 'saadparwaiz1/personal' # For `lua-language-server`
+tap 'qmk/qmk'               # For `qmk`
+tap 'tinygo-org/tools'      # For `tinygo`
 
 # Brew
 brew 'antidote'
@@ -32,8 +28,6 @@ brew 'mysql@5.7'
 brew 'neovim'
 brew 'node'
 brew 'php'
-brew 'php@7.4'
-brew 'php@8.0'
 brew 'python'
 brew 'qmk'
 brew 'redis'
@@ -50,7 +44,7 @@ brew 'trash'
 brew 'tree'
 brew 'vim'
 brew 'wget'
-brew 'youtube-dl'
+brew 'yt-dlp'
 brew 'zoxide'
 brew 'zsh'
 
@@ -61,7 +55,6 @@ cask 'discord'
 cask 'firefox'
 cask 'flux'
 cask 'github'
-cask 'gitter'
 cask 'google-chrome'
 cask 'hammerspoon'
 cask 'helo'
@@ -76,9 +69,8 @@ cask 'paw'
 cask 'ray'
 cask 'raycast'
 cask 'readdle-spark'
-cask 'reflex'
+cask 'reflex-app'
 cask 'selfcontrol'
-cask 'skype'
 cask 'slack'
 cask 'spotify'
 cask 'steam'
@@ -95,6 +87,4 @@ cask 'zoom'
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 mas 'Keynote', id: 409183694
-mas 'iMovie', id: 408981434
-mas 'SnippetsLab', id: 1006087419
 mas 'ColorSlurp', id: 1287239339
