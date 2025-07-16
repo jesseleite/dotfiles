@@ -206,8 +206,8 @@
       "light": "lightStep12"
     },
     "syntaxComment": {
-      "dark": "darkStep3",
-      "light": "lightStep3"
+      "dark": "darkStep6",
+      "light": "lightStep6"
     },
     "syntaxKeyword": {
       "dark": "darkStep8",
