@@ -42,6 +42,7 @@ alias gpusht='git push --tags'
 # Pull
 alias gp='git pull'
 alias gpom='git pull origin master'
+alias gpomr='git pull origin master --rebase'
 alias gpod='git pull origin $(git_default_branch)'
 alias gpush='git push'
 
@@ -156,7 +157,7 @@ gundo() {
     git reset HEAD~1
   fi
   echo "\nRecent commits:"
-  glog -n 5
+  gl -n 5
 }
 
 # Discard all unstaged changes & untracked files to trash bin
