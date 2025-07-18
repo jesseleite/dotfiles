@@ -31,6 +31,10 @@ return {
     filetypes = { 'html', 'blade', 'antlers', 'css' },
   },
   antlersls = true,
+  vtsls = {
+    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+  },
+  -- TODO: Why doesn't vue_ls work? Mason installs vue_ls, but we have to use volar here?
   volar = {
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
   },
@@ -42,7 +46,7 @@ return {
       Lua = {
         diagnostics = {
           globals = {
-            -- 'hs', 'spoon', -- hammerspoon
+            'hs', 'spoon', -- hammerspoon
             -- 'vim', 'Ray', -- generic vim
             's', 'sn', 'fmt', 'i', 'c', 't', 'f', 'd', 'extras', -- luasnip
           },
