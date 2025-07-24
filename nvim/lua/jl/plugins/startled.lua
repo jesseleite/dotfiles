@@ -4,7 +4,7 @@
 
 return {
   'jesseleite/nvim-startled',
-  dev = true,
+  -- dev = true,
   lazy = false,
   config = true,
 }

@@ -4,7 +4,7 @@
 
 return {
   'jesseleite/nvim-macroni',
-  dev = true,
+  -- dev = true,
   lazy = false,
   opts = {
     macros = {

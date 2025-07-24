@@ -9,7 +9,7 @@ return {
   },
   lazy = false,
   priority = 1000,
-  dev = true,
+  -- dev = true,
   opts = {
     preset = 'miami-nights',
     styles = {

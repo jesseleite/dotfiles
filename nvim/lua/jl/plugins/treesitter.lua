@@ -20,7 +20,7 @@ return {
   },
   opts = {
     ensure_installed = 'all',
-    ignore_install = {'phpdoc'},
+    ignore_install = {'phpdoc', 'ipkg'},
     highlight = {
       enable = true,
     },
