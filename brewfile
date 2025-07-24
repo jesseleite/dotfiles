@@ -4,6 +4,7 @@ tap 'qmk/qmk'               # For `qmk`
 tap 'tinygo-org/tools'      # For `tinygo`
 
 # Brew
+brew '1password-cli'
 brew 'antidote'
 brew 'avr-gcc' # For `qmk`
 brew 'awk'
