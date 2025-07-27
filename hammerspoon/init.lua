@@ -91,10 +91,16 @@ paper.window_gap = gap
 local selectLayout = function ()
   local choices = layout:all()
 
-  table.insert(choices, 1, {
-    text = 'Tiled Scrollable Window Manager',
+  table.insert(choices, {
+    text = 'Tiled Scrollable',
     key = 'scrollable',
   })
+
+  if (hs.screen.primaryScreen():name() ~= 'LG HDR WQHD') then
+    table.remove(choices, 1)
+    table.remove(choices, 2)
+    table.remove(choices, 3)
+  end
 
   local chooser = hs.chooser.new(function(choice)
     paper:stop()
