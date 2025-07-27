@@ -44,4 +44,38 @@ return {
       Tower = { cell = 2 },
     },
   },
+  {
+    name = 'Laptop',
+    cells = {
+      positions.fiveSixths.right,
+      positions.center.medium,
+      positions.sixths.left,
+    },
+    apps = {
+      Browser = { cell = 1, open = true },
+      Terminal = { cell = 1, open = true },
+      Linear = { cell = 1 },
+      Obsidian = { cell = 1 },
+      Tower = { cell = 1 },
+      Slack = { cell = 2 },
+      Discord = { cell = 2 },
+      Ray = { cell = 3 },
+    },
+  },
+  {
+    name = 'Laptop No Ray',
+    cells = {
+      positions.full,
+      positions.center.medium,
+    },
+    apps = {
+      Browser = { cell = 1, open = true },
+      Terminal = { cell = 1, open = true },
+      Linear = { cell = 1 },
+      Obsidian = { cell = 1 },
+      Tower = { cell = 1 },
+      Slack = { cell = 2 },
+      Discord = { cell = 2 },
+    },
+  },
 }
