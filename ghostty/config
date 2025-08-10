@@ -84,3 +84,4 @@ keybind = cmd+k=text:\x02s
 keybind = cmd+r=text:\x02r
 keybind = cmd+shift+k=text:\x02r
 # TODO: Why won't cmd+shift+k work? 🤔
+keybind = shift+enter=text:\n
