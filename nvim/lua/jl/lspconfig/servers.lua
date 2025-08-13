@@ -30,22 +30,7 @@ return {
   tailwindcss = {
     filetypes = { 'html', 'blade', 'antlers', 'css' },
   },
-  -- TODO: John help!
-  antlersls = {
-    showGeneralSnippetCompletions = false,
-    settings = {
-      showGeneralSnippetCompletions = false,
-      antlersls = {
-        showGeneralSnippetCompletions = false,
-      },
-      antlers = {
-        showGeneralSnippetCompletions = false,
-      },
-      html = {
-        showGeneralSnippetCompletions = false,
-      },
-    },
-  },
+  -- antlersls = true,
   ts_ls = {
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
   },
