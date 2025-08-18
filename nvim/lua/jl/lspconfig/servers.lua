@@ -25,7 +25,7 @@ return {
     filetypes = { 'html', 'blade', 'antlers' },
   },
   emmet_language_server = {
-    filetypes = { 'html', 'blade', 'antlers' },
+    filetypes = { 'html', 'blade', 'antlers', 'javascriptreact', 'typescriptreact' },
   },
   tailwindcss = {
     filetypes = { 'html', 'blade', 'antlers', 'css' },

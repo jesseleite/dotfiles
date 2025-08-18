@@ -16,6 +16,7 @@ alias comp="composer"
 alias ci="composer install"
 alias n="npm run"
 alias ni="npm install"
+alias ncv="npm create vite@latest"
 
 # Switch composer versions
 alias comp1="composer self-update --1 && composer --version"
