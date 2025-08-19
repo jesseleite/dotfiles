@@ -19,6 +19,9 @@
       "command": [
         "intelephense",
         "--stdio"
+      ],
+      "extensions": [
+        ".php"
       ]
     }
   }

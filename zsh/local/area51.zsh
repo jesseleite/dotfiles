@@ -10,6 +10,9 @@ export PATH=/Users/jesseleite/.opencode/bin:$PATH
 alias oc='opencode'
 alias ask='opencode run --mode "plan"'
 
+# Run `oclsp some/file.path` to debug if LSP is working correctly
+alias oclsp='opencode debug lsp diagnostics'
+
 # alias seshh='~/Code/Prs/sesh/sesh'
 
 # Stuff from oh-my-zsh
