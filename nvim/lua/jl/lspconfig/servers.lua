@@ -44,6 +44,7 @@ return {
   jsonls = true,
   yamlls = true,
   gopls = true,
+  elixirls = true,
   lua_ls = {
     settings = {
       Lua = {

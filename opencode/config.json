@@ -13,5 +13,13 @@
     "session_list": "ctrl+k",
     "messages_half_page_up": "ctrl+u",
     "messages_half_page_down": "ctrl+d"
+  },
+  "lsp": {
+    "php": {
+      "command": [
+        "intelephense",
+        "--stdio"
+      ]
+    }
   }
 }
