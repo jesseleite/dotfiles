@@ -44,7 +44,9 @@ return {
   jsonls = true,
   yamlls = true,
   gopls = true,
-  elixirls = true,
+  elixirls = {
+    cmd = { "elixir-ls" },
+  },
   lua_ls = {
     settings = {
       Lua = {

@@ -8,4 +8,5 @@ return {
   go = { 'goimports' },
   json = { 'fixjson', 'pint' },
   html = { 'antlersformat' },
+  elixir = { 'mix' },
 }
