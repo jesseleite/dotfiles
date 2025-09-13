@@ -3,24 +3,10 @@
 --------------------------------------------------------------------------------
 
 return {
-  intelephense = {
-    settings = {
-      intelephense = {
-        telemetry = {
-          enabled = false,
-        },
-        -- files = {
-        --   exclude = {
-        --     'vendor',
-        --   },
-        -- },
-        -- diagnostics = {
-        --   unusedSymbols = false,
-        -- },
-      },
-    },
-  },
-  -- phpactor = true,
+  expert = true,
+  -- elixirls = {
+  --   cmd = { "elixir-ls" },
+  -- },
   html = {
     filetypes = { 'html', 'blade', 'antlers' },
   },
@@ -34,19 +20,20 @@ return {
   ts_ls = {
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
   },
-  vtsls = {
-    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-  },
-  -- TODO: Why doesn't vue_ls work? Mason installs vue_ls, but we have to use volar here?
-  volar = {
-    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-  },
+  vue_ls = true,
+  gopls = true,
   jsonls = true,
   yamlls = true,
-  gopls = true,
-  elixirls = {
-    cmd = { "elixir-ls" },
+  intelephense = {
+    settings = {
+      intelephense = {
+        telemetry = {
+          enabled = false,
+        },
+      },
+    },
   },
+  -- phpactor = true,
   lua_ls = {
     settings = {
       Lua = {

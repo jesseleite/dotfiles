@@ -17,7 +17,8 @@ M.setup = function ()
 
     config.capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-    require('lspconfig')[server].setup(config)
+    vim.lsp.config(server, config)
+    vim.lsp.enable(server)
   end
 end
 

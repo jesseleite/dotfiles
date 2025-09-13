@@ -18,7 +18,7 @@ M.setup = function ()
   vim.keymap.set('n', '<Leader>ii', vim.lsp.buf.implementation, { buffer = true, desc = 'List All Implementations' })
   vim.keymap.set({'n', 'v'}, '<Leader>ia', vim.lsp.buf.code_action, { buffer = true, desc = 'Select Code Action' })
   vim.keymap.set('n', '<Leader>ie', vim.diagnostic.open_float, { buffer = true, desc = 'Show Diagnostics' })
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = true, desc = 'Hover Lookup' })
+  vim.keymap.set('n', 'K', function () vim.lsp.buf.hover({ border = 'rounded' }) end, { buffer = true, desc = 'Hover Lookup' })
 end
 
 return M

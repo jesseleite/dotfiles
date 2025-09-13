@@ -12,6 +12,7 @@ brew 'bash'
 brew 'bat'
 brew 'composer'
 brew 'diff-so-fancy'
+brew 'elixir'
 brew 'ffmpeg' # For `youtube-dl`
 brew 'fzf', args: ['HEAD']
 brew 'gh'

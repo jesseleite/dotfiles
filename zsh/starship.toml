@@ -27,5 +27,11 @@ disabled = true
 [golang]
 disabled = true
 
+[elixir]
+disabled = true
+
+[package]
+disabled = true
+
 [cmd_duration]
 disabled = true
