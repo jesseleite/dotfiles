@@ -5,6 +5,8 @@ return {
   },
   Browser = {
     id = 'company.thebrowser.Browser',
+    -- id = 'company.thebrowser.dia',
+    -- id = 'app.zen-browser.zen',
     summon = 'b',
   },
   Calendar = {
@@ -27,6 +29,10 @@ return {
     id = 'ru.keepcoder.Telegram',
     summon = 't',
   },
+  Spark = {
+    id = 'com.readdle.SparkDesktop',
+    summon = 'e', -- email
+  },
   Messages = {
     id = 'com.apple.MobileSMS',
     summon = 'i', -- imessage
@@ -46,10 +52,6 @@ return {
   Music = {
     id = 'com.apple.Music',
     summon = 'm',
-  },
-  Spark = {
-    id = 'com.readdle.SparkDesktop',
-    summon = 'e', -- email
   },
   Finder = {
     id = 'com.apple.finder',

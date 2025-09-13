@@ -18,7 +18,7 @@ vim.keymap.set('i', 'jk', '<Esc>')
 -- TODO: This messes with flash.nvim's label if `j` is pressed. Remap to `<C-something>` else?
 
 -- Edit the alternate / previously edited file
-vim.keymap.set('n', '<Leader>a', '<C-^>')
+vim.keymap.set('n', '<Leader>a', '<C-^>', { silent = true })
 
 -- Vertical split
 vim.keymap.set('n', '<Leader>v', vim.cmd.vsplit, { silent = true })

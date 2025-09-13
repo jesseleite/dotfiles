@@ -27,4 +27,29 @@ M.select_file_and_accept_method = function (prompt_bufnr)
   require('jl.telescope.pickers').lsp_document_methods()
 end
 
+-- TODO: PR 'prefix' opt to their `quote_promp()` action opts,
+-- so that we don't have to maintain this whole custom func just for `prefix` opt
+-- Also PR `-F -- ` into shortcut funcs
+M.quote_prompt = function(opts)
+  local default_opts = {
+    quote_char = '"',
+    prefix = "-F -- ",
+    postfix = " ",
+    trim = true,
+  }
+
+  opts = opts or {}
+  opts = vim.tbl_extend("force", default_opts, opts)
+
+  return function(prompt_bufnr)
+    local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+    local prompt = picker:_get_prompt()
+    if opts.trim then
+      prompt = vim.trim(prompt)
+    end
+    prompt = opts.prefix .. require("telescope-live-grep-args.helpers").quote(prompt, { quote_char = opts.quote_char }) .. opts.postfix
+    picker:set_prompt(prompt)
+  end
+end
+
 return M

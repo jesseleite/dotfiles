@@ -118,6 +118,7 @@ return {
           mappings = {
             i = {
               ["''"] = require('telescope-live-grep-args.actions').quote_prompt(),
+              ["-F"] = require('jl.telescope.actions').quote_prompt({ prefix = "-F -- " }),
             }
           }
         },
