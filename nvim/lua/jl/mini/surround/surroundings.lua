@@ -6,7 +6,7 @@ local M = {}
 
 -- Custom `T` surrounding so that we can `srTT` and preserve html attributes like tpope did!
 -- Avoid replacing default `t` though, as we don't want this behaviour with `sa` or `sd`.
--- See: https://github.com/echasnovski/mini.nvim/issues/1293#issuecomment-2423827325
+-- See: https://github.com/nvim-mini/mini.nvim/issues/1293#issuecomment-2423827325
 M.tag_name_only = {
   input = { '<(%w-)%f[^<%w][^<>]->.-</%1>', '^<()%w+().*</()%w+()>$' },
   output = function()

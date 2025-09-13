@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 
 return {
-  'echasnovski/mini.bracketed',
+  'nvim-mini/mini.bracketed',
   opts = {
     -- These were recently merged to Neovim, but not yet tagged.
     -- When these are tagged, I'll probably delete this plugin!

@@ -3,9 +3,9 @@
 --------------------------------------------------------------------------------
 
 return {
-  'echasnovski/mini.statusline',
+  'nvim-mini/mini.statusline',
   dependencies = {
-    'echasnovski/mini.icons',
+    'nvim-mini/mini.icons',
   },
   config = function ()
     require('mini.statusline').setup {

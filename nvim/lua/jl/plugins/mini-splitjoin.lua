@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 
 return {
-  'echasnovski/mini.splitjoin',
+  'nvim-mini/mini.splitjoin',
   config = function ()
     local splitjoin = require('mini.splitjoin')
     local hooks = require('jl.mini.splitjoin.hooks')

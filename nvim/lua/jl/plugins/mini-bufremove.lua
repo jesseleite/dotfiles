@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 
 return {
-  'echasnovski/mini.bufremove',
+  'nvim-mini/mini.bufremove',
   keys = {
     { '<Leader>c', function () require('mini.bufremove').delete() end, silent = true },
   },

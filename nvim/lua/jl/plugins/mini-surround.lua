@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 
 return {
-  'echasnovski/mini.surround',
+  'nvim-mini/mini.surround',
   opts = {
     custom_surroundings = {
       T = require('jl.mini.surround.surroundings').tag_name_only,
