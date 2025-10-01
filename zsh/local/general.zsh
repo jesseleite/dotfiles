@@ -47,3 +47,8 @@ internet() {
 
     echo '✅ Connected to internet.'
 }
+
+# Helper to set terminal title
+set_terminal_title() {
+  print -Pn "\e]0;$1 (${PWD##*/})\a"
+}
