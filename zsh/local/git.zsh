@@ -41,8 +41,8 @@ alias gpusht='git push --tags'
 
 # Pull
 alias gp='git pull'
-alias gpom='git pull origin master'
-alias gpomr='git pull origin master --rebase'
+alias gpom='git pull origin $(git_master_or_main_branch)'
+alias gpomr='git pull origin $(git_master_or_main_branch) --rebase'
 alias gpod='git pull origin $(git_default_branch)'
 alias gpush='git push'
 
@@ -335,6 +335,15 @@ git_is_using_worktrees() {(
 # Show default origin branch
 git_default_branch() {
   git remote show origin | grep "HEAD branch" | cut -d " " -f5
+}
+
+# Show master or main branch, depending on what the origin repo uses
+git_master_or_main_branch() {
+  if git ls-remote --exit-code --heads origin main &>/dev/null; then
+    echo "main"
+  else
+    echo "master"
+  fi
 }
 
 # List github PRs in pretty table format for gum filtering
