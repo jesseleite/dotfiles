@@ -63,6 +63,7 @@ local macros = {
   a = function() hs.eventtap.keyStroke({'cmd'}, '`') end, -- next window of focused app
   c = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'c') end, -- color picker app
   x = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'x') end, -- color picker eye dropper
+  k = function() hs.eventtap.keyStroke({'cmd', 'shift'}, 'k') end, -- clear ray
 }
 
 registerModalBindings(nil, 'f14', macros, true)
