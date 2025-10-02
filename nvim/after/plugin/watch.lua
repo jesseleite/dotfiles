@@ -5,7 +5,7 @@
 vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
   group = vim.api.nvim_create_augroup('check_for_external_changes', { clear = true }),
   callback = function ()
-    if vim.fn.bufname('%') ~= '' and vim.fn.filereadable(vim.fn.bufname('%')) then
+    if vim.fn.bufname('%') ~= '' and vim.fn.filereadable(vim.fn.bufname('%')) == 1 then
       vim.cmd.checktime()
     end
   end
