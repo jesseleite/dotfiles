@@ -14,7 +14,7 @@ return {
       if conform.is_enabled() then
         return {
           lsp_fallback = false,
-          timeout_ms = 500,
+          timeout_ms = 3000,
         }
       end
     end,
