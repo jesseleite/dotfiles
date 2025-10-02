@@ -12,4 +12,6 @@ return {
   -- javascript = { 'prettier' },
   -- vue = { 'prettier' },
   -- javascriptreact = { 'prettier' },
+  typescript = { 'prettierd', 'eslint_d' },
+  typescriptreact = { 'prettierd', 'eslint_d' },
 }
