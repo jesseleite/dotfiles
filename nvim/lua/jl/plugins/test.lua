@@ -59,5 +59,11 @@ return {
     if vim.fn.match(vim.fn.system('tmux ls | grep attached'), 'runner:') >= 0 then
       helpers.swap_strategy({silent = true})
     end
+
+    -- Make vitest runner work when running form top level of a phoenix app
+    if vim.fn.filereadable('mix.exs') == 1 and vim.fn.filereadable('assets/vitest.config.js') == 1 then
+      vim.g['test#javascript#runner'] = 'vitest'
+      vim.g['test#javascript#vitest#executable'] = 'assets/node_modules/.bin/vitest'
+    end
   end,
 }
