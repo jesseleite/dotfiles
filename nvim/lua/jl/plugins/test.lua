@@ -22,9 +22,6 @@ return {
     vim.g['test#strategy'] = 'neovim'
     vim.g['test#preserve_screen'] = 0
 
-    -- Custom runner executables
-    vim.g['test#php#phpunit#executable'] = 'vendor/bin/phpunit'
-
     -- Set up `tslime` strategy to run in a tmux session called `runner`
     vim.g.tslime = {
       session = 'runner',
