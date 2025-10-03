@@ -6,6 +6,13 @@ local builtin = require('telescope.builtin')
 
 local M = {}
 
+M.project_history = function ()
+  builtin.oldfiles({
+    prompt_title = 'Project History',
+    cwd_only = true,
+  })
+end
+
 M.lsp_document_methods = function ()
   builtin.lsp_document_symbols({
     prompt_title = 'LSP Document Methods',

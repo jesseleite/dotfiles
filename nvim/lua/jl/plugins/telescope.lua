@@ -20,9 +20,10 @@ return {
   },
   keys = {
     { '<Leader>f', function () e['recent-files'].recent_files() end, desc = 'Telescope Files' },
-    { '<Leader>F', function () t.filetypes() end, desc = 'Telescope Filetypes' },
-    { '<Leader>h', function () print('JUST USE `<leader>f` YA HOSER!') end, desc = 'Telescope Files' }, -- Retrain muscle memory
-    { '<Leader>H', function () t.oldfiles() end, desc = 'Telescope All History' }, -- Change this to lowercase `h` soon
+    { '<Leader>F', function () t.git_files() end, desc = 'Telescope Git Files' },
+    -- { '<Leader>h', function () print('JUST USE `<leader>f` YA HOSER!') end, desc = 'Telescope Files' }, -- Retrain muscle memory
+    { '<Leader>h', function () c.project_history() end, desc = 'Telescope Project History' },
+    { '<Leader>H', function () t.oldfiles() end, desc = 'Telescope All History' },
     { '<Leader>b', function () t.buffers() end, desc = 'Telescope Buffers' },
     { '<Leader>m', function () t.git_status() end, desc = 'Telescope Git Status' },
     { '<Leader>s', function () t.lsp_document_symbols() end, desc = 'Telescope LSP Symbols' },
@@ -32,6 +33,7 @@ return {
     { '<Leader>:', function () t.command_history() end, desc = 'Telescope Command History' },
     { '<Leader>R', function () t.pickers() end, desc = 'Telescope Resume' },
     { '<Leader>?', function () t.help_tags() end, desc = 'Telescope Help Search' },
+    { '<Leader><Leader>f', function () t.filetypes() end, desc = 'Telescope Filetypes' },
     { '<Leader><Leader>m', function () e.macroni.saved_macros() end, desc = 'Telescope Saved Macros', mode = { 'n', 'v' } },
     { '<Leader><Leader>v', function () c.vendor_files() end, desc = 'Telescope Vendor Files' },
     -- { '<Leader><Leader>d', function () c.dotfiles() end, desc = 'Telescope Dotfiles' }, -- Just use sesh?
