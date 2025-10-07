@@ -14,9 +14,9 @@ return {
   },
   opts = {
     modes = {
-      search = {
-        enabled = true,
-      },
+      -- search = {
+      --   enabled = true,
+      -- },
       char = {
         highlight = {
           backdrop = false,
