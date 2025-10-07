@@ -8,6 +8,7 @@ return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
+    'nvim-treesitter/nvim-treesitter-context',
     { 'nvim-treesitter/playground', cmd = { 'TSPlaygroundToggle', 'TSHighlightCapturesUnderCursor' } },
     'JoosepAlviste/nvim-ts-context-commentstring',
   },
@@ -67,10 +68,16 @@ return {
           ['@statement.outer'] = 'V',
         },
       }
-    }
+    },
+    context = {
+      mode = 'topline',
+      multiwindow = true,
+      multiline_threshold = 1,
+    },
   },
   config = function (_, opts)
     require('nvim-treesitter.configs').setup(opts)
+    require('treesitter-context').setup(opts.context)
 
     t = require('nvim-treesitter.ts_utils')
   end
