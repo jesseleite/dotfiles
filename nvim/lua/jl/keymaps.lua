@@ -93,6 +93,3 @@ vim.keymap.set('n', '<Leader><Leader>b', ':!herd open<CR><CR>', { silent = true 
 
 -- Open in tower
 vim.keymap.set('n', '<Leader><Leader>g', ':!gittower $PWD<CR><CR>', { silent = true })
-
--- Inspect treesitter captures / color groups under cursor
-vim.keymap.set('n', '<Leader><Leader>c', vim.cmd.TSHighlightCapturesUnderCursor)

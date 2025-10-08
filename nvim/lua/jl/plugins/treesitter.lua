@@ -18,6 +18,8 @@ return {
   keys = {
     { '<A-p>', function () t.goto_node(t.get_previous_node(t.get_node_at_cursor(), true, true) ) end },
     { '<A-n>', function () t.goto_node(t.get_next_node(t.get_node_at_cursor(), true, true) ) end },
+    { '<Leader><Leader>c', function () require('treesitter-context').toggle() end },
+    { '<Leader><Leader>C', vim.cmd.TSHighlightCapturesUnderCursor },
   },
   opts = {
     ensure_installed = 'all',
@@ -45,6 +47,8 @@ return {
           ['aC'] = '@class.outer',
           ['if'] = '@function.inner',
           ['af'] = '@function.outer',
+          ['ib'] = '@block.inner',
+          ['ab'] = '@block.outer',
           ['ic'] = '@conditional.inner',
           ['ac'] = '@conditional.outer',
           ['il'] = '@loop.inner',
@@ -70,9 +74,11 @@ return {
       }
     },
     context = {
+      enable = false,
       mode = 'topline',
       multiwindow = true,
       multiline_threshold = 1,
+      separator = '─',
     },
   },
   config = function (_, opts)
