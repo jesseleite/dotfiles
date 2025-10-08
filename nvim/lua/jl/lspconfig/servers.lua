@@ -3,10 +3,10 @@
 --------------------------------------------------------------------------------
 
 return {
-  expert = true,
-  -- elixirls = {
-  --   cmd = { "elixir-ls" },
-  -- },
+  -- expert = true,
+  elixirls = {
+    cmd = { "elixir-ls" },
+  },
   html = {
     filetypes = { 'html', 'blade', 'antlers' },
   },
