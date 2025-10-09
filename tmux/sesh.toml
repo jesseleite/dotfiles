@@ -11,3 +11,13 @@ path = "~/Code/Wilderborn/cms"
 name = "tmux-config"
 path = "~/.dotfiles/tmux"
 startup_command = "nvim -O tmux.conf sesh.toml"
+
+[[session]]
+name = "meetings"
+path = "~/Code/SavvyCal/meetings"
+startup_command = "tmux new-window -d && phxs"
+
+[[session]]
+name = "appointments"
+path = "~/Code/SavvyCal/appointments"
+startup_command = "tmux new-window -d && phxs"
