@@ -17,8 +17,11 @@ return {
       vim.keymap.set('n', '_', api.tree.collapse_all, { buffer = bufnr })
       vim.keymap.set('n', '-', api.node.navigate.parent_close, { buffer = bufnr })
       vim.keymap.set('n', 'g.', api.tree.toggle_hidden_filter, { buffer = bufnr })
-      vim.keymap.set('n', '<Leader>c', api.tree.close, { buffer = bufnr })
       vim.keymap.set('n', '<Leader>e', require('jl.tree.helpers').open_oil_from_nvim_tree, { buffer = bufnr })
+
+      -- TODO: nvim-tree still tries to close the window when closing the tree, despite opening in `current_window`.
+      -- https://github.com/nvim-tree/nvim-tree.lua/issues/3083#issuecomment-3393367150
+      vim.keymap.set('n', '<Leader>c', api.tree.close, { buffer = bufnr })
     end,
     hijack_cursor = true,
     view = {
