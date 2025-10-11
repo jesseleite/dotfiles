@@ -1,6 +1,9 @@
 # Project specific Vim configs
 .exrc
 
+# Claude local settings
+.claude/settings.local.json
+
 # Tahg’ih’ohn’da’ehn
 tags
 tags.lock
