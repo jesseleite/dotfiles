@@ -24,5 +24,8 @@ return {
         vim.fn.stdpath('config') .. '/lua/jl/snippets/luasnip',
       },
     }
+
+    require('luasnip').filetype_extend("tsx", {"javascript"})
+    require('luasnip').filetype_extend("javascript", {"vue"})
   end,
 }
