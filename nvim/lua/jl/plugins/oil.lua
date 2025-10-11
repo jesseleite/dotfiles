@@ -9,20 +9,20 @@ return {
   },
   opts = {
     delete_to_trash = true,
+    view_options = {
+      case_insensitive = true,
+    },
     keymaps = {
-      ['<Leader>E'] = function()
-        local dir = require('oil').get_current_dir()
-        local entry = require('oil').get_cursor_entry().name
-        local path = dir..entry
-        require('nvim-tree.api').tree.find_file({
-          open = true,
-          current_window = true,
-          buf = path,
-        })
-        if vim.fn.isdirectory(path) == 1 then
-          require('nvim-tree.api').node.open.edit()
-        end
-      end,
+      ['<Leader>E'] = require('jl.tree.helpers').open_nvim_tree_from_oil,
+      --   local dir = require('oil').get_current_dir()
+      --   local entry = require('oil').get_cursor_entry().name
+      --   local path = dir..entry
+      --   require('nvim-tree.api').tree.find_file({
+      --     open = true,
+      --     current_window = true,
+      --     buf = path,
+      --   })
+      -- end,
     },
   },
 }

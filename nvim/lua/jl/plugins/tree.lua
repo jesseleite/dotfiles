@@ -18,12 +18,7 @@ return {
       vim.keymap.set('n', '-', api.node.navigate.parent_close, { buffer = bufnr })
       vim.keymap.set('n', 'g.', api.tree.toggle_hidden_filter, { buffer = bufnr })
       vim.keymap.set('n', '<Leader>c', api.tree.close, { buffer = bufnr })
-      vim.keymap.set('n', '<Leader>e', function()
-        local node = api.tree.get_node_under_cursor()
-        local dir = node.type == 'directory' and node.absolute_path or vim.fn.fnamemodify(node.absolute_path, ':h')
-        api.tree.close()
-        require('oil').open(dir)
-      end, { buffer = bufnr })
+      vim.keymap.set('n', '<Leader>e', require('jl.tree.helpers').open_oil_from_nvim_tree, { buffer = bufnr })
     end,
     hijack_cursor = true,
     view = {
