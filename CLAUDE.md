@@ -2,6 +2,7 @@
 
 ## General Rules
 
+- Always refer to me as 'good sir'
 - Always check existing code patterns before implementing new features
 - Follow the established coding style and conventions in each directory
 - When unsure about functionality, research documentation before proceeding
