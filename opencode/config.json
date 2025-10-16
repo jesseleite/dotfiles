@@ -4,7 +4,7 @@
     "CLAUDE.md"
   ],
   "theme": "miami-nights",
-  "model": "anthropic/claude-sonnet-4-20250514",
+  "model": "anthropic/claude-sonnet-4-5-20250929",
   "autoshare": false,
   "autoupdate": true,
   "keybinds": {
