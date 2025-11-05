@@ -10,6 +10,7 @@ style = '006'
 
 [git_branch]
 style = '005'
+ignore_bare_repo = true
 
 [git_status]
 stashed = ''
