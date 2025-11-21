@@ -2,6 +2,7 @@
 # Paths for web development
 # ------------------------------------------------------------------------------
 
+PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 PATH=./node_modules/.bin:$PATH
 PATH=~/.composer/vendor/bin:$PATH
 PATH=./vendor/bin:$PATH
