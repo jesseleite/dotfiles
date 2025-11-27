@@ -18,10 +18,15 @@ alias cwd="pwd && pwd | pbcopy && echo 'Copied to clipboard 📁'"
 # Run any command from anywhere, without leaving current working directory.
 #
 # Usage: `in [target] [command]`
-# Target: `shtuff` target (if available), else `z` argument
+# Target: directory (if available), else `z` argument
 # Example: `in sand art make:model -a SomeModel`
 function in() {(
-  z $1
+  if [ -d "$1" ]; then
+    cd $1
+  else
+    z $1
+  fi
+
   eval ${@:2}
 )}
 
