@@ -109,6 +109,31 @@ gbd() {
   fi
 }
 
+# Clean up local branches that have been merged on Github already
+gbc() {
+  gcod
+  local merged
+  merged=$(gh pr list --state merged --json headRefName --jq '.[].headRefName' --limit 1000)
+  local deleteable=()
+  git branch --format='%(refname:short)' | while read branch; do
+    echo $merged | grep -q "^$branch$" && deleteable+=("$branch")
+  done
+  if (( ${#deleteable} == 0 )); then
+    echo "No branches to clean!"
+    return
+  fi
+  echo "\nThe following branches were already merged on Github:\n"
+  print -l $deleteable
+  echo "\nWould you like to delete these branches? (Type 'delete' to confirm)"
+  read confirmation
+  if [[ "$confirmation" == "delete" ]]; then
+    echo
+    for branch in $deleteable; do
+      git branch -d "$branch"
+    done
+  fi
+}
+
 
 # ------------------------------------------------------------------------------
 # Staging Area & Commit Management
