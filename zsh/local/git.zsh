@@ -110,8 +110,11 @@ gbd() {
 }
 
 # Clean up local branches that have been merged on Github already
+# TODO: Disclude git_default_branch (ie. 6.x in seo-pro)
+# TODO: Don't do anything if there are unstaged changes
 gbc() {
   gcod
+  git pull
   local merged
   merged=$(gh pr list --state merged --json headRefName --jq '.[].headRefName' --limit 1000)
   local deleteable=()
