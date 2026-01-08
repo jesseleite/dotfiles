@@ -10,7 +10,6 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'mollerhoj/telescope-recent-files.nvim', -- TODO: Find better replacement for this, as dev kinda just threw it together
     'nvim-telescope/telescope-live-grep-args.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     'nvim-telescope/telescope-ui-select.nvim',
@@ -19,9 +18,8 @@ return {
     'Telescope',
   },
   keys = {
-    { '<Leader>f', function () e['recent-files'].recent_files() end, desc = 'Telescope Files' },
-    { '<Leader>F', function () t.git_files() end, desc = 'Telescope Git Files' },
-    -- { '<Leader>h', function () print('JUST USE `<leader>f` YA HOSER!') end, desc = 'Telescope Files' }, -- Retrain muscle memory
+    { '<Leader>f', function () t.git_files() end, desc = 'Telescope Git Files' },
+    { '<Leader>F', function () t.find_files() end, desc = 'Telescope All Files' },
     { '<Leader>h', function () c.project_history() end, desc = 'Telescope Project History' },
     { '<Leader>H', function () t.oldfiles() end, desc = 'Telescope All History' },
     { '<Leader>b', function () t.buffers() end, desc = 'Telescope Buffers' },
@@ -114,11 +112,6 @@ return {
         },
       },
       extensions = {
-        ['recent-files'] = {
-          prompt_title = 'Files',
-          hidden = true,
-          no_ignore = true,
-        },
         live_grep_args = {
           prompt_title = 'Live Ripgrep',
           mappings = {
