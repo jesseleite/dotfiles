@@ -26,6 +26,12 @@
       [:##l :right_arrow ["right_command" 1]]
       [:##right_command :right_command]
     ]}
+    {:des "CMD+ui as page down/up (right CMD only)" :rules [
+      [:##right_command ["right_command" 1] nil {:afterup ["right_command" 0] :alone :right_command}]
+      [:##u :page_down ["right_command" 1]]
+      [:##i :page_up ["right_command" 1]]
+      [:##right_command :right_command]
+    ]}
     {:des "D+F as Hyper (CMD+OPT+CTRL)" :rules [
       [[:d :f] :!COleft_control]
     ]}
