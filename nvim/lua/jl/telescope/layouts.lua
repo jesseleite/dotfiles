@@ -4,7 +4,14 @@
 
 local M = {}
 
-M.helix = function(picker, max_columns, max_lines, layout_config)
+M.get_status_text = function (picker)
+  local count = (picker.stats.processed or 0) - (picker.stats.filtered or 0)
+  local total = picker.stats.processed or 0
+
+  return string.format("%s / %s ", count, total)
+end
+
+M.helix = function (picker, max_columns, max_lines, layout_config)
   local layout = require('telescope.pickers.layout_strategies').horizontal(picker, max_columns, max_lines, layout_config)
 
   -- layout.prompt.borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' }

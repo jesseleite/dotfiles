@@ -10,9 +10,9 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope-ui-select.nvim',
     'nvim-telescope/telescope-live-grep-args.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    'nvim-telescope/telescope-ui-select.nvim',
   },
   cmd = {
     'Telescope',
@@ -34,8 +34,6 @@ return {
     { '<Leader><Leader>f', function () t.filetypes() end, desc = 'Telescope Filetypes' },
     { '<Leader><Leader>m', function () e.macroni.saved_macros() end, desc = 'Telescope Saved Macros', mode = { 'n', 'v' } },
     { '<Leader><Leader>v', function () c.vendor_files() end, desc = 'Telescope Vendor Files' },
-    -- { '<Leader><Leader>d', function () c.dotfiles() end, desc = 'Telescope Dotfiles' }, -- Just use sesh?
-    -- { '<Leader><Leader>v', function () c.nvim_dotfiles() end, desc = 'Telescope Nvim Dotfiles' }, -- Just use sesh?
     { '<Leader><Leader>t', function () t.builtin() end, desc = 'Telescope Builtin Pickers' },
     { '<Leader>/', function () e.live_grep_args.live_grep_args() end, desc = 'Telescope Live Grep Args' },
     { '<Leader>/', function () require('telescope-live-grep-args.shortcuts').grep_visual_selection() end, mode = 'x', desc = 'Telescope Live Grep Selection' },
@@ -57,6 +55,7 @@ return {
         layout_config = {
           prompt_position = "top",
         },
+        get_status_text = require('jl.telescope.layouts').get_status_text,
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous,
@@ -125,8 +124,8 @@ return {
     }
 
     telescope.load_extension('fzf')
-    telescope.load_extension('live_grep_args')
     telescope.load_extension('ui-select')
+    telescope.load_extension('live_grep_args')
     telescope.load_extension('macroni')
 
     -- Shorthand helpers for mappings in `keys` funcs
