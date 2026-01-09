@@ -13,14 +13,15 @@ return {
     'nvim-telescope/telescope-ui-select.nvim',
     'nvim-telescope/telescope-live-grep-args.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    { 'danielfalk/smart-open.nvim', branch = "0.2.x", dependencies = { "kkharji/sqlite.lua" } },
   },
   cmd = {
     'Telescope',
   },
   keys = {
-    { '<Leader>f', function () t.git_files() end, desc = 'Telescope Git Files' },
+    { '<Leader>f', function () c.smart_open() end, desc = 'Telescope Smart Open' },
     { '<Leader>F', function () t.find_files() end, desc = 'Telescope All Files' },
-    { '<Leader>h', function () c.project_history() end, desc = 'Telescope Project History' },
+    { '<Leader>h', function () print('JUST USE `<leader>f`, HOSER!') end, desc = 'Telescope Files' }, -- Retrain muscle memory
     { '<Leader>H', function () t.oldfiles() end, desc = 'Telescope All History' },
     { '<Leader>b', function () t.buffers() end, desc = 'Telescope Buffers' },
     { '<Leader>m', function () t.git_status() end, desc = 'Telescope Git Status' },
@@ -111,6 +112,11 @@ return {
         },
       },
       extensions = {
+        -- smart_open = {
+        --   prompt_title = 'Smart Open',
+        --   -- For some reason, not all extension/picker options work here, but they generally all work when passed into the keymap'd func
+        --   -- See: https://github.com/danielfalk/smart-open.nvim/issues/49#issuecomment-3730770627
+        -- },
         live_grep_args = {
           prompt_title = 'Live Ripgrep',
           mappings = {
@@ -126,6 +132,7 @@ return {
     telescope.load_extension('fzf')
     telescope.load_extension('ui-select')
     telescope.load_extension('live_grep_args')
+    telescope.load_extension('smart_open')
     telescope.load_extension('macroni')
 
     -- Shorthand helpers for mappings in `keys` funcs
