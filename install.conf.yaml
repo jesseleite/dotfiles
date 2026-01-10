@@ -24,6 +24,7 @@
     ~/.hammerspoon: hammerspoon
     ~/.composer/composer.json: composer/composer.json
     ~/.qmk_firmware/keyboards/lily58/keymaps/jesseleite: qmk/lily58
+    hammerspoon/spoons/ReloadConfiguration.spoon: git/submodules/spoons/Source/ReloadConfiguration.spoon
 - create:
     - ~/Code
 - shell:

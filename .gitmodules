@@ -2,3 +2,6 @@
 	path = git/submodules/dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "git/submodules/spoons"]
+	path = git/submodules/spoons
+	url = https://github.com/Hammerspoon/Spoons
