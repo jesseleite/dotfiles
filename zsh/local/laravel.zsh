@@ -2,6 +2,12 @@
 # Aliases and functions for Laravel
 # ------------------------------------------------------------------------------
 
+# TODO: Fix herd
+# This temporarily suppresses herd error for now...
+function nvm_find_nvmrc() {
+  #
+}
+
 alias b="herd open"
 alias art="php artisan"
 alias arte="[ -f .env ] || cp .env.example .env"
@@ -32,12 +38,6 @@ function tink() {(
 # Laravel Herd injected stuff
 # ------------------------------------------------------------------------------
 
-# Herd injected NVM configuration
-export NVM_DIR="/Users/jesseleite/Library/Application Support/Herd/config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
-
 # Herd injected PHP binary.
 export PATH="/Users/jesseleite/Library/Application Support/Herd/bin/":$PATH
 
@@ -47,8 +47,8 @@ export HERD_PHP_84_INI_SCAN_DIR="/Users/jesseleite/Library/Application Support/H
 # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="/Users/jesseleite/Library/Application Support/Herd/config/php/83/"
 
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="/Users/jesseleite/Library/Application Support/Herd/config/php/82/"
+# Herd injected NVM configuration
+# export NVM_DIR="/Users/jesseleite/Library/Application Support/Herd/config/nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Herd injected PHP 7.4 configuration.
-export HERD_PHP_74_INI_SCAN_DIR="/Users/jesseleite/Library/Application Support/Herd/config/php/74/"
+[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"

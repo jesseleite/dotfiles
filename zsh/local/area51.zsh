@@ -4,17 +4,6 @@
 # This is where I put stuff that I'm either testing or embarassed about.
 # No shame; Just aliens, UFOs, cows, and crazy nonsense shenanigans.
 
-# Robots
-alias cc='claude'
-export PATH=/Users/jesseleite/.opencode/bin:$PATH
-alias oc='opencode'
-alias ask='opencode run --mode "plan"'
-
-# Run `oclsp some/file.path` to debug if LSP is working correctly
-alias oclsp='opencode debug lsp diagnostics'
-
-# alias seshh='~/Code/Prs/sesh/sesh'
-
 # Stuff from oh-my-zsh
 # Changing/making/removing directory
 setopt AUTO_CD

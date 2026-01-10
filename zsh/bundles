@@ -18,7 +18,6 @@ $DOTFILES/zsh/local/area51.zsh
 $DOTFILES/zsh/local/bun.zsh
 $DOTFILES/zsh/local/charm.zsh
 $DOTFILES/zsh/local/elixir.zsh
-$DOTFILES/zsh/local/env.zsh
 $DOTFILES/zsh/local/general.zsh
 $DOTFILES/zsh/local/git.zsh
 $DOTFILES/zsh/local/go.zsh
@@ -29,6 +28,7 @@ $DOTFILES/zsh/local/php.zsh
 $DOTFILES/zsh/local/python.zsh
 $DOTFILES/zsh/local/syntax.zsh
 $DOTFILES/zsh/local/system.zsh
+$DOTFILES/zsh/local/robots.zsh
 $DOTFILES/zsh/local/tipz.zsh
 $DOTFILES/zsh/local/tmux.zsh
 $DOTFILES/zsh/local/vi-mode.zsh
