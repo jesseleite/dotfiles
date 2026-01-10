@@ -28,6 +28,8 @@
     ~/.composer/composer.json: composer/composer.json
     ~/.qmk_firmware/keyboards/lily58/keymaps/jesseleite: qmk/lily58
     hammerspoon/spoons/ReloadConfiguration.spoon: git/submodules/spoons/Source/ReloadConfiguration.spoon
+    hammerspoon/spoons/PaperWM.spoon: git/submodules/spoons/Source/PaperWM.spoon
+    hammerspoon/spoons/GridLayout.spoon: ~/Code/Packages/grid-layout-spoon
 - shell:
   - description: Hushing login
     command: "[ -f ~/.hushlogin ] || touch ~/.hushlogin"
