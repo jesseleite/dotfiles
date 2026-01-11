@@ -4,86 +4,16 @@
 # This is where I put stuff that I'm either testing or embarassed about.
 # No shame; Just aliens, UFOs, cows, and crazy nonsense shenanigans.
 
-# Stuff from oh-my-zsh
-# Changing/making/removing directory
-setopt AUTO_CD
-setopt AUTO_PUSHD
-setopt CHASE_LINKS
-setopt PUSHD_IGNORE_DUPS
-setopt PUSHDMINUS
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-alias -g ......='../../../../..'
-alias -- -='cd - > /dev/null 2>&1'
-# alias ls='eza'
-alias l='ls -lhA'
-# ???
-# function d () {
-#   if [[ -n $1 ]]; then
-#     dirs "$@"
-#   else
-#     dirs -v | head -n 10
-#   fi
-# }
-# compdef _dirs d
-
-# Always show colors for `ls`, etc.
-export CLICOLOR=1
-
-# Tweak `ls` colors
-# See: https://geoff.greer.fm/lscolors/
-# TODO: Not sure how to color read/write/executable permissions string like Omarchy/Linux does
-# Differences between BSD and GNU ls?
-export LSCOLORS=exfxcxdxcxegedabagacad
-# export LS_COLORS=di=34:ln=35:so=32:pi=33:ex=32:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43
-# export EZA_COLORS=di=34:ln=35:so=32:pi=33:ex=32:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43
-
-# Extra tab-completions goodness
-autoload -Uz compinit && compinit -C
-
 # Always read man pages with gum pager
 man() {
   /usr/bin/man $1 | gum pager
 }
-
-# Window title stuff
-# TODO: why the flicker? is there a better way?
-case "$TERM" in
-    xterm*|rxvt*)
-        function xtitle () {
-            builtin print -n -- "\e]0;$@\a"
-        }
-        ;;
-    screen)
-        function xtitle () {
-            builtin print -n -- "\ek$@\e\\"
-        }
-        ;;
-    *)
-        function xtitle () {
-        }
-esac
-function precmd () {
-    xtitle "$(print -P '%~')"
-}
-function preexec () {
-    xtitle "$1"
-}
-
-
-# ------------------------------------------------------------------------------
-# Experimental Stuff
-# ------------------------------------------------------------------------------
 
 # Show my top 15 most used commands in my command history
 alias favcmds="history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head -15"
 
 # Check out my slides!
 alias sl="slides slides.md"
-
-# Spam requests
-# repeat 100 curl -s GET http://wat.test > /dev/null && echo "Requested at" $(date)
 
 # See longest files by filetype (ie. `filelengths php`)
 function filelengths() {
@@ -93,6 +23,25 @@ function filelengths() {
   fi
 
   rg -l '.*' -g '*.'$1 | xargs wc -l | sort
+}
+
+# Ping until internet is connected/re-connected
+internet() {
+  disconnected=false
+
+  while ! ping 8.8.8.8 -c 1 &> /dev/null; do
+    echo '❌ No internet connection.'
+    disconnected=true
+    sleep 1;
+  done;
+
+  # Show notification only if it was ever disconnected, so you
+  # can leave the command running in the background.
+  if $disconnected; then
+    osascript -e 'display notification "Connection restored ✅" with title "Internet"'
+  fi
+
+  echo '✅ Connected to internet.'
 }
 
 alias selfcontrol="/Applications/SelfControl.app/Contents/MacOS/selfcontrol-cli"

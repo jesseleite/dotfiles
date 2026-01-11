@@ -1,5 +1,6 @@
 # Brew
 brew '1password-cli'
+brew 'anomalyco/tap/opencode'
 brew 'antidote'
 brew 'avr-gcc' # For `qmk`
 brew 'awk'

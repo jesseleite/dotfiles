@@ -14,6 +14,7 @@ molovo/tipz
 
 # TODO: Not sure why the above lines started failing?
 # For now we'll just include them all manually here.
+$DOTFILES/zsh/local/sanity.zsh
 $DOTFILES/zsh/local/area51.zsh
 $DOTFILES/zsh/local/bun.zsh
 $DOTFILES/zsh/local/charm.zsh
