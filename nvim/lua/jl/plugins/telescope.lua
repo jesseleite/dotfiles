@@ -64,6 +64,7 @@ return {
             ['<Esc>'] = actions.close,
             ['<C-a>'] = actions.toggle_all,
             ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
+            ['<C-f>'] = custom_actions.show_all_files,
             ['<CR>'] = custom_actions.select_one_or_multi,
           },
         },

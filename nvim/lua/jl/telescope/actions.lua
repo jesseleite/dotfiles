@@ -4,6 +4,22 @@
 
 local M = {}
 
+-- Switch to all files picker with current prompt query.
+-- Handy for when another file picker doesn't return what we're looking for 😎
+M.show_all_files = function(prompt_bufnr)
+  local action_state = require('telescope.actions.state')
+  local actions = require('telescope.actions')
+
+  actions.close(prompt_bufnr)
+
+  require('telescope.builtin').find_files({
+    prompt_title = 'All Files',
+    default_text = action_state.get_current_line(),
+    no_ignore = true,
+    hidden = true,
+  })
+end
+
 -- Bring back multiple file selection action, until core (re?)implements it.
 -- See: https://github.com/nvim-telescope/telescope.nvim/issues/1048#issuecomment-1679797700
 M.select_one_or_multi = function(prompt_bufnr)
