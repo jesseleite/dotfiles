@@ -5,8 +5,11 @@
 export OPENCODE_DISABLE_TERMINAL_TITLE=1
 
 oc() {
-  set_terminal_title "opencode"
+  set_terminal_title "oc"
   opencode
 }
 
-alias cc='claude'
+cc() {
+  set_terminal_title "cc"
+  claude
+}
