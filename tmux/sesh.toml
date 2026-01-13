@@ -19,5 +19,5 @@ startup_command = "tmux new-window -d && phxs"
 
 [[session]]
 name = "appointments"
-path = "~/Code/SavvyCal/appointments"
+path = "~/Code/SavvyCal/appointments-app"
 startup_command = "tmux new-window -d && phxs"
