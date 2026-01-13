@@ -40,7 +40,7 @@ t() {
 # Note: This function should be run at the end of our zshrc script to ensure
 # the rest of our config is loaded if we ctrl-c out of the session picker
 tmux_ensure_session() {
-  if [ -z "$TMUX" ]; then
+  if [[ -z "$TMUX" && -t 0 && -t 1 ]]; then
     t
   fi
 }
