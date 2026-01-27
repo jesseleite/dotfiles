@@ -13,7 +13,7 @@ return {
     'nvim-telescope/telescope-ui-select.nvim',
     'nvim-telescope/telescope-live-grep-args.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    { 'danielfalk/smart-open.nvim', branch = "0.2.x", dependencies = { "kkharji/sqlite.lua" } },
+    { 'danielfalk/smart-open.nvim', branch = "0.2.x", dependencies = { "kkharji/sqlite.lua" }, dev = true },
   },
   cmd = {
     'Telescope',
