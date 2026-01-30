@@ -15,5 +15,20 @@
     "session_list": "ctrl+k",
     "messages_half_page_up": "ctrl+u",
     "messages_half_page_down": "ctrl+d"
+  },
+  "mode": {
+    "plan": {
+      "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
+    },
+    "build": {
+      "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
+    }
+  },
+  "mcp": {
+    "linear": {
+      "type": "remote",
+      "url": "https://mcp.linear.app/mcp",
+      "enabled": true
+    }
   }
 }
