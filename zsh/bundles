@@ -24,6 +24,7 @@ $DOTFILES/zsh/local/git.zsh
 $DOTFILES/zsh/local/go.zsh
 $DOTFILES/zsh/local/keyboards.zsh
 $DOTFILES/zsh/local/laravel.zsh
+$DOTFILES/zsh/local/linear.zsh
 $DOTFILES/zsh/local/mac.zsh
 $DOTFILES/zsh/local/php.zsh
 $DOTFILES/zsh/local/python.zsh
@@ -38,3 +39,4 @@ $DOTFILES/zsh/local/web-dev.zsh
 $DOTFILES/zsh/local/zoxide.zsh
 $DOTFILES/zsh/local/fzf.zsh
 $DOTFILES/zsh/local/statamic.zsh
+$DOTFILES/zsh/local/savvy.zsh
