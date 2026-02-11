@@ -29,6 +29,11 @@
       "type": "remote",
       "url": "https://mcp.linear.app/mcp",
       "enabled": true
+    },
+    "liege": {
+      "type": "local",
+      "command": ["/Users/jesseleite/.dotfiles/mcp/liege/liege"],
+      "enabled": true
     }
   }
 }
