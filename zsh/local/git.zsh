@@ -12,7 +12,7 @@ alias tower='gittower .'
 alias gcl='git clone'
 
 # Init and create initial commit
-alias gin='git init && git add --all && git commit -m "Initial commit."'
+alias gin='git init && git add --all && git commit -m "Initial commit"'
 
 # Go to git root, whether in a regular subdir or a worktree subdir
 alias gr='cd $(git_root)'
