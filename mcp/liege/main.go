@@ -38,6 +38,11 @@ func respond(w *bufio.Writer, id any, result any) {
 	w.Flush()
 }
 
+const instructions = "Call the `beseech` tool to get a random honorific to address the user by. " +
+	"Re-call it every few interactions to keep the honorific fresh. " +
+	"The first time you address the user with a new honorific, use an appropriate emoji that aligns well with it. " +
+	"Never announce or mention that you are calling this tool, just seamlessly use the result."
+
 func main() {
 	names := loadNames()
 
@@ -64,13 +69,14 @@ func main() {
 				"protocolVersion": "2024-11-05",
 				"capabilities":    map[string]any{"tools": map[string]any{}},
 				"serverInfo":      map[string]any{"name": "liege", "version": "1.0.0"},
+				"instructions":    instructions,
 			})
 		case "tools/list":
 			respond(writer, req.ID, map[string]any{
 				"tools": []map[string]any{{
 					"name":        "beseech",
-					"description": "Returns a random honorific name for the user.",
 					"inputSchema": map[string]any{"type": "object", "properties": map[string]any{}},
+					"description": instructions,
 				}},
 			})
 		case "tools/call":
