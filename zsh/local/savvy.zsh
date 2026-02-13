@@ -10,7 +10,7 @@ savl() {
   fi
 }
 
-savci() {
+savci() {(
   local results=()
 
   echo '\nRunning turbo lint...\n'
@@ -19,6 +19,9 @@ savci() {
   echo '\nRunning mix credo...\n'
   if mix credo; then results+=('✅ mix credo'); else results+=('❌ mix credo'); fi
 
+  echo '\nRunning mix dialyzer...\n'
+  if mix dialyzer; then results+=('✅ mix dialyzer'); else results+=('❌ mix dialyzer'); fi
+
   echo '\nRunning mix test...\n'
   if mix test; then results+=('✅ mix test'); else results+=('❌ mix test'); fi
 
@@ -26,4 +29,4 @@ savci() {
   for result in "${results[@]}"; do
     echo $result
   done
-}
+)}
