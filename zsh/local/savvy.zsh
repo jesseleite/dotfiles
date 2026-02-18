@@ -30,3 +30,26 @@ savci() {(
     echo $result
   done
 )}
+
+savrnd() {
+  local for_friday previous_friday
+  local day_of_week=$(date +%u)
+
+  if (( day_of_week == 5 )); then
+    for_friday=$(date +%m-%d)
+    previous_friday=$(date -v-7d +%m-%d)
+  else
+    local days_since_friday=$(( (day_of_week + 2) % 7 ))
+    if (( days_since_friday == 0 )); then
+      days_since_friday=7
+    fi
+    for_friday=$(date -v-${days_since_friday}d +%m-%d)
+    previous_friday=$(date -v-$(( days_since_friday + 7 ))d +%m-%d)
+  fi
+
+  local rnd_prompt=$(sed -e "s/{{previous_friday}}/${previous_friday}/g" \
+                         -e "s/{{for_friday}}/${for_friday}/g" \
+                         "${DOTFILES}/robots/templates/savvy/rnd.md")
+
+  opencode --prompt "${rnd_prompt}"
+}
