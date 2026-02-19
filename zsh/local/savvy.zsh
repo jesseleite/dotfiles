@@ -2,6 +2,16 @@
 # SavvyCal Workflow
 # ------------------------------------------------------------------------------
 
+savinit() {
+  if [[ "$(pwd)" == *"meetings"* ]]; then
+    sav_init_meetings
+  elif [[ "$(pwd)" == *"appointments"* ]]; then
+    sav_init_appointments
+  else
+    echo "Not in SavvyCal directory!"
+  fi
+}
+
 savl() {
   if [[ "$OSTYPE" == "linux"* ]]; then
     xdg-open https://linear.app/savvycal/issue/$(current_linear_issue)
@@ -52,4 +62,19 @@ savrnd() {
                          "${DOTFILES}/robots/templates/savvy/rnd.md")
 
   opencode --prompt "${rnd_prompt}"
+}
+
+
+# ------------------------------------------------------------------------------
+# Helper Funcs
+# ------------------------------------------------------------------------------
+
+sav_init_meetings() {
+  ln -sf "${DOTFILES}/opencode/projects/savvy/meetings/opencode.json" ./opencode.json \
+    && echo '✅ symlinked opencode.json'
+}
+
+sav_init_appointments() {
+  ln -sf "${DOTFILES}/opencode/projects/savvy/appointments/opencode.json" ./opencode.json \
+    && echo '✅ symlinked opencode.json'
 }

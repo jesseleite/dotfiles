@@ -1,6 +1,9 @@
 # Project specific Vim configs
 .exrc
 
+# Opencode local settings
+/opencode.json
+
 # Claude local settings
 .claude/settings.local.json
 

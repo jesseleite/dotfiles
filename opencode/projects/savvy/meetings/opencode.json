@@ -1,0 +1,9 @@
+{
+  "mcp": {
+    "tidewave": {
+      "type": "remote",
+      "url": "http://localhost:4001/tidewave/mcp",
+      "enabled": true
+    }
+  }
+}
