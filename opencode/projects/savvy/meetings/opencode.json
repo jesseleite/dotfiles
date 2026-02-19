@@ -1,8 +1,14 @@
 {
+  "$schema": "https://opencode.ai/config.json",
   "mcp": {
     "tidewave": {
       "type": "remote",
       "url": "http://localhost:4001/tidewave/mcp",
+      "enabled": true
+    },
+    "linear": {
+      "type": "remote",
+      "url": "https://mcp.linear.app/mcp",
       "enabled": true
     }
   }
