@@ -14,7 +14,8 @@
     "session_new": "ctrl+n",
     "session_list": "ctrl+k",
     "messages_half_page_up": "ctrl+u",
-    "messages_half_page_down": "ctrl+d"
+    "messages_half_page_down": "ctrl+d",
+    "variant_cycle": "ctrl+y"
   },
   "mode": {
     "plan": {
@@ -27,7 +28,9 @@
   "mcp": {
     "liege": {
       "type": "local",
-      "command": ["/Users/jesseleite/.dotfiles/mcp/liege/liege"],
+      "command": [
+        "/Users/jesseleite/.dotfiles/mcp/liege/liege"
+      ],
       "enabled": true
     }
   }
