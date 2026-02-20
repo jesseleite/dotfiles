@@ -6,7 +6,6 @@
     "CLAUDE.md"
   ],
   "theme": "miami-nights",
-  "model": "anthropic/claude-opus-4-6",
   "autoshare": false,
   "autoupdate": true,
   "keybinds": {
@@ -17,12 +16,19 @@
     "messages_half_page_down": "ctrl+d",
     "variant_cycle": "ctrl+y"
   },
-  "mode": {
+  "agent": {
     "plan": {
+      "model": "anthropic/claude-opus-4-6",
       "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
     },
     "build": {
+      "model": "anthropic/claude-opus-4-6",
       "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
+    },
+    "research": {
+      "model": "openai/gpt-5.3-codex",
+      "variant": "high",
+      "color": "#00EC6E"
     }
   },
   "mcp": {
