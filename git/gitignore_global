@@ -7,6 +7,9 @@
 # Claude local settings
 .claude/settings.local.json
 
+# Elixir
+.iex.exs
+
 # Tahg’ih’ohn’da’ehn
 tags
 tags.lock
