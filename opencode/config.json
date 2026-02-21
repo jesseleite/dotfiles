@@ -8,6 +8,7 @@
   "theme": "miami-nights",
   "autoshare": false,
   "autoupdate": true,
+  "default_agent": "plan",
   "keybinds": {
     "leader": "ctrl+space",
     "session_new": "ctrl+n",
@@ -19,11 +20,13 @@
   "agent": {
     "plan": {
       "model": "anthropic/claude-opus-4-6",
-      "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
+      "prompt": "You are Claude Code, Anthropic's official CLI for Claude.",
+      "color": "#47bac0"
     },
     "build": {
       "model": "anthropic/claude-opus-4-6",
-      "prompt": "You are Claude Code, Anthropic's official CLI for Claude."
+      "prompt": "You are Claude Code, Anthropic's official CLI for Claude.",
+      "color": "#e4609b"
     },
     "research": {
       "model": "openai/gpt-5.3-codex",
