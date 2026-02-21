@@ -10,7 +10,7 @@ return {
     macros = {
       duplicate_function = {
         desc = 'Duplicate current function',
-        keymap = '<Leader>y',
+        keymap = '<Leader><Leader>y',
         macro = 'vafygv<Esc>o<Esc>pzz^',
       },
       lua_keymap = {
