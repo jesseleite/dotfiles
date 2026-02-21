@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 
 return {
-  'jesseleite/nvim-macroni',
+  'jesseleite/macroni.nvim',
   -- dev = true,
   lazy = false,
   opts = {
