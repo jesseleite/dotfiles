@@ -23,3 +23,8 @@ function in() {(
 
   eval ${@:2}
 )}
+
+# Use rlwrap to fix keyboard input in scripts/commands where it's borked
+function wrap() {
+  rlwrap --always-readline --no-children $1
+}
