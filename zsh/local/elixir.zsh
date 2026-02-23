@@ -3,6 +3,7 @@
 # ------------------------------------------------------------------------------
 
 alias iexs="iex -S mix"
+alias iexv="nvim '+IEx'"
 alias iexp="iex --dbg pry -S mix"
 alias mixfix="rm -rf .elixir_ls .expert _build && mix compile"
 
