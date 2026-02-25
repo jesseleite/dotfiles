@@ -2,6 +2,7 @@
 # Aliases and functions for Elixir
 # ------------------------------------------------------------------------------
 
+alias iex="iex --dot-iex no-file"
 alias iexs="iex -S mix"
 alias iexv="nvim '+IEx'"
 alias iexp="iex --dbg pry -S mix"
