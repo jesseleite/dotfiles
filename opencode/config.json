@@ -41,6 +41,13 @@
         "/Users/jesseleite/.dotfiles/mcp/liege/liege"
       ],
       "enabled": true
+    },
+    "pretty_table": {
+      "type": "local",
+      "command": [
+        "/Users/jesseleite/.dotfiles/mcp/pretty_table/pretty_table"
+      ],
+      "enabled": true
     }
   }
 }
