@@ -33,12 +33,17 @@
       "variant": "high",
       "color": "#00EC6E",
       "mode": "subagent",
-      "description": "Researches codebases and answers questions without making changes",
+      "description": "Does deep research on codebases and answers questions without making changes",
       "prompt": "You are a read-only research agent. You must never modify files, run destructive commands, or make changes to the codebase.",
       "tools": {
         "write": false,
         "edit": false
       }
+    }
+  },
+  "command": {
+    "review": {
+      "agent": "research"
     }
   },
   "mcp": {
