@@ -3,6 +3,7 @@
 --------------------------------------------------------------------------------
 
 -- TODO: Temporary workaround for `exit_visual` not working
+-- https://github.com/polacekpavel/prompt-yank.nvim/issues/10
 local exit_visual_mode = function ()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'nx', false)
 end
