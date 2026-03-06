@@ -41,11 +41,6 @@
       }
     }
   },
-  "command": {
-    "review": {
-      "agent": "research"
-    }
-  },
   "mcp": {
     "liege": {
       "type": "local",
