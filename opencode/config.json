@@ -34,7 +34,7 @@
       "color": "#00EC6E",
       "mode": "subagent",
       "description": "Does deep research on codebases and answers questions without making changes",
-      "prompt": "You are a read-only research agent. You must never modify files, run destructive commands, or make changes to the codebase.",
+      "prompt": "You are a read-only deep research agent. You must never modify files, run destructive commands, or make changes to the codebase.",
       "tools": {
         "write": false,
         "edit": false
