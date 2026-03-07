@@ -35,23 +35,25 @@ end
 
 M.current_buffer_blocks = function (opts)
   local cursor_line = vim.fn.line('.')
+  local source_bufnr = vim.api.nvim_get_current_buf()
 
   require('jl.telescope.pickers').current_buffer_lines(vim.tbl_deep_extend('force', {
     prompt_title = vim.b.current_buffer_blocks_title or 'Function Blocks',
     default_text = vim.b.current_buffer_blocks_query or "^function\\  ",
+    previewer = require('jl.telescope.previewers').buffer_line_previewer(source_bufnr, { scroll = 'zt' }),
     on_complete = {
       function (self)
-        local best_row = nil
-        for row = 0, self.manager:num_results() - 1 do
-          local entry = self.manager:get_entry(self:get_index(row))
+        local best_index = nil
+        for index = 1, self.manager:num_results() do
+          local entry = self.manager:get_entry(index)
           if entry and entry.lnum and entry.lnum <= cursor_line then
-            best_row = row
+            best_index = index
           end
         end
-        if best_row then
-          self:set_selection(best_row)
-        end
         self:clear_completion_callbacks()
+        if best_index then
+          self:set_selection(self:get_row(best_index))
+        end
       end,
     },
   }, opts or {}))
