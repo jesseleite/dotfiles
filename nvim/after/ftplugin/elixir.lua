@@ -8,3 +8,10 @@ vim.b.minisplitjoin_config = {
   split = { hooks_post = { hooks.del_comma_curly } },
   join  = { hooks_post = { hooks.del_comma_curly } },
 }
+
+vim.b.current_buffer_blocks_query = "^def\\  | ^defp\\  "
+
+if vim.fn.expand('%:t'):match('_test%.exs$') then
+  vim.b.current_buffer_blocks_title = 'Test Blocks'
+  vim.b.current_buffer_blocks_query = "^describe\\  | ^test\\  "
+end
