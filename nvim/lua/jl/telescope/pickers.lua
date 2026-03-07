@@ -26,6 +26,13 @@ M.project_history = function ()
   })
 end
 
+M.current_buffer_lines = function (opts)
+  builtin.current_buffer_fuzzy_find(vim.tbl_deep_extend('force', {
+    prompt_title = 'Current Buffer Lines',
+    sorter = require('jl.telescope.sorters').fzf_index_sorter(),
+  }, opts or {}))
+end
+
 M.lsp_document_methods = function ()
   builtin.lsp_document_symbols({
     prompt_title = 'LSP Document Methods',

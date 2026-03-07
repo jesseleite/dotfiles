@@ -27,7 +27,7 @@ return {
     { '<Leader>m', function () t.git_status() end, desc = 'Telescope Git Status' },
     { '<Leader>s', function () t.lsp_document_symbols() end, desc = 'Telescope LSP Symbols' },
     { '<Leader>S', function () c.lsp_document_methods() end, desc = 'Telescope LSP Methods' },
-    { '<Leader>l', function () t.current_buffer_fuzzy_find() end, desc = 'Telescope Current Buffer Lines' },
+    { '<Leader>l', function () c.current_buffer_lines() end, desc = 'Telescope Current Buffer Lines' },
     { '<Leader>C', function () t.commands() end, desc = 'Telescope Commands' },
     { '<Leader>:', function () t.command_history() end, desc = 'Telescope Command History' },
     { '<Leader>R', function () t.pickers() end, desc = 'Telescope Resume' },
@@ -89,9 +89,6 @@ return {
           prompt_title = 'All Files',
           no_ignore = true,
           hidden = true,
-        },
-        current_buffer_fuzzy_find = {
-          prompt_title = 'Current Buffer Lines',
         },
         oldfiles = {
           prompt_title = 'All History',
