@@ -13,5 +13,5 @@ vim.b.current_buffer_blocks_query = "^def\\  | ^defp\\  "
 
 if vim.fn.expand('%:t'):match('_test%.exs$') then
   vim.b.current_buffer_blocks_title = 'Test Blocks'
-  vim.b.current_buffer_blocks_query = "^describe\\  | ^test\\  "
+  vim.b.current_buffer_blocks_query = "^describe\\  | ^setup\\  | ^test\\  "
 end
