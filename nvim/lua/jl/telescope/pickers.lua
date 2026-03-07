@@ -33,6 +33,13 @@ M.current_buffer_lines = function (opts)
   }, opts or {}))
 end
 
+M.current_buffer_blocks = function (opts)
+  require('jl.telescope.pickers').current_buffer_lines(vim.tbl_deep_extend('force', {
+    prompt_title = vim.b.current_buffer_blocks_title or 'Function Blocks',
+    default_text = vim.b.current_buffer_blocks_query or "^function\\  ",
+  }, opts or {}))
+end
+
 M.lsp_document_methods = function ()
   builtin.lsp_document_symbols({
     prompt_title = 'LSP Document Methods',

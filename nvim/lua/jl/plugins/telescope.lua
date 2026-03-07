@@ -23,7 +23,8 @@ return {
     { '<Leader>F', function () t.find_files() end, desc = 'Telescope All Files' },
     { '<Leader>h', function () print('JUST USE `<leader>f`, HOSER!') end, desc = 'Telescope Files' }, -- Retrain muscle memory
     { '<Leader>H', function () t.oldfiles() end, desc = 'Telescope All History' },
-    { '<Leader>b', function () t.buffers() end, desc = 'Telescope Buffers' },
+    { '<Leader>b', function () c.current_buffer_blocks() end, desc = 'Telescope Current Buffer Blocks' },
+    { '<Leader>B', function () t.buffers() end, desc = 'Telescope Buffers' },
     { '<Leader>m', function () t.git_status() end, desc = 'Telescope Git Status' },
     { '<Leader>s', function () t.lsp_document_symbols() end, desc = 'Telescope LSP Symbols' },
     { '<Leader>S', function () c.lsp_document_methods() end, desc = 'Telescope LSP Methods' },
