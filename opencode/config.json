@@ -5,18 +5,9 @@
     "AGENTS.md",
     "CLAUDE.md"
   ],
-  "theme": "miami-nights",
-  "autoshare": false,
+  "share": "manual",
   "autoupdate": true,
   "default_agent": "plan",
-  "keybinds": {
-    "leader": "ctrl+space",
-    "session_new": "ctrl+n",
-    "session_list": "ctrl+k",
-    "messages_half_page_up": "ctrl+u",
-    "messages_half_page_down": "ctrl+d",
-    "variant_cycle": "ctrl+y"
-  },
   "agent": {
     "plan": {
       "model": "anthropic/claude-opus-4-6",

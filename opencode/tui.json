@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "theme": "miami-nights",
+  "keybinds": {
+    "leader": "ctrl+space",
+    "session_new": "ctrl+n",
+    "session_list": "ctrl+k",
+    "messages_half_page_up": "ctrl+u",
+    "messages_half_page_down": "ctrl+d",
+    "variant_cycle": "ctrl+y"
+  }
+}
