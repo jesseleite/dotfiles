@@ -40,6 +40,8 @@
     command: "sudo spctl --master-disable"
   - description: Copying applescript services
     command: "cp -R applescript/services/* ~/Library/Services"
+  - description: Installing tmux plugins
+    command: "sh ~/.tmux/plugins/tpm/bin/install_plugins"
   - description: Installing brew
     command: "[ -x \"$(which brew)\" ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
   - description: Updating brew
