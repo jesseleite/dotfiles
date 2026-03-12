@@ -17,6 +17,7 @@
     ~/.gitignore_global: git/gitignore_global
     ~/.zshrc: zsh/zshrc
     ~/.config/mise: mise
+    ~/.config/direnv: direnv
     ~/.config/nvim: nvim
     ~/.config/starship.toml: zsh/starship.toml
     ~/.config/ghostty/config: ghostty/config
