@@ -14,9 +14,6 @@ vim.g.loaded_vimballPlugin = 1
 vim.g.loaded_2html_plugin = 1
 vim.g.loaded_logiPat = 1
 vim.g.loaded_rrhelper = 1
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrwSettings = 1
 
 -- These ones seem kinda useful, but they're probably unecessary with treesitter?
 -- TODO: Explore this more, and maybe I can disable these too
