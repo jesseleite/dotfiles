@@ -70,11 +70,18 @@ savrnd() {
 # ------------------------------------------------------------------------------
 
 sav_init_meetings() {
-  ln -sf "${DOTFILES}/opencode/projects/savvy/meetings/opencode.json" ./opencode.json \
-    && echo '✅ symlinked opencode.json'
+  sav_init_common
+  sed -i '' 's/4001/{env:LOCALHOST_PORT}/g' ./opencode.json \
+    && echo '✅ replaced port in opencode.json with {env:LOCALHOST_PORT}'
 }
 
 sav_init_appointments() {
-  ln -sf "${DOTFILES}/opencode/projects/savvy/appointments/opencode.json" ./opencode.json \
-    && echo '✅ symlinked opencode.json'
+  sav_init_common
+  sed -i '' 's/4002/{env:LOCALHOST_PORT}/g' ./opencode.json \
+    && echo '✅ replaced port in opencode.json with {env:LOCALHOST_PORT}'
+}
+
+sav_init_common() {
+  cp ./opencode.example.json ./opencode.json \
+    && echo '✅ copied opencode.json'
 }
