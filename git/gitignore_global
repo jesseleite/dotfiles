@@ -1,3 +1,6 @@
+# Direnv
+.envrc
+
 # Project specific Vim configs
 .exrc
 
