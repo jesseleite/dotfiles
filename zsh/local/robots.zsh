@@ -13,3 +13,6 @@ cc() {
   set_terminal_title "cc"
   claude
 }
+
+# Claude code uses this
+export PATH="$PATH:$HOME/.local/bin"

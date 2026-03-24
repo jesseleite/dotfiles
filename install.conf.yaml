@@ -21,8 +21,10 @@
     ~/.config/nvim: nvim
     ~/.config/starship.toml: zsh/starship.toml
     ~/.config/ghostty/config: ghostty/config
-    ~/.claude/CLAUDE.md: agents/AGENTS.md
     ~/.config/opencode: opencode
+    ~/.config/opencode/skills: agents/skills
+    ~/.claude/CLAUDE.md: agents/AGENTS.md
+    ~/.claude/skills: agents/skills
     ~/.tmux/plugins/tpm: git/submodules/tpm
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/sesh/sesh.toml: tmux/sesh.toml
