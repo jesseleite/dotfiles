@@ -2,6 +2,14 @@
 # SavvyCal Workflow
 # ------------------------------------------------------------------------------
 
+chrometz() {
+  if [ -z "$1" ]; then echo 'Please specify a timezone (ie. Pacific/Honolulu)!'; return; fi
+
+  local location="${2:-http://localhost:4001/}"
+
+  TZ="$1" /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window "$location"
+}
+
 savinit() {
   if [[ "$(pwd)" == *"meetings"* ]]; then
     sav_init_meetings
