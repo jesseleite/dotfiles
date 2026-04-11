@@ -63,6 +63,11 @@ vim.keymap.set('v', '<C-k>', ':m \'<-2<CR>gv=gv', { silent = true })
 vim.keymap.set('i', ';;', '<Esc>A;<Esc>')
 vim.keymap.set('i', ',,', '<Esc>A,<Esc>')
 
+-- Incremental selection
+vim.keymap.set('n', '<A-o>', 'van', { remap = true })
+vim.keymap.set('x', '<A-o>', 'an',  { remap = true })
+vim.keymap.set('x', '<A-i>', 'in',  { remap = true })
+
 -- Keep visual selection when indenting
 vim.keymap.set('x', '>', '>gv')
 vim.keymap.set('x', '<', '<gv')

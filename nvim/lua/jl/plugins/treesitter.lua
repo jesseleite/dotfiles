@@ -30,15 +30,6 @@ return {
     indent = {
       enable = true,
     },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<A-o>",
-        scope_incremental = "<A-O>",
-        node_incremental = "<A-o>",
-        node_decremental = "<A-i>",
-      },
-    },
     textobjects = {
       select = {
         enable = true,

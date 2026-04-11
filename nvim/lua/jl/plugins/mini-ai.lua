@@ -13,5 +13,13 @@ return {
     custom_textobjects = {
       c = require('jl.mini.ai.objects').individual_html_class,
     },
+    mappings = {
+      -- Temporarily remapping these, because they conflict with nvim's default incremental selection keymaps
+      -- See: `:h treesitter-incremental-selection`
+      around_next = 'aN',
+      inside_next = 'iN',
+      around_last = 'aL',
+      inside_last = 'iL',
+    },
   },
 }
