@@ -36,11 +36,7 @@ vim.keymap.set('n', '<Leader><Leader>s', function ()
   flip('laststatus', 0)
   flip('cmdheight', 0)
 
-  if enabled then
-    vim.diagnostic.disable()
-  else
-    vim.diagnostic.enable()
-  end
+  vim.diagnostic.enable(not enabled)
 
   vim.cmd.Gitsigns('toggle_signs')
   vim.cmd.ScrollbarToggle()
