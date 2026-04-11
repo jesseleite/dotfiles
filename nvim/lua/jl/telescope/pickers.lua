@@ -14,8 +14,15 @@ M.smart_open = function ()
     match_algorithm = 'fzf',
     result_limit = 50,
     filename_first = false,
-    -- open_buffer_indicators = false, -- Would be nice to disable these altogether. See: https://github.com/danielfalk/smart-open.nvim/issues/38
-    -- get_status_text = function () return "" end, -- This always renders `0`, and override doesn't work? PR a fix?
+    -- This setting relies on unmerged PR: https://github.com/danielfalk/smart-open.nvim/pull/105
+    -- open_buffer_indicators = { previous = '•', others = '◦' },
+    open_buffer_indicators = false,
+    -- This setting relies on unmerged PR: https://github.com/danielfalk/smart-open.nvim/pull/104
+    get_status_text = function (self)
+      local results = self.finder.results or {}
+      local total = self.finder.total_indexed or 0
+      return string.format("%s / %s ", #results, total)
+    end,
   })
 end
 
