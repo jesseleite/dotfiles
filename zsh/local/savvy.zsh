@@ -40,6 +40,9 @@ savci() {(
   echo '\nRunning mix dialyzer...\n'
   if mix dialyzer; then results+=('✅ mix dialyzer'); else results+=('❌ mix dialyzer'); fi
 
+  echo '\nRunning mix format...\n'
+  if mix format --check-formatted; then results+=('✅ mix format'); else results+=('❌ mix format'); fi
+
   echo '\nRunning mix test...\n'
   if mix test; then results+=('✅ mix test'); else results+=('❌ mix test'); fi
 
