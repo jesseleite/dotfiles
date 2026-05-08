@@ -72,7 +72,7 @@ savrnd() {
                          -e "s/{{for_friday}}/${for_friday}/g" \
                          "${DOTFILES}/robots/templates/savvy/rnd.md")
 
-  opencode --prompt "${rnd_prompt}"
+  claude --permission-mode auto "${rnd_prompt}"
 }
 
 

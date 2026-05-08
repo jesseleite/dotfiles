@@ -25,6 +25,7 @@
     ~/.config/opencode/skills: agents/skills
     ~/.claude/CLAUDE.md: agents/AGENTS.md
     ~/.claude/skills: agents/skills
+    ~/.claude/settings.json: claude/settings.json
     ~/.tmux/plugins/tpm: git/submodules/tpm
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/sesh/sesh.toml: tmux/sesh.toml
