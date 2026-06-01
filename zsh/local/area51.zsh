@@ -4,6 +4,10 @@
 # This is where I put stuff that I'm either testing or embarassed about.
 # No shame; Just aliens, UFOs, cows, and crazy nonsense shenanigans.
 
+# Required step for detail.dev CLI
+# Or I assume any other Rust-binaries?
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Always read man pages with gum pager
 man() {
   /usr/bin/man $1 | gum pager
