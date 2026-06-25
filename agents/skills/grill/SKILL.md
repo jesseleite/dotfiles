@@ -1,5 +1,5 @@
 ---
-name: grill-flow
+name: grill
 description: Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree, and then implementing the plan in reviewable bite-sized chunks one step at a time. Use when user wants to stress-test a plan, get grilled on their design, mentions "grill me", "make a plan", etc.
 ---
 
