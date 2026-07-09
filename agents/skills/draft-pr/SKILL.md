@@ -44,6 +44,8 @@ When asked to write a PR description, follow these steps:
 
 ## Guidelines
 
+- PR title:
+    - Add the Linear ticket number (ie. `(SC-####)`) to the end of the title in parentheses
 - Summary section:
     - The summary should focus on **why**, not just **what**
     - Don't break lines to specific lengths, let them wrap naturally
