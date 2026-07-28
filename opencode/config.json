@@ -10,15 +10,15 @@
   "default_agent": "plan",
   "agent": {
     "plan": {
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.6-sol",
       "color": "#47bac0"
     },
     "build": {
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.6-sol",
       "color": "#e4609b"
     },
     "research": {
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.6-sol",
       "variant": "xhigh",
       "color": "#00EC6E",
       "mode": "subagent",
@@ -35,13 +35,6 @@
       "type": "local",
       "command": [
         "/Users/jesseleite/.dotfiles/mcp/liege/liege"
-      ],
-      "enabled": true
-    },
-    "pretty_table": {
-      "type": "local",
-      "command": [
-        "/Users/jesseleite/.dotfiles/mcp/pretty_table/pretty_table"
       ],
       "enabled": true
     }
