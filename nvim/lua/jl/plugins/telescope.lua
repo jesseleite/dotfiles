@@ -60,8 +60,6 @@ return {
         get_status_text = require('jl.telescope.layouts').get_status_text,
         mappings = {
           i = {
-            ["<C-k>"] = actions.move_selection_previous,
-            ["<C-j>"] = actions.move_selection_next,
             ['<Esc>'] = actions.close,
             ['<C-a>'] = actions.toggle_all,
             ['<C-q>'] = actions.send_selected_to_qflist + actions.open_qflist,

@@ -21,6 +21,7 @@
     ~/.config/nvim: nvim
     ~/.config/starship.toml: zsh/starship.toml
     ~/.config/ghostty/config: ghostty/config
+    ~/.config/herdr/config.toml: herdr/config.toml
     ~/.grok/config.toml: grok/config.toml
     ~/.config/opencode: opencode
     ~/.config/opencode/skills: agents/skills

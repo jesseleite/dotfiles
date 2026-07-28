@@ -23,12 +23,12 @@ palette = 1=#FA2E62
 palette = 9=#FA2E62
 
 # Green
-palette = 2=#00EC6E
-palette = 10=#00EC6E
+palette = 2=#36C278
+palette = 10=#36C278
 
 # Yellow
-palette = 3=#FFE981
-palette = 11=#FFE981
+palette = 3=#FFBF63
+palette = 11=#FFBF63
 
 # Blue
 palette = 4=#47BAC0
@@ -77,6 +77,9 @@ clipboard-write = allow
 # Allow option to work as alt on macos
 macos-option-as-alt = true
 
+# Ensure shift+enter always works as soft line break
+keybind = shift+enter=text:\x1b[13;2u
+
 # Open or create tmux session
 keybind = cmd+k=text:\x02s
 
@@ -84,4 +87,3 @@ keybind = cmd+k=text:\x02s
 keybind = cmd+r=text:\x02r
 keybind = cmd+shift+k=text:\x02r
 # TODO: Why won't cmd+shift+k work? 🤔
-keybind = shift+enter=text:\n

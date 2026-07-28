@@ -33,6 +33,7 @@ $DOTFILES/zsh/local/system.zsh
 $DOTFILES/zsh/local/robots.zsh
 $DOTFILES/zsh/local/tipz.zsh
 $DOTFILES/zsh/local/tmux.zsh
+$DOTFILES/zsh/local/herdr.zsh
 $DOTFILES/zsh/local/vi-mode.zsh
 $DOTFILES/zsh/local/vim.zsh
 $DOTFILES/zsh/local/web-dev.zsh

@@ -51,6 +51,11 @@ function preexec () {
 
 # Helper to set terminal title
 set_terminal_title() {
+  print -Pn "\e]0;$1\a"
+}
+
+# Helper to set terminal title with pwd in parens
+set_terminal_title_with_pwd() {
   print -Pn "\e]0;$1 (${PWD##*/})\a"
 }
 

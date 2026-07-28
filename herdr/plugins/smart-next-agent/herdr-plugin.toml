@@ -1,0 +1,18 @@
+id = "smart-next-agent"
+name = "Smart Next Agent"
+version = "0.2.0"
+min_herdr_version = "0.7.0"
+description = "Jump to the agent that needs you: whatever notified since the last press, otherwise a tour of everyone else waiting, blocked before finished-but-unseen. Falls back to plain panel-order cycling when nobody needs you."
+platforms = ["linux", "macos"]
+
+# Compiled at install time; produces a self-contained binary in the plugin
+# root (Go stdlib only). For a linked dev copy, run this manually.
+[[build]]
+command = ["go", "build", "-o", "herdr-smart-next-agent", "."]
+
+[[actions]]
+id = "jump"
+title = "Smart Next Agent: jump"
+description = "Focus the next agent needing attention."
+contexts = ["global", "workspace"]
+command = ["./herdr-smart-next-agent"]

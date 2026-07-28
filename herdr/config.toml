@@ -1,0 +1,55 @@
+onboarding = false
+
+[ui]
+prompt_new_tab_name = false
+sidebar_collapsed_mode = "hidden"
+hide_tab_bar_when_single_tab = true
+
+[theme]
+name = "rose-pine"
+
+[theme.custom]
+panel_bg = "reset"
+accent = "#36C278"
+mauve = "#E4609B"
+yellow = "#FFBF63"
+teal = "#47BAC0"
+green = "#47BAC0"
+surface0 = "#1F1F1F"
+subtext0 = "#AAA7BD"
+text = "#FFFFFF"
+surface_dim = "#18181A"
+overlay0 = "#535353"
+overlay1 = "#a7a7a7"
+
+[ui.sidebar.agents]
+rows = [
+  [{ token = "state_icon", bold = false}, { token = "workspace", bold = false }],
+  [{ token = "agent", dim = false }],
+]
+
+[keys]
+previous_tab = "ctrl+h"
+next_tab = "ctrl+l"
+new_tab = "ctrl+t"
+previous_workspace = "ctrl+k"
+next_workspace = "ctrl+j"
+previous_agent = "alt+k"
+
+[[keys.command]]
+key = "alt+j"
+type = "plugin_action"
+command = "smart-next-agent.jump"
+description = "next agent needing attention"
+
+[[keys.command]]
+key = "alt+h"
+type = "plugin_action"
+command = "move-tab.left"
+description = "move tab left"
+
+[[keys.command]]
+key = "alt+l"
+type = "plugin_action"
+command = "move-tab.right"
+description = "move tab right"

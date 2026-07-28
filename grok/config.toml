@@ -19,6 +19,3 @@ theme = "groknight"
 
 [ui.display_refresh]
 auto_cadence_enabled = false
-
-[ui.notifications.title]
-enabled = false

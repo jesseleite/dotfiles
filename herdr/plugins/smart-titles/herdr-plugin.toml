@@ -1,0 +1,49 @@
+id = "smart-titles"
+name = "Smart Titles"
+version = "0.4.0"
+min_herdr_version = "0.7.0"
+description = "tmux-style auto-naming: agent panes take the agent's own session name, other panes their terminal title, tabs their active pane."
+platforms = ["linux", "macos"]
+
+# Compiled at install time; produces a self-contained binary in the plugin
+# root (Go stdlib only). For a linked dev copy, run this manually.
+[[build]]
+command = ["go", "build", "-o", "smart-titles", "."]
+
+[[startup]]
+command = ["./smart-titles", "start"]
+
+[[actions]]
+id = "start"
+title = "Smart Titles: start"
+description = "Start the smart-titles daemon."
+contexts = ["global", "workspace"]
+command = ["./smart-titles", "start"]
+
+[[actions]]
+id = "stop"
+title = "Smart Titles: stop"
+description = "Stop the smart-titles daemon."
+contexts = ["global", "workspace"]
+command = ["./smart-titles", "stop"]
+
+[[actions]]
+id = "status"
+title = "Smart Titles: status"
+description = "Report daemon status."
+contexts = ["global", "workspace"]
+command = ["./smart-titles", "status"]
+
+[[actions]]
+id = "sync-now"
+title = "Smart Titles: sync now"
+description = "Run a single sync pass immediately."
+contexts = ["global", "workspace", "tab", "pane"]
+command = ["./smart-titles", "sync"]
+
+[[actions]]
+id = "reset"
+title = "Smart Titles: reset"
+description = "Forget manual-name overrides and resume auto-naming everything."
+contexts = ["global", "workspace", "tab", "pane"]
+command = ["./smart-titles", "reset"]
