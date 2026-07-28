@@ -1,5 +1,8 @@
 {
   "permissions": {
+    "allow": [
+      "mcp__liege__beseech"
+    ],
     "defaultMode": "auto"
   },
   "model": "claude-fable-5[1m]",
@@ -8,5 +11,7 @@
   },
   "effortLevel": "high",
   "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark",
   "skipAutoPermissionPrompt": true
 }
