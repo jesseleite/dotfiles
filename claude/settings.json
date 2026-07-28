@@ -5,7 +5,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true
   },
