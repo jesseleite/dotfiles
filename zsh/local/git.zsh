@@ -15,7 +15,7 @@ alias gcl='git clone'
 alias gin='git init && git add --all && git commit -m "Initial commit"'
 
 # Go to git root, whether in a regular subdir or a worktree subdir
-alias gr='cd $(git_root)'
+alias groot='cd $(git_root)'
 
 # View current PR in browser
 alias gprv='gh pr view --web'
