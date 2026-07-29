@@ -16,6 +16,8 @@ When asked to perform a given action using the flock skill, do the following ste
 3. Perform the action the user has provided in these new agent tabs, using herdr to prompt each in parallel.
 
 4. After all agents are finished, combine and consolidate their output as sensibly as possible.
+    - Do not rush the agents, give them the time they need.
+    - Only intervene if they are legitimately stuck (ie. can't write to /tmp as herdr suggests, etc.)
 
 5. Report back to this agent with the consolidated findings.
 
