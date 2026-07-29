@@ -49,8 +49,13 @@ var (
 	// pane.agent_status_changed also carries a reported session title, but it
 	// is a per-pane subscription (requires pane_id) and cannot be taken out
 	// globally; pane.updated covers the same fields for every pane.
+	//
+	// pane.agent_detected is the global lifecycle event for agent enter/leave
+	// (released=true on ctrl-c / quit). Agent release does not reliably emit a
+	// name-field pane.updated, so without this the tab stays stuck on the
+	// agent kind until the next cwd/title update.
 	subscriptions = []string{
-		"pane.created", "pane.updated", "pane.closed", "pane.focused",
+		"pane.created", "pane.updated", "pane.closed", "pane.focused", "pane.agent_detected",
 		"tab.created", "tab.renamed", "tab.moved", "tab.closed",
 	}
 
@@ -556,6 +561,13 @@ func handleEvent(event string, data map[string]any) {
 		dataMu.Unlock()
 		if tabID != "" {
 			scheduleTab(tabID)
+		}
+	case "pane_agent_detected":
+		// Agent appeared or was released (released=true). Resync from pane.get
+		// so the tab drops the agent kind as soon as Herdr clears it — without
+		// waiting for an incidental cwd/title pane.updated.
+		if paneID := getStr(data, "pane_id"); paneID != "" {
+			schedulePane(paneID)
 		}
 	case "tab_created":
 		if tab, ok := data["tab"].(map[string]any); ok {
