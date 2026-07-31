@@ -13,11 +13,14 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[pager]
-	branch = false
 [core]
 	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = less --tabs=4 -RFX
+[pager]
+	branch = false
+	diff = hunk pager
+	show = hunk pager
+	stash = hunk pager
 [color]
 	ui = true
 [color "diff-highlight"]

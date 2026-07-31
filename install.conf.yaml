@@ -22,6 +22,7 @@
     ~/.config/starship.toml: zsh/starship.toml
     ~/.config/ghostty/config: ghostty/config
     ~/.config/herdr/config.toml: herdr/config.toml
+    ~/.config/hunk/config.toml: hunk/config.toml
     ~/.grok/config.toml: grok/config.toml
     ~/.config/opencode: opencode
     ~/.config/opencode/skills: agents/skills
