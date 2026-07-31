@@ -20,6 +20,10 @@
     "darkGreen": "#a6e3a1",
     "darkCyan": "#56b6c2",
     "darkYellow": "#e5c07b",
+    "darkDiffRemovedBg": "#2e2127",
+    "darkDiffRemovedHighlight": "#443039",
+    "darkDiffAddedBg": "#1b2823",
+    "darkDiffAddedHighlight": "#2a3a32",
     "lightStep1": "#ffffff",
     "lightStep2": "#fafafa",
     "lightStep3": "#f5f5f5",
@@ -126,11 +130,11 @@
       "light": "lightRed"
     },
     "diffAddedBg": {
-      "dark": "#1e2a25",
+      "dark": "darkDiffAddedBg",
       "light": "#c9e3cb"
     },
     "diffRemovedBg": {
-      "dark": "#32232a",
+      "dark": "darkDiffRemovedBg",
       "light": "#e9d3d6"
     },
     "diffContextBg": {
@@ -142,11 +146,11 @@
       "light": "lightStep4"
     },
     "diffAddedLineNumberBg": {
-      "dark": "#2B3A33",
+      "dark": "darkDiffAddedHighlight",
       "light": "#d6f0d9"
     },
     "diffRemovedLineNumberBg": {
-      "dark": "#453039",
+      "dark": "darkDiffRemovedHighlight",
       "light": "#f6dfe2"
     },
     "markdownText": {
