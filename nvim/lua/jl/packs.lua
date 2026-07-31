@@ -1,10 +1,5 @@
 --------------------------------------------------------------------------------
--- Undotree: Branching undo history visualizer
+-- Enable Builtin Packs (done after lazy.nvim completely resets RTP)
 --------------------------------------------------------------------------------
 
-return {
-  'mbbill/undotree',
-  keys = {
-    { '<Leader><Leader>u', vim.cmd.UndotreeToggle },
-  }
-}
+vim.cmd.packadd('nvim.undotree')

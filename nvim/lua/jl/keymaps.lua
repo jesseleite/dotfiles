@@ -91,6 +91,9 @@ vim.keymap.set('n', '_', '<C-x>')
 vim.keymap.set('v', '+', '<C-a>gv')
 vim.keymap.set('v', '_', '<C-x>gv')
 
+-- Toggle undotree
+vim.keymap.set('n', '<Leader><Leader>u', vim.cmd.Undotree, { desc = 'Toggle undotree' })
+
 -- Open in finder
 vim.keymap.set('n', '<Leader><Leader>o', ':!open $PWD<CR><CR>', { silent = true })
 

@@ -46,3 +46,6 @@ require('lazy').setup('jl.plugins', {
     path = '~/Code/Packages',
   },
 })
+
+-- Init builtin packs
+require('jl.packs')
