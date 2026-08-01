@@ -99,6 +99,3 @@ vim.keymap.set('n', '<Leader><Leader>o', ':!open $PWD<CR><CR>', { silent = true 
 
 -- Browse with herd open
 vim.keymap.set('n', '<Leader><Leader>b', ':!herd open<CR><CR>', { silent = true })
-
--- Open in tower
-vim.keymap.set('n', '<Leader><Leader>g', ':!gittower $PWD<CR><CR>', { silent = true })

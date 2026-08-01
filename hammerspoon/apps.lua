@@ -37,10 +37,6 @@ return {
     id = 'com.apple.MobileSMS',
     summon = 'i', -- imessage
   },
-  Tower = {
-    id = 'com.fournova.Tower3',
-    summon = 'g', -- git
-  },
   Ray = {
     id = 'be.spatie.ray',
     summon = 'r',

@@ -5,9 +5,6 @@
 # Save a precious two characters
 alias g='git'
 
-# Don't judge me
-alias tower='gittower .'
-
 # Clone
 alias gcl='git clone'
 
