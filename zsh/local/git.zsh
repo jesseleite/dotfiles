@@ -77,11 +77,24 @@ gcr() {
   echo $branches | gum filter --placeholder 'Checkout remote branch...' | sed "s#remotes/[^/]*/##" | xargs git checkout
 }
 
-# Checkout a PR with gum fuzzy search
+# Checkout a PR with fzf fuzzy search
 gpr() {
   if $(git_is_using_worktrees); then gwpr $@; return; fi
   if [ -n "$1" ]; then gh pr checkout $1; return; fi
-  gh_pretty_list_prs | gum filter --placeholder 'Checkout PR...' | awk '{print $1}' | sed "s/#//" | xargs gh pr checkout
+  local selected
+  selected=$(
+    gh_pretty_list_prs |
+      fzf \
+        --ghost 'Checkout PR...' \
+        --info=hidden \
+        --ansi \
+        --delimiter=$'\t' \
+        --with-nth=2.. \
+        --accept-nth=1 \
+        --tabstop=2
+  ) || return
+  [[ -n $selected ]] || return 1
+  gh pr checkout "$selected"
 }
 
 # Checkout tag with gum fuzzy search
@@ -262,7 +275,6 @@ gstl() {
 }
 
 
-
 # ------------------------------------------------------------------------------
 # Worktree Management
 # ------------------------------------------------------------------------------
@@ -345,7 +357,7 @@ gwr() {
 # Add a new worktree from a PR with gum fuzzy search
 gwpr() {
   if [ -z "$1" ]; then
-    local pr=$(gh_pretty_list_prs | gum filter --placeholder 'Add worktree from PR...' | awk '{print $1}' | sed "s/#//")
+    local pr=$(gh_pretty_list_prs | gum filter --placeholder 'Add worktree from PR...' | awk -F'\t' '{print $1}')
   else
     local pr=$1
   fi
@@ -477,10 +489,11 @@ git_stash_rename() {
   git stash store -m "$msg" "$rev" || return 1
 }
 
-# List github PRs in pretty table format for gum filtering
+# List github PRs as TSV for fzf
+# Fields: number (accept), #number, title, author, branch, updated
 gh_pretty_list_prs() {
   gh pr list \
     --limit 500 \
     --json number,title,author,headRefName,updatedAt \
-    --template '{{range .}}{{tablerow (printf "#%v" .number | autocolor "green") (truncate 60 .title) (truncate 15 .author.login) (truncate 40 .headRefName) (timeago .updatedAt)}}{{end}}'
+    --template '{{range .}}{{printf "%v\t%s\t%-60s\t%-15s\t%-40s\t%s\n" .number (printf "#%v" .number | autocolor "green") (truncate 60 .title) (truncate 15 .author.login) (truncate 40 .headRefName) (timeago .updatedAt)}}{{end}}'
 }
