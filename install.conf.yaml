@@ -51,18 +51,16 @@
     command: "[ -x \"$(which brew)\" ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
   - description: Updating brew
     command: "brew update"
-  - description: Installing brew bundler
-    command: "brew tap homebrew/bundle"
   - description: Installing brewfile bundle
     command: "brew bundle"
     stdout: true
     stderr: true
-  - description: Linking mysql 5.7
-    command: "brew link --force mysql@5.7"
-  - description: Starting mysql service whenever mac boots
-    command: "brew services start mysql@5.7"
   - description: Removing old brew files
     command: "brew cleanup"
+  - description: Adding zsh to list of acceptable shells
+    command: "grep -qxF \"$(which zsh)\" /etc/shells || echo \"$(which zsh)\" | sudo tee -a /etc/shells >/dev/null"
+  - description: Making zsh the default shell
+    command: "chsh -s $(which zsh)"
   - description: Installing tmux plugins
     command: "sh ~/.tmux/plugins/tpm/bin/install_plugins"
   - description: Linking herdr plugins
@@ -71,12 +69,6 @@
     stderr: true
   - description: Starting goku service whenever mac boots
     command: "brew services start goku"
-  - description: Adding zsh to list of acceptable shells
-    command: "[[ \"$(ag $(which zsh) /etc/shells)\" ]] || sudo sh -c \"echo $(which zsh) >> /etc/shells\""
-  - description: Making zsh the default shell
-    command: "chsh -s $(which zsh)"
-  - description: Compiling antidote bundles
-    command: "sh zsh/bundles_compile"
   - description: Installing python bundle
     command: "pip3 install -r pipfile"
     stdout: true
@@ -89,7 +81,5 @@
     command: "[ -f ~/.composer/config.json ] || cp composer/config.json ~/.composer/config.json"
   - description: Installing/updating global composer dependencies
     command: "sh composer/global_update"
-  # - description: Install herd
-  #   command: ""
   - description: Clearing sudo credential cache
     command: "sudo --reset-timestamp"

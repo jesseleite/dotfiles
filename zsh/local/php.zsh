@@ -5,7 +5,7 @@
 # Configure php settings and extensions for current version
 phpc() {
   local confd
-  confd=$(php --ini | ag -o "[^\s]*conf\.d[^/]")
+  confd=$(php --ini | rg -o '[^\s]*conf\.d[^/]*')
 
   if [ -z "$1" ]; then
     cd $confd
