@@ -1,0 +1,129 @@
+#!/usr/bin/env python3
+"""
+Render a unified diff through Hunk's static pager (for fzf previews, etc.).
+
+Hunk only emits themed static output when stdout is a TTY *and* it detects a
+captured pager host (LazyGit-style: TERM=dumb + GIT_PAGER/LAZYGIT). Fzf's
+preview pane is a plain pipe, so we have to re-host stdout on a PTY.
+
+TODO: Drop this wrapper if/when Hunk ships a non-interactive pipe/filter mode
+(color-only stdout, no TTY), which would make fzf previews work natively:
+https://github.com/modem-dev/hunk/issues/575
+"""
+
+from __future__ import annotations
+
+import fcntl
+import os
+import pty
+import select
+import shutil
+import struct
+import subprocess
+import sys
+import termios
+import time
+
+
+def _env_int(*names: str, default: int) -> int:
+    for name in names:
+        raw = os.environ.get(name)
+        if raw and raw.isdigit():
+            return max(20, int(raw))
+    return default
+
+
+def main() -> int:
+    patch = sys.stdin.buffer.read()
+    if not patch.strip():
+        return 0
+
+    if shutil.which("hunk") is None:
+        sys.stdout.buffer.write(patch)
+        return 0
+
+    width = _env_int("FZF_PREVIEW_COLUMNS", "COLUMNS", default=100)
+    height = _env_int("FZF_PREVIEW_LINES", "LINES", default=40)
+
+    env = os.environ.copy()
+    env.update(
+        {
+            "TERM": "dumb",
+            "GIT_PAGER": "1",
+            "LAZYGIT": "1",
+            "COLUMNS": str(width),
+            "LINES": str(height),
+        }
+    )
+    env.pop("NO_COLOR", None)
+
+    master, slave = pty.openpty()
+    try:
+        fcntl.ioctl(slave, termios.TIOCSWINSZ, struct.pack("HHHH", height, width, 0, 0))
+        proc = subprocess.Popen(
+            ["hunk", "pager", "--mode", "stack"],
+            stdin=subprocess.PIPE,
+            stdout=slave,
+            stderr=subprocess.DEVNULL,
+            env=env,
+            close_fds=True,
+        )
+    finally:
+        os.close(slave)
+
+    assert proc.stdin is not None
+    try:
+        proc.stdin.write(patch)
+        proc.stdin.close()
+    except BrokenPipeError:
+        pass
+
+    out = bytearray()
+    deadline = time.time() + 8
+    try:
+        while time.time() < deadline:
+            ready, _, _ = select.select([master], [], [], 0.1)
+            if master in ready:
+                try:
+                    chunk = os.read(master, 8192)
+                except OSError:
+                    break
+                if not chunk:
+                    break
+                out.extend(chunk)
+            elif proc.poll() is not None:
+                while True:
+                    ready, _, _ = select.select([master], [], [], 0.05)
+                    if master not in ready:
+                        break
+                    try:
+                        chunk = os.read(master, 8192)
+                    except OSError:
+                        chunk = b""
+                    if not chunk:
+                        break
+                    out.extend(chunk)
+                break
+        else:
+            proc.kill()
+    finally:
+        try:
+            os.close(master)
+        except OSError:
+            pass
+        try:
+            proc.wait(timeout=1)
+        except Exception:
+            proc.kill()
+
+    if not out:
+        sys.stdout.buffer.write(patch)
+        return 0
+
+    text = bytes(out).replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    sys.stdout.buffer.write(text)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
