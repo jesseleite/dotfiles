@@ -47,8 +47,6 @@
     command: "sudo spctl --master-disable"
   - description: Copying applescript services
     command: "cp -R applescript/services/* ~/Library/Services"
-  - description: Installing tmux plugins
-    command: "sh ~/.tmux/plugins/tpm/bin/install_plugins"
   - description: Installing brew
     command: "[ -x \"$(which brew)\" ] || /bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
   - description: Updating brew
@@ -65,6 +63,12 @@
     command: "brew services start mysql@5.7"
   - description: Removing old brew files
     command: "brew cleanup"
+  - description: Installing tmux plugins
+    command: "sh ~/.tmux/plugins/tpm/bin/install_plugins"
+  - description: Linking herdr plugins
+    command: "sh herdr/link_plugins"
+    stdout: true
+    stderr: true
   - description: Starting goku service whenever mac boots
     command: "brew services start goku"
   - description: Adding zsh to list of acceptable shells

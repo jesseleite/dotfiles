@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# Link every local Herdr plugin under herdr/plugins/, then run each
+# manifest [[build]] step (local `herdr plugin link` does not compile).
+set -euo pipefail
+
+root="$(cd "$(dirname "$0")" && pwd)"
+plugins_dir="$root/plugins"
+
+if ! command -v herdr >/dev/null 2>&1; then
+  echo "herdr not in PATH; skipping plugin link" >&2
+  exit 0
+fi
+
+# Run every `command = [...]` under a [[build]] block in herdr-plugin.toml.
+# Local link only registers the plugin; builds are our responsibility.
+run_manifest_builds() {
+  local dir="$1"
+  local toml="$dir/herdr-plugin.toml"
+  local in_build=0 line cmd_json
+
+  while IFS= read -r line || [[ -n "${line:-}" ]]; do
+    if [[ "$line" == "[[build]]" ]]; then
+      in_build=1
+      continue
+    fi
+    # Next table header ends the build block.
+    if [[ "$line" == \[* ]]; then
+      in_build=0
+      continue
+    fi
+    if ((in_build)) && [[ "$line" =~ ^command[[:space:]]*=[[:space:]]*(\[.*\])[[:space:]]*$ ]]; then
+      cmd_json="${BASH_REMATCH[1]}"
+      echo "  Building ${dir%/}: $cmd_json"
+      (
+        cd "$dir"
+        # TOML string arrays here are JSON-compatible.
+        python3 -c 'import json, os, sys; cmd = json.loads(sys.argv[1]); os.execvp(cmd[0], cmd)' "$cmd_json"
+      )
+      in_build=0
+    fi
+  done <"$toml"
+}
+
+for dir in "$plugins_dir"/*/; do
+  [[ -f "${dir}herdr-plugin.toml" ]] || continue
+  echo "Linking ${dir%/}..."
+  herdr plugin link "${dir%/}"
+  run_manifest_builds "$dir"
+done
