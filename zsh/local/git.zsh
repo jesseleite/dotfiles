@@ -231,6 +231,37 @@ gstab() {
   git add --all && git stash push -m "$*" && git stash apply
 }
 
+# Manage stashes with fzf fuzzy search and status or hunk preview
+gstl() {
+  local preview_files preview_diff selected helpers
+  preview_files='git -c color.ui=always stash show --stat --include-untracked {1} 2>/dev/null; echo; git stash show --name-status --include-untracked {1} 2>/dev/null'
+  preview_diff='git stash show -p --include-untracked {1} 2>/dev/null | hunk-static'
+  helpers=$(functions git_stash_files git_stash_drop git_stash_rename git_pretty_list_stashes)
+  selected=$(
+    git_pretty_list_stashes |
+      fzf \
+        --ghost 'Apply stash...' \
+        --info=hidden \
+        --header='changes [ctrl-i] · diff [ctrl-o] · rename [ctrl-r] · drop [ctrl-x]' \
+        --ansi \
+        --no-sort \
+        --delimiter=$'\t' \
+        --with-nth=2,3 \
+        --accept-nth=1 \
+        --tabstop=2 \
+        --preview-window='right:60%:border-left' \
+        --preview-label='files' \
+        --preview="$preview_files" \
+        --bind="ctrl-i:change-preview($preview_files)+change-preview-label(files)" \
+        --bind="ctrl-o:change-preview($preview_diff)+change-preview-label(diff)" \
+        --bind="ctrl-r:execute(clear; zsh -c $(printf %q "$helpers; git_stash_rename \"\$1\"") zsh {1})+reload(zsh -c $(printf %q "$helpers; git_pretty_list_stashes"))" \
+        --bind="ctrl-x:execute(clear; zsh -c $(printf %q "$helpers; git_stash_drop \"\$1\"") zsh {1})+reload(zsh -c $(printf %q "$helpers; git_pretty_list_stashes"))"
+  ) || return
+  [[ -n $selected ]] || return 1
+  git --no-pager stash apply "$selected"
+}
+
+
 
 # ------------------------------------------------------------------------------
 # Worktree Management
@@ -375,6 +406,75 @@ git_master_or_main_branch() {
   else
     echo "master"
   fi
+}
+
+# List stashes as TSV for fzf
+# Fields: stash ref (accept), date, message
+git_pretty_list_stashes() {
+  git stash list --pretty=format:'%gd%x09%cI%x09%gs' |
+    awk -F '\t' '
+      {
+        split($2, iso, "T")
+        date = iso[1]
+        msg = $3
+        if (msg ~ /^On /) sub(/^On [^:]+: /, "", msg)
+        printf "%s\t%s\t%s\t%s\n", $2, $1, date, msg
+      }
+    ' |
+    sort -t$'\t' -k1,1r |
+    awk -F '\t' '{ printf "%s\t\033[2m%s\033[0m\t%s\n", $2, $3, $4 }'
+}
+
+# Show stash file summary (same as gstl files preview; --no-pager for fzf execute)
+git_stash_files() {
+  git --no-pager -c color.ui=always stash show --stat --include-untracked "$1" 2>/dev/null
+  echo
+  git --no-pager stash show --name-status --include-untracked "$1" 2>/dev/null
+}
+
+# Delete a given stash
+git_stash_drop() {
+  local stash=$1
+  [[ -n $stash ]] || return 1
+
+  local desc
+  desc=$(git stash list --format='%gs' -n 1 "$stash" 2>/dev/null)
+
+  echo "Are you sure you would like to delete the [\e[0;31m$stash\e[0m] stash?"
+  [[ -n $desc ]] && echo "\n  $desc"
+  echo
+  git_stash_files "$stash"
+  echo
+  echo "(Type 'delete' to confirm)"
+  local confirmation
+  read confirmation || return 1
+  [[ $confirmation == delete ]] || return 1
+
+  git stash drop --quiet "$stash"
+}
+
+# Rename a given stash
+git_stash_rename() {
+  local stash=$1
+  [[ -n $stash ]] || return 1
+
+  local desc msg rev
+  desc=$(git stash list --format='%gs' -n 1 "$stash" 2>/dev/null)
+
+  echo "Rename [\e[0;31m$stash\e[0m] stash"
+  [[ -n $desc ]] && echo "\n  $desc"
+  echo
+  git_stash_files "$stash"
+  echo
+  echo -n "New stash message: "
+  read msg || return 1
+  [[ -n $msg ]] || return 1
+
+  rev=$(git rev-parse "$stash") || return 1
+  echo "stash commit: $rev"
+
+  git stash drop --quiet "$stash" || return 1
+  git stash store -m "$msg" "$rev" || return 1
 }
 
 # List github PRs in pretty table format for gum filtering
