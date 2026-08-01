@@ -4,6 +4,7 @@ onboarding = false
 prompt_new_tab_name = false
 sidebar_collapsed_mode = "hidden"
 hide_tab_bar_when_single_tab = true
+right_click_passthrough_modifier = "alt"
 
 [theme]
 name = "rose-pine"
