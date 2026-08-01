@@ -36,6 +36,7 @@ new_tab = "ctrl+t"
 previous_workspace = "ctrl+k"
 next_workspace = "ctrl+j"
 previous_agent = "alt+k"
+settings = "prefix+comma"
 
 [[keys.command]]
 key = "alt+j"
@@ -54,3 +55,9 @@ key = "alt+l"
 type = "plugin_action"
 command = "move-tab.right"
 description = "move tab right"
+
+[[keys.command]]
+key = "prefix+s"
+type = "plugin_action"
+command = "smart-open-workspace.open"
+description = "open workspace"

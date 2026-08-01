@@ -1,0 +1,21 @@
+id = "smart-open-workspace"
+name = "Smart Open Workspace"
+version = "0.1.0"
+min_herdr_version = "0.7.4"
+description = "Sesh-like fuzzy open: live workspaces + zoxide frecent dirs."
+platforms = ["linux", "macos"]
+
+[[panes]]
+id = "picker"
+title = "open workspace"
+placement = "popup"
+width = "80%"
+height = "68%"
+command = ["./picker.sh"]
+
+[[actions]]
+id = "open"
+title = "Open workspace"
+description = "Open the smart-open-workspace fzf picker in a popup."
+contexts = ["global", "workspace"]
+command = ["./open.sh"]
