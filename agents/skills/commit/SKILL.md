@@ -12,6 +12,10 @@ When asked to break work into commits or run /commit, do the following in order:
         - Find the right balance between atomic and related changes, by functionality and intent
         - Don't be concerned about the number of commits if there are a lot of unstaged changes
         - Match commit atomicity and message style already used on this branch
+            - Only sample the user's own commits for style (eg. `git log --author=...`)
+            - Do not glean style from bot-generated commits or merge commits
+        - No ticket numbers in commit subjects unless specifically referencing a different ticket
+        - If helpful, include relevant context, reasoning, and decision making in the commit body
     - Wait for the user to agree on the high-level plan before staging anything
     - Grill the user if sequencing or scope is genuinely ambiguous
 
