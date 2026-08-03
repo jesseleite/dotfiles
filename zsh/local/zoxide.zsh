@@ -10,7 +10,10 @@ zsync() {
     | while read dir; do [ ! -d "$dir" ] && echo "$dir"; done \
     | xargs zoxide remove
 
-  ls -d */ | xargs zoxide add
+  ls -d */ \
+    | sed "s|/\$||;s|^|$(pwd)/|" \
+    | grep -vxF -f <(zoxide query --list --all) \
+    | xargs zoxide add
 
   echo 'Synced zoxide index for current directory.'
 }
