@@ -5,6 +5,7 @@
 local fzf_default_opts=(
   '--reverse'
   '--no-separator'
+  '--footer-border "none"'
   '--pointer "•"'
   '--scrollbar "█"'
   '--preview-window right:50%:noborder'
@@ -12,7 +13,7 @@ local fzf_default_opts=(
   '--bind "ctrl-d:preview-half-page-down"'
   '--bind "ctrl-u:preview-half-page-up"'
   '--bind "change:first"'
-  '--color "prompt:green,header:grey,spinner:grey,info:grey,bg+:-1,hl:green,hl+:green,pointer:magenta,preview-bg:-1,ghost:245"'
+  '--color "prompt:green,header:grey,footer:grey,spinner:grey,info:grey,bg+:-1,hl:green,hl+:green,pointer:magenta,preview-bg:-1,ghost:245"'
 )
 
 export FZF_DEFAULT_OPTS="${fzf_default_opts[*]}"

@@ -252,7 +252,7 @@ gstl() {
       fzf \
         --ghost 'Apply stash...' \
         --info=hidden \
-        --header='changes [ctrl-i] · diff [ctrl-o] · rename [ctrl-r] · drop [ctrl-x]' \
+        --footer='changes [ctrl-i] · diff [ctrl-o] · rename [ctrl-r] · drop [ctrl-x]' \
         --ansi \
         --no-sort \
         --delimiter=$'\t' \
