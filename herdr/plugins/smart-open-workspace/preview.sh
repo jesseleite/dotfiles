@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 # fzf preview for smart-open-workspace rows: "display\tkind\tpayload"
+#
+# One view for both kinds. Sections render only when their data is available:
+#   header  — always (workspace metadata or directory path)
+#   tabs    — herdr workspace with tabs
+#   panes   — herdr workspace with panes
+#   repo    — path is inside a git work tree
+#   changes — uncommitted porcelain status
+#   files   — directory listing (eza/tree/ls)
 set -euo pipefail
 
 herdr_bin="${HERDR_BIN_PATH:-herdr}"
@@ -192,6 +200,125 @@ workspace_path() {
     ' 2>/dev/null || true
 }
 
+# Single-level directory tree; drop the root path line.
+dir_tree() {
+  local dir="$1"
+  local out
+
+  if command -v eza >/dev/null 2>&1; then
+    out=$(eza --tree --level=1 --all --icons=never --color=never --group-directories-first "$dir" 2>/dev/null) || out=""
+  elif command -v tree >/dev/null 2>&1; then
+    out=$(tree -n -L 1 -a --dirsfirst --noreport "$dir" 2>/dev/null) || out=""
+  else
+    out=$(ls -1A "$dir" 2>/dev/null | sed 's/^/├── /') || out=""
+  fi
+
+  [[ -z "$out" ]] && return
+
+  # Skip the first line (directory path / tree root label).
+  printf '%s\n' "$out" | tail -n +2
+}
+
+# ------------------------------------------------------------------------------
+# Shared sections — each prints only when it has something useful.
+# Leading blank line separates from whatever came before.
+# ------------------------------------------------------------------------------
+
+section_tabs() {
+  local tabs_json="$1"
+  [[ -n "$tabs_json" ]] || return 0
+
+  local body
+  body=$(printf '%s' "$tabs_json" | jq -r '.result.tabs[]? | (.label // .tab_id)' 2>/dev/null) || body=""
+  [[ -n "$body" ]] || return 0
+
+  printf '\n'
+  heading 'tabs'
+  while IFS= read -r tab_line; do
+    [[ -z "$tab_line" ]] && continue
+    format_tab_line "$tab_line"
+  done <<<"$body"
+}
+
+section_panes() {
+  local panes_json="$1"
+  [[ -n "$panes_json" ]] || return 0
+
+  local body
+  body=$(
+    printf '%s' "$panes_json" | jq -r '
+      .result.panes[]?
+      | (
+          if .agent then "\(.agent)/\(.agent_status // "?")"
+          else "shell"
+          end
+        ) as $who
+      | "[\($who)]  \(.label // .terminal_title_stripped // .pane_id)"
+    ' 2>/dev/null
+  ) || body=""
+  [[ -n "$body" ]] || return 0
+
+  printf '\n'
+  heading 'panes'
+  while IFS= read -r pane_line; do
+    [[ -z "$pane_line" ]] && continue
+    format_pane_line "$pane_line"
+  done <<<"$body"
+}
+
+# repo + changes when path is a git work tree. Silent no-op otherwise.
+section_repo() {
+  local dir="$1"
+  [[ -n "$dir" && -d "$dir" ]] || return 0
+  git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1 || return 0
+
+  local branch changes
+  branch=$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null || true)
+  [[ -z "$branch" ]] && branch='—'
+
+  printf '\n'
+  heading 'repo'
+  field 'branch:' "$branch"
+
+  changes=$(git -C "$dir" status --porcelain 2>/dev/null || true)
+  if [[ -n "$changes" ]]; then
+    printf '\n'
+    heading 'changes'
+    while IFS= read -r change_line; do
+      [[ -z "$change_line" ]] && continue
+      format_change_line "$change_line"
+    done <<<"$changes"
+  fi
+}
+
+section_files() {
+  local dir="$1"
+  [[ -n "$dir" && -d "$dir" ]] || return 0
+
+  local tree tree_line
+  tree=$(dir_tree "$dir")
+  [[ -n "$tree" ]] || return 0
+
+  printf '\n'
+  heading 'files'
+  while IFS= read -r tree_line; do
+    [[ -z "$tree_line" ]] && continue
+    format_tree_line "$dir" "$tree_line"
+  done <<<"$tree"
+}
+
+# Path-backed sections shared by workspace (resolved cwd) and zoxide dirs.
+section_path_details() {
+  local dir="$1"
+  [[ -n "$dir" && -d "$dir" ]] || return 0
+  section_repo "$dir"
+  section_files "$dir"
+}
+
+# ------------------------------------------------------------------------------
+# Kind-specific headers, then shared body sections.
+# ------------------------------------------------------------------------------
+
 preview_workspace() {
   local id="$1"
   local info tabs panes path
@@ -220,53 +347,10 @@ preview_workspace() {
   if [[ "$focused" == "true" ]]; then
     field 'focused:' 'yes'
   fi
-  printf '\n'
 
-  if [[ -n "$tabs" ]]; then
-    heading 'tabs'
-    while IFS= read -r tab_line; do
-      [[ -z "$tab_line" ]] && continue
-      format_tab_line "$tab_line"
-    done < <(printf '%s' "$tabs" | jq -r '.result.tabs[]? | (.label // .tab_id)' 2>/dev/null)
-    printf '\n'
-  fi
-
-  if [[ -n "$panes" ]]; then
-    heading 'panes'
-    while IFS= read -r pane_line; do
-      [[ -z "$pane_line" ]] && continue
-      format_pane_line "$pane_line"
-    done < <(
-      printf '%s' "$panes" | jq -r '
-        .result.panes[]?
-        | (
-            if .agent then "\(.agent)/\(.agent_status // "?")"
-            else "shell"
-            end
-          ) as $who
-        | "[\($who)]  \(.label // .terminal_title_stripped // .pane_id)"
-      ' 2>/dev/null
-    )
-  fi
-}
-
-# Single-level directory tree; drop the root path line.
-dir_tree() {
-  local dir="$1"
-  local out
-
-  if command -v eza >/dev/null 2>&1; then
-    out=$(eza --tree --level=1 --all --icons=never --color=never --group-directories-first "$dir" 2>/dev/null) || out=""
-  elif command -v tree >/dev/null 2>&1; then
-    out=$(tree -n -L 1 -a --dirsfirst --noreport "$dir" 2>/dev/null) || out=""
-  else
-    out=$(ls -1A "$dir" 2>/dev/null | sed 's/^/├── /') || out=""
-  fi
-
-  [[ -z "$out" ]] && return
-
-  # Skip the first line (directory path / tree root label).
-  printf '%s\n' "$out" | tail -n +2
+  section_tabs "$tabs"
+  section_panes "$panes"
+  section_path_details "$path"
 }
 
 preview_dir() {
@@ -277,37 +361,7 @@ preview_dir() {
   fi
 
   heading "$(shorten "$dir")"
-  printf '\n'
-
-  # repo (+ optional changes) only when this path is inside a git work tree.
-  if git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    local branch changes
-    branch=$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null || true)
-    [[ -z "$branch" ]] && branch='—'
-    heading 'repo'
-    field 'branch:' "$branch"
-    printf '\n'
-
-    changes=$(git -C "$dir" status --porcelain 2>/dev/null || true)
-    if [[ -n "$changes" ]]; then
-      heading 'changes'
-      while IFS= read -r change_line; do
-        [[ -z "$change_line" ]] && continue
-        format_change_line "$change_line"
-      done <<<"$changes"
-      printf '\n'
-    fi
-  fi
-
-  local tree tree_line
-  tree=$(dir_tree "$dir")
-  if [[ -n "$tree" ]]; then
-    heading 'files'
-    while IFS= read -r tree_line; do
-      [[ -z "$tree_line" ]] && continue
-      format_tree_line "$dir" "$tree_line"
-    done <<<"$tree"
-  fi
+  section_path_details "$dir"
 }
 
 case "$kind" in
