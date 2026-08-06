@@ -6,6 +6,7 @@ brew 'avr-gcc' # For `qmk`
 brew 'awk'
 brew 'bash'
 brew 'bat'
+brew 'caddy'
 brew 'composer'
 brew 'direnv'
 brew 'elixir'

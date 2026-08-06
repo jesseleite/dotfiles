@@ -70,6 +70,10 @@
     stderr: true
   - description: Starting goku service whenever mac boots
     command: "brew services start goku"
+  - description: Ensure we have caddyfile because the caddy service will fail without it
+    command: "test -f \"$(brew --prefix)/etc/Caddyfile\" || echo '{ }' > \"$(brew --prefix)/etc/Caddyfile\""
+  - description: Starting caddy service whenever mac boots
+    command: "brew services start caddy"
   - description: Installing python bundle
     command: "pip3 install -r pipfile"
     stdout: true
