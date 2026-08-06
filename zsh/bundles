@@ -17,7 +17,6 @@ molovo/tipz
 $DOTFILES/zsh/local/sanity.zsh
 $DOTFILES/zsh/local/area51.zsh
 $DOTFILES/zsh/local/bun.zsh
-$DOTFILES/zsh/local/charm.zsh
 $DOTFILES/zsh/local/elixir.zsh
 $DOTFILES/zsh/local/general.zsh
 $DOTFILES/zsh/local/git.zsh

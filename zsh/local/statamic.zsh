@@ -45,10 +45,15 @@ plslink() {
 
 # Symlink local worktree from statamic/cms specifically
 plslinkcms() {
-  local worktree=$(cd ~/Code/Wilderborn/cms && git worktree list | rg -v 'bare' | gum filter --placeholder 'Symlink which worktree...' | awk '{ print $1 }')
-  if [ -z "$worktree" ]; then
-    return
-  fi
+  local worktree
+  worktree=$(
+    cd ~/Code/Wilderborn/cms && git worktree list | rg -v 'bare' |
+      fzf \
+        --ghost 'Symlink which worktree...' \
+        --info=hidden |
+      awk '{ print $1 }'
+  ) || return
+  [[ -n $worktree ]] || return 1
 
   rm -rf vendor/statamic/cms
   ln -s $worktree vendor/statamic/cms

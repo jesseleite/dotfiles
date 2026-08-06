@@ -15,7 +15,6 @@ brew 'fzf', args: ['HEAD']
 brew 'gh'
 brew 'git'
 brew 'go'
-brew 'gum'
 brew 'herdr'
 brew 'honeybadger-io/tap/honeybadger'
 brew 'httpie'

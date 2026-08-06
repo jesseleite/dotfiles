@@ -8,11 +8,6 @@
 # Or I assume any other Rust-binaries?
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Always read man pages with gum pager
-man() {
-  /usr/bin/man $1 | gum pager
-}
-
 # Show my top 15 most used commands in my command history
 alias favcmds="history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head -15"
 
