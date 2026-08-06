@@ -5,3 +5,5 @@ brewfile.lock.json
 nvim/.undo
 hammerspoon/spoons/
 opencode/skills
+worktrunk/approvals.toml
+worktrunk/approvals.toml.lock

@@ -18,6 +18,7 @@
     ~/.zshrc: zsh/zshrc
     ~/.config/mise: mise
     ~/.config/direnv: direnv
+    ~/.config/worktrunk: worktrunk
     ~/.config/nvim: nvim
     ~/.config/starship.toml: zsh/starship.toml
     ~/.config/ghostty/config: ghostty/config

@@ -1,0 +1,18 @@
+# ------------------------------------------------------------------------------
+# Worktrunk config 🪵
+# ------------------------------------------------------------------------------
+
+# Prefer worktrees as children instead of siblings, and truncate long directories
+worktree-path = """
+{%- set b = branch | sanitize -%}
+{%- if b | length > 15 -%}
+    {%- set worktree_truncated = b[:15] ~ '_' ~ (b | hash) -%}
+{%- else -%}
+    {%- set worktree_truncated = b -%}
+{%- endif -%}
+{{ repo_path }}/.worktrees/{{ worktree_truncated }}
+"""
+
+# Drop removed worktrees from zoxide (switch/create already track via shell cd)
+[post-remove]
+zoxide = "zoxide remove '{{ worktree_path }}'"

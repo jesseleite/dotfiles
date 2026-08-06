@@ -276,116 +276,38 @@ gstl() {
 # Worktree Management
 # ------------------------------------------------------------------------------
 
-# Save precious characters
-alias gw='git worktree'
-alias gwl='git worktree list'
+# Init worktrunk
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
-# Use this instead of `mv` on the worktree folder directly, so that they remain linked to the repo
-alias gwm='git worktree move'
-# TODO: automatically cd in or add new zoxide result too?
+# List worktrees
+alias wtl="wt list"
 
-# Clone a bare repository for a worktree, and automatically add worktree for default branch
-# Note: The `*/.git` path just unclutters the root level of the bare repo
-gwcl() {
-  if [ -z "$1" ]; then echo 'Please specify repo or path to clone from!'; return; fi
-  if [ -z "$2" ]; then
-    local dir=$(basename $1 | sed 's#.git##')
-  else
-    local dir=$2
-  fi
-  git clone --bare $1 $dir/.git
-  cd $dir
-  git config --add remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
-  gwr $(git_default_branch)
-}
+# Create worktree
+alias wtc="wt switch -c"
 
-# Open an existing local worktree
-gwo() {
-  if [ -n "$1" ]; then cd $(git_root); cd $1; return; fi
-  local selected=$(git worktree list | rg -v 'bare' | gum filter --placeholder 'Open local worktree...' | awk '{ print $1 }')
-  if [ -z "$selected" ]; then return; fi
-  cd $selected
-}
+# Switch worktree
+alias wts="wt switch"
 
-# Add a new worktree, ensuring it gets added at git root
-# Note: The cd at the end is important for zoxide/sesh/tmux workflow
-gwa() {
-  if [ -z "$1" ]; then echo 'Please specify `git worktree add` params!'; return; fi
-  cd $(git_root)
-  git fetch > /dev/null 2>&1
-  local dir=$1
-  local branch=$1
-  local from_branch
-  if [ -n "$2" ]; then
-    from_branch=$2
-  else
-    from_branch=$(git_default_branch)
-  fi
-  if [ ${#branch} -gt 25 ]; then
-    echo "\nThe [\e[0;31m$dir\e[0m] name is a bit long, would you like to use an abbreviated directory name? (y/n, default:n)"
-    read confirmation
-    if [[ "$confirmation" == "y" ]]; then
-      echo "\nEnter a new directory name:"
-      read dir
-    fi
-  fi
-  echo
-  dir=$(echo $dir | sed 's/\//-/g')
-  git worktree add $dir -b $branch $from_branch
-  sesh connect $dir
-  zsync
-  cd -
-}
+# Remove worktree
+alias wtr="wt remove"
 
-# Add a new worktree from a remote branch with gum fuzzy search, and flatten target folder
-gwr() {
-  git fetch > /dev/null 2>&1
-  if [ -n "$1" ]; then gwa $1; return; fi
-  local branches
-  branches=$(git branch --all | awk '{print $1}' | rg -v '[\*\+]')
-  local selected=$(echo $branches | gum filter --placeholder 'Add worktree from remote branch...' | sed "s#remotes/[^/]*/##")
-  if [ -z "$selected" ]; then return; fi
-  cd $(git_root)
-  local dir=$(echo $selected | sed "s#/#-#")
-  gwa $dir $selected
-  git branch --set-upstream-to=origin/$selected $selected
-}
-
-# Add a new worktree from a PR with gum fuzzy search
-gwpr() {
-  if [ -z "$1" ]; then
-    local pr=$(gh_pretty_list_prs | gum filter --placeholder 'Add worktree from PR...' | awk -F'\t' '{print $1}')
-  else
-    local pr=$1
-  fi
-  if [ -z "$pr" ]; then return; fi
-  cd $(git_root)
-  gwa $pr
-  gh pr checkout $pr
-}
-
-# Delete a local worktree with gum fuzzy search, and require extra confirmation to prevent accidents
-# Note: This requires `trash` util so that the files can be restored if needed later as well
-gwd() {
-  local selected=$(git worktree list | rg -v 'bare' | gum filter --placeholder 'Remove local worktree...' | awk '{ print $1 }' | xargs basename)
-  if [ -z "$selected" ]; then return; fi
-  echo "Are you sure you would like to delete the [\e[0;31m$selected\e[0m] worktree? (Type 'delete' to confirm)"
-  read confirmation
-  if [[ "$confirmation" == "delete" ]]; then
-    cd $(git_root)
-    cd $selected
-    local branch=$(git branch --show-current)
-    cd $(git_root)
-    echo "\nWould you like to also delete the [\e[0;31m$branch\e[0m] branch? (y/n)"
-    read confirmation
-    echo
-    trash $selected
-    git worktree prune
-    if [[ "$confirmation" == "y" ]]; then
-      git branch -D $branch
-    fi
-    zsync
-  fi
+# Create or switch to a PR worktree with fzf fuzzy search
+wtpr() {
+  if [ -n "$1" ]; then wt switch pr:$1; return; fi
+  local selected
+  selected=$(
+    gh_pretty_list_prs |
+      fzf \
+      --ghost 'Checkout PR...' \
+      --info=hidden \
+      --ansi \
+      --delimiter=$'\t' \
+      --with-nth=2.. \
+      --accept-nth=1 \
+      --tabstop=2
+    ) || return
+    [[ -n $selected ]] || return 1
+    wt switch pr:$selected
 }
 
 
@@ -398,10 +320,16 @@ git_root() {
   git worktree list | awk 'NR==1{ print $1 }'
 }
 
-# Check if repo is a bare repo with worktrees
-git_is_using_worktrees() {(
-  cd $(git_root) && git rev-parse --is-bare-repository
-)}
+# Check if repo is using worktrees
+# Bare: always worktree-driven
+# Non-bare (worktrunk default): true once >1 worktree exists
+git_is_using_worktrees() {
+  local list n
+  list=$(git worktree list 2>/dev/null) || return 1
+  n=$(print -r -- "$list" | wc -l | tr -d ' ')
+  (( n > 1 )) && return 0
+  print -r -- "$list" | grep -q '(bare)'
+}
 
 # Show default origin branch
 git_default_branch() {

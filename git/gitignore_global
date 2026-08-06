@@ -1,3 +1,6 @@
+# Worktrunk worktrees
+.worktrees/
+
 # Direnv
 .envrc
 
