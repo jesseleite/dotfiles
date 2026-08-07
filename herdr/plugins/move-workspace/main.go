@@ -1,11 +1,12 @@
-// herdr-move-tab: shift the current tab left or right within its workspace,
-// like tmux's swap-window -t -1/+1.
+// herdr-move-workspace: shift the current workspace up or down in the
+// sidebar list, like tmux's swap-window for sessions.
 //
-// Herdr has no built-in move-tab keybinding, only the tab.move socket API.
-// Its insert index is measured against the tab list that still contains the
-// moving tab, so shifting one slot right is index+2, not index+1.
+// Herdr has no built-in move-workspace keybinding, only the workspace.move
+// socket API. Its insert index is measured against the list that still
+// contains the moving workspace, so shifting one slot down is index+2,
+// not index+1 (same semantics as tab.move).
 //
-// Build: go build -o herdr-move-tab .
+// Build: go build -o herdr-move-workspace .
 package main
 
 import (
@@ -18,30 +19,29 @@ import (
 	"strings"
 )
 
-type tab struct {
-	TabID       string `json:"tab_id"`
+type workspace struct {
 	WorkspaceID string `json:"workspace_id"`
 	Focused     bool   `json:"focused"`
 }
 
 func main() {
-	if len(os.Args) < 2 || (os.Args[1] != "left" && os.Args[1] != "right") {
-		fail("usage: herdr-move-tab left|right")
+	if len(os.Args) < 2 || (os.Args[1] != "up" && os.Args[1] != "down") {
+		fail("usage: herdr-move-workspace up|down")
 	}
 
 	var list struct {
-		Tabs []tab `json:"tabs"`
+		Workspaces []workspace `json:"workspaces"`
 	}
-	rpc("tab.list", nil, &list)
+	rpc("workspace.list", nil, &list)
 
-	// Plugin actions get HERDR_TAB_ID (and sometimes the ACTIVE_ form);
+	// Plugin actions get HERDR_WORKSPACE_ID (and sometimes the ACTIVE_ form);
 	// fall back to whatever herdr reports as focused so the binary also
 	// works when run by hand.
-	current := firstEnv("HERDR_TAB_ID", "HERDR_ACTIVE_TAB_ID")
+	current := firstEnv("HERDR_WORKSPACE_ID", "HERDR_ACTIVE_WORKSPACE_ID")
 	if current == "" {
-		for _, t := range list.Tabs {
-			if t.Focused {
-				current = t.TabID
+		for _, w := range list.Workspaces {
+			if w.Focused {
+				current = w.WorkspaceID
 				break
 			}
 		}
@@ -50,22 +50,9 @@ func main() {
 		return
 	}
 
-	var workspace string
-	for _, t := range list.Tabs {
-		if t.TabID == current {
-			workspace = t.WorkspaceID
-			break
-		}
-	}
-	if workspace == "" {
-		fail("tab " + current + " not found")
-	}
-
-	var order []string
-	for _, t := range list.Tabs {
-		if t.WorkspaceID == workspace {
-			order = append(order, t.TabID)
-		}
+	order := make([]string, 0, len(list.Workspaces))
+	for _, w := range list.Workspaces {
+		order = append(order, w.WorkspaceID)
 	}
 	at := -1
 	for i, id := range order {
@@ -76,14 +63,14 @@ func main() {
 	}
 
 	insert := at - 1
-	if os.Args[1] == "right" {
+	if os.Args[1] == "down" {
 		insert = at + 2
 	}
 	if at < 0 || insert < 0 || insert > len(order) {
 		return // already at the edge, nothing to do
 	}
 
-	rpc("tab.move", map[string]any{"tab_id": current, "insert_index": insert}, nil)
+	rpc("workspace.move", map[string]any{"workspace_id": current, "insert_index": insert}, nil)
 }
 
 func firstEnv(keys ...string) string {
@@ -144,6 +131,6 @@ func rpc(method string, params map[string]any, result any) {
 }
 
 func fail(message string) {
-	fmt.Fprintln(os.Stderr, "move-tab: "+message)
+	fmt.Fprintln(os.Stderr, "move-workspace: "+message)
 	os.Exit(1)
 }

@@ -1,0 +1,25 @@
+id = "move-workspace"
+name = "Move Workspace"
+version = "0.1.0"
+min_herdr_version = "0.7.0"
+description = "Shift the current workspace up or down in the sidebar list."
+platforms = ["linux", "macos"]
+
+# Compiled at install time; produces a self-contained binary in the plugin
+# root (Go stdlib only). For a linked dev copy, run this manually.
+[[build]]
+command = ["go", "build", "-o", "herdr-move-workspace", "."]
+
+[[actions]]
+id = "up"
+title = "Move Workspace: up"
+description = "Shift the current workspace one slot up in the sidebar."
+contexts = ["global", "workspace", "tab"]
+command = ["./herdr-move-workspace", "up"]
+
+[[actions]]
+id = "down"
+title = "Move Workspace: down"
+description = "Shift the current workspace one slot down in the sidebar."
+contexts = ["global", "workspace", "tab"]
+command = ["./herdr-move-workspace", "down"]

@@ -35,11 +35,11 @@ next_tab = "ctrl+l"
 new_tab = "ctrl+t"
 previous_workspace = "ctrl+k"
 next_workspace = "ctrl+j"
-previous_agent = "alt+k"
+previous_agent = "alt+p"
 settings = "prefix+comma"
 
 [[keys.command]]
-key = "alt+j"
+key = "alt+n"
 type = "plugin_action"
 command = "smart-next-agent.jump"
 description = "next agent needing attention"
@@ -55,6 +55,18 @@ key = "alt+l"
 type = "plugin_action"
 command = "move-tab.right"
 description = "move tab right"
+
+[[keys.command]]
+key = "alt+k"
+type = "plugin_action"
+command = "move-workspace.up"
+description = "move workspace up"
+
+[[keys.command]]
+key = "alt+j"
+type = "plugin_action"
+command = "move-workspace.down"
+description = "move workspace down"
 
 [[keys.command]]
 key = "prefix+s"
