@@ -60,6 +60,7 @@ end), true)
 local macros = {
   s = function() hs.eventtap.keyStroke({'cmd', 'shift'}, '4') end, -- screenshot
   e = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'space') end, -- emoji picker
+  g = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'g') end, -- gif search
   a = function() hs.eventtap.keyStroke({'cmd'}, '`') end, -- next window of focused app
   c = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'c') end, -- color picker app
   x = function() hs.eventtap.keyStroke({'cmd', 'ctrl'}, 'x') end, -- color picker eye dropper
