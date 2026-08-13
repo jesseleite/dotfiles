@@ -1,12 +1,12 @@
 return {
   {
-    name = 'Standard Dev',
+    name = 'Ultrawide Dev',
     cells = {
-      {'0,0 24x20', '0,0 16x20' },
-      {'24,0 36x20', '16,0 44x20'},
-      {'42,2 16x16', '42,2 16x16'},
-      {'42,2 16x16', '42,2 16x16'},
-      {'30,3 20x14', '30,3 20x14'},
+      {  '0,0 24x20', '0,0 24x20', '0,0 40x20' },
+      {  '24,0 36x20', '12,0 48x20', '24,0 36x20' },
+      {  '42,2 16x16', '42,2 16x16', '42,2 16x16' },
+      {  '42,2 16x16', '42,2 16x16', '42,2 16x16' },
+      {  '30,3 20x14', '30,3 20x14', '30,3 20x14' },
     },
     apps = {
       Browser = { cell = 1, open = true },
@@ -29,52 +29,6 @@ return {
       Obsidian = { cell = 1 },
       Slack = { cell = 2 },
       Discord = { cell = 2 },
-    },
-  },
-  {
-    name = 'PHP Dev',
-    cells = {
-      { '0,0 7x20', '0,0 7x20', '0,0 7x20' },
-      { '7,0 22x20', '7,0 30x20', '7,0 16x20' },
-      { '29,0 31x20', '37,0 23x20', '23,0 37x20' },
-      { '42,2 16x16', '42,2 16x16', '42,2 16x16' },
-      { '30,3 20x14', '39,3 16x14', '39,3 16x14' },
-    },
-    apps = {
-      Ray = { cell = 1, open = true },
-      Browser = { cell = 2, open = true },
-      Obsidian = { cell = 2 },
-      Terminal = { cell = 3, open = true },
-      Slack = { cell = 4 },
-      Discord = { cell = 5 },
-    },
-  },
-  {
-    name = 'PHP Code Focused',
-    cells = {
-      { '0,0 7x20', positions.sixths.left },
-      { '7,0 53x20', positions.fiveSixths.right },
-    },
-    apps = {
-      Ray = { cell = 1, open = true },
-      Terminal = { cell = 2, open = true },
-      Browser = { cell = 2, open = true },
-    },
-  },
-  {
-    name = 'PHP Laptop',
-    cells = {
-      positions.fiveSixths.right,
-      positions.center.medium,
-      positions.sixths.left,
-    },
-    apps = {
-      Browser = { cell = 1, open = true },
-      Terminal = { cell = 1, open = true },
-      Obsidian = { cell = 1 },
-      Slack = { cell = 2 },
-      Discord = { cell = 2 },
-      Ray = { cell = 3 },
     },
   },
 }
