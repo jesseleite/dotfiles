@@ -11,6 +11,11 @@ M.smart_open = function ()
   require('telescope').extensions.smart_open.smart_open({
     prompt_title = 'Smart Open Files',
     cwd_only = true,
+    -- rg glob relative to cwd (`*/.worktrees/*` also matches a parent checkout on absolute paths).
+    ignore_patterns = vim.list_extend(
+      vim.deepcopy(require('telescope._extensions.smart_open.default_config').ignore_patterns),
+      { '.worktrees/**' }
+    ),
     match_algorithm = 'fzf',
     result_limit = 50,
     filename_first = false,

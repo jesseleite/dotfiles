@@ -70,6 +70,7 @@ return {
         file_ignore_patterns = {
           '.DS_Store',
           '.git/',
+          '^%.worktrees/',
           'node_modules/',
           'git/submodules/',
           'resources/dist/',
