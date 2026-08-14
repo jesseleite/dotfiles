@@ -64,10 +64,14 @@ vim.keymap.set('n', '<Leader>d', 'ddO<Esc>')
 vim.keymap.set('i', ';;', '<Esc>A;<Esc>')
 vim.keymap.set('i', ',,', '<Esc>A,<Esc>')
 
--- Incremental selection
+-- Incremental treesitter selection
 vim.keymap.set('n', '<A-o>', 'van', { remap = true })
 vim.keymap.set('x', '<A-o>', 'an',  { remap = true })
 vim.keymap.set('x', '<A-i>', 'in',  { remap = true })
+
+-- Inspect highlight / treesitter capture under cursor
+vim.keymap.set('n', '<Leader><Leader>I', vim.cmd.Inspect, { desc = 'Inspect' })
+vim.keymap.set('n', '<Leader><Leader>T', vim.cmd.InspectTree, { desc = 'Inspect Tree' })
 
 -- Keep visual selection when indenting
 vim.keymap.set('x', '>', '>gv')
@@ -92,7 +96,7 @@ vim.keymap.set('v', '+', '<C-a>gv')
 vim.keymap.set('v', '_', '<C-x>gv')
 
 -- Toggle undotree
-vim.keymap.set('n', '<Leader><Leader>u', vim.cmd.Undotree, { desc = 'Toggle undotree' })
+vim.keymap.set('n', '<Leader><Leader>u', vim.cmd.Undotree, { desc = 'Toggle Undotree' })
 
 -- Open in finder
 vim.keymap.set('n', '<Leader><Leader>o', ':!open $PWD<CR><CR>', { silent = true })
