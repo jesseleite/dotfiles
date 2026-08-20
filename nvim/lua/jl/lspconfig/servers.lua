@@ -4,6 +4,9 @@
 
 return {
   -- expert = true,
+  bashls = {
+    filetypes = { 'bash', 'sh', 'zsh' },
+  },
   elixirls = {
     cmd = { "elixir-ls" },
   },
