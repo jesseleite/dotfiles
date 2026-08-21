@@ -22,16 +22,17 @@ When asked to break work into commits or run /commit, do the following in order:
 2. For each commit, one at a time:
     - Git stage only that commit's changes
     - Open (or reuse, if one exists) a Herdr pane to the **right** of the current agent pane
-    - Show the staged diff there with Hunk (eg. `hunk diff --staged`)
+    - Show the staged diff there with Hunk (eg. `hunk diff --staged --watch --sidebar`)
     - Tell the user the commit number, proposed message, and that Hunk is ready on the right
-        - Always refresh the Hunk diff at this point
+        - Always refresh the Hunk diff and clear review notes at this point
         - Do **not** steal focus from the agent pane while they may still be typing
     - **Stop.** Wait for approval, message edits, or Hunk notes
     - If they leave Hunk notes:
         - Address any changes that need to be made
         - Grill the user if further clarification is needed
         - Feel free to reply to specific user notes as agent notes in Hunk
-        - Re-stage, refresh Hunk, and wait again
+        - Re-stage relevant changes and wait again
+            - With `hunk --watch` flag, you shouldn't need to refresh hunk for user to see changes
     - Commit only when the user is happy and explicitly says to
         - Never git push unless explicitly asked (and NEVER push to main/master/default branch)
 
