@@ -52,13 +52,12 @@ vim.keymap.set('n', '<Leader>d', 'ddO<Esc>')
 -- vim.keymap.set('n', '<CR>', 'o<Esc>')
 
 -- Move line(s) up and down
--- TODO: Remap these, now that I'm using them for herdr navigation...
--- vim.keymap.set('n', '<C-j>', ':m .+1<CR>==', { silent = true })
--- vim.keymap.set('n', '<C-k>', ':m .-2<CR>==', { silent = true })
--- vim.keymap.set('i', '<C-j>', '<Esc>:m .+1<CR>==gi', { silent = true })
--- vim.keymap.set('i', '<C-k>', '<Esc>:m .-2<CR>==gi', { silent = true })
--- vim.keymap.set('v', '<C-j>', ':m \'>+1<CR>gv=gv', { silent = true })
--- vim.keymap.set('v', '<C-k>', ':m \'<-2<CR>gv=gv', { silent = true })
+vim.keymap.set('n', '<S-C-j>', ':m .+1<CR>==', { silent = true })
+vim.keymap.set('n', '<S-C-k>', ':m .-2<CR>==', { silent = true })
+vim.keymap.set('i', '<S-C-j>', '<Esc>:m .+1<CR>==gi', { silent = true })
+vim.keymap.set('i', '<S-C-k>', '<Esc>:m .-2<CR>==gi', { silent = true })
+vim.keymap.set('v', '<S-C-j>', ':m \'>+1<CR>gv=gv', { silent = true })
+vim.keymap.set('v', '<S-C-k>', ':m \'<-2<CR>gv=gv', { silent = true })
 
 -- Quickly append semicolon or comma
 vim.keymap.set('i', ';;', '<Esc>A;<Esc>')
