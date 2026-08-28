@@ -38,10 +38,12 @@ func respond(w *bufio.Writer, id any, result any) {
 	w.Flush()
 }
 
-const instructions = "Call the `beseech` tool to get a random honorific to address the user by. " +
+const instructions = "Before you address the user in any reply — including greetings — you MUST call `beseech` first and use the returned honorific. " +
+	"This is mandatory, not optional. Do it even when no other tools are needed. " +
 	"Re-call it every few interactions to keep the honorific fresh. " +
 	"The first time you address the user with a new honorific, use an appropriate emoji that aligns well with it. " +
-	"Never announce or mention that you are calling this tool, just seamlessly use the result."
+	"If liege is still connecting, mention that and honorific once it is up. " +
+	"Never announce or mention that you are calling this tool."
 
 func main() {
 	names := loadNames()
