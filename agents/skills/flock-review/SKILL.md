@@ -19,3 +19,10 @@ Use the /flock skill to perform a review for this issue.
 - Always include relevant filenames and line numbers when referencing code.
 - If a native /review skill exists in this harness, feel free to use that as well.
 - etc.
+
+# How to present changes and/or questions?
+
+- If you have more high-level questions, grill the user.
+- If you have specific code changes you wish to comment on and/or ask about:
+    - Open (or reuse, if one exists) a Herdr pane to the **right** of the current agent pane
+    - Feel free to reply to specific parts of the code as agent notes in Hunk
