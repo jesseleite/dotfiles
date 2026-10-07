@@ -7,7 +7,7 @@ When asked to perform a given action using the flock skill, do the following ste
 
 1. Given the following agents:
     - Claude (via `claude` CLI)
-    - GPT (via `opencode` CLI)
+    - GPT (via `opencode --auto` CLI)
     - Grok (via `grok` CLI)
 
 2. Open all of the agents in new /herdr tabs in this workspace.

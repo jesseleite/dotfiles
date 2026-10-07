@@ -1,6 +1,7 @@
 ---
 name: spec
 description: "Turn a task into an agent-ready Linear ticket — either by fleshing out an existing ticket or by drafting and filing a new one. Investigates the codebase, settles open decisions via clarifying questions, and produces a ticket a fresh agent with no shared context can execute unassisted."
+disable-model-invocation: true
 ---
 
 ## What this does
