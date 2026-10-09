@@ -1,6 +1,7 @@
 ---
 name: flock-review
 description: Perform a thorough review using a flock of agents.
+disable-model-invocation: true
 ---
 
 Use the /flock skill to perform a review for this issue.

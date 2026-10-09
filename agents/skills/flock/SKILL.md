@@ -1,6 +1,7 @@
 ---
 name: flock
 description: Perform a given action by asking a flock of various agents to tackle in parallel.
+disable-model-invocation: true
 ---
 
 When asked to perform a given action using the flock skill, do the following steps in this order:

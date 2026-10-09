@@ -1,6 +1,7 @@
 ---
 name: sleuth
 description: When asked to sleuth or investigate production data or a customer support issue, follow these rules
+disable-model-invocation: true
 ---
 
 ## Rules

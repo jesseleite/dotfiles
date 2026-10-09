@@ -1,6 +1,7 @@
 ---
 name: commit
 description: Plan a sequenced set of commits matching repo message style, then land them one at a time with staged diffs previewed in Hunk to the right of the agent. Use when the user wants to break work into commits, land a series of commits, or runs /commit.
+disable-model-invocation: true
 ---
 
 When asked to break work into commits or run /commit, do the following in order:

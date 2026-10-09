@@ -1,6 +1,7 @@
 ---
 name: draft-pr
 description: Draft a consistent, well-structured PR title and description by analyzing the Linear issue's title and full branch diff
+disable-model-invocation: true
 ---
 
 ## Instructions
