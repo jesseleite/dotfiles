@@ -28,3 +28,13 @@ hs() {
   set_terminal_title_with_pwd "hunk --staged"
   hunk diff --watch --sidebar --mode split --staged
 }
+
+# Hunk diff all branch changes against PR base (or against passed base)
+hall() {
+  set_terminal_title_with_pwd "hunk all"
+  local remote="$(git_default_remote)"
+  local base="${1:-$(gh pr view --json baseRefName -q .baseRefName 2>/dev/null || git_default_branch "$remote")}"
+  local merge_base
+  git fetch "$remote" && merge_base="$(git merge-base "$remote/$base" HEAD)" || return
+  hunk diff "$merge_base" --watch --sidebar --mode split
+}
