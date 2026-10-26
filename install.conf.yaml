@@ -25,6 +25,7 @@
     ~/.config/herdr/config.toml: herdr/config.toml
     ~/.config/hunk/config.toml: hunk/config.toml
     ~/.grok/config.toml: grok/config.toml
+    ~/.agents/skills: agents/skills
     ~/.config/opencode: opencode
     ~/.config/opencode/skills: agents/skills
     ~/.claude/CLAUDE.md: agents/AGENTS.md
