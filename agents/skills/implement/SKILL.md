@@ -4,4 +4,4 @@ description: Implement a well-spec'd ticket. Use when the user passes an issue r
 disable-model-invocation: true
 ---
 
-New goal: Help me implement this issue. Stop to grill me first if you have any questions, but this seems like a pretty well spec'd ticket, and I feel like you can answer most questions you might have through the ticket spec and by looking at the codebase.
+New goal: Help me implement this issue. Don't stop to grill me first if you have any questions, just do your best job first, then we'll review together after you've fully implemented the whole ticket.  I feel like you can answer most questions you might have through the ticket spec and by looking at the codebase.
