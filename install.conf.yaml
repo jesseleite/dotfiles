@@ -26,6 +26,7 @@
     ~/.config/hunk/config.toml: hunk/config.toml
     ~/.grok/config.toml: grok/config.toml
     ~/.agents/skills: agents/skills
+    ~/.agents/skills/hunk-review: /opt/homebrew/opt/hunk/libexec/skills/hunk-review
     ~/.config/opencode: opencode
     ~/.config/opencode/skills: agents/skills
     ~/.claude/CLAUDE.md: agents/AGENTS.md

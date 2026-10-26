@@ -8,3 +8,4 @@ opencode/skills
 worktrunk/approvals.toml
 worktrunk/approvals.toml.lock
 agents/skills/synced/
+agents/skills/hunk-review
