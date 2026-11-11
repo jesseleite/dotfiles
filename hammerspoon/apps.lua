@@ -4,9 +4,9 @@ return {
     summon = 'escape',
   },
   Browser = {
-    id = 'company.thebrowser.Browser',
+    -- id = 'company.thebrowser.Browser',
     -- id = 'company.thebrowser.dia',
-    -- id = 'app.zen-browser.zen',
+    id = 'app.zen-browser.zen',
     summon = 'b',
   },
   Calendar = {
