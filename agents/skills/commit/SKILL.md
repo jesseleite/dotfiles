@@ -1,6 +1,6 @@
 ---
 name: commit
-description: Plan a sequenced set of commits matching repo message style, then land them one at a time with staged diffs previewed in Hunk to the right of the agent. Use when the user wants to break work into commits, land a series of commits, or runs /commit.
+description: Plan a sequenced set of commits matching repo message style, then land them one at a time with staged diffs previewed in Hunk beside the agent. Use when the user wants to break work into commits, land a series of commits, or runs /commit.
 disable-model-invocation: true
 ---
 
@@ -22,18 +22,19 @@ When asked to break work into commits or run /commit, do the following in order:
 
 2. For each commit, one at a time:
     - Git stage only that commit's changes
-    - Open (or reuse, if one exists) a Herdr pane to the **right** of the current agent pane
-    - Show the staged diff there with Hunk (eg. `hunk diff --staged --watch --sidebar`)
-    - Tell the user the commit number, proposed message, and that Hunk is ready on the right
-        - Always refresh the Hunk diff and clear review notes at this point
-        - Do **not** steal focus from the agent pane while they may still be typing
+    - Run `~/.config/rex/hunk-preview` to show the staged diff in Hunk
+        - It opens a live Hunk preview beside the agent (a pane on the right, or the next tab on small screens), without stealing focus
+        - Hunk watches the staged diff, so it only needs to be opened once, and running it again just reuses it
+        - Do not open, size, or manage the preview yourself
+    - Tell the user the commit number, proposed message, and where Hunk is (as the script reported)
+        - Always clear review notes at this point
     - **Stop.** Wait for approval, message edits, or Hunk notes
     - If they leave Hunk notes:
         - Address any changes that need to be made
         - Grill the user if further clarification is needed
         - Feel free to reply to specific user notes as agent notes in Hunk
         - Re-stage relevant changes and wait again
-            - With `hunk --watch` flag, you shouldn't need to refresh hunk for user to see changes
+            - Hunk is watching, so you shouldn't need to refresh it for the user to see changes
     - Commit only when the user is happy and explicitly says to
         - Never git push unless explicitly asked (and NEVER push to main/master/default branch)
 
@@ -41,4 +42,5 @@ When asked to break work into commits or run /commit, do the following in order:
 
 4. When finished:
     - Summarize what landed
-    - Leave the Hunk pane alone unless they want it closed
+    - Once every agreed commit has landed, close the preview with `~/.config/rex/hunk-preview --close`
+        - Leave it open if the user paused or stopped part way through

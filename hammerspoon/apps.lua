@@ -1,6 +1,7 @@
 return {
   Terminal = {
-    id = 'com.mitchellh.ghostty',
+    -- id = 'com.mitchellh.ghostty',
+    id = 'com.superlogical.rex',
     summon = 'escape',
   },
   Browser = {

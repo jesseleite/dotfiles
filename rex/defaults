@@ -1,0 +1,96 @@
+#!/bin/zsh
+# ------------------------------------------------------------------------------
+# Rex GUI settings 🦖
+# ------------------------------------------------------------------------------
+#
+# Rex keeps its GUI settings in macOS defaults rather than in init.lua, so this
+# is a snapshot of the ones I care about, to apply on a new machine.
+#
+# It's one way: changing a setting in Rex doesn't update this file. Use --check
+# to see what's drifted, then copy the new value in here.
+#
+# Not included: the dark theme. Import ghostty/themes/miami-nights in
+# Settings > Themes > Import Theme, and select it there.
+#
+# Usage:
+#   defaults          apply these settings (restart rex afterwards)
+#   defaults --check  list settings whose current value differs from this file
+
+DOMAIN=com.superlogical.rex
+
+# key | type (string, int, float, bool) | value
+SETTINGS=(
+  # Font
+  "Workspace.terminalFontName | string | JetBrains Mono"
+  "Workspace.terminalFontPointSize | float | 16"
+  "Workspace.terminalCellHeightPercent | float | 65"
+  "Workspace.terminalFontSmoothing | bool | false"
+  "Workspace.terminalImproveTextContrast | bool | false"
+
+  # Titles (show the titles my shell sets, ie. phx.server)
+  "Workspace.prefersGeneratedTitles | bool | false"
+
+  # Selection
+  "Workspace.terminalCopyOnSelect | bool | true"
+
+  # Active pane
+  "Workspace.showsActivePaneBorder | bool | true"
+  "Workspace.activePaneBorderColor | string | green"
+  "Workspace.activePaneBorderOpacity | float | 1"
+  "Workspace.activePaneBorderTransition | string | fade"
+
+  # Inactive panes and windows (no fading)
+  "Workspace.inactivePaneFadeMode | string | none"
+  "Workspace.usesStandardInactiveWindowPaneStyles | bool | false"
+  "Workspace.tintsPanesWithProgramBackground | bool | false"
+
+  # Layout
+  "Workspace.tabStyle | string | vertical"
+  "Workspace.sidebarPosition | string | left"
+  "Workspace.sidebarWidth | float | 192"
+  "Workspace.showsPaneHeaders | bool | false"
+  "Workspace.tabIconTintMode | string | off"
+  "Workspace.sidebarShowsActivity | bool | false"
+
+  # Appearance
+  "Workspace.appearance | string | dark"
+  "Workspace.interfaceStyle | string | useTheme"
+  "Workspace.lightThemeID | string | merino-light"
+
+  # Agents (sessions are named by rex/auto-name.lua instead)
+  "rex.agents.names-sessions | bool | false"
+)
+
+# How `defaults read` prints a value of the given type
+as_read() { # as_read <type> <value>
+  case $1 in
+    bool) [[ $2 == true ]] && print 1 || print 0 ;;
+    int|float) print -r -- $(( $2 + 0 )) ;;
+    *) print -r -- $2 ;;
+  esac
+}
+
+drifted=0
+for setting in $SETTINGS; do
+  parts=("${(@s: | :)setting}")
+  key=$parts[1] type=$parts[2] value=$parts[3]
+
+  if [[ $1 == --check ]]; then
+    current=$(defaults read $DOMAIN $key 2>/dev/null) || current="(not set)"
+    [[ $type == (int|float) && $current != "(not set)" ]] && current=$(( current + 0 ))
+    expected=$(as_read $type $value)
+    if [[ $current != $expected ]]; then
+      print -r -- "$key: is $current, this file says $expected"
+      drifted=$(( drifted + 1 ))
+    fi
+  else
+    defaults write $DOMAIN $key -$type $value
+  fi
+done
+
+if [[ $1 == --check ]]; then
+  (( drifted )) && print "$drifted of $#SETTINGS settings differ" || print "All $#SETTINGS settings match"
+  exit $(( drifted > 0 ))
+fi
+
+print "Applied $#SETTINGS settings. Restart rex to pick them up."

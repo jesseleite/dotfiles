@@ -1,0 +1,80 @@
+#!/bin/zsh
+# ------------------------------------------------------------------------------
+# Hunk preview for rex 🦖
+# ------------------------------------------------------------------------------
+#
+# Opens a live Hunk preview of the staged diff beside the pane this is run from
+# (ie. an agent's pane), sized to fit the window:
+#
+#   - Wide pane:   Hunk opens in a split to the right, and the agent keeps
+#                  AGENT_COLUMNS (but never more than half)
+#   - Narrow pane: Hunk opens in a new tab, directly after the agent's tab
+#
+# Hunk watches the staged diff, so run this once and leave it open. Running it
+# again reuses the preview that's already open in this session.
+#
+# Usage:
+#   hunk-preview          open (or reuse) the preview
+#   hunk-preview --close  close the preview
+
+# Panes narrower than this get Hunk in a new tab instead of a split
+TAB_BELOW_COLUMNS=180
+
+# How wide to leave the agent's pane when splitting
+AGENT_COLUMNS=100
+
+# What to run in the preview, and the layout mode to use in a tab vs a pane
+# (a tab gets the whole window, so always split; a pane picks based on its width)
+HUNK=(hunk diff --watch --sidebar --staged)
+TAB_MODE=split
+PANE_MODE=auto
+
+LABEL=hunk-preview
+
+[[ -n $REX_SESSION && -n $REX_BLOCK ]] || { print -u2 "hunk-preview: not running inside rex"; exit 1 }
+
+view=$(rex session inspect $REX_SESSION --json) || exit 1
+existing=$(jq -r --arg label $LABEL 'first(.windows[].layers[].blocks[] | select(.label == $label) | .block_id) // empty' <<< $view)
+
+if [[ $1 == --close ]]; then
+  [[ -n $existing ]] && rex block close -s $REX_SESSION $existing >/dev/null
+  print "Hunk preview closed"
+  exit
+fi
+
+if [[ -n $existing ]]; then
+  print "Hunk preview already open (reusing it)"
+  exit
+fi
+
+columns=$(rex block call -s $REX_SESSION -b $REX_BLOCK size | jq -r .columns) || exit 1
+
+if (( columns < TAB_BELOW_COLUMNS )); then
+  # The tab after the agent's, so the new tab can be placed in front of it
+  next_tab=$(jq -r --arg block $REX_BLOCK '
+    (.windows | map(any(.layers[].blocks[]; .block_id == $block)) | index(true)) as $i
+    | .windows[$i + 1].window_id // empty' <<< $view)
+  created=$(rex window new -s $REX_SESSION Hunk -c $PWD --focus=false --json -- $HUNK --mode $TAB_MODE) || exit 1
+  tab=$(jq -r .window_id <<< $created)
+  block=$(jq -r '.block_ids[0]' <<< $created)
+  if [[ -n $next_tab ]]; then
+    rex api call -s $REX_SESSION session.move_window \
+      "$(jq -nc --arg w $tab --arg b $next_tab '{window_id: $w, before_window_id: $b}')" >/dev/null
+  fi
+  where="in the next tab"
+else
+  block=$(rex split -s $REX_SESSION -b $REX_BLOCK --split=right --focus=false -c $PWD --json -- $HUNK --mode $PANE_MODE \
+    | jq -r '.block_ids[0]') || exit 1
+  # `rex split --ratio` isn't honored yet, so set the agent's share afterwards
+  ratio=$(( AGENT_COLUMNS * 1.0 / columns ))
+  (( ratio > 0.5 )) && ratio=0.5
+  rex api call -s $REX_SESSION session.resize_pane \
+    "$(jq -nc --arg a $REX_BLOCK --arg b $block --argjson r $ratio \
+      '{direction: "horizontal", before_block_id: $a, after_block_id: $b, ratio: $r}')" >/dev/null
+  where="in a pane on the right"
+fi
+
+rex api call -s $REX_SESSION session.set_block_label \
+  "$(jq -nc --arg b $block --arg l $LABEL '{block_id: $b, label: $l}')" >/dev/null
+
+print "Hunk preview opened $where"

@@ -23,6 +23,7 @@
     ~/.config/starship.toml: zsh/starship.toml
     ~/.config/ghostty/config: ghostty/config
     ~/.config/ghostty/themes: ghostty/themes
+    ~/.config/rex: rex
     ~/.config/herdr/config.toml: herdr/config.toml
     ~/.config/hunk/config.toml: hunk/config.toml
     ~/.grok/config.toml: grok/config.toml

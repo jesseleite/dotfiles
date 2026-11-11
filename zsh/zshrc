@@ -77,4 +77,5 @@ sz() {
 # ------------------------------------------------------------------------------
 
 # Ensure attached to tmux session
-tmux_ensure_session
+# TODO: Still playing with herdr and rex, so just gonna disable this for now...
+# tmux_ensure_session
