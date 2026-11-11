@@ -1,0 +1,47 @@
+# ------------------------------------------------------------------------------
+# Miami Nights Theme! 🌴
+# ------------------------------------------------------------------------------
+
+# Background & Foreground Colors
+background = #18181A
+foreground = #FFFFFF
+
+# Selection Colors
+selection-background = #323232
+selection-foreground = #FFFFFF
+
+# Cursor Colors
+cursor-color = #FFFFFF
+cursor-text = #000000
+
+# Black
+palette = 0=#212121
+palette = 8=#424242
+
+# Red
+palette = 1=#FA2E62
+palette = 9=#FA2E62
+
+# Green
+palette = 2=#36C278
+palette = 10=#36C278
+
+# Yellow
+palette = 3=#FFBF63
+palette = 11=#FFBF63
+
+# Blue
+palette = 4=#47BAC0
+palette = 12=#47BAC0
+
+# Magenta
+palette = 5=#E4609B
+palette = 13=#E4609B
+
+# Cyan
+palette = 6=#47BAC0
+palette = 14=#47BAC0
+
+# White
+palette = 7=#ffffff
+palette = 15=#ffffff
