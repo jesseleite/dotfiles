@@ -69,6 +69,7 @@ When asked to write a PR description, follow these steps:
     - If there are related issues or tickets, link them here
     - If there is anything else noteworthy in the Linear ticket itself, include it here
 - Omit sections that would be empty — don't include placeholder text
+- Never include agent attribution in the PR title or description (ie. "Generated with [agent]" lines, or `Co-Authored-By: [agent]` trailers)
 
 ## Examples
 

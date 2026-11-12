@@ -17,6 +17,7 @@ When asked to break work into commits or run /commit, do the following in order:
             - Do not glean style from bot-generated commits or merge commits
         - No ticket numbers in commit subjects unless specifically referencing a different ticket
         - If helpful, include relevant context, reasoning, and decision making in the commit body
+        - Never include agent attribution in commit messages (ie. `Co-Authored-By: [agent]` trailers, or "Generated with [agent]" lines)
     - Wait for the user to agree on the high-level plan before staging anything
     - Grill the user if sequencing or scope is genuinely ambiguous
 
