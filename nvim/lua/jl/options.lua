@@ -23,7 +23,6 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.fillchars = { vert = ' ' }
 vim.opt.hlsearch = true
-vim.opt.title = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.mouse = 'a'
@@ -37,7 +36,6 @@ vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath('config') .. '/.undo'
 vim.opt.shada = { '!', "'1000", '<50', 's10', 'h' }
 vim.opt.shortmess:append('S')
-vim.opt.titlestring = 'vim (' .. vim.fn.substitute(vim.fn.getcwd(), '^.*/', '', '') .. ')'
 vim.opt.exrc = true
 vim.opt.secure = true
 vim.opt.formatoptions:remove('o')
