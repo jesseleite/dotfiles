@@ -26,6 +26,9 @@ AGENT_COLUMNS=100
 # What to run in the preview, and the layout mode to use in a tab vs a pane
 # (a tab gets the whole window, so always split; a pane picks based on its width)
 HUNK=(hunk diff --watch --sidebar --staged)
+# Note: Rex runs commands with the login shell's environment, not the interactive
+# one (zshrc), so pass along $EDITOR for Hunk's `e` to open files
+HUNK=(env EDITOR=${EDITOR:-nvim} $HUNK)
 TAB_MODE=split
 PANE_MODE=auto
 
